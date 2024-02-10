@@ -24,7 +24,7 @@ function Nav() {
               href="/"
               className="text-base font-black leading-6 text-zinc-100"
             >
-              Northamptonshire dev meetup
+              Northamptonshire Dev Meetup
             </a>
             <button
               type="button"
