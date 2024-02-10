@@ -5,8 +5,8 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "About us", href: "#" },
-  { name: "Events", href: "#" },
+  { name: "Events", href: "/events" },
+  { name: "About us", href: "/aboutus" },
 ];
 
 function Nav() {
@@ -20,17 +20,15 @@ function Nav() {
             className="flex items-center justify-between lg:justify-start"
             aria-label="Global"
           >
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt="Your Company"
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              />
+            <a
+              href="/"
+              className="text-base font-black leading-6 text-zinc-100"
+            >
+              Northamptonshire dev meetup
             </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 lg:hidden"
+              className="-m-2.5 rounded-md p-2.5 text-zinc-100 lg:hidden"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -41,7 +39,7 @@ function Nav() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-semibold leading-6 text-gray-900"
+                  className="text-sm font-semibold leading-6 text-zinc-300"
                 >
                   {item.name}
                 </a>
@@ -57,19 +55,11 @@ function Nav() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-zinc-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 ml-auto rounded-md p-2.5 text-zinc-100"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -83,7 +73,7 @@ function Nav() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-zinc-100 hover:bg-zinc-800"
                   >
                     {item.name}
                   </a>
