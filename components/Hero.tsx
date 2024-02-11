@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Example() {
   return (
     <div className="bg-zinc-900 overflow-hidden border-b border-zinc-800">
@@ -62,18 +64,12 @@ export default function Example() {
                     and connect with fellow tech enthusiasts.{" "}
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
-                    <a
+                    <Link
                       href="/events"
                       className="rounded-md bg-orange-300 px-6 py-4 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                       Check upcoming events
-                    </a>
-                    <a
-                      href="/aboutus"
-                      className="text-sm py-4 font-semibold leading-6 text-zinc-100 hover:text-orange-200"
-                    >
-                      About us <span aria-hidden="true">→</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">

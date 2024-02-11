@@ -10,7 +10,7 @@ export default function Events() {
     <div className="bg-zinc-950 py-24 md:py-32 border-b border-zinc-800">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-3xl mb-16">
-          <span className="inline-flex items-center rounded-md bg-orange-200 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+          <span className="inline-flex items-center rounded-md bg-zinc-800 px-4 py-2 text-xs font-medium text-zinc-200 ring-1 ring-inset ring-zinc-700/30">
             Upcoming event
           </span>
           <h2 className="text-3xl mt-6 font-bold tracking-tight text-zinc-100 sm:text-4xl">
