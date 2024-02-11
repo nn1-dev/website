@@ -26,8 +26,8 @@ function Nav() {
               >
                 <g clip-path="url(#clip0_1_2)">
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M0 0V10H9V6L12 12H21V6L24 12H27H30H33L36 6V10H45V0H39H36L33 6V2H24V6L21 0H18H12V6L9 0H0ZM9 11H0V12H9V11ZM33 0H24V1H33V0ZM36 11H45V12H36V11Z"
                     fill="white"
                   />
