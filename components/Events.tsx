@@ -29,7 +29,13 @@ export default function Events() {
                 className="h-6 w-6 flex-none text-zinc-600"
                 aria-hidden="true"
               />
-              Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW
+              <a
+                href="https://vulcanworks.co.uk"
+                target="_blank"
+                className="text-orange-200 hover:text-zinc-100"
+              >
+                Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW
+              </a>
             </div>
           </li>
           <li>
