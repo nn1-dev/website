@@ -2,7 +2,19 @@ import Profile from "./Profile";
 
 export default function Organisers() {
   return (
-    <div className="bg-zinc-900 py-24 md:py-32">
+    <div className="relative isolate bg-zinc-900 py-24 md:py-32 overflow-hidden border-b border-zinc-800">
+      <div
+        className="absolute right-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+        aria-hidden="true"
+      >
+        <div
+          className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-[#fed7aa] to-[#18181b] opacity-20"
+          style={{
+            clipPath:
+              "polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)",
+          }}
+        />
+      </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-3xl mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">

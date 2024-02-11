@@ -22,15 +22,15 @@ const Profile = ({
   urlTwitter,
 }: ProfileProps) => {
   return (
-    <div className="flex flex-row gap-8 ">
+    <div className="flex flex-row gap-4 md:gap-8">
       <div className="shrink-0">
         <img
-          className="w-24 aspect-square rounded-2xl object-cover"
+          className="w-12 aspect-square rounded-md object-cover md:w-24"
           src={image}
           alt={name}
         />
       </div>
-      <div>
+      <div className="min-w-0">
         <h3 className="text-lg font-semibold leading-8 tracking-tight">
           {name}
         </h3>
@@ -38,41 +38,61 @@ const Profile = ({
         <p className="mt-6 text-base leading-7 mb-8">{bio}</p>
         <ul className="text-sm leading-6">
           {urlWebsite && (
-            <li>
-              <span className="text-zinc-400">Website: </span>
-              <a className="text-orange-200" href={urlWebsite}>
+            <li className="truncate">
+              <span className="text-zinc-400 hidden md:inline">Website: </span>
+              <a
+                target="_blank"
+                className="text-orange-200 hover:text-zinc-100 truncate"
+                href={urlWebsite}
+              >
                 {urlWebsite}
               </a>
             </li>
           )}
           {urlGitHub && (
-            <li>
-              <span className="text-zinc-400">GitHub: </span>
-              <a className="text-orange-200" href={urlGitHub}>
+            <li className="truncate">
+              <span className="text-zinc-400 hidden md:inline">GitHub: </span>
+              <a
+                target="_blank"
+                className="text-orange-200 hover:text-zinc-100 truncate"
+                href={urlGitHub}
+              >
                 {urlGitHub}
               </a>
             </li>
           )}
           {urlLinkedIn && (
-            <li>
-              <span className="text-zinc-400">LinkedIn: </span>
-              <a className="text-orange-200" href={urlLinkedIn}>
+            <li className="truncate">
+              <span className="text-zinc-400 hidden md:inline">LinkedIn: </span>
+              <a
+                target="_blank"
+                className="text-orange-200 hover:text-zinc-100 truncate"
+                href={urlLinkedIn}
+              >
                 {urlLinkedIn}
               </a>
             </li>
           )}
           {urlMastodon && (
-            <li>
-              <span className="text-zinc-400">Mastodon: </span>
-              <a className="text-orange-200" href={urlMastodon}>
+            <li className="truncate">
+              <span className="text-zinc-400 hidden md:inline">Mastodon: </span>
+              <a
+                target="_blank"
+                className="text-orange-200 hover:text-zinc-100 truncate"
+                href={urlMastodon}
+              >
                 {urlMastodon}
               </a>
             </li>
           )}
           {urlTwitter && (
-            <li>
-              <span className="text-zinc-400">Twitter: </span>
-              <a className="text-orange-200" href={urlTwitter}>
+            <li className="truncate">
+              <span className="text-zinc-400 hidden md:inline">Twitter: </span>
+              <a
+                target="_blank"
+                className="text-orange-200 hover:text-zinc-100 truncate"
+                href={urlTwitter}
+              >
                 {urlTwitter}
               </a>
             </li>

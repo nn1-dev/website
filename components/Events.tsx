@@ -7,7 +7,7 @@ import Profile from "./Profile";
 
 export default function Events() {
   return (
-    <div className="bg-zinc-950 py-24 md:py-32">
+    <div className="bg-zinc-950 py-24 md:py-32 border-b border-zinc-800">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-3xl mb-16">
           <span className="inline-flex items-center rounded-md bg-orange-200 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">

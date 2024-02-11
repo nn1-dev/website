@@ -12,12 +12,11 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-white">
-      <Nav />
+    <>
       <Hero />
       <Events />
       <Organisers />
       <Footer />
-    </div>
+    </>
   );
 }
