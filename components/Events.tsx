@@ -17,9 +17,9 @@ export default function Events() {
             #1: PJ Evans and Junade Ali
           </h2>
           <p className="mt-6 text-lg leading-8 text-zinc-100 sm:max-w-md lg:max-w-none">
-            Don't miss out on this inaugural gathering of local tech enthusiasts
-            - mark your calendars and join us for an evening of networking and
-            engaging talks by PJ Evans and Junade Ali.
+            Don&apos;t miss out on this inaugural gathering of local tech
+            enthusiasts - mark your calendars and join us for an evening of
+            networking and engaging talks by PJ Evans and Junade Ali.
           </p>
         </div>
         <ul className="mb-16">
