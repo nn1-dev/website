@@ -1,6 +1,6 @@
 export default function Example() {
   return (
-    <div className="bg-zinc-900">
+    <div className="bg-zinc-900 overflow-hidden">
       <main>
         <div className="relative isolate">
           <svg

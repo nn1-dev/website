@@ -4,10 +4,7 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const navigation = [
-  { name: "Events", href: "/events" },
-  { name: "About us", href: "/aboutus" },
-];
+const navigation = [{ name: "All Events", href: "/events" }];
 
 function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
