@@ -17,11 +17,27 @@ function Nav() {
             className="flex items-center justify-between lg:justify-start"
             aria-label="Global"
           >
-            <a
-              href="/"
-              className="text-base font-black leading-6 text-zinc-100"
-            >
-              Northamptonshire Dev Meetup
+            <a href="/">
+              <svg
+                viewBox="0 0 45 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6"
+              >
+                <g clip-path="url(#clip0_1_2)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 0V10H9V6L12 12H21V6L24 12H27H30H33L36 6V10H45V0H39H36L33 6V2H24V6L21 0H18H12V6L9 0H0ZM9 11H0V12H9V11ZM33 0H24V1H33V0ZM36 11H45V12H36V11Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_2">
+                    <rect width="45" height="12" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
             </a>
             <button
               type="button"
