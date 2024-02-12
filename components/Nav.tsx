@@ -1,12 +1,10 @@
 import Link from "next/link";
 
-const navigation = [{ name: "All Events", href: "/events" }];
-
 function Nav() {
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="border-b bg-zinc-900 border-zinc-800">
       <div className="mx-auto max-w-7xl">
-        <div className="px-6 pt-6 lg:max-w-2xl lg:pl-8 lg:pr-0">
+        <div className="px-6 py-6 lg:max-w-2xl lg:px-8">
           <nav className="flex items-center" aria-label="Global">
             <Link href="/" className="hover:opacity-75">
               <svg
@@ -31,15 +29,12 @@ function Nav() {
               </svg>
             </Link>
             <div className="ml-12 flex">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-base leading-6 text-zinc-100 hover:text-orange-200"
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <Link
+                href="/events"
+                className="text-sm font-base leading-6 text-zinc-100 hover:text-orange-200"
+              >
+                All events
+              </Link>
             </div>
           </nav>
         </div>
