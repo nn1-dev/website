@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface ProfileProps {
   name: string;
   role: string;
@@ -24,10 +26,12 @@ const Profile = ({
   return (
     <div className="flex flex-row gap-4 md:gap-8">
       <div className="shrink-0">
-        <img
-          className="w-12 aspect-square rounded-md object-cover md:w-24"
+        <Image
           src={image}
           alt={name}
+          width="96"
+          height="96"
+          className="w-12 aspect-square rounded-md object-cover md:w-24"
         />
       </div>
       <div className="min-w-0">

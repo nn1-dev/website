@@ -22,7 +22,7 @@ export default function Organisers() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 text-zinc-100">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 text-zinc-100">
           <Profile
             name="Pawel Grzybek"
             role="Software Engineer"

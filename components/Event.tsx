@@ -32,17 +32,30 @@ function Event({
   schedule,
   speakers,
 }: EventProps) {
+  const eventDate = new Date(date);
+  const eventDateIsUpcoming = eventDate.getTime() > Date.now();
+  const eventDateParsed = eventDate.toLocaleDateString("en-GB", {
+    weekday: "long",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
     <>
       <span className="inline-flex items-center rounded-md bg-zinc-800 px-4 py-2 text-xs font-medium text-zinc-200 ring-1 ring-inset ring-zinc-700/30 mb-8">
-        Upcoming event
+        {eventDateIsUpcoming ? "Upcoming event" : "Past event"}
       </span>
       <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl mb-8">
         {title}
       </h2>
-      <p className="text-lg leading-8 text-zinc-100 sm:max-w-md lg:max-w-none mb-8">
-        {description}
-      </p>
+      <div className="max-w-3xl">
+        <p className="text-lg leading-8 text-zinc-100 sm:max-w-md lg:max-w-none mb-8">
+          {description}
+        </p>
+      </div>
       <ul className="mb-16">
         <li>
           <div className="flex gap-x-3 mb-4 text-zinc-100">
@@ -65,7 +78,7 @@ function Event({
               className="h-6 w-6 flex-none text-zinc-600"
               aria-hidden="true"
             />
-            {date}
+            {eventDateParsed}
           </div>
         </li>
         <li>
@@ -78,15 +91,16 @@ function Event({
           </div>
         </li>
       </ul>
-
-      <div className="mb-16">
-        <a
-          href={ticketingSystemUrl}
-          className="rounded-md bg-orange-300 px-6 py-4 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Get your free ticket at Eventbrite
-        </a>
-      </div>
+      {eventDateIsUpcoming && (
+        <div className="mb-16">
+          <a
+            href={ticketingSystemUrl}
+            className="rounded-md bg-orange-300 px-6 py-4 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Get your free ticket at Eventbrite
+          </a>
+        </div>
+      )}
 
       <h2 className="text-xl mt-6 font-bold tracking-tight text-zinc-100 sm:text-2xl mb-8">
         Schedule
@@ -111,7 +125,7 @@ function Event({
         Special guests
       </h2>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 text-zinc-100">
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 text-zinc-100">
         {speakers.map((speaker, index) => (
           <Profile key={index} {...speaker} />
         ))}
