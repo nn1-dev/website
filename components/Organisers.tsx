@@ -2,7 +2,7 @@ import Profile from "./Profile";
 
 export default function Organisers() {
   return (
-    <div className="relative isolate bg-zinc-900 py-24 md:py-32 overflow-hidden border-b border-zinc-800">
+    <div className="relative isolate bg-zinc-900 py-24 overflow-hidden border-b border-zinc-800">
       <div
         className="absolute right-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
         aria-hidden="true"
