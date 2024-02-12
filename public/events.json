@@ -1,31 +1,31 @@
 [
   {
-    "title": "#1: PJ Evans and Junade Ali",
-    "description": "Don't miss out on this inaugural gathering of local tech enthusiasts - mark your calendars and join us for an evening of networking and engaging talks by PJ Evans and Junade Ali.",
+    "title": "#1: PJ Evans & Junade Ali",
+    "description": "TODO",
     "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
     "locationUrl": "https://vulcanworks.co.uk",
     "date": "2024-03-27T18:00Z",
     "price": "FREE",
-    "ticketingSystemUrl": "",
+    "ticketingSystemUrl": "TODO",
     "schedule": [
       {
-        "time": "18:00 - 18:45",
-        "talk": "\"Title of a talk\" by Authors name here"
+        "time": "18:00 - 18:30",
+        "talk": "\"Boiling Nemo\" by PJ Evans"
       },
       {
-        "time": "18:45 - 19:00",
+        "time": "18:30 - 19:00",
         "talk": "Break"
       },
       {
-        "time": "19:00 - 19:45",
-        "talk": "\"Title of a talk\" by Authors name here"
+        "time": "19:00 - TODO",
+        "talk": "\"TODO\" by Junade Ali"
       }
     ],
     "speakers": [
       {
         "name": "PJ Evans",
-        "role": "Senior Developer at Mindera UK",
-        "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "role": "Senior Engineer at Mindera",
+        "bio": "In the course of recent history fish have been relatively untroubled by the Internet of Things, but it’s time for that to change. Armed only with a soldering iron, some JavaScript and ideas above his station, PJ will show us how you can build a simple IoT device and how the whole enterprise can spiral out of control. Highlights include a Scottish toilet emergency, an aquarium featuring military-grade security and an extinction-level event in the suburbs of Milton Keynes.",
         "image": "/pj.jpg",
         "urlLinkedIn": "https://www.linkedin.com/in/mrpjevans/",
         "urlMastodon": "https://mastodon.social/@mrpjevans"
@@ -33,7 +33,7 @@
       {
         "name": "Junade Ali",
         "role": "Chief Executive Officer at Stealth Startup",
-        "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "bio": "TODO",
         "image": "/junade.jpg",
         "urlLinkedIn": "https://www.linkedin.com/in/junade/"
       }

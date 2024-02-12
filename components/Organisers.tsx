@@ -36,7 +36,7 @@ export default function Organisers() {
           <Profile
             name="Darren Sharp"
             role="Chief Executive Officer at S-SA Digital"
-            bio="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            bio="TODO"
             image="/darren.jpg"
             urlLinkedIn="https://www.linkedin.com/in/staffordsharp/"
           />
