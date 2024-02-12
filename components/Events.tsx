@@ -74,7 +74,7 @@ export default function Events() {
               18:00 - 18:45
             </p>
             <h3 className="text-lg text-zinc-100 dark:text-white">
-              "Title of a talk" by Authors name here{" "}
+              &quot;Title of a talk&quot; by Authors name here
             </h3>
           </div>
           <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center border-b border-zinc-800">
@@ -88,7 +88,7 @@ export default function Events() {
               19:00 - 19:45
             </p>
             <h3 className="text-lg text-zinc-100 dark:text-white">
-              "Title of a talk" by Authors name here{" "}
+              &quot;Title of a talk&quot; by Authors name here
             </h3>
           </div>
         </div>
