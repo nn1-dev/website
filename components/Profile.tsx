@@ -1,4 +1,4 @@
-interface ProfileProps {
+export interface ProfileProps {
   name: string;
   role: string;
   image: string;
