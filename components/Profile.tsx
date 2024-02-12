@@ -4,7 +4,7 @@ export interface ProfileProps {
   name: string;
   role: string;
   image: string;
-  bio: string;
+  bio?: string;
   urlWebsite?: string;
   urlGitHub?: string;
   urlLinkedIn?: string;

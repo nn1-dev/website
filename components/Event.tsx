@@ -17,6 +17,7 @@ interface EventProps {
   schedule: {
     time: string;
     talk: string;
+    summary?: string;
   }[];
   speakers: ProfileProps[];
 }
@@ -109,14 +110,23 @@ function Event({
         {schedule.map((scheduleItem, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 py-2 sm:gap-6 sm:flex-row sm:items-center border-b border-zinc-800"
+            className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row border-b border-zinc-800"
           >
             <p className="w-32 font-normal text-gray-500  dark:text-zinc-100 shrink-0">
               {scheduleItem.time}
             </p>
-            <h3 className="text-lg text-zinc-100 dark:text-white">
-              {scheduleItem.talk}
-            </h3>
+
+            <div className=" flex flex-col gap-4">
+              <h3 className=" font-semibold text-zinc-100 dark:text-white">
+                {scheduleItem.talk}
+              </h3>
+
+              {scheduleItem.summary && (
+                <p className="text-zinc-100 dark:text-white">
+                  {scheduleItem.summary}
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>
