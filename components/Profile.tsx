@@ -45,7 +45,6 @@ const Profile = ({
             <li className="truncate">
               <span className="text-zinc-400 hidden md:inline">Website: </span>
               <a
-                target="_blank"
                 className="text-orange-200 hover:text-zinc-100 truncate"
                 href={urlWebsite}
               >
@@ -57,7 +56,6 @@ const Profile = ({
             <li className="truncate">
               <span className="text-zinc-400 hidden md:inline">GitHub: </span>
               <a
-                target="_blank"
                 className="text-orange-200 hover:text-zinc-100 truncate"
                 href={urlGitHub}
               >
@@ -69,7 +67,6 @@ const Profile = ({
             <li className="truncate">
               <span className="text-zinc-400 hidden md:inline">LinkedIn: </span>
               <a
-                target="_blank"
                 className="text-orange-200 hover:text-zinc-100 truncate"
                 href={urlLinkedIn}
               >
@@ -81,7 +78,6 @@ const Profile = ({
             <li className="truncate">
               <span className="text-zinc-400 hidden md:inline">Mastodon: </span>
               <a
-                target="_blank"
                 className="text-orange-200 hover:text-zinc-100 truncate"
                 href={urlMastodon}
               >
@@ -93,7 +89,6 @@ const Profile = ({
             <li className="truncate">
               <span className="text-zinc-400 hidden md:inline">Twitter: </span>
               <a
-                target="_blank"
                 className="text-orange-200 hover:text-zinc-100 truncate"
                 href={urlTwitter}
               >

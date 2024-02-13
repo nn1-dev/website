@@ -66,7 +66,6 @@ function Event({
             />
             <a
               href={locationUrl}
-              target="_blank"
               className="text-orange-200 hover:text-zinc-100"
             >
               {location}
