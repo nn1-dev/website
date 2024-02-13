@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import { ProfileProps } from "./Profile";
 
 interface EventProps {
+  id: number;
   title: string;
   description: string;
   location: string;
