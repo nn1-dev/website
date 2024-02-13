@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import events from "../../public/events.json";
 
 export default function Example() {
@@ -26,24 +27,24 @@ export default function Example() {
               >
                 {event.speakers.map((speaker, index) => (
                   <div className="flex-shrink-0" key={index}>
-                    <img
+                    <Image
+                      width={40}
+                      height={40}
                       className="h-10 w-10 rounded-full"
                       src={speaker.image}
-                      alt=""
+                      alt={speaker.name}
                     />
                   </div>
                 ))}
                 <div className="min-w-0 flex-1">
-                  <a href="#" className="focus:outline-none">
-                    <span className="absolute inset-0" aria-hidden="true" />
-                    <p className="truncate text-sm text-gray-400 mb-4">
-                      {eventDateParsed}
-                    </p>
-                    <p className="font-medium text-zinc-100 mb-4">
-                      {event.title}
-                    </p>
-                    <p className="text-zinc-400">{event.description}</p>
-                  </a>
+                  <span className="absolute inset-0" aria-hidden="true" />
+                  <p className="truncate text-sm text-gray-400 mb-4">
+                    {eventDateParsed}
+                  </p>
+                  <p className="font-medium text-zinc-100 mb-4">
+                    {event.title}
+                  </p>
+                  <p className="text-zinc-400">{event.description}</p>
                 </div>
               </Link>
             );
