@@ -50,18 +50,16 @@ export default function Example() {
           <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
               <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <h1 className="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-6xl">
-                  Northamptonshire Dev Meetup
+                <h1 className="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-5xl">
+                  Northamptonshire Dev Club
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-zinc-100 sm:max-w-md lg:max-w-none">
-                  We are a non-profit event, organized by developers for
-                  developers. Whether you are a programmer, designer, project
-                  manager, or simply passionate about technology, this is the
-                  perfect community for you. Join us for engaging talks,
-                  hands-on workshops, and networking opportunities with
-                  like-minded professionals. Come and be a part of this
-                  inspiring gathering where you can learn, share knowledge, and
-                  connect with fellow tech enthusiasts.{" "}
+                  Whether you're a seasoned pro or just starting out, there's
+                  something for everyone at NN1 Dev Club. Connect with
+                  like-minded individuals, expand your skillset, and have a
+                  great time doing what you love. Mark your calendar and don't
+                  miss out on this fantastic opportunity to be a part of the NN1
+                  Dev Club community!
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <Link
