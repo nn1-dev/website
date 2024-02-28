@@ -54,12 +54,12 @@ export default function Example() {
                   Northamptonshire Dev Club
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-zinc-100 sm:max-w-md lg:max-w-none">
-                  Whether you're a seasoned pro or just starting out, there's
-                  something for everyone at NN1 Dev Club. Connect with
-                  like-minded individuals, expand your skillset, and have a
-                  great time doing what you love. Mark your calendar and don't
-                  miss out on this fantastic opportunity to be a part of the NN1
-                  Dev Club community!
+                  Whether you&apos;re a seasoned pro or just starting out,
+                  there&apos;s something for everyone at NN1 Dev Club. Connect
+                  with like-minded individuals, expand your skillset, and have a
+                  great time doing what you love. Mark your calendar and
+                  don&apos;t miss out on this fantastic opportunity to be a part
+                  of the NN1 Dev Club community!
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <Link

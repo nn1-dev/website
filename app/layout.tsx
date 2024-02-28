@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Northamptonshire Dev Meetup",
-  description: "Northamptonshire Dev Meetup",
+  title: "Northamptonshire Dev Club",
+  description: "Northamptonshire Dev Club",
   metadataBase: new URL("https://nn1.dev"),
   openGraph: {
     images: "/og.jpg",
