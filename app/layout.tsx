@@ -4,8 +4,10 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 export const metadata: Metadata = {
   title: "Northamptonshire Dev Club",
   description: "Northamptonshire Dev Club",
@@ -21,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-zinc-900">
-      <body className={inter.className}>
+    <html lang="en" className={inter.className}>
+      <body className="bg-zinc-900">
         <Nav />
         <main>{children}</main>
         <Footer />
