@@ -36,7 +36,7 @@ export default function Organisers() {
           <Profile
             name="Darren Sharp"
             role="Chief Executive Officer at S-SA Digital"
-            bio="TODO"
+            bio="Darren the CEO of S-SA Digital Recruitment , With over 20 years under belt, he's been busy building tech teams all across the UK and Europe. As the CEO, he's all about making those perfect matches between top talent and forward-thinking tech companies. As Northampton based organization Darren is passionate about nurturing / championing local talent and helping folks reach their full potential."
             image="/darren.jpg"
             urlLinkedIn="https://www.linkedin.com/in/staffordsharp/"
           />
