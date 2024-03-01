@@ -6,7 +6,9 @@
     "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
     "locationUrl": "https://vulcanworks.co.uk",
     "date": "2024-03-27T18:00Z",
-    "price": "FREE",
+    "price": "FREE (Eventbrite registration required)",
+    "parking": "St. John's Multi Storey Car Park",
+    "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
     "ticketingSystemUrl": "https://www.eventbrite.co.uk/e/nn1-dev-club-tickets-852315477537",
     "schedule": [
       {

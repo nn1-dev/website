@@ -1,7 +1,8 @@
 import {
   MapPinIcon,
   CalendarIcon,
-  TicketIcon,
+  CurrencyPoundIcon,
+  InformationCircleIcon,
 } from "@heroicons/react/20/solid";
 import Profile from "./Profile";
 import { ProfileProps } from "./Profile";
@@ -14,6 +15,8 @@ interface EventProps {
   locationUrl: string;
   date: string;
   price: string;
+  parking: string;
+  parkingUrl: string;
   ticketingSystemUrl: string;
   schedule: {
     time: string;
@@ -30,6 +33,8 @@ function Event({
   locationUrl,
   date,
   price,
+  parking,
+  parkingUrl,
   ticketingSystemUrl,
   schedule,
   speakers,
@@ -84,11 +89,30 @@ function Event({
         </li>
         <li>
           <div className="flex gap-x-3 mb-4 text-zinc-100">
-            <TicketIcon
+            <CurrencyPoundIcon
               className="h-6 w-6 flex-none text-zinc-600"
               aria-hidden="true"
             />
-            {price}
+            <a
+              href={ticketingSystemUrl}
+              className="text-orange-200 hover:text-zinc-100"
+            >
+              {price}
+            </a>
+          </div>
+        </li>
+        <li>
+          <div className="flex gap-x-3 mb-4 text-zinc-100">
+            <InformationCircleIcon
+              className="h-6 w-6 flex-none text-zinc-600"
+              aria-hidden="true"
+            />
+            <a
+              href={parkingUrl}
+              className="text-orange-200 hover:text-zinc-100"
+            >
+              {parking}
+            </a>
           </div>
         </li>
       </ul>
@@ -132,7 +156,7 @@ function Event({
       </div>
 
       <h2 className="text-xl mt-6 font-bold tracking-tight text-zinc-100 sm:text-2xl mb-8">
-        Special guests
+        Special guests speakers
       </h2>
 
       <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 text-zinc-100">
