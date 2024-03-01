@@ -26,7 +26,7 @@ export default function Organisers() {
           <Profile
             name="Pawel Grzybek"
             role="Software Engineer"
-            bio="Software developer from Poland living in Northampton. Web standards, accessibility and performance enthusiast. Recently, Rust lover. After hours, keen funky records listener and collector."
+            bio="I am a self-taught software developer with over 12 years of industry experience building systems at each stack level. I have a strong passion for web standards, accessibility, and performance. I love learning new things and sharing knowledge with others on my blog. Recently, I have been exploring Rust. In my free time, I indulge in my passion for jazz and funk music, which helps me balance my virtual and real life."
             image="/pawel.jpg"
             urlWebsite="https://pawelgrzybek.com"
             urlLinkedIn="https://www.linkedin.com/in/pgrzybek/"
@@ -38,6 +38,7 @@ export default function Organisers() {
             role="Chief Executive Officer at S-SA Digital"
             bio="Darren the CEO of S-SA Digital Recruitment , With over 20 years under belt, he's been busy building tech teams all across the UK and Europe. As the CEO, he's all about making those perfect matches between top talent and forward-thinking tech companies. As Northampton based organization Darren is passionate about nurturing / championing local talent and helping folks reach their full potential."
             image="/darren.jpg"
+            urlWebsite="https://s-sa.co.uk"
             urlLinkedIn="https://www.linkedin.com/in/staffordsharp/"
           />
         </div>
