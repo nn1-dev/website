@@ -6,8 +6,8 @@ function Nav() {
       <nav className="flex justify-center items-center mx-auto max-w-7xl p-6">
         <Link href="/" className="hover:opacity-75">
           <svg
-            width="102"
-            height="24"
+            width="138"
+            height="32"
             viewBox="0 0 102 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
