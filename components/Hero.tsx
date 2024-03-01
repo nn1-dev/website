@@ -63,10 +63,10 @@ export default function Example() {
                 </p>
                 <div className="mt-10 flex items-center gap-x-6">
                   <Link
-                    href="/events"
+                    href="https://www.eventbrite.co.uk/e/nn1-dev-club-tickets-852315477537"
                     className="rounded-md bg-orange-300 px-6 py-4 text-sm font-semibold text-zinc-900 shadow-sm hover:bg-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Check upcoming events
+                    Get your free ticket at Eventbrite{" "}
                   </Link>
                 </div>
               </div>
