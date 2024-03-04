@@ -12,16 +12,24 @@
     "ticketingSystemUrl": "https://www.eventbrite.co.uk/e/nn1-dev-club-tickets-852315477537",
     "schedule": [
       {
-        "time": "18:00 - 18:30",
+        "time": "18:00 - 18:15",
+        "talk": "Meet and Greet"
+      },
+      {
+        "time": "18:15 - 18:30",
+        "talk": "Intro"
+      },
+      {
+        "time": "18:30 - 19:00",
         "talk": "\"Boiling Nemo\" by PJ Evans",
         "summary": "In the course of recent history fish have been relatively untroubled by the Internet of Things, but it’s time for that to change. Armed only with a soldering iron, some JavaScript and ideas above his station, PJ will show us how you can build a simple IoT device and how the whole enterprise can spiral out of control. Highlights include a Scottish toilet emergency, an aquarium featuring military-grade security and an extinction-level event in the suburbs of Milton Keynes."
       },
       {
-        "time": "18:30 - 19:00",
+        "time": "19:00 - 19:15",
         "talk": "Break"
       },
       {
-        "time": "19:00 - 19:30",
+        "time": "19:15 - 19:45",
         "talk": "\"The Science of Software Engineering\" by Junade Ali",
         "summary": "Over the past few years, Dr Junade Ali has studied the health of software engineering teams, with research covered in outlets including Forbes, The Register, ZDNet and ComputerWeekly. During this research, Dr Ali has assessed the real-world performance of engineering teams and interviewed thousands of people; including sampling software engineers, business decision-makers and consumers. Dr Ali’s work on developer burnout in 2021 and workplace retaliation in 2023 has been widely shared across the industry. This talk will present insights from investigations and studies into engineering teams."
       }
