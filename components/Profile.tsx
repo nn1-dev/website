@@ -40,7 +40,7 @@ const Profile = ({
         </h3>
         <p className="text-zinc-400">{role}</p>
         <p className="mt-6 text-base leading-7 mb-8">{bio}</p>
-        <ul className="text-sm leading-6">
+        <ul className="text-base leading-6">
           {urlWebsite && (
             <li className="truncate mb-1">
               <span className="text-zinc-400 hidden md:inline">Website: </span>
