@@ -11,6 +11,8 @@ function Nav() {
             viewBox="0 0 102 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="NN1 Home"
           >
             <path
               fillRule="evenodd"
