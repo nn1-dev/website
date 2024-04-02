@@ -42,7 +42,7 @@ const Profile = ({
         <p className="mt-6 text-base leading-7 mb-8">{bio}</p>
         <ul className="text-sm leading-6">
           {urlWebsite && (
-            <li className="truncate">
+            <li className="truncate mb-2">
               <span className="text-zinc-400 hidden md:inline">Website: </span>
               <a
                 className="text-orange-200 hover:text-zinc-100 truncate"
@@ -53,7 +53,7 @@ const Profile = ({
             </li>
           )}
           {urlGitHub && (
-            <li className="truncate">
+            <li className="truncate mb-2">
               <span className="text-zinc-400 hidden md:inline">GitHub: </span>
               <a
                 className="text-orange-200 hover:text-zinc-100 truncate"
@@ -64,7 +64,7 @@ const Profile = ({
             </li>
           )}
           {urlLinkedIn && (
-            <li className="truncate">
+            <li className="truncate mb-2">
               <span className="text-zinc-400 hidden md:inline">LinkedIn: </span>
               <a
                 className="text-orange-200 hover:text-zinc-100 truncate"
@@ -75,7 +75,7 @@ const Profile = ({
             </li>
           )}
           {urlMastodon && (
-            <li className="truncate">
+            <li className="truncate mb-2">
               <span className="text-zinc-400 hidden md:inline">Mastodon: </span>
               <a
                 className="text-orange-200 hover:text-zinc-100 truncate"
@@ -86,7 +86,7 @@ const Profile = ({
             </li>
           )}
           {urlTwitter && (
-            <li className="truncate">
+            <li className="truncate mb-2">
               <span className="text-zinc-400 hidden md:inline">Twitter: </span>
               <a
                 className="text-orange-200 hover:text-zinc-100 truncate"
