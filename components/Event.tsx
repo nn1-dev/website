@@ -136,7 +136,7 @@ function Event({
             key={index}
             className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row border-b border-zinc-800"
           >
-            <p className="w-32 font-normal text-gray-500  dark:text-zinc-100 shrink-0">
+            <p className="w-32 font-normal text-zinc-400  dark:text-zinc-100 shrink-0">
               {scheduleItem.time}
             </p>
 
