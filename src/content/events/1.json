@@ -1,0 +1,58 @@
+{
+  "id": 1,
+  "name": "#1: PJ Evans & Junade Ali",
+  "description": "We are thrilled to invite you to the inaugural event of our new series of events! Join us for an insightful talks, networking opportunities, and talks by very special guests. Save the date and be part of this community!",
+  "dateStart": "2024-03-27T18:00Z",
+  "dateEnd": "2024-03-27T20:00Z",
+  "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "ticketText": "FREE (Eventbrite registration required)",
+  "ticketUrl": "https://www.eventbrite.co.uk/e/nn1-dev-club-tickets-852315477537",
+  "parkingText": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2024-03-27T18:00Z",
+      "dateEnd": "2024-03-27T18:15Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2024-03-27T18:15Z",
+      "dateEnd": "2024-03-27T18:30Z",
+      "title": "Intro"
+    },
+    {
+      "dateStart": "2024-03-27T18:30Z",
+      "dateEnd": "2024-03-27T19:00Z",
+      "title": "\"Boiling Nemo\" by PJ Evans",
+      "description": "In the course of recent history fish have been relatively untroubled by the Internet of Things, but it’s time for that to change. Armed only with a soldering iron, some JavaScript and ideas above his station, PJ will show us how you can build a simple IoT device and how the whole enterprise can spiral out of control. Highlights include a Scottish toilet emergency, an aquarium featuring military-grade security and an extinction-level event in the suburbs of Milton Keynes."
+    },
+    {
+      "dateStart": "2024-03-27T19:00Z",
+      "dateEnd": "2024-03-27T19:15Z",
+      "title": "Break"
+    },
+    {
+      "dateStart": "2024-03-27T19:15Z",
+      "dateEnd": "2024-03-27T19:45Z",
+      "title": "\"The Science of Software Engineering\" by Junade Ali",
+      "description": "Over the past few years, Dr Junade Ali has studied the health of software engineering teams, with research covered in outlets including Forbes, The Register, ZDNet and ComputerWeekly. During this research, Dr Ali has assessed the real-world performance of engineering teams and interviewed thousands of people; including sampling software engineers, business decision-makers and consumers. Dr Ali’s work on developer burnout in 2021 and workplace retaliation in 2023 has been widely shared across the industry. This talk will present insights from investigations and studies into engineering teams."
+    }
+  ],
+  "guests": [
+    {
+      "name": "PJ Evans",
+      "role": "Senior Engineer at Mindera",
+      "image": "pjevans.jpg",
+      "urlLinkedIn": "https://www.linkedin.com/in/mrpjevans/",
+      "urlMastodon": "https://mastodon.social/@mrpjevans"
+    },
+    {
+      "name": "Dr Junade Ali CEng FIET",
+      "role": "CEO at Engprax",
+      "image": "junadeali.jpg",
+      "urlWebsite": "https://junade.com",
+      "urlLinkedIn": "https://www.linkedin.com/in/junade/"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+---
+import Container from "../components/Container.astro";
+import Profile from "../components/Profile.astro";
+
+const data = [
+  {
+    image: "pawel.jpg",
+    name: "Pawel Grzybek",
+    role: "Senior Software Engineer",
+    bio: "I am a self-taught software developer with over 12 years of industry experience building systems at each stack level. I have a strong passion for web standards, accessibility, and performance. I love learning new things and sharing knowledge with others on my blog. Recently, I have been exploring Rust. In my free time, I indulge in my passion for jazz and funk music, which helps me balance my virtual and real life.",
+    website: "https://pawelgrzybek.com/",
+    gitHub: "https://github.com/pawelgrzybek",
+    linkedIn: "https://www.linkedin.com/in/pgrzybek/",
+    mastodon: "https://mastodon.social/@pawelgrzybek",
+  },
+  {
+    image: "darren.jpg",
+    name: "Darren Sharp",
+    role: "CEO at S-SA Digital",
+    bio: "Darren the CEO of S-SA Digital Recruitment , With over 20 years under belt, he's been busy building tech teams all across the UK and Europe. As the CEO, he's all about making those perfect matches between top talent and forward-thinking tech companies. As Northampton based organization Darren is passionate about nurturing / championing local talent and helping folks reach their full potential.",
+    website: "https://s-sa.co.uk/",
+    gitHub: "",
+    linkedIn: "https://www.linkedin.com/in/staffordsharp/",
+    mastodon: "",
+  },
+];
+---
+
+<section class="wb">
+  <Container>
+    <h2 class="wb__title">Who's behind it?</h2>
+    <div class="wb__grid">
+      {data.map((dude) => <Profile {...dude} />)}
+    </div>
+  </Container>
+</section>
+<style>
+  .wb {
+    padding-block: calc(var(--lh) * 2);
+    box-shadow: inset 0 -1px 0 0 var(--color-border);
+
+    @media (800px <= width) {
+      padding-block: calc(var(--lh) * 4);
+    }
+  }
+  .wb__title {
+    font-weight: 800;
+    font-size: calc(var(--fz) * 1.5);
+    margin-block-end: calc(var(--lh) * 2);
+
+    @media (800px <= width) {
+      font-size: 32px;
+      line-height: calc(var(--lh) * 1.5);
+    }
+  }
+
+  .wb__grid {
+    display: grid;
+    gap: calc(var(--lh) * 2);
+
+    @media (800px <= width) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

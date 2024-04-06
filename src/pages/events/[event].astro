@@ -1,0 +1,221 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Container from "../../components/Container.astro";
+import Profile from "../../components/Profile.astro";
+
+export async function getStaticPaths() {
+  const allEvents = await getCollection("events");
+
+  return allEvents.map((event) => ({
+    params: { event: event.id },
+    props: { event },
+  }));
+}
+
+interface Props {
+  event: CollectionEntry<"events">;
+}
+
+const {
+  event: {
+    data: { name, description, dateStart, locationText, locationUrl, ticketText, ticketUrl, parkingText, parkingUrl, schedule, guests },
+  },
+} = Astro.props;
+
+const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
+  weekday: "long",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+function scheduleTimeFormat(date: Date) {
+return date.toLocaleTimeString("en-GB", {
+  hour: "2-digit",
+  minute: "2-digit",
+});
+  
+}
+---
+
+<Layout title={name}>
+  <Hero title={name} description={description} />
+  <section class="event">
+    <Container>
+      <section class="event__section">
+      <h2 class="event__title">Details</h2>
+      <ul class="events__item-list">
+        <li class="events__item-list-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="events__item-icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4 1.75a.75.75 0 0 1 1.5 0V3h5V1.75a.75.75 0 0 1 1.5 0V3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2V1.75ZM4.5 6a1 1 0 0 0-1 1v4.5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-7Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          {dateStartParsed}
+        </li>
+        <li class="events__item-list-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="events__item-icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <a href={locationUrl}>
+          {locationText}
+          </a>
+        </li>
+        <li class="events__item-list-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="events__item-icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <a href={ticketUrl}>
+          {ticketText}
+          </a>
+        </li>
+        <li class="events__item-list-item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="events__item-icon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <a href={parkingUrl}>
+          {parkingText}
+          </a>
+        </li>
+      </ul>
+      </section>
+      <section class="event__section">
+      <h2 class="event__title">Schedule</h2>
+      <ul class="event__schedule">
+        {schedule.map(({dateStart, dateEnd, title, description}) => (
+      	<li class="event__schedule-item">
+        <div class="schedule__time">
+        {scheduleTimeFormat(dateStart)} - {scheduleTimeFormat(dateEnd)}
+        </div>
+        <div class="schedule__event">
+        <strong>{title}</strong> {description && `- ${description}`}</li>
+        </div>
+        ))}
+      </ul>
+      </section>
+      <section class="event__section">
+      <h2 class="event__title">Special guests</h2>
+      <div class="event__grid">
+      {guests.map(dude => <Profile {...dude} />)}
+      </div>
+      </section>
+      <!-- <section class="event__section"> -->
+      <!-- <h2 class="event__title">Gallery</h2> -->
+      <!-- </section> -->
+    </Container>
+  </section>
+</Layout>
+
+<style>
+  .event {
+    padding-block: calc(var(--lh) * 2);
+    box-shadow: inset 0 -1px 0 0 var(--color-border);
+    <!-- background-color: var(--color-bg-contrast); -->
+
+    @media (800px <= width) {
+      padding-block: calc(var(--lh) * 4);
+    }
+  }
+
+  .event__section {
+    margin-block-end: calc(var(--lh) * 2);
+  }
+
+  .event__title {
+    font-weight: 800;
+    font-size: calc(var(--fz) * 1.5);
+    margin-block-end: var(--lh);
+
+    @media (800px <= width) {
+      font-size: 32px;
+      line-height: calc(var(--lh) * 1.5);
+    }
+  }
+  
+
+  .events__item-list {
+    list-style: none;
+  }
+
+  .events__item-list-item {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--lh) / 2);
+  }
+  .events__item-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+  }
+
+  .event__schedule {
+    list-style: none;
+  }
+  .event__schedule-item {
+  display: flex;
+  flex-direction: column;
+  padding-block: calc(var(--lh) / 2);
+      box-shadow: inset 0 -1px 0 0 var(--color-border);
+
+      &:last-of-type {
+      box-shadow: none;
+        
+      }
+
+    @media (800px <= width) {
+  flex-direction: row;
+    }
+  }
+
+  .schedule__time {
+    min-width: 20ch;
+  }
+  .schedule__event {
+    
+  }
+
+  .event__grid {
+    display: grid;
+    gap: calc(var(--lh) * 2);
+
+    @media (800px <= width) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+ 
+</style>

@@ -1,0 +1,111 @@
+---
+interface Props {
+  image: string;
+  name: string;
+  role: string;
+  bio?: string;
+  urlWebsite?: string;
+  urlGitHub?: string;
+  urlLinkedIn?: string;
+  urlMastodon?: string;
+}
+
+const {
+  image,
+  name,
+  role,
+  bio,
+  urlWebsite,
+  urlGitHub,
+  urlLinkedIn,
+  urlMastodon,
+} = Astro.props;
+---
+
+<div class="profile">
+  <img src={`/${image}`} alt={name} class="profile__image" />
+  <div class="profile__details">
+    <h3 class="profile__name">{name}</h3>
+    <p class="profile__role">{role}</p>
+    {bio && <p class="profile__bio">{bio}</p>}
+    <ul class="profile__list">
+      {
+        urlWebsite && (
+          <li class="profile__list-item">
+            Website: <a href={urlWebsite}>{urlWebsite}</a>
+          </li>
+        )
+      }
+      {
+        urlGitHub && (
+          <li class="profile__list-item">
+            GitHub: <a href={urlGitHub}>{urlGitHub}</a>
+          </li>
+        )
+      }
+      {
+        urlMastodon && (
+          <li class="profile__list-item">
+            Mastodon: <a href={urlMastodon}>{urlMastodon}</a>
+          </li>
+        )
+      }
+      {
+        urlLinkedIn && (
+          <li class="profile__list-item">
+            LinkedIn: <a href={urlLinkedIn}>{urlLinkedIn}</a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  .profile {
+    container-name: item;
+    container-type: inline-size;
+  }
+
+  .profile__image {
+    width: calc(var(--lh) * 2);
+    margin: 0 var(--lh) var(--lh) 0;
+    float: inline-start;
+    border-radius: 4px;
+
+    @container item (min-width: 500px) {
+      width: calc(var(--lh) * 4);
+    }
+  }
+
+  .profile__details {
+    @container item (min-width: 500px) {
+      padding-left: calc(var(--lh) * 5);
+    }
+  }
+
+  .profile__name {
+    font-size: calc(var(--fz) * 1.25);
+  }
+
+  .profile__role {
+    color: var(--color-fg-dim);
+    margin-block-end: var(--lh);
+  }
+
+  .profile__bio {
+    margin-block-end: var(--lh);
+  }
+
+  .profile__list {
+    list-style: none;
+    min-width: 1px;
+    font-size: calc(var(--fz) * 0.9375);
+  }
+
+  .profile__list-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>

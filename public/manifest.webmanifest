@@ -1,0 +1,20 @@
+{
+  "name": "Northamptonshire Dev Club",
+  "short_name": "NN1 Dev Club",
+  "author": "Paweł Grzybek",
+  "description": "TODO",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#18181b",
+  "background_color": "#18181b"
+}
