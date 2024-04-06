@@ -12,13 +12,11 @@ import Button from "../components/Button.astro";
         an stay tuned for the upcoming events.
       </p>
       <div class="connect__buttons">
-        <Button
-          href="https://github.com/nn1-dev"
-          text="NN1 Dev Club on GitHub"
-        />
+        <Button href="https://github.com/nn1-dev" text="GitHub" icon="github" />
         <Button
           href="http://linkedin.com/company/nn1-dev"
-          text="NN1 Dev Club on LinkedIn"
+          text="LinkedIn"
+          icon="linkedin"
         />
       </div>
       <!-- Pictures with all contributors logo to go here -->
@@ -61,12 +59,9 @@ import Button from "../components/Button.astro";
 
   .connect__buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: calc(var(--lh) / 2);
-    flex-direction: column;
     align-items: center;
-
-    @media (800px <= width) {
-      flex-direction: row;
-    }
+    justify-content: center;
   }
 </style>
