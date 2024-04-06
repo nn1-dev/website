@@ -1,11 +1,10 @@
 ---
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
 }
 
-const { title = "Northamptonshire Dev Club", description = "TODO" } =
-  Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,7 +23,7 @@ const { title = "Northamptonshire Dev Club", description = "TODO" } =
     <meta property="og:title" content={title} />
     <meta property="og:url" content="https://nn1.dev" />
     <meta property="og:type" content="page" />
-    <meta property="og:description" content="" />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://nn1.dev/og.jpg" />
   </head>
 
