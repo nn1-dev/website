@@ -1,5 +1,7 @@
 # nn1.dev
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e55dcc8b-dfe0-4c90-9c50-b8ce076c9c0c/deploy-status)](https://app.netlify.com/sites/nn1-dev/deploys)
+
 Welcome to the [Northamptonshire Dev Club](https://nn1.dev) website. Your contributions are welcome! The only prerequisite for this project to run locally is [Node.js](https://nodejs.org/en). It is built using the [Astro](https://astro.build) framework and hosted on [Netlify](http://netlify.com). There is a continuous deployment set up against the `main` branch.
 
 ## Commands
