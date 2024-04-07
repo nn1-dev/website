@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   image: string;
   name: string;
@@ -23,7 +25,13 @@ const {
 ---
 
 <div class="profile">
-  <img src={`/${image}`} alt={name} class="profile__image" />
+  <Image
+    src={`/${image}`}
+    alt={name}
+    class="profile__image"
+    width="112"
+    height="112"
+  />
   <div class="profile__details">
     <h3 class="profile__name">{name}</h3>
     <p class="profile__role">{role}</p>
