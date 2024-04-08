@@ -43,14 +43,14 @@
     {
       "name": "PJ Evans",
       "role": "Senior Engineer at Mindera",
-      "image": "pjevans.jpg",
+      "image": "/pjevans.jpg",
       "urlLinkedIn": "https://www.linkedin.com/in/mrpjevans/",
       "urlMastodon": "https://mastodon.social/@mrpjevans"
     },
     {
       "name": "Dr Junade Ali CEng FIET",
       "role": "CEO at Engprax",
-      "image": "junadeali.jpg",
+      "image": "/junadeali.jpg",
       "urlWebsite": "https://junade.com",
       "urlLinkedIn": "https://www.linkedin.com/in/junade/"
     }

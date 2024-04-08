@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 interface Props {
-  image: string;
+  image: string | ImageMetadata | Promise<{ default: ImageMetadata; }>;
   name: string;
   role: string;
   bio?: string;
@@ -26,7 +26,8 @@ const {
 
 <div class="profile">
   <Image
-    src={`/${image}`}
+    densities={[1.5, 2]}
+    src={image}
     alt={name}
     class="profile__image"
     width="112"
