@@ -3,12 +3,18 @@ import { getCollection } from "astro:content";
 import Container from "../components/Container.astro";
 
 const allEvents = await getCollection("events");
+
+const coworkingDays = [
+  new Date("2024-03-28"),
+  new Date("2024-04-26"),
+  new Date("2024-05-31"),
+];
 ---
 
 <section class="events">
   <Container>
     <h2 class="events__title">Events</h2>
-    <div class="events__grid">
+    <div class="events__grid events__grid--spacer">
       {
         allEvents.reverse().map(({ data }) => {
           const { id, name, description, dateStart, locationText, ticketText } =
@@ -82,6 +88,70 @@ const allEvents = await getCollection("events");
         })
       }
     </div>
+    <h2 class="events__title events__title--small">
+      NN1 Dev Club coworking days
+    </h2>
+    <p class="events__day-description">
+      It is an incredible opportunity to collaborate, share knowledge, and
+      discuss tabs vs. spaces. Just pop into <a
+        href="https://maps.app.goo.gl/q7RFeDME5cLZWPFA7">Vulcan Works</a
+      >
+      and join other NN1 Dev Club members. Of course, it is FREE!
+    </p>
+    <div class="events__grid events__grid--coworking">
+      {
+        coworkingDays.map((day) => {
+          const dateStartParsed = day.toLocaleDateString("en-GB", {
+            weekday: "long",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          });
+          return (
+            <div class="events__day">
+              <span class="events__item-label">
+                {new Date().getTime() > day.getTime()
+                  ? "Past event"
+                  : "Upcoming event"}
+              </span>
+
+              <ul class="events__item-list">
+                <li class="events__item-list-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="events__item-icon"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4 1.75a.75.75 0 0 1 1.5 0V3h5V1.75a.75.75 0 0 1 1.5 0V3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2V1.75ZM4.5 6a1 1 0 0 0-1 1v4.5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-7Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  {dateStartParsed}
+                </li>
+                <li class="events__item-list-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="events__item-icon"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  FREE
+                </li>
+              </ul>
+            </div>
+          );
+        })
+      }
+    </div>
   </Container>
 </section>
 
@@ -102,8 +172,16 @@ const allEvents = await getCollection("events");
     margin-block-end: var(--lh);
 
     @media (800px <= width) {
-      font-size: 32px;
+      font-size: calc(var(--fz) * 2);
       line-height: calc(var(--lh) * 1.5);
+    }
+  }
+
+  .events__title--small {
+    font-size: calc(var(--fz) * 1.25);
+
+    @media (800px <= width) {
+      font-size: calc(var(--fz) * 1.5);
     }
   }
 
@@ -114,6 +192,16 @@ const allEvents = await getCollection("events");
     @media (800px <= width) {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  .events__grid--coworking {
+    @media (800px <= width) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .events__grid--spacer {
+    margin-block-end: calc(var(--lh) * 2);
   }
 
   .events__item {
@@ -128,6 +216,20 @@ const allEvents = await getCollection("events");
       box-shadow: inset 0 0 0 1px var(--color-accent);
       color: var(--color-accent);
     }
+  }
+
+  .events__day {
+    box-shadow: inset 0 0 0 1px var(--color-border);
+    background-color: var(--color-border);
+    padding: var(--lh);
+    color: inherit;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .events__day-description {
+    max-width: 60ch;
+    margin-block-end: var(--lh);
   }
 
   .events__item-label {
