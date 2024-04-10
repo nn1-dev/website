@@ -1,13 +1,13 @@
 {
   "id": 2,
-  "name": "TBC",
-  "description": "TBC",
+  "name": "#2: To be announced",
+  "description": "",
   "dateStart": "2024-06-27T18:00Z",
   "dateEnd": "2024-06-27T20:00Z",
   "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "ticketText": "FREE (Eventbrite registration required)",
-  "ticketUrl": "https://eventbrite.com",
+  "ticketUrl": "https://www.eventbrite.co.uk/e/2-nn1-dev-club-tickets-880658502287",
   "parkingText": "St. John's Multi Storey Car Park",
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
@@ -39,5 +39,12 @@
       "description": "TBC"
     }
   ],
-  "guests": []
+  "guests": [
+    {
+      "name": "Thomas Reeve",
+      "role": "Head of Design at Zyte",
+      "image": "thomasreeve.jpg",
+      "urlLinkedIn": "https://www.linkedin.com/in/thomas-reeve/"
+    }
+  ]
 }
