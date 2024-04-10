@@ -1,0 +1,50 @@
+{
+  "id": 2,
+  "name": "#2: To be announced",
+  "description": "",
+  "dateStart": "2024-06-27T18:00Z",
+  "dateEnd": "2024-06-27T20:00Z",
+  "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "ticketText": "FREE (Eventbrite registration required)",
+  "ticketUrl": "https://www.eventbrite.co.uk/e/2-nn1-dev-club-tickets-880658502287",
+  "parkingText": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2024-06-27T18:00Z",
+      "dateEnd": "2024-06-27T18:15Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2024-06-27T18:15Z",
+      "dateEnd": "2024-06-27T18:30Z",
+      "title": "Intro"
+    },
+    {
+      "dateStart": "2024-06-27T18:30Z",
+      "dateEnd": "2024-06-27T19:00Z",
+      "title": "TBC",
+      "description": "TBC"
+    },
+    {
+      "dateStart": "2024-06-27T19:00Z",
+      "dateEnd": "2024-06-27T19:15Z",
+      "title": "Break"
+    },
+    {
+      "dateStart": "2024-06-27T19:15Z",
+      "dateEnd": "2024-06-27T19:45Z",
+      "title": "TBC",
+      "description": "TBC"
+    }
+  ],
+  "guests": [
+    {
+      "name": "Thomas Reeve",
+      "role": "Head of Design at Zyte",
+      "image": "thomasreeve.jpg",
+      "urlLinkedIn": "https://www.linkedin.com/in/thomas-reeve/"
+    }
+  ]
+}

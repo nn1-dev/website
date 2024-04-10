@@ -41,11 +41,7 @@ const { title, description, buttonText, buttonUrl } = Astro.props;
   <div class="hero__inner">
     <h1 class="hero__title">{title}</h1>
     <p class="hero__description">{description}</p>
-    {
-      [buttonText, buttonUrl].every(Boolean) && (
-        <Button href="#" text="Check upcoming event" />
-      )
-    }
+    {buttonText && buttonUrl && <Button href={buttonUrl} text={buttonText} />}
   </div>
 </section>
 <style>

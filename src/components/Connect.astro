@@ -58,6 +58,11 @@ const contributorsMap = contributors.map((user) => ({
           text="LinkedIn"
           icon="linkedin"
         />
+        <Button
+          href="https://nn1-dev.eventbrite.com"
+          text="Eventbrite"
+          icon="eventbrite"
+        />
       </div>
     </div>
   </Container>
@@ -100,9 +105,14 @@ const contributorsMap = contributors.map((user) => ({
   .connect__buttons {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: calc(var(--lh) / 2);
     align-items: center;
     justify-content: center;
+
+    @media (600px <= width) {
+      flex-direction: row;
+    }
   }
 
   .connect__contributors {
