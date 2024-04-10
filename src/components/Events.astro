@@ -28,7 +28,7 @@ const coworkingDays = [
             minute: "2-digit",
           });
           return (
-            <a href={`/events/${id}`} class="events__item">
+            <a href={`/events/${id}`} class="events__item events__item--link">
               <span class="events__item-label">
                 {new Date().getTime() > dateStart.getTime()
                   ? "Past event"
@@ -83,6 +83,7 @@ const coworkingDays = [
                   {ticketText}
                 </li>
               </ul>
+              <p class="events__more"  aria-label=`Read more ${name}`>Read more »</p>
             </a>
           );
         })
@@ -108,7 +109,7 @@ const coworkingDays = [
             day: "2-digit",
           });
           return (
-            <div class="events__day">
+            <div class="events__item">
               <span class="events__item-label">
                 {new Date().getTime() > day.getTime()
                   ? "Past event"
@@ -211,21 +212,18 @@ const coworkingDays = [
     color: inherit;
     border-radius: 4px;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) * 0.75);
+  }
 
+  .events__item--link {
     &:hover {
       box-shadow: inset 0 0 0 1px var(--color-accent);
       color: var(--color-accent);
     }
   }
 
-  .events__day {
-    box-shadow: inset 0 0 0 1px var(--color-border);
-    background-color: var(--color-border);
-    padding: var(--lh);
-    color: inherit;
-    border-radius: 4px;
-    text-decoration: none;
-  }
 
   .events__day-description {
     max-width: 60ch;
@@ -238,17 +236,12 @@ const coworkingDays = [
     background-color: var(--color-bg-contrast);
     border-radius: 4px;
     padding: calc(var(--lh) / 4) calc(var(--lh) / 2);
-    margin-block-end: calc(var(--lh) / 2);
     font-size: calc(var(--fz) * 0.875);
+    width: fit-content;
 
     &::before {
       content: "#";
     }
-  }
-
-  .events__item-name,
-  .events__item-description {
-    margin-block-end: calc(var(--lh) / 2);
   }
 
   .events__item-list {
@@ -265,5 +258,12 @@ const coworkingDays = [
     width: 16px;
     height: 16px;
     opacity: 0.5;
+  }
+
+  .events__more {
+    margin-block-start: auto;
+    color: var(--color-accent);
+    text-decoration: underline;
+    font-size: calc(var(--fz) * 0.875);
   }
 </style>
