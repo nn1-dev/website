@@ -29,8 +29,9 @@ const { title, description } = Astro.props;
 
   <body>
     <header class="header">
-      <a href="/" class="header__link">
+      <a href="/">
         <svg
+          class="header__logo"
           width="121"
           height="28"
           viewBox="0 0 102 24"
@@ -59,8 +60,12 @@ const { title, description } = Astro.props;
       .header {
         display: flex;
         justify-content: center;
-        padding: var(--lh);
+        padding: calc(var(--lh) * 1.25);
         box-shadow: inset 0 -1px 0 0 var(--color-border);
+      }
+
+      .header__logo {
+        display: block;
       }
 
       .footer {
@@ -122,9 +127,15 @@ const { title, description } = Astro.props;
       a {
         color: var(--color-accent);
         text-underline-offset: 3px;
-        transition: all 90ms;
+        transition: all 80ms;
 
         &:hover {
+          color: var(--color-accent-light);
+        }
+
+        &:focus-visible {
+          outline: 2px dotted var(--color-accent);
+          outline-offset: 2px;
           color: var(--color-accent-light);
         }
       }
