@@ -9,6 +9,8 @@ const coworkingDays = [
   new Date("2024-04-26"),
   new Date("2024-05-31"),
 ];
+
+const isUpcoming = (date: Date) => new Date().getTime() < date.getTime()
 ---
 
 <section class="events">
@@ -30,9 +32,7 @@ const coworkingDays = [
           return (
             <a href={`/events/${id}`} class="events__item events__item--link">
               <span class="events__item-label">
-                {new Date().getTime() > dateStart.getTime()
-                  ? "Past event"
-                  : "Upcoming event"}
+                { isUpcoming(dateStart) ? "Upcoming event" : "Past event" }
               </span>
               <h3 class="events__item-name">{name}</h3>
               <p class="events__item-description">{description}</p>
@@ -111,9 +111,7 @@ const coworkingDays = [
           return (
             <div class="events__item">
               <span class="events__item-label">
-                {new Date().getTime() > day.getTime()
-                  ? "Past event"
-                  : "Upcoming event"}
+                { isUpcoming(day) ? "Upcoming event" : "Past event" }
               </span>
 
               <ul class="events__item-list">
