@@ -1,14 +1,15 @@
 ---
-import Button from "../components/Button.astro";
+import Button, { type ButtonProps } from "../components/Button.astro";
 
 interface Props {
   title: string;
   description: string;
   buttonText?: string;
   buttonUrl?: string;
+  buttonIcon?: ButtonProps["icon"];
 }
 
-const { title, description, buttonText, buttonUrl } = Astro.props;
+const { title, description, buttonText, buttonUrl, buttonIcon } = Astro.props;
 ---
 
 <section class="hero">
@@ -41,7 +42,15 @@ const { title, description, buttonText, buttonUrl } = Astro.props;
   <div class="hero__inner">
     <h1 class="hero__title">{title}</h1>
     <p class="hero__description">{description}</p>
-    {buttonText && buttonUrl && <Button href={buttonUrl} text={buttonText} />}
+    {
+      buttonText && buttonUrl && (
+        <Button
+          href={buttonUrl}
+          text={buttonText}
+          {...(buttonIcon && { icon: buttonIcon })}
+        />
+      )
+    }
   </div>
 </section>
 <style>

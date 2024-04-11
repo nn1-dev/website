@@ -5,6 +5,8 @@ interface Props {
   icon?: "github" | "linkedin" | "eventbrite";
 }
 
+export interface ButtonProps extends Props {}
+
 const { href, text, icon } = Astro.props;
 ---
 

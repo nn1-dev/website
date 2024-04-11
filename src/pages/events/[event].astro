@@ -44,6 +44,7 @@ function scheduleTimeFormat(date: Date) {
 const isUpcoming = (date: Date) => new Date().getTime() < date.getTime()
 const heroButtonProps = isUpcoming(dateStart)
   ? {
+      buttonIcon: "eventbrite",
       buttonText: "Reserve a spot on Eventbrite",
       buttonUrl: ticketUrl,
     }
