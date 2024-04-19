@@ -27,6 +27,7 @@ const eventsCollection = defineCollection({
         name: z.string(),
         role: z.string(),
         image: z.string(),
+        bio: z.string().optional(),
         urlWebsite: z.string().url().optional(),
         urlGitHub: z.string().url().optional(),
         urlMastodon: z.string().url().optional(),

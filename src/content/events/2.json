@@ -1,7 +1,7 @@
 {
   "id": 2,
-  "name": "#2: To be announced",
-  "description": "",
+  "name": "#2: Thomas Reeve",
+  "description": "Following the well-received inaugural event of our new series, we are excited to invite you to a second edition of NN1 Dev Club. This time, we will dive into practical design tactics with Thomas Reeve. We will announce the second speaker in the coming weeks. Save the date!",
   "dateStart": "2024-06-27T18:00Z",
   "dateEnd": "2024-06-27T20:00Z",
   "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -24,8 +24,8 @@
     {
       "dateStart": "2024-06-27T18:30Z",
       "dateEnd": "2024-06-27T19:00Z",
-      "title": "TBC",
-      "description": "TBC"
+      "title": "\"From Meh to Magic: Design Secrets for Developers\" by Thomas Reeve",
+      "description": "Design is full of laws, principles and methodologies that only seem to confuse and bamboozle. Gestalt, double-diamond, skeuomorphism, heuristics, moiré. The list goes on. Sometimes it feels like you need a dictionary when talking to a designer. Join Tom, as he takes us through practical design tactics that you can apply to elevate your projects from functional to fantastic. Whether you're polishing UI elements or overhauling user experiences, you'll leave with insider knowledge you can start using tomorrow. Perfect for developers looking to add a dash of design to their toolkit."
     },
     {
       "dateStart": "2024-06-27T19:00Z",
@@ -41,9 +41,10 @@
   ],
   "guests": [
     {
+      "image": "thomasreeve.jpg",
       "name": "Thomas Reeve",
       "role": "Head of Design at Zyte",
-      "image": "thomasreeve.jpg",
+      "bio": "Tom has spent the last 15+ years leading design for some of the country’s biggest brands. From ecommerce, to logistics, to education, to AI. Tom applies the same no-bullshit approach to design, making it work for users and the business.",
       "urlLinkedIn": "https://www.linkedin.com/in/thomas-reeve/"
     }
   ]

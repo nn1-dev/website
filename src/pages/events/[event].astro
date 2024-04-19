@@ -149,7 +149,8 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
                   {scheduleTimeFormat(dateEnd)}
                 </div>
                 <div class="schedule__event">
-                  <strong>{title}</strong> {description && `- ${description}`}
+                  <strong>{title}</strong>
+                  {description && <p>{description}</p>}
                 </div>
               </li>
             ))
