@@ -5,8 +5,6 @@ import Container from "../components/Container.astro";
 const allEvents = await getCollection("events");
 
 const coworkingDays = [
-  new Date("2024-03-28"),
-  new Date("2024-04-26"),
   new Date("2024-05-31"),
 ];
 
@@ -111,7 +109,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime()
           return (
             <div class="events__item">
               <span class="events__item-label">
-                { isUpcoming(day) ? "Upcoming event" : "Past event" }
+                { isUpcoming(day) ? "Upcoming coworking day" : "Past coworking day" }
               </span>
 
               <ul class="events__item-list">
