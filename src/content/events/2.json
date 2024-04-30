@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "name": "#2: Thomas Reeve",
+  "name": "#2: \"Design Secrets for Developers\" by Thomas Reeve and \"Type-safe localization of Unsplash.com\" by Oliver Ash",
   "description": "Following the well-received inaugural event of our new series, we are excited to invite you to a second edition of NN1 Dev Club. This time, we will dive into practical design tactics with Thomas Reeve. We will announce the second speaker in the coming weeks. Save the date!",
   "dateStart": "2024-06-27T18:00Z",
   "dateEnd": "2024-06-27T20:00Z",
@@ -35,8 +35,8 @@
     {
       "dateStart": "2024-06-27T19:15Z",
       "dateEnd": "2024-06-27T19:45Z",
-      "title": "TBC",
-      "description": "TBC"
+      "title": "\"Localizing Unsplash.com using types to enforce correct translations\" by Oliver Ash",
+      "description": "There are many different tools and JavaScript libraries for internationalizing websites, but type safety is often an afterthought. This talk presents the unique approach taken by the web team at Unsplash—utilizing types to enforce correctness—including a look at intlc, a compiler which converts ICU Messages into TypeScript functions."
     }
   ],
   "guests": [
@@ -46,6 +46,14 @@
       "role": "Head of Design at Zyte",
       "bio": "Tom has spent the last 15+ years leading design for some of the country’s biggest brands. From ecommerce, to logistics, to education, to AI. Tom applies the same no-bullshit approach to design, making it work for users and the business.",
       "urlLinkedIn": "https://www.linkedin.com/in/thomas-reeve/"
+    },
+    {
+      "image": "oliverash.jpg",
+      "name": "Oliver Ash",
+      "role": "Head of Web at Unsplash",
+      "bio": "Professionally fan of strictly typed languages, frontend development and functional programming. Part of the Unsplash.com web team for the last seven years. After work, a father of two kids, a dog owner and a keen runner from Rushden.",
+      "urlTwitter": "https://twitter.com/OliverJAsh",
+      "urlWebsite": "https://twitter.com/OliverJAsh"
     }
   ]
 }
