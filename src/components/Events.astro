@@ -50,7 +50,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime()
                       clip-rule="evenodd"
                     />
                   </svg>
-                  {dateStartParsed}
+                  <time datetime={dateStart.toISOString()}>{dateStartParsed}</time>
                 </li>
                 <li class="events__item-list-item">
                   <svg
@@ -83,7 +83,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime()
                   {ticketText}
                 </li>
               </ul>
-              <p class="events__more"  aria-label=`Read more ${name}`>Read more »</p>
+              <p class="events__more"  aria-label={`Read more ${name}`}>Read more »</p>
             </a>
           );
         })
@@ -128,7 +128,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime()
                       clip-rule="evenodd"
                     />
                   </svg>
-                  {dateStartParsed}
+                  <time datetime={day.toISOString()}>{dateStartParsed}</time>
                 </li>
                 <li class="events__item-list-item">
                   <svg
