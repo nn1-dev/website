@@ -15,7 +15,9 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
 
 <section class="events">
   <Container>
-    <h2 class="events__title">Events</h2>
+    <h2 id="events" class="events__title">
+      Events <a class="anchor" href="#events">#</a>
+    </h2>
     <div class="events__grid events__grid--spacer">
       {
         allEvents.reverse().map(({ data }) => {
@@ -93,8 +95,8 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
         })
       }
     </div>
-    <h2 class="events__title events__title--small">
-      NN1 Dev Club coworking days
+    <h2 id="coworking-days" class="events__title events__title--small">
+      NN1 Dev Club coworking days <a class="anchor" href="#coworking-days">#</a>
     </h2>
     <p class="events__day-description">
       It is an incredible opportunity to collaborate, share knowledge, and

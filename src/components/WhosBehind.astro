@@ -28,7 +28,9 @@ const data = [
 
 <section class="wb">
   <Container>
-    <h2 class="wb__title">Who's behind it?</h2>
+    <h2 id="who" class="wb__title">
+      Who's behind it? <a class="anchor" href="#who">#</a>
+    </h2>
     <div class="wb__grid">
       {data.map((dude) => <Profile {...dude} />)}
     </div>

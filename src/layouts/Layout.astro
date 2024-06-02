@@ -157,6 +157,18 @@ const { title, description } = Astro.props;
         display: block;
         max-width: 100%;
       }
+
+      .anchor {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.25;
+        margin-inline-start: calc(var(--lh) / 4);
+
+        &:hover {
+          color: var(--color-accent);
+          opacity: 1;
+        }
+      }
     </style>
   </body>
 </html>
