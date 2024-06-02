@@ -69,7 +69,9 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
   <section class="event">
     <Container>
       <section class="event__section">
-        <h2 class="event__title">Details</h2>
+        <h2 id="details" class="event__title">
+          Details <a class="anchor" href="#details">#</a>
+        </h2>
         <ul class="events__item-list">
           <li class="events__item-list-item">
             <svg
@@ -141,14 +143,21 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
         </ul>
       </section>
       <section class="event__section">
-        <h2 class="event__title">Schedule</h2>
+        <h2 id="schedule" class="event__title">
+          Schedule <a class="anchor" href="#schedule">#</a>
+        </h2>
         <ul class="event__schedule">
           {
             schedule.map(({ dateStart, dateEnd, title, description }) => (
               <li class="event__schedule-item">
                 <div class="schedule__time">
-                  <time datetime={dateStart.toISOString()}>{scheduleTimeFormat(dateStart)}</time> -{" "}
-                  <time datetime={dateStart.toISOString()}>{scheduleTimeFormat(dateEnd)}</time>
+                  <time datetime={dateStart.toISOString()}>
+                    {scheduleTimeFormat(dateStart)}
+                  </time>{" "}
+                  -{" "}
+                  <time datetime={dateStart.toISOString()}>
+                    {scheduleTimeFormat(dateEnd)}
+                  </time>
                 </div>
                 <div class="schedule__event">
                   <strong>{title}</strong>
@@ -160,7 +169,9 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
         </ul>
       </section>
       <section class="event__section">
-        <h2 class="event__title">Special guests</h2>
+        <h2 id="guests" class="event__title">
+          Special guests <a class="anchor" href="#guests">#</a>
+        </h2>
         <div class="event__grid">
           {guests.map((dude) => <Profile {...dude} />)}
         </div>
