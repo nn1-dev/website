@@ -26,6 +26,7 @@ const { title, description, og } = Astro.props;
     <meta property="og:type" content="page" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`https://nn1.dev/${og ?? "og.jpg"}`} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
 
   <body>
