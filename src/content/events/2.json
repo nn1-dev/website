@@ -41,14 +41,14 @@
   ],
   "guests": [
     {
-      "image": "thomasreeve.jpg",
+      "image": "2/thomasreeve.jpg",
       "name": "Thomas Reeve",
       "role": "Head of Design at Zyte",
       "bio": "Tom has spent the last 15+ years leading design for some of the country’s biggest brands. From ecommerce, to logistics, to education, to AI. Tom applies the same no-bullshit approach to design, making it work for users and the business.",
       "urlLinkedIn": "https://www.linkedin.com/in/thomas-reeve/"
     },
     {
-      "image": "oliverash.jpg",
+      "image": "2/oliverash.jpg",
       "name": "Oliver Ash",
       "role": "Head of Web at Unsplash",
       "bio": "Professionally fan of strictly typed languages, frontend development and functional programming. Part of the Unsplash.com web team for the last seven years. After work, a father of two kids, a dog owner and a keen runner from Rushden.",

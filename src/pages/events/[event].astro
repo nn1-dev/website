@@ -22,6 +22,7 @@ interface Props {
 const {
   event: {
     data: {
+      id,
       name,
       description,
       dateStart,
@@ -56,7 +57,11 @@ function scheduleTimeFormat(date: Date) {
 const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
 ---
 
-<Layout title={`${name} | NN1 Dev Club`} description={description}>
+<Layout
+  title={`${name} | NN1 Dev Club`}
+  description={description}
+  og={`${id}/og.jpg`}
+>
   <Hero
     title={name}
     description={description}

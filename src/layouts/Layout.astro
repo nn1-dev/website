@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   description: string;
+  og?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, og } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,7 +25,7 @@ const { title, description } = Astro.props;
     <meta property="og:url" content="https://nn1.dev" />
     <meta property="og:type" content="page" />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://nn1.dev/og.jpg" />
+    <meta property="og:image" content={`https://nn1.dev/${og ?? "og.jpg"}`} />
   </head>
 
   <body>
