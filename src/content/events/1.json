@@ -54,5 +54,87 @@
       "urlWebsite": "https://junade.com",
       "urlLinkedIn": "https://www.linkedin.com/in/junade/"
     }
+  ],
+  "images": [
+    {
+      "src": "/1/gallery/1",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/2",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/3",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/4",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/5",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/5",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/6",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/7",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/8",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/9",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/10",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/11",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/12",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/13",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/14",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/15",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/15",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/16",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/17",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "/1/gallery/18",
+      "caption": "Guests at NN1 Dev Club #1"
+    }
   ]
 }

@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import Container from "../../components/Container.astro";
+import Gallery from "../../components/Gallery.astro";
 import Profile from "../../components/Profile.astro";
 
 export async function getStaticPaths() {
@@ -34,6 +35,7 @@ const {
       parkingUrl,
       schedule,
       guests,
+      images,
     },
   },
 } = Astro.props;
@@ -181,9 +183,14 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
           {guests.map((dude) => <Profile {...dude} />)}
         </div>
       </section>
-      <!-- <section class="event__section"> -->
-      <!-- <h2 class="event__title">Gallery</h2> -->
-      <!-- </section> -->
+      {
+        images?.length ? (
+          <section class="event__section">
+            <h2 class="event__title">Gallery</h2>
+            <Gallery images={images} />
+          </section>
+        ) : null
+      }
     </Container>
   </section>
 </Layout>

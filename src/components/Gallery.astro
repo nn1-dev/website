@@ -1,0 +1,165 @@
+---
+interface Props {
+  images: {
+    src: string;
+    caption: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<ul class="gallery">
+  {
+    images.map((image) => (
+      <li class="gallery__item">
+        <dialog class="gallery__dialog">
+          <figure class="gallery__figure">
+            <picture>
+              <source srcset={`${image.src}.avif`} type="image/avif" />
+              <source srcset={`${image.src}.webp`} type="image/webp" />
+              <img src={`${image.src}.jpg`} alt={image.caption} />
+            </picture>
+            <figcaption class="gallery__figcaption">{image.caption}</figcaption>
+          </figure>
+          <button class="gallery__close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="gallery__close__icon"
+              viewBox="0 0 512 512"
+            >
+              <path d="M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z" />
+            </svg>
+          </button>
+        </dialog>
+        <button class="gallery__button">
+          <picture>
+            <source srcset={`${image.src}.avif`} type="image/avif" />
+            <source srcset={`${image.src}.webp`} type="image/webp" />
+            <img
+              class="gallery__thumb"
+              src={`${image.src}.jpg`}
+              alt={image.caption}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </button>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--lh);
+    list-style: none;
+  }
+
+  .gallery__button {
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px var(--color-border);
+    background: transparent;
+    outline: none;
+    overflow: hidden;
+
+    &:hover,
+    &:focus-visible {
+      .gallery__thumb {
+        opacity: 1;
+        filter: grayscale(0);
+        scale: 1.03;
+      }
+    }
+  }
+
+  .gallery__thumb {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0.5;
+    filter: grayscale(0.75);
+    transition: all 80ms;
+    height: auto;
+  }
+
+  .gallery__dialog {
+    margin: auto;
+    border: none;
+    background: none;
+    max-inline-size: min(1200px, 90dvw);
+
+    &::backdrop {
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      background: color-mix(in srgb, var(--color-bg), transparent 5%);
+    }
+  }
+
+  @supports (backdrop-filter: blur(10px)) {
+    .gallery__dialog {
+      &::backdrop {
+        background: color-mix(in srgb, var(--color-bg), transparent 15%);
+        backdrop-filter: blur(10px);
+      }
+    }
+  }
+
+  .gallery__close {
+    position: absolute;
+    inset-inline-end: var(--fz);
+    inset-block-start: var(--fz);
+    border-radius: 4px;
+    padding: calc(var(--lh) / 2);
+    background-color: var(--color-accent);
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+      background-color: var(--color-accent-light);
+    }
+  }
+
+  .gallery__close__icon {
+    width: var(--fz);
+    display: block;
+  }
+
+  .gallery__figure {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) / 2);
+  }
+
+  .gallery__figcaption {
+    color: var(--color-fg);
+    font-size: 15px;
+    text-align: center;
+  }
+</style>
+
+<script>
+  const buttonsOpen = document.querySelectorAll(".gallery__button");
+  const buttonsClose = document.querySelectorAll(".gallery__close");
+
+  for (const buttonOpen of buttonsOpen) {
+    buttonOpen.addEventListener("click", (e) => {
+      // @ts-ignore
+      e.currentTarget.previousElementSibling.showModal();
+    });
+  }
+
+  for (const buttonClose of buttonsClose) {
+    buttonClose.addEventListener("click", (e) => {
+      // @ts-ignore
+      e.currentTarget.parentNode.close();
+    });
+  }
+</script>
