@@ -145,12 +145,14 @@ const { images } = Astro.props;
 
   for (const buttonOpen of buttonsOpen) {
     buttonOpen.addEventListener("click", (e) => {
+      // @ts-ignore
       e.currentTarget.previousElementSibling.showModal();
     });
   }
 
   for (const buttonClose of buttonsClose) {
     buttonClose.addEventListener("click", (e) => {
+      // @ts-ignore
       e.currentTarget.parentNode.close();
     });
   }
