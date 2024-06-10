@@ -36,6 +36,14 @@ const eventsCollection = defineCollection({
         urlTwitter: z.string().url().optional(),
       }),
     ),
+    images: z
+      .array(
+        z.object({
+          src: z.string(),
+          caption: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 
