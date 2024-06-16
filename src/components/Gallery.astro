@@ -79,49 +79,73 @@ const { images } = Astro.props;
     background: transparent;
     outline: none;
     overflow: hidden;
+    aspect-ratio: 1/1;
 
     &:hover,
     &:focus-visible {
       .gallery__thumb {
         opacity: 1;
         filter: grayscale(0);
-        scale: 1.03;
+        scale: 1.02;
       }
     }
   }
 
   .gallery__thumb {
-    aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 4px;
     opacity: 0.5;
     filter: grayscale(0.75);
     transition: all 80ms;
-    height: auto;
+
+    @media (prefers-reduced-motion) {
+      transition: unset;
+    }
   }
 
-  .gallery__dialog[open] {
+  .gallery__dialog {
     margin: auto;
     border: none;
     background: none;
     max-inline-size: min(1200px, 90dvw);
-    display: flex;
+    transition:
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete,
+      opacity 240ms;
+    opacity: 0;
+
+    @media (prefers-reduced-motion) {
+      transition: unset;
+    }
 
     &::backdrop {
-      position: fixed;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
       background: color-mix(in srgb, var(--color-bg), transparent 10%);
-    }
-  }
+      transition:
+        display 240ms allow-discrete,
+        overlay 240ms allow-discrete,
+        opacity 240ms;
+      opacity: 0;
 
-  @supports (backdrop-filter: blur(10px)) {
-    .gallery__dialog {
+      @media (prefers-reduced-motion) {
+        transition: unset;
+      }
+    }
+
+    &[open] {
+      display: flex;
+      opacity: 1;
+
       &::backdrop {
-        background: color-mix(in srgb, var(--color-bg), transparent 50%);
-        backdrop-filter: blur(10px);
+        opacity: 1;
+      }
+    }
+
+    @starting-style {
+      &[open],
+      &[open]::backdrop {
+        opacity: 0;
       }
     }
   }
@@ -166,6 +190,7 @@ const { images } = Astro.props;
     color: var(--color-fg);
     font-size: 0.875rem;
     text-align: center;
+    font-style: italic;
   }
 </style>
 
