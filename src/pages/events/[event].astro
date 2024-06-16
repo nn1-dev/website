@@ -186,7 +186,12 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
       {
         images?.length ? (
           <section class="event__section">
-            <h2 class="event__title">Gallery</h2>
+            <h2 id="gallery" class="event__title">
+              Gallery{" "}
+              <a class="anchor" href="#gallery">
+                #
+              </a>
+            </h2>
             <Gallery images={images} />
           </section>
         ) : null
