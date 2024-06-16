@@ -25,7 +25,7 @@ const { images } = Astro.props;
                 {image.caption}
               </figcaption>
             </figure>
-            <button class="gallery__close">
+            <button class="gallery__close" title="Close image">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="gallery__close__icon"
@@ -100,11 +100,12 @@ const { images } = Astro.props;
     height: auto;
   }
 
-  .gallery__dialog {
+  .gallery__dialog[open] {
     margin: auto;
     border: none;
     background: none;
     max-inline-size: min(1200px, 90dvw);
+    display: flex;
 
     &::backdrop {
       position: fixed;
@@ -112,21 +113,21 @@ const { images } = Astro.props;
       right: 0px;
       bottom: 0px;
       left: 0px;
-      background: color-mix(in srgb, var(--color-bg), transparent 5%);
+      background: color-mix(in srgb, var(--color-bg), transparent 10%);
     }
   }
 
   @supports (backdrop-filter: blur(10px)) {
     .gallery__dialog {
       &::backdrop {
-        background: color-mix(in srgb, var(--color-bg), transparent 15%);
+        background: color-mix(in srgb, var(--color-bg), transparent 50%);
         backdrop-filter: blur(10px);
       }
     }
   }
 
   .gallery__close {
-    position: absolute;
+    position: fixed;
     inset-inline-end: var(--fz);
     inset-block-start: var(--fz);
     border-radius: 4px;
@@ -148,12 +149,22 @@ const { images } = Astro.props;
   .gallery__figure {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--lh) / 2);
+    gap: calc(var(--lh) / 4);
+
+    picture {
+      min-height: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   .gallery__figcaption {
     color: var(--color-fg);
-    font-size: 15px;
+    font-size: 0.875rem;
     text-align: center;
   }
 </style>
