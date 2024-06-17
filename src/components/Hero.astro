@@ -1,5 +1,6 @@
 ---
 import Button, { type ButtonProps } from "../components/Button.astro";
+import Heading from "./Heading.astro";
 
 interface Props {
   title: string;
@@ -40,7 +41,7 @@ const { title, description, buttonText, buttonUrl, buttonIcon } = Astro.props;
     <div class="hero__grid-item"></div>
   </div>
   <div class="hero__inner">
-    <h1 class="hero__title">{title}</h1>
+    <Heading level={1} title={title} />
     <p class="hero__description">{description}</p>
     {
       buttonText && buttonUrl && (
@@ -104,15 +105,6 @@ const { title, description, buttonText, buttonUrl, buttonIcon } = Astro.props;
       padding-block: calc(var(--lh) * 6);
     }
   }
-  .hero__title {
-    font-weight: 800;
-    font-size: 32px;
-    line-height: calc(var(--lh) * 1.5);
-
-    @media (800px <= width) {
-      font-size: 42px;
-      line-height: calc(var(--lh) * 2);
-    }
   }
 
   .hero__description {

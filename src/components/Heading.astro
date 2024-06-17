@@ -1,0 +1,127 @@
+---
+interface Props {
+  title: string;
+  level: 1 | 2 | 3 | 4 | 5 | 6;
+  anchor?: boolean;
+}
+
+const { title, level, anchor } = Astro.props;
+const id = title.toLowerCase().replaceAll(" ", "-");
+---
+
+{
+  level === 1 ? (
+    <h1 id={id}>
+      {title}{" "}
+      {anchor ? (
+        <a class="anchor" href={`#${id}`}>
+          #
+        </a>
+      ) : null}
+    </h1>
+  ) : null
+}
+{
+  level === 2 ? (
+    <h2>
+      {title}{" "}
+      {anchor ? (
+        <a class="anchor" href={`#${id}`}>
+          #
+        </a>
+      ) : null}
+    </h2>
+  ) : null
+}
+{
+  level === 3 ? (
+    <h3>
+      {title}{" "}
+      {anchor ? (
+        <a class="anchor" href={`#${id}`}>
+          #
+        </a>
+      ) : null}
+    </h3>
+  ) : null
+}
+{
+  level === 4 ? (
+    <h4>
+      {title}{" "}
+      {anchor ? (
+        <a class="anchor" href={`#${id}`}>
+          #
+        </a>
+      ) : null}
+    </h4>
+  ) : null
+}
+{
+  level === 5 ? (
+    <h5>
+      {title}{" "}
+      {anchor ? (
+        <a class="anchor" href={`#${id}`}>
+          #
+        </a>
+      ) : null}
+    </h5>
+  ) : null
+}
+{
+  level === 6 ? (
+    <h6>
+      {title}{" "}
+      {anchor ? (
+        <a class="anchor" href={`#${id}`}>
+          #
+        </a>
+      ) : null}
+    </h6>
+  ) : null
+}
+
+<style>
+  h1 {
+    font-weight: 800;
+    font-size: 32px;
+
+    @media (800px <= width) {
+      font-size: 42px;
+      line-height: calc(var(--lh) * 2);
+    }
+  }
+
+  h2 {
+    font-weight: 800;
+    font-size: calc(var(--fz) * 1.5);
+
+    @media (800px <= width) {
+      font-size: 32px;
+      line-height: calc(var(--lh) * 1.5);
+    }
+  }
+
+  h3 {
+    font-weight: 800;
+    font-size: calc(var(--fz) * 1.5);
+
+    @media (800px <= width) {
+      font-size: 32px;
+      line-height: calc(var(--lh) * 1.5);
+    }
+  }
+
+  .anchor {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.25;
+    margin-inline-start: calc(var(--lh) / 4);
+
+    &:hover {
+      color: var(--color-accent);
+      opacity: 1;
+    }
+  }
+</style>
