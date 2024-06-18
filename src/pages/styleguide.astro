@@ -1,29 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Heading from "../components/Heading.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
 ---
 
 <Layout title="Styleguide" description="Styleguide">
-  <section>
-    <Heading title="This is a test heading" level={1} />
-    <Heading title="This is a test heading" level={1} anchor />
-    <Heading title="This is a test heading" level={2} />
-    <Heading title="This is a test heading" level={2} anchor />
-    <Heading title="This is a test heading" level={3} />
-    <Heading title="This is a test heading" level={3} anchor />
-    <Heading title="This is a test heading" level={4} />
-    <Heading title="This is a test heading" level={4} anchor />
-    <Heading title="This is a test heading" level={5} />
-    <Heading title="This is a test heading" level={5} anchor />
-    <Heading title="This is a test heading" level={6} />
-    <Heading title="This is a test heading" level={6} anchor />
-  </section>
+  <Section style="contrast">
+    <Container>
+      <Heading title="This is a test heading" level={1} />
+      <Heading title="This is a test heading" level={1} anchor />
+      <Heading title="This is a test heading" level={2} />
+      <Heading title="This is a test heading" level={2} anchor />
+      <Heading title="This is a test heading" level={3} />
+      <Heading title="This is a test heading" level={3} anchor />
+      <Heading title="This is a test heading" level={4} />
+      <Heading title="This is a test heading" level={4} anchor />
+      <Heading title="This is a test heading" level={5} />
+      <Heading title="This is a test heading" level={5} anchor />
+      <Heading title="This is a test heading" level={6} />
+      <Heading title="This is a test heading" level={6} anchor />
+    </Container>
+  </Section>
 </Layout>
-
-<style>
-  section {
-    width: min(100% - var(--lh), 800px);
-    margin-inline: auto;
-    margin-block: calc(var(--lh) * 4);
-  }
-</style>

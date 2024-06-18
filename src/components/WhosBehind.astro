@@ -1,6 +1,7 @@
 ---
 import Container from "../components/Container.astro";
 import Profile from "../components/Profile.astro";
+import Section from "./Section.astro";
 
 const data = [
   {
@@ -26,7 +27,7 @@ const data = [
 ];
 ---
 
-<section class="wb">
+<Section>
   <Container>
     <h2 id="who" class="wb__title">
       Who's behind it? <a class="anchor" href="#who">#</a>
@@ -35,16 +36,9 @@ const data = [
       {data.map((dude) => <Profile {...dude} />)}
     </div>
   </Container>
-</section>
-<style>
-  .wb {
-    padding-block: calc(var(--lh) * 2);
-    box-shadow: inset 0 -1px 0 0 var(--color-border);
+</Section>
 
-    @media (800px <= width) {
-      padding-block: calc(var(--lh) * 4);
-    }
-  }
+<style>
   .wb__title {
     font-weight: 800;
     font-size: calc(var(--fz) * 1.5);
