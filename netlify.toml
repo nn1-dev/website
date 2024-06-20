@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/:event/gallery/*"
-  to = "/.netlify/images?url=/:splat&w=900&h=900"
-  status = 200
