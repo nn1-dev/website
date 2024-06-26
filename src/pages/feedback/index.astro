@@ -10,6 +10,7 @@ export const prerender = false;
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
+    console.log({ data });
     const name = data.get("name");
     const stack = data.get("stack");
     const who = data.get("who");
