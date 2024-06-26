@@ -9,7 +9,7 @@ import Container from "../../components/Container.astro";
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-    console.log({ feedback: JSON.stringify(data) });
+    console.log({ data });
     return Astro.redirect("/feedback/thanks");
   } catch (error) {
     if (error instanceof Error) {
