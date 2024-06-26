@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 
 import netlify from "@astrojs/netlify";
 
@@ -6,4 +6,14 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   output: "hybrid",
   adapter: netlify(),
+  experimental: {
+    env: {
+      schema: {
+        API_KEY: envField.string({
+          context: "server",
+          access: "secret",
+        }),
+      },
+    },
+  },
 });

@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import { API_KEY } from "astro:env/server";
 
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
@@ -9,7 +10,26 @@ import Container from "../../components/Container.astro";
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-    console.log({ data });
+    const name = data.get("name");
+    const stack = data.get("stack");
+    const who = data.get("who");
+    const interval = data.get("interval");
+    const feedback = data.get("feedback");
+
+    fetch("https://nn1-dev-feedback.deno.dev/", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify({
+        name,
+        stack,
+        who,
+        interval,
+        feedback,
+      }),
+    });
+
     return Astro.redirect("/feedback/thanks");
   } catch (error) {
     if (error instanceof Error) {
