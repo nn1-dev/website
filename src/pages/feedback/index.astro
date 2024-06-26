@@ -1,19 +1,16 @@
 ---
 export const prerender = false;
 
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Section from "../components/Section.astro";
-import Container from "../components/Container.astro";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Section from "../../components/Section.astro";
+import Container from "../../components/Container.astro";
 
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
     console.log({ data });
-    //  const name = data.get("username");
-    //  const email = data.get("email");
-    //  const password = data.get("password");
-    // Do something with the data
+    return Astro.redirect("/feedback/thanks");
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
@@ -26,7 +23,10 @@ if (Astro.request.method === "POST") {
   title="Feedback | NN1 Dev Club"
   description="NN1 Dev Club is a free, quarterly meet-up for a local community of Northamptonshire-based software enthusiasts. A place to meet, collaborate and share knowledge with each other. From devs for devs!"
 >
-  <Hero title="Feedback" description="Your feedback matters!" />
+  <Hero
+    title="Feedback please!"
+    description="Please tell us how to improve the NN1 Dev Club meetups and what else we can do for our dev community. Your feedback matters a lot! Your name is optional, but it can be helpful if we would like to follow up."
+  />
   <Section style="contrast">
     <Container narrow>
       <form class="form" method="POST">
@@ -42,7 +42,7 @@ if (Astro.request.method === "POST") {
               type="radio"
               id="who_student"
               name="who"
-              value="who_student"
+              value="Student"
               required
             />
             <label for="who_student">Student</label>
@@ -53,20 +53,14 @@ if (Astro.request.method === "POST") {
               type="radio"
               id="who_hobbyist"
               name="who"
-              value="who_hobbyist"
+              value="Hobbyist"
               required
             />
             <label for="who_hobbyist">Hobbyist</label>
           </div>
 
           <div class="radiogroup">
-            <input
-              type="radio"
-              id="who_pro"
-              name="who"
-              value="who_pro"
-              required
-            />
+            <input type="radio" id="who_pro" name="who" value="Pro" required />
             <label for="who_pro">Pro</label>
           </div>
         </fieldset>
@@ -79,10 +73,10 @@ if (Astro.request.method === "POST") {
                 type="radio"
                 id="interval_ok"
                 name="interval"
-                value="interval_ok"
+                value="Every 3 months is fine"
                 required
               />
-              <label for="interval_ok">Every 3 months is good</label>
+              <label for="interval_ok">Every 3 months is fine</label>
             </div>
 
             <div class="radiogroup">
@@ -90,7 +84,7 @@ if (Astro.request.method === "POST") {
                 type="radio"
                 id="interval_more_frequent"
                 name="interval"
-                value="interval_more_frequent"
+                value="More frequent please"
                 required
               />
               <label for="interval_more_frequent">More frequent please</label>
@@ -101,7 +95,7 @@ if (Astro.request.method === "POST") {
                 type="radio"
                 id="interval_less_frequent"
                 name="interval"
-                value="interval_less_frequent"
+                value="Less frequent please"
                 required
               />
               <label for="interval_less_frequent">Less frequent please</label>
@@ -110,8 +104,8 @@ if (Astro.request.method === "POST") {
         </fieldset>
 
         <div class="form__section">
-          <label for="feedback">
-            Your honest feedback (optional, but probably most helpful for us)
+          <label class="label" for="feedback">
+            Your feedback (optional, but probably most helpful for us)
           </label>
           <textarea name="feedback" id="feedback"></textarea>
         </div>
