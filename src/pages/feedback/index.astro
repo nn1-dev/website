@@ -1,11 +1,11 @@
 ---
-export const prerender = false;
 import { API_KEY } from "astro:env/server";
-
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/Hero.astro";
 import Section from "../../components/Section.astro";
 import Container from "../../components/Container.astro";
+
+export const prerender = false;
 
 if (Astro.request.method === "POST") {
   try {
