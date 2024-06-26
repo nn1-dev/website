@@ -1,6 +1,25 @@
 ---
+export const prerender = false;
+
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    console.log({ data });
+    //  const name = data.get("username");
+    //  const email = data.get("email");
+    //  const password = data.get("password");
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
 <Layout
@@ -8,4 +27,158 @@ import Hero from "../components/Hero.astro";
   description="NN1 Dev Club is a free, quarterly meet-up for a local community of Northamptonshire-based software enthusiasts. A place to meet, collaborate and share knowledge with each other. From devs for devs!"
 >
   <Hero title="Feedback" description="Your feedback matters!" />
+  <Section style="contrast">
+    <Container narrow>
+      <form class="form" method="POST">
+        <div class="form__section">
+          <label class="label" for="name">Name (optional)</label>
+          <input type="text" name="name" id="name" />
+        </div>
+
+        <fieldset class="form__section">
+          <legend class="label">Who are you?</legend>
+          <div class="radiogroup">
+            <input
+              type="radio"
+              id="who_student"
+              name="who"
+              value="who_student"
+              required
+            />
+            <label for="who_student">Student</label>
+          </div>
+
+          <div class="radiogroup">
+            <input
+              type="radio"
+              id="who_hobbyist"
+              name="who"
+              value="who_hobbyist"
+              required
+            />
+            <label for="who_hobbyist">Hobbyist</label>
+          </div>
+
+          <div class="radiogroup">
+            <input
+              type="radio"
+              id="who_pro"
+              name="who"
+              value="who_pro"
+              required
+            />
+            <label for="who_pro">Pro</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form__section">
+          <legend class="label">Meet-up interval</legend>
+          <div>
+            <div class="radiogroup">
+              <input
+                type="radio"
+                id="interval_ok"
+                name="interval"
+                value="interval_ok"
+                required
+              />
+              <label for="interval_ok">Every 3 months is good</label>
+            </div>
+
+            <div class="radiogroup">
+              <input
+                type="radio"
+                id="interval_more_frequent"
+                name="interval"
+                value="interval_more_frequent"
+                required
+              />
+              <label for="interval_more_frequent">More frequent please</label>
+            </div>
+
+            <div class="radiogroup">
+              <input
+                type="radio"
+                id="interval_less_frequent"
+                name="interval"
+                value="interval_less_frequent"
+                required
+              />
+              <label for="interval_less_frequent">Less frequent please</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form__section">
+          <label for="feedback">
+            Your honest feedback (optional, but probably most helpful for us)
+          </label>
+          <textarea name="feedback" id="feedback"></textarea>
+        </div>
+        <button>Submit feedback</button>
+      </form>
+    </Container>
+  </Section>
 </Layout>
+
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lh);
+  }
+
+  .label {
+    font-weight: 600;
+  }
+
+  fieldset {
+    border: initial;
+  }
+
+  textarea {
+    display: block;
+    font: inherit;
+    width: 100%;
+    padding-block: calc(var(--lh) / 4);
+    padding-inline: calc(var(--lh) / 3);
+    border-radius: 4px;
+    border: none;
+    resize: vertical;
+  }
+
+  .radiogroup {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--lh) / 4);
+  }
+
+  input[type="text"] {
+    display: block;
+    font: inherit;
+    width: 100%;
+    padding-block: calc(var(--lh) / 4);
+    padding-inline: calc(var(--lh) / 3);
+    border-radius: 4px;
+    border: none;
+  }
+
+  button {
+    font: inherit;
+    border: none;
+    border-radius: 4px;
+    padding: calc(var(--lh) / 2) calc(var(--lh) * 0.75);
+    width: fit-content;
+    color: var(--color-bg-contrast);
+    background-color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--lh) / 2);
+
+    &:hover {
+      background-color: var(--color-accent-light);
+    }
+  }
+</style>
