@@ -17,7 +17,7 @@ if (Astro.request.method === "POST") {
     const interval = data.get("interval");
     const feedback = data.get("feedback");
 
-    fetch("https://nn1-dev-feedback.deno.dev/", {
+    await fetch("https://nn1-dev-feedback.deno.dev/", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${API_KEY}`,
