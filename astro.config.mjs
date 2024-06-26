@@ -6,6 +6,9 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   output: "hybrid",
   adapter: netlify(),
+  image: {
+    domains: ["https://avatars.githubusercontent.com"],
+  },
   experimental: {
     env: {
       schema: {
