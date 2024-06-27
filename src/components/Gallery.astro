@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   images: {
     src: string;
@@ -36,17 +38,13 @@ const { images } = Astro.props;
             </button>
           </dialog>
           <button class="gallery__button">
-            <picture>
-              <source srcset={`${image.src}.avif`} type="image/avif" />
-              <source srcset={`${image.src}.webp`} type="image/webp" />
-              <img
-                class="gallery__thumb"
-                src={`${image.src}.jpg`}
-                alt={image.caption}
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+            <Image
+              class="gallery__thumb"
+              src={`${image.src}.jpg?w=224&h=224`}
+              alt={image.caption}
+              width="224"
+              height="224"
+            />
           </button>
         </li>
       ))
