@@ -19,8 +19,8 @@ const { images } = Astro.props;
           <dialog class="gallery__dialog">
             <figure class="gallery__figure">
               <Picture
-                src={`${image.src}.jpg`}
-                formats={["webp", "avif"]}
+                src={image.src}
+                formats={["avif", "webp"]}
                 alt={image.caption}
                 width={2400}
                 height={2400}
@@ -42,7 +42,7 @@ const { images } = Astro.props;
           <button class="gallery__button">
             <Image
               class="gallery__thumb"
-              src={`${image.src}.jpg?w=224&h=224&fit=cover&fm=avif`}
+              src={`${image.src}?w=224&h=224&fit=cover&fm=avif`}
               alt={image.caption}
               width="224"
               height="224"
