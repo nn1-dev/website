@@ -1,0 +1,58 @@
+{
+  "id": 3,
+  "name": "#3: \"ComfyUI: Visualising Data Pipelines in Diffusion Models\" by Jordan Legg and \"XXX\" by James Bavington",
+  "description": "XXX",
+  "dateStart": "2024-09-26T18:00Z",
+  "dateEnd": "2024-09-26T20:00Z",
+  "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "ticketText": "FREE (Eventbrite registration required)",
+  "ticketUrl": "https://www.eventbrite.co.uk/e/2-nn1-dev-club-tickets-880658502287",
+  "parkingText": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2024-06-27T18:00Z",
+      "dateEnd": "2024-06-27T18:15Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2024-06-27T18:15Z",
+      "dateEnd": "2024-06-27T18:30Z",
+      "title": "Intro"
+    },
+    {
+      "dateStart": "2024-06-27T18:30Z",
+      "dateEnd": "2024-06-27T19:00Z",
+      "title": "\"ComfyUI: Visualising Data Pipelines in Diffusion Models\" by Jordan Legg",
+      "description": "Explore ComfyUI, a powerful tool for visualising data pipelines in diffusion models. We'll start with an introduction to diffusion models and their significance. Then let’s discover how ComfyUI simplifies the understanding and debugging of complex data flows through practical applications and real-world examples. Highlights include Stable Diffusion 3, SDXL lighting, AI upscaling, and more. Gain insights into how I optimise my diffusion model workflows with this intuitive interface."
+    },
+    {
+      "dateStart": "2024-06-27T19:00Z",
+      "dateEnd": "2024-06-27T19:15Z",
+      "title": "Break"
+    },
+    {
+      "dateStart": "2024-06-27T19:15Z",
+      "dateEnd": "2024-06-27T19:45Z",
+      "title": "\"XXX\" by James Bavington",
+      "description": "XXX"
+    }
+  ],
+  "guests": [
+    {
+      "image": "/3/jordanlegg.jpg",
+      "name": "Jordan Legg",
+      "role": "Chief AI Officer at takara.ai",
+      "bio": "XXX",
+      "urlLinkedIn": "https://www.linkedin.com/in/404missinglink/"
+    },
+    {
+      "image": "/3/jamesbavington.jpg",
+      "name": "James Bavington",
+      "role": "CTO and Partner at StrategiQ",
+      "bio": "XXX",
+      "urlLinkedIn": "https://www.linkedin.com/in/jamesbavington/"
+    }
+  ]
+}
