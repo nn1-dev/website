@@ -117,13 +117,13 @@ const { title, description, og } = Astro.props;
       :root {
         --fz: 1rem;
         --lh: 1.75rem;
-        --color-fg: #fafafa;
-        --color-fg-dim: #d4d4d8;
-        --color-bg: #18181b;
-        --color-bg-contrast: #09090b;
-        --color-border: #27272a;
-        --color-accent: #fed7aa;
-        --color-accent-light: #ffedd5;
+        --color-fg: oklch(98% 0.01 290);
+        --color-fg-dim: oklch(68% 0.01 290);
+        --color-bg: oklch(20% 0.01 290);
+        --color-bg-contrast: oklch(14% 0.01 290);
+        --color-border: oklch(28% 0.01 290);
+        --color-accent: oklch(83% 0.05 70);
+        --color-accent-light: oklch(93% 0.05 70);
       }
 
       html {
@@ -166,9 +166,8 @@ const { title, description, og } = Astro.props;
       }
 
       .anchor {
-        color: inherit;
+        color: var(--color-border);
         text-decoration: none;
-        opacity: 0.25;
         margin-inline-start: calc(var(--lh) / 4);
 
         &:hover {
