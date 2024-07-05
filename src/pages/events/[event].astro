@@ -69,7 +69,6 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
     title={name}
     description={description}
     {...isUpcoming(dateStart) && {
-      buttonIcon: "eventbrite",
       buttonText: "Get your free ticket",
       buttonUrl: ticketUrl,
     }}
