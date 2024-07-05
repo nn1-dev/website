@@ -55,17 +55,10 @@ const contributorsMap = contributors.map((user) => ({
         your involvement is crucial. Stay tuned for future meetups!
       </p>
       <div class="connect__buttons">
-        <Button href="https://github.com/nn1-dev" text="GitHub" icon="github" />
-        <Button
-          href="http://linkedin.com/company/nn1-dev"
-          text="LinkedIn"
-          icon="linkedin"
-        />
-        <Button
-          href="https://nn1-dev.eventbrite.com"
-          text="Eventbrite"
-          icon="eventbrite"
-        />
+        <Button href="https://github.com/nn1-dev" icon="github" />
+        <Button href="http://linkedin.com/company/nn1-dev" icon="linkedin" />
+        <Button href="https://mastodon.social/@nn1dev" icon="mastodon" />
+        <Button href="https://x.com/nn1dev" icon="x" />
       </div>
     </div>
   </Container>
@@ -98,14 +91,9 @@ const contributorsMap = contributors.map((user) => ({
   .connect__buttons {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     gap: calc(var(--lh) / 2);
     align-items: center;
     justify-content: center;
-
-    @media (600px <= width) {
-      flex-direction: row;
-    }
   }
 
   .connect__contributors {
