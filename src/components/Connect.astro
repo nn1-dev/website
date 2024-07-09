@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Container from "../components/Container.astro";
 import Button from "../components/Button.astro";
 import Section from "../components/Section.astro";
+import Heading from "../components/Heading.astro";
 
 const GITHUB_URL = "https://api.github.com/repos/nn1-dev/website/contributors";
 
@@ -24,10 +25,8 @@ const contributorsMap = contributors.map((user) => ({
 
 <Section style="contrast">
   <Container>
-    <div class="connect__content">
-      <h2 id="contact" class="connect__title">
-        Get involved <a class="anchor" href="#contact">#</a>
-      </h2>
+    <div class="connect">
+      <Heading title="Stay connected" level={2} anchor />
       <ul class="connect__contributors">
         {
           contributorsMap.map((contributor) => (
@@ -65,10 +64,10 @@ const contributorsMap = contributors.map((user) => ({
 </Section>
 
 <style>
-  .connect__content {
+  .connect {
     display: flex;
     flex-direction: column;
-    gap: var(--lh);
+    gap: calc(var(--lh) * 2);
     align-items: center;
   }
 
