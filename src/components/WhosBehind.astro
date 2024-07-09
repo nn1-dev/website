@@ -1,6 +1,7 @@
 ---
 import Container from "../components/Container.astro";
 import Profile from "../components/Profile.astro";
+import Heading from "./Heading.astro";
 import Section from "./Section.astro";
 
 const data = [
@@ -29,28 +30,23 @@ const data = [
 
 <Section>
   <Container>
-    <h2 id="who" class="wb__title">
-      Who's behind it? <a class="anchor" href="#who">#</a>
-    </h2>
-    <div class="wb__grid">
-      {data.map((dude) => <Profile {...dude} />)}
+    <div class="organisers">
+      <Heading title="Who's behind it?" level={2} anchor />
+      <div class="organisers__grid">
+        {data.map((dude) => <Profile {...dude} />)}
+      </div>
     </div>
   </Container>
 </Section>
 
 <style>
-  .wb__title {
-    font-weight: 800;
-    font-size: calc(var(--fz) * 1.5);
-    margin-block-end: calc(var(--lh) * 2);
-
-    @media (800px <= width) {
-      font-size: 32px;
-      line-height: calc(var(--lh) * 1.5);
-    }
+  .organisers {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) * 2);
   }
 
-  .wb__grid {
+  .organisers__grid {
     display: grid;
     gap: calc(var(--lh) * 2);
 
