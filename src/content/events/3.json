@@ -1,13 +1,13 @@
 {
   "id": 3,
-  "name": "#3: \"ComfyUI: Visualising Data Pipelines in Diffusion Models\" by Jordan Legg and \"XXX\" by James Bavington",
-  "description": "XXX",
+  "name": "#3: \"ComfyUI: Visualising Data Pipelines in Diffusion Models\" by Jordan Legg and \"The impact of Generative AI on SEO\" by James Bavington",
+  "description": "Whether you like it or not, AI is everywhere! We would love to invite you to our third event to explore two sectors that recently underwent transformative changes: SEO and text-to-image generation.",
   "dateStart": "2024-09-26T18:00Z",
   "dateEnd": "2024-09-26T20:00Z",
   "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "ticketText": "FREE (Eventbrite registration required)",
-  "ticketUrl": "https://www.eventbrite.co.uk/e/2-nn1-dev-club-tickets-880658502287",
+  "ticketUrl": "https://nn1.dev",
   "parkingText": "St. John's Multi Storey Car Park",
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
@@ -35,8 +35,8 @@
     {
       "dateStart": "2024-06-27T19:15Z",
       "dateEnd": "2024-06-27T19:45Z",
-      "title": "\"XXX\" by James Bavington",
-      "description": "XXX"
+      "title": "\"The impact of Generative AI on SEO\" by James Bavington",
+      "description": "A fast-paced deep-dive into the continually changing landscape of search engine optimisation in the wake of generative AI. From the performance of AI generated content to Google's recently launched AI Overviews , this talk focuses on uses real-world client examples and actionable tips to feed into your day to day as a developer."
     }
   ],
   "guests": [
@@ -52,7 +52,7 @@
       "image": "/3/jamesbavington.jpg",
       "name": "James Bavington",
       "role": "CTO and Partner at StrategiQ",
-      "bio": "XXX",
+      "bio": "With a background as a WordPress and Magento developer, James is a highly experienced digital strategist with global clients including GORE-TEX, Reuters, Dorchester Hotel and The Air Ambulance Service.",
       "urlLinkedIn": "https://www.linkedin.com/in/jamesbavington/"
     }
   ]
