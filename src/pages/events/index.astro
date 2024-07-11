@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/Hero.astro";
-import Events from "../../components/Events.astro";
+import Hero from "../../sections/Hero.astro";
+import Events from "../../sections/Events.astro";
 
 const eventsAll = await getCollection("events");
 const eventRecent = eventsAll.at(-1);
