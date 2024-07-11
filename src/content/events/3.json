@@ -36,7 +36,7 @@
       "dateStart": "2024-06-27T19:15Z",
       "dateEnd": "2024-06-27T19:45Z",
       "title": "\"The impact of Generative AI on SEO\" by James Bavington",
-      "description": "A fast-paced deep-dive into the continually changing landscape of search engine optimisation in the wake of generative AI. From the performance of AI generated content to Google's recently launched AI Overviews , this talk focuses on uses real-world client examples and actionable tips to feed into your day to day as a developer."
+      "description": "A fast-paced deep-dive into the continually changing landscape of search engine optimisation in the wake of generative AI. From the performance of AI generated content to Google's recently launched AI Overviews , this talk focuses on real-world client examples and actionable tips to feed into your day to day as a developer."
     }
   ],
   "guests": [
@@ -53,7 +53,10 @@
       "name": "James Bavington",
       "role": "CTO and Partner at StrategiQ",
       "bio": "With a background as a WordPress and Magento developer, James is a highly experienced digital strategist with global clients including GORE-TEX, Reuters, Dorchester Hotel and The Air Ambulance Service.",
-      "urlLinkedIn": "https://www.linkedin.com/in/jamesbavington/"
+      "urlLinkedIn": "https://www.linkedin.com/in/jamesbavington/",
+      "urlTwitter": "https://x.com/bavington",
+      "urlWebsite": "https://strategiq.co",
+      "urlInstagram": "https://www.instagram.com/bavington/"
     }
   ]
 }
