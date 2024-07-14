@@ -12,7 +12,11 @@ export default defineConfig({
   experimental: {
     env: {
       schema: {
-        API_KEY: envField.string({
+        API_KEY_FEEDBACK: envField.string({
+          context: "server",
+          access: "secret",
+        }),
+        API_KEY_TICKETS: envField.string({
           context: "server",
           access: "secret",
         }),
