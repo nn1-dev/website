@@ -1,5 +1,5 @@
 ---
-import { API_KEY } from "astro:env/server";
+import { API_KEY_FEEDBACK } from "astro:env/server";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../sections/Hero.astro";
 import Section from "../../components/Section.astro";
@@ -12,7 +12,6 @@ export const prerender = false;
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-    console.log({ data });
     const name = data.get("name");
     const stack = data.get("stack");
     const who = data.get("who");
@@ -22,7 +21,7 @@ if (Astro.request.method === "POST") {
     await fetch("https://feedback.nn1.dev/", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${API_KEY}`,
+        Authorization: `Bearer ${API_KEY_FEEDBACK}`,
       },
       body: JSON.stringify({
         name,

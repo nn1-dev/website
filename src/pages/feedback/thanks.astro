@@ -1,16 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../sections/Hero.astro";
+import ButtonLink from "../../components/ButtonLink.astro";
 ---
 
 <Layout
   title="Feedback | NN1 Dev Club"
   description="NN1 Dev Club is a free, quarterly meet-up for a local community of Northamptonshire-based software enthusiasts. A place to meet, collaborate and share knowledge with each other. From devs for devs!"
 >
-  <Hero
-    title="Thanks!"
-    description="Have a fab day 🫶"
-    buttonText="Go back to homepage"
-    buttonUrl="/"
-  />
+  <Hero title="Thanks!" description="Have a fab day 🫶">
+    <ButtonLink text="Go back to homepage" href="/" />
+  </Hero>
 </Layout>
