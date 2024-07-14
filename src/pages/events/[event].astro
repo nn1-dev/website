@@ -1,6 +1,6 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { API_KEY_TICKETS } from "astro:env/server";
+import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../sections/Hero.astro";
 import Container from "../../components/Container.astro";
@@ -8,39 +8,36 @@ import Gallery from "../../components/Gallery.astro";
 import Profile from "../../components/Profile.astro";
 import Section from "../../components/Section.astro";
 import Heading from "../../components/Heading.astro";
+import Input from "../../components/Input.astro";
+import Button from "../../components/Button.astro";
 
-export async function getStaticPaths() {
-  const allEvents = await getCollection("events");
+export const prerender = false;
 
-  return allEvents.map((event) => ({
-    params: { event: event.id },
-    props: { event },
-  }));
+const { event } = Astro.params;
+if (event === undefined) {
+  return Astro.redirect("/404");
 }
 
-interface Props {
-  event: CollectionEntry<"events">;
+const entry = await getEntry("events", event);
+if (entry === undefined) {
+  return Astro.redirect("/404");
 }
 
 const {
-  event: {
-    data: {
-      id,
-      name,
-      description,
-      dateStart,
-      locationText,
-      locationUrl,
-      ticketText,
-      ticketUrl,
-      parkingText,
-      parkingUrl,
-      schedule,
-      guests,
-      images,
-    },
+  data: {
+    id,
+    name,
+    description,
+    dateStart,
+    locationText,
+    locationUrl,
+    parkingText,
+    parkingUrl,
+    schedule,
+    guests,
+    images,
   },
-} = Astro.props;
+} = entry;
 
 const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
   weekday: "long",
@@ -59,6 +56,36 @@ function scheduleTimeFormat(date: Date) {
 }
 
 const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+
+    await fetch("https://tickets.nn1.dev/", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY_TICKETS}`,
+      },
+      body: JSON.stringify({
+        eventId: id,
+        eventUrl: `https://nn1.dev/events/${id}/`,
+        eventName: entry.data.name,
+        eventDate: dateStartParsed,
+        eventLocation: locationText,
+        name,
+        email,
+      }),
+    });
+
+    return Astro.redirect(`/events/${id}/thanks`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
 <Layout
@@ -66,102 +93,39 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
   description={description}
   og={`${id}/og.jpg`}
 >
-  <Hero
-    title={name}
-    description={description}
-    {...isUpcoming(dateStart) && {
-      buttonText: "Get your free ticket",
-      buttonUrl: ticketUrl,
-    }}
-  />
+  <Hero title={name} description={description}>
+    <Button id="signup-open" text="Sign up to the event" />
+  </Hero>
   <Section style="contrast">
     <Container>
-      <dialog id="favDialog">
-        <form>
+      <dialog class="dialog" id="signup-dialog">
+        <form class="dialog__form" method="POST">
+          <Heading level={3} title="Get your free ticket" />
           <p>
-            <label>
-              Favorite animal:
-              <select>
-                <option value="default">Choose…</option>
-                <option>Brine shrimp</option>
-                <option>Red panda</option>
-                <option>Spider monkey</option>
-              </select>
-            </label>
+            We will never sell or distribute your datato any third party at any
+            time.
           </p>
-          <div>
-            <button value="cancel" formmethod="dialog">Cancel</button>
-            <button id="confirmBtn" value="default">Confirm</button>
-          </div>
+          <Input type="text" name="name" label="Name" required />
+          <Input type="email" name="email" label="Email" required />
+          <Button id="signup-submit" text="Sign up for the event" />
         </form>
       </dialog>
+
       <div class="event">
         <section class="event__section">
           <Heading title="Details" level={2} anchor />
           <ul class="events__item-list">
             <li class="events__item-list-item">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                class="events__item-icon"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4 1.75a.75.75 0 0 1 1.5 0V3h5V1.75a.75.75 0 0 1 1.5 0V3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2V1.75ZM4.5 6a1 1 0 0 0-1 1v4.5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-7Z"
-                  clip-rule="evenodd"></path>
-              </svg>
               <time datetime={dateStart.toISOString()}>
                 {dateStartParsed}
               </time>
             </li>
             <li class="events__item-list-item">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                class="events__item-icon"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
-                  clip-rule="evenodd"></path>
-              </svg>
               <a href={locationUrl}>
                 {locationText}
               </a>
             </li>
-            {
-              isUpcoming(dateStart) && (
-                <li class="events__item-list-item">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    class="events__item-icon"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <a href={ticketUrl}>{ticketText}</a>
-                </li>
-              )
-            }
             <li class="events__item-list-item">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                class="events__item-icon"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
-                  clip-rule="evenodd"></path>
-              </svg>
               <a href={parkingUrl}>
                 {parkingText}
               </a>
@@ -233,11 +197,6 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
     align-items: center;
     gap: calc(var(--lh) / 2);
   }
-  .events__item-icon {
-    width: 16px;
-    height: 16px;
-    opacity: 0.5;
-  }
 
   .event__schedule {
     list-style: none;
@@ -271,4 +230,79 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  .dialog {
+    margin: auto;
+    border: none;
+    color: var(--color-fg);
+    background-color: var(--color-bg-contrast);
+    padding: var(--lh);
+    border-radius: 4px;
+    width: min(100% - var(--lh) * 2, 600px);
+    transition:
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete,
+      opacity 240ms;
+    opacity: 0;
+
+    @media (prefers-reduced-motion) {
+      transition: unset;
+    }
+
+    &::backdrop {
+      background: color-mix(in srgb, var(--color-bg), transparent 10%);
+      transition:
+        display 240ms allow-discrete,
+        overlay 240ms allow-discrete,
+        opacity 240ms;
+      opacity: 0;
+
+      @media (prefers-reduced-motion) {
+        transition: unset;
+      }
+    }
+
+    &[open] {
+      display: flex;
+      opacity: 1;
+
+      &::backdrop {
+        opacity: 1;
+      }
+    }
+
+    @starting-style {
+      &[open],
+      &[open]::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+
+  .dialog__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--lh);
+  }
+
+  .dialog__footnote {
+    font-size: calc(var(--fz) * 0.875);
+  }
 </style>
+
+<script>
+  const dialog = document.getElementById("signup-dialog");
+  const buttonOpen = document.getElementById("signup-open");
+  const buttonClose = document.getElementById("signup-close");
+
+  buttonOpen!.addEventListener("click", () => {
+    // @ts-ignore
+    dialog.showModal();
+  });
+
+  buttonClose!.addEventListener("click", () => {
+    // @ts-ignore
+    dialog.showModal();
+  });
+</script>

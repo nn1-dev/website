@@ -1,19 +1,7 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../sections/Hero.astro";
 import Events from "../../sections/Events.astro";
-
-const eventsAll = await getCollection("events");
-const eventRecent = eventsAll.at(-1);
-const eventRecentIsUpcoming =
-  eventRecent && new Date().getTime() < eventRecent.data.dateStart.getTime();
-const heroButtonProps = eventRecentIsUpcoming
-  ? {
-      buttonText: "Check upcoming event",
-      buttonUrl: `/events/${eventRecent.id}`,
-    }
-  : {};
 ---
 
 <Layout
@@ -23,7 +11,6 @@ const heroButtonProps = eventRecentIsUpcoming
   <Hero
     description="NN1 Dev Club is a free, quarterly meet-up for a local community of Northamptonshire-based software enthusiasts. A place to meet, collaborate and share knowledge with each other. From devs for devs!"
     title="Events"
-    {...heroButtonProps}
   />
   <Events />
 </Layout>
