@@ -55,7 +55,7 @@ function scheduleTimeFormat(date: Date) {
   });
 }
 
-// const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
+const isUpcoming = new Date().getTime() < dateStart.getTime();
 
 if (Astro.request.method === "POST") {
   try {
@@ -93,7 +93,7 @@ if (Astro.request.method === "POST") {
   og={`${id}/og.jpg`}
 >
   <Hero title={name} description={description}>
-    <Button id="signup-open-1" text="Sign up to the event" />
+    {isUpcoming && <Button id="signup-open-1" text="Get a FREE ticket now" />}
   </Hero>
   <Section style="contrast">
     <Container>
@@ -179,7 +179,11 @@ if (Astro.request.method === "POST") {
               </svg>FREE
             </li>
           </ul>
-          <Button id="signup-open-2" text="Get a FREE ticket now" />
+          {
+            isUpcoming && (
+              <Button id="signup-open-2" text="Get a FREE ticket now" />
+            )
+          }
         </section>
         <section class="event__section">
           <Heading title="Schedule" level={2} anchor />
