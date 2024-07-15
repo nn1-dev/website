@@ -69,13 +69,12 @@ if (Astro.request.method === "POST") {
         Authorization: `Bearer ${API_KEY_TICKETS}`,
       },
       body: JSON.stringify({
+        name,
+        email,
         eventId: id,
-        eventUrl: `https://nn1.dev/events/${id}/`,
         eventName: entry.data.name,
         eventDate: dateStartParsed,
         eventLocation: locationText,
-        name,
-        email,
       }),
     });
 
@@ -94,7 +93,7 @@ if (Astro.request.method === "POST") {
   og={`${id}/og.jpg`}
 >
   <Hero title={name} description={description}>
-    <Button id="signup-open" text="Sign up to the event" />
+    <Button id="signup-open-1" text="Sign up to the event" />
   </Hero>
   <Section style="contrast">
     <Container>
@@ -107,7 +106,12 @@ if (Astro.request.method === "POST") {
           </p>
           <Input type="text" name="name" label="Name" required />
           <Input type="email" name="email" label="Email" required />
-          <Button id="signup-submit" text="Sign up for the event" />
+          <div class="dialog__buttons">
+            <Button id="signup-submit" text="Sign up for the event" />
+            <button class="dialog__close" type="button" id="signup-close"
+              >Cancel</button
+            >
+          </div>
         </form>
       </dialog>
 
@@ -116,21 +120,66 @@ if (Astro.request.method === "POST") {
           <Heading title="Details" level={2} anchor />
           <ul class="events__item-list">
             <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="events__item-icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 1.75a.75.75 0 0 1 1.5 0V3h5V1.75a.75.75 0 0 1 1.5 0V3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2V1.75ZM4.5 6a1 1 0 0 0-1 1v4.5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-7Z"
+                  clip-rule="evenodd"></path>
+              </svg>
               <time datetime={dateStart.toISOString()}>
                 {dateStartParsed}
               </time>
             </li>
             <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="events__item-icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+                  clip-rule="evenodd"></path>
+              </svg>
               <a href={locationUrl}>
                 {locationText}
               </a>
             </li>
             <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="events__item-icon"
+                ><path
+                  d="M6 19v1q0 .425-.288.713T5 21H4q-.425 0-.712-.288T3 20v-8l2.1-6q.15-.45.538-.725T6.5 5H9V3h6v2h2.5q.475 0 .863.275T18.9 6l2.1 6v8q0 .425-.287.713T20 21h-1q-.425 0-.712-.288T18 20v-1zm-.2-9h12.4l-1.05-3H6.85zM5 12v5zm2.5 4q.625 0 1.063-.437T9 14.5t-.437-1.062T7.5 13t-1.062.438T6 14.5t.438 1.063T7.5 16m9 0q.625 0 1.063-.437T18 14.5t-.437-1.062T16.5 13t-1.062.438T15 14.5t.438 1.063T16.5 16M5 17h14v-5H5z"
+                ></path></svg
+              >
               <a href={parkingUrl}>
                 {parkingText}
               </a>
             </li>
+            <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="events__item-icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
+                  clip-rule="evenodd"></path>
+              </svg>FREE
+            </li>
           </ul>
+          <Button id="signup-open-2" text="Get a FREE ticket now" />
         </section>
         <section class="event__section">
           <Heading title="Schedule" level={2} anchor />
@@ -198,6 +247,12 @@ if (Astro.request.method === "POST") {
     gap: calc(var(--lh) / 2);
   }
 
+  .events__item-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+  }
+
   .event__schedule {
     list-style: none;
   }
@@ -250,7 +305,7 @@ if (Astro.request.method === "POST") {
     }
 
     &::backdrop {
-      background: color-mix(in srgb, var(--color-bg), transparent 10%);
+      background: color-mix(in srgb, var(--color-bg), transparent 5%);
       transition:
         display 240ms allow-discrete,
         overlay 240ms allow-discrete,
@@ -289,20 +344,40 @@ if (Astro.request.method === "POST") {
   .dialog__footnote {
     font-size: calc(var(--fz) * 0.875);
   }
+
+  .dialog__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialog__close {
+    all: unset;
+    font: inherit;
+    opacity: 0.25;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 </style>
 
 <script>
   const dialog = document.getElementById("signup-dialog");
-  const buttonOpen = document.getElementById("signup-open");
+  const buttonOpenOne = document.getElementById("signup-open-1");
+  const buttonOpenTwo = document.getElementById("signup-open-2");
   const buttonClose = document.getElementById("signup-close");
 
-  buttonOpen!.addEventListener("click", () => {
+  buttonOpenOne!.addEventListener("click", () => {
+    // @ts-ignore
+    dialog.showModal();
+  });
+  buttonOpenTwo!.addEventListener("click", () => {
     // @ts-ignore
     dialog.showModal();
   });
 
   buttonClose!.addEventListener("click", () => {
     // @ts-ignore
-    dialog.showModal();
+    dialog.close();
   });
 </script>
