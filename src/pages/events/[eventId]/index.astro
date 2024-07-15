@@ -1,24 +1,24 @@
 ---
 import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import Hero from "../../sections/Hero.astro";
-import Container from "../../components/Container.astro";
-import Gallery from "../../components/Gallery.astro";
-import Profile from "../../components/Profile.astro";
-import Section from "../../components/Section.astro";
-import Heading from "../../components/Heading.astro";
-import Input from "../../components/Input.astro";
-import Button from "../../components/Button.astro";
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../sections/Hero.astro";
+import Container from "../../../components/Container.astro";
+import Gallery from "../../../components/Gallery.astro";
+import Profile from "../../../components/Profile.astro";
+import Section from "../../../components/Section.astro";
+import Heading from "../../../components/Heading.astro";
+import Input from "../../../components/Input.astro";
+import Button from "../../../components/Button.astro";
 
 export const prerender = false;
 
-const { event } = Astro.params;
-if (event === undefined) {
+const { eventId } = Astro.params;
+if (eventId === undefined) {
   return Astro.redirect("/404");
 }
 
-const entry = await getEntry("events", event);
+const entry = await getEntry("events", eventId);
 if (entry === undefined) {
   return Astro.redirect("/404");
 }

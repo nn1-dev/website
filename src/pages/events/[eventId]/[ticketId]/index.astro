@@ -1,0 +1,64 @@
+---
+import { API_KEY_TICKETS } from "astro:env/server";
+import { getEntry } from "astro:content";
+import Layout from "../../../../layouts/Layout.astro";
+import Hero from "../../../../sections/Hero.astro";
+
+export const prerender = false;
+
+const { eventId, ticketId } = Astro.params;
+if (!eventId || !ticketId) {
+  return Astro.redirect("/404");
+}
+
+const entry = await getEntry("events", eventId);
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const ticketResponse = await fetch(
+  `https://tickets.nn1.dev/${eventId}/${ticketId}`,
+  {
+    headers: {
+      Authorization: `Bearer ${API_KEY_TICKETS}`,
+    },
+  },
+);
+const ticketResponseJson = await ticketResponse.json();
+if (!ticketResponseJson.data.value?.confirmed) {
+  return Astro.redirect("/404");
+}
+
+const {
+  data: {
+    id,
+    name,
+    description,
+    dateStart,
+    locationText,
+    locationUrl,
+    parkingText,
+    parkingUrl,
+    schedule,
+    guests,
+    images,
+  },
+} = entry;
+
+const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
+  weekday: "long",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+---
+
+<Layout
+  title={`${name} | NN1 Dev Club`}
+  description={description}
+  og={`${id}/og.jpg`}
+>
+  <Hero title={`👏 Valid ticket`} description={`👏 Valid ticket`} />
+</Layout>
