@@ -100,7 +100,11 @@ if (Astro.request.method === "POST") {
       <dialog class="dialog" id="signup-dialog">
         <form class="dialog__form" method="POST">
           <Heading level={3} title="Get your free ticket" />
-          <p>We won't sell or share your data with any third party.</p>
+          <p>
+            Collecting attendee information at mass events is required for
+            safety and security. We may use it for ocassional reminders or event
+            updates only and won't share or sell your data.
+          </p>
           <Input type="text" name="name" label="Name" required />
           <Input type="email" name="email" label="Email" required />
           <div class="dialog__buttons">
