@@ -1,0 +1,384 @@
+---
+import { API_KEY_TICKETS } from "astro:env/server";
+import { getEntry } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import Hero from "../../../sections/Hero.astro";
+import Container from "../../../components/Container.astro";
+import Gallery from "../../../components/Gallery.astro";
+import Profile from "../../../components/Profile.astro";
+import Section from "../../../components/Section.astro";
+import Heading from "../../../components/Heading.astro";
+import Input from "../../../components/Input.astro";
+import Button from "../../../components/Button.astro";
+
+export const prerender = false;
+
+const { eventId } = Astro.params;
+if (eventId === undefined) {
+  return Astro.redirect("/404");
+}
+
+const entry = await getEntry("events", eventId);
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const {
+  data: {
+    id,
+    name,
+    description,
+    dateStart,
+    locationText,
+    locationUrl,
+    parkingText,
+    parkingUrl,
+    schedule,
+    guests,
+    images,
+  },
+} = entry;
+
+const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
+  weekday: "long",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+function scheduleTimeFormat(date: Date) {
+  return date.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+const isUpcoming = new Date().getTime() < dateStart.getTime();
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+
+    await fetch("https://tickets.nn1.dev/", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_KEY_TICKETS}`,
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        eventId: id,
+        eventName: entry.data.name,
+        eventDate: dateStartParsed,
+        eventLocation: locationText,
+      }),
+    });
+
+    return Astro.redirect(`/events/${id}/thanks`);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<Layout
+  title={`${name} | NN1 Dev Club`}
+  description={description}
+  og={`${id}/og.jpg`}
+>
+  <Hero title={name} description={description}>
+    {isUpcoming && <Button id="signup-open-1" text="Get a FREE ticket now" />}
+  </Hero>
+  <Section style="contrast">
+    <Container>
+      <dialog class="dialog" id="signup-dialog">
+        <form class="dialog__form" method="POST">
+          <Heading level={3} title="Get your free ticket" />
+          <p>
+            Collecting attendee information at mass events is required for
+            safety and security. We may use it for ocassional reminders or event
+            updates only and won't share or sell your data.
+          </p>
+          <Input type="text" name="name" label="Name" required />
+          <Input type="email" name="email" label="Email" required />
+          <div class="dialog__buttons">
+            <Button id="signup-submit" text="Sign up for the event" />
+            <button class="dialog__close" type="button" id="signup-close"
+              >Cancel</button
+            >
+          </div>
+        </form>
+      </dialog>
+
+      <div class="event">
+        <section class="event__section">
+          <Heading title="Details" level={2} anchor />
+          <ul class="events__item-list">
+            <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="events__item-icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4 1.75a.75.75 0 0 1 1.5 0V3h5V1.75a.75.75 0 0 1 1.5 0V3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2V1.75ZM4.5 6a1 1 0 0 0-1 1v4.5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-7Z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <time datetime={dateStart.toISOString()}>
+                {dateStartParsed}
+              </time>
+            </li>
+            <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="events__item-icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <a href={locationUrl}>
+                {locationText}
+              </a>
+            </li>
+            <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="events__item-icon"
+                ><path
+                  d="M6 19v1q0 .425-.288.713T5 21H4q-.425 0-.712-.288T3 20v-8l2.1-6q.15-.45.538-.725T6.5 5H9V3h6v2h2.5q.475 0 .863.275T18.9 6l2.1 6v8q0 .425-.287.713T20 21h-1q-.425 0-.712-.288T18 20v-1zm-.2-9h12.4l-1.05-3H6.85zM5 12v5zm2.5 4q.625 0 1.063-.437T9 14.5t-.437-1.062T7.5 13t-1.062.438T6 14.5t.438 1.063T7.5 16m9 0q.625 0 1.063-.437T18 14.5t-.437-1.062T16.5 13t-1.062.438T15 14.5t.438 1.063T16.5 16M5 17h14v-5H5z"
+                ></path></svg
+              >
+              <a href={parkingUrl}>
+                {parkingText}
+              </a>
+            </li>
+            <li class="events__item-list-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="events__item-icon"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0ZM7.94 4.94c-.294.293-.44.675-.44 1.06v1.25h1.25a.75.75 0 1 1 0 1.5H7.5v1c0 .263-.045.516-.128.75h3.878a.75.75 0 0 1 0 1.5h-6.5a.75.75 0 0 1 0-1.5h.5A.75.75 0 0 0 6 9.75v-1H4.75a.75.75 0 0 1 0-1.5H6V6a3 3 0 0 1 5.121-2.121.75.75 0 1 1-1.06 1.06 1.5 1.5 0 0 0-2.121 0Z"
+                  clip-rule="evenodd"></path>
+              </svg>FREE
+            </li>
+          </ul>
+          {
+            isUpcoming && (
+              <Button id="signup-open-2" text="Get a FREE ticket now" />
+            )
+          }
+        </section>
+        <section class="event__section">
+          <Heading title="Schedule" level={2} anchor />
+          <ul class="event__schedule">
+            {
+              schedule.map(({ dateStart, dateEnd, title, description }) => (
+                <li class="event__schedule-item">
+                  <div class="schedule__time">
+                    <time datetime={dateStart.toISOString()}>
+                      {scheduleTimeFormat(dateStart)}
+                    </time>{" "}
+                    -{" "}
+                    <time datetime={dateStart.toISOString()}>
+                      {scheduleTimeFormat(dateEnd)}
+                    </time>
+                  </div>
+                  <div class="schedule__event">
+                    <strong>{title}</strong>
+                    {description && <p>{description}</p>}
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+        <section class="event__section">
+          <Heading title="Special guests" level={2} anchor />
+          <div class="event__grid">
+            {guests.map((dude) => <Profile {...dude} />)}
+          </div>
+        </section>
+        {
+          images?.length ? (
+            <section class="event__section">
+              <Heading title="Gallery" level={2} anchor />
+              <Gallery images={images} />
+            </section>
+          ) : null
+        }
+      </div>
+    </Container>
+  </Section>
+</Layout>
+
+<style>
+  .event {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) * 4);
+  }
+
+  .event__section {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) * 2);
+  }
+
+  .events__item-list {
+    list-style: none;
+  }
+
+  .events__item-list-item {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--lh) / 2);
+  }
+
+  .events__item-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+  }
+
+  .event__schedule {
+    list-style: none;
+  }
+  .event__schedule-item {
+    display: flex;
+    flex-direction: column;
+    padding-block: calc(var(--lh) / 2);
+    box-shadow: inset 0 -1px 0 0 var(--color-border);
+
+    &:last-of-type {
+      box-shadow: none;
+    }
+
+    @media (800px <= width) {
+      flex-direction: row;
+    }
+  }
+
+  .schedule__time {
+    min-width: 20ch;
+  }
+  .schedule__event {
+  }
+
+  .event__grid {
+    display: grid;
+    gap: calc(var(--lh) * 2);
+
+    @media (800px <= width) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .dialog {
+    margin: auto;
+    border: none;
+    color: var(--color-fg);
+    background-color: var(--color-bg-contrast);
+    padding: var(--lh);
+    border-radius: 4px;
+    width: min(100% - var(--lh) * 2, 600px);
+    transition:
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete,
+      opacity 240ms;
+    opacity: 0;
+
+    @media (prefers-reduced-motion) {
+      transition: unset;
+    }
+
+    &::backdrop {
+      background: color-mix(in srgb, var(--color-bg), transparent 5%);
+      transition:
+        display 240ms allow-discrete,
+        overlay 240ms allow-discrete,
+        opacity 240ms;
+      opacity: 0;
+
+      @media (prefers-reduced-motion) {
+        transition: unset;
+      }
+    }
+
+    &[open] {
+      display: flex;
+      opacity: 1;
+
+      &::backdrop {
+        opacity: 1;
+      }
+    }
+
+    @starting-style {
+      &[open],
+      &[open]::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+
+  .dialog__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--lh);
+  }
+
+  .dialog__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialog__close {
+    all: unset;
+    font: inherit;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById("signup-dialog");
+  const buttonOpenOne = document.getElementById("signup-open-1");
+  const buttonOpenTwo = document.getElementById("signup-open-2");
+  const buttonClose = document.getElementById("signup-close");
+
+  buttonOpenOne!.addEventListener("click", () => {
+    // @ts-ignore
+    dialog.showModal();
+  });
+  buttonOpenTwo!.addEventListener("click", () => {
+    // @ts-ignore
+    dialog.showModal();
+  });
+
+  buttonClose!.addEventListener("click", () => {
+    // @ts-ignore
+    dialog.close();
+  });
+</script>

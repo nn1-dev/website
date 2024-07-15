@@ -1,16 +1,12 @@
 ---
-import Button, { type ButtonProps } from "../components/Button.astro";
-import Heading from "./Heading.astro";
+import Heading from "../components/Heading.astro";
 
 interface Props {
   title: string;
   description: string;
-  buttonText?: string;
-  buttonUrl?: string;
-  buttonIcon?: ButtonProps["icon"];
 }
 
-const { title, description, buttonText, buttonUrl, buttonIcon } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <section class="hero">
@@ -43,15 +39,7 @@ const { title, description, buttonText, buttonUrl, buttonIcon } = Astro.props;
   <div class="hero__inner">
     <Heading level={1} title={title} />
     <p class="hero__description">{description}</p>
-    {
-      buttonText && buttonUrl && (
-        <Button
-          href={buttonUrl}
-          text={buttonText}
-          {...(buttonIcon && { icon: buttonIcon })}
-        />
-      )
-    }
+    <slot />
   </div>
 </section>
 <style>

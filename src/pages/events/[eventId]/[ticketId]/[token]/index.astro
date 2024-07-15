@@ -1,0 +1,59 @@
+---
+import { API_KEY_TICKETS } from "astro:env/server";
+import { getEntry } from "astro:content";
+import Layout from "../../../../../layouts/Layout.astro";
+import Hero from "../../../../../sections/Hero.astro";
+import ButtonLink from "../../../../../components/ButtonLink.astro";
+
+export const prerender = false;
+
+const { eventId, ticketId, token } = Astro.params;
+if (!eventId || !ticketId || !token) {
+  return Astro.redirect("/404");
+}
+
+const entry = await getEntry("events", eventId);
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const {
+  data: { id, dateStart, locationText },
+} = entry;
+const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
+  weekday: "long",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+
+const ticketResponse = await fetch("https://tickets.nn1.dev/", {
+  method: "PUT",
+  headers: {
+    Authorization: `Bearer ${API_KEY_TICKETS}`,
+  },
+  body: JSON.stringify({
+    ticketId,
+    ticketToken: token,
+    eventId: id,
+    eventName: entry.data.name,
+    eventDate: dateStartParsed,
+    eventLocation: locationText,
+  }),
+});
+
+if (ticketResponse.status !== 200) {
+  return Astro.redirect("/404");
+}
+---
+
+<Layout
+  title="Thanks | NN1 Dev Club"
+  description="NN1 Dev Club is a free, quarterly meet-up for a local community of Northamptonshire-based software enthusiasts. A place to meet, collaborate and share knowledge with each other. From devs for devs!"
+>
+  <Hero title="All done 🎉" description="We can't wait to see you.">
+    <ButtonLink href={`/events/${id}`} text="Go back to event details" />
+  </Hero>
+</Layout>

@@ -1,0 +1,50 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  type: "text" | "email";
+  required?: boolean;
+}
+
+const { label, required, type, name } = Astro.props;
+---
+
+<div class="input">
+  <label class="input__label" for={name}
+    >{label} {required ? "(required)" : "(optional)"}</label
+  >
+  <input
+    class="input__field"
+    type={type}
+    name={name}
+    id={name}
+    required={required}
+  />
+</div>
+
+<style>
+  .input {
+  }
+
+  .input__label {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  .input__field {
+    display: block;
+    font: inherit;
+    width: 100%;
+    padding-block: calc(var(--lh) / 4);
+    padding-inline: calc(var(--lh) / 3);
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 4px var(--color-border);
+
+    &:focus,
+    &:hover {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+  }
+</style>

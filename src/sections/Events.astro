@@ -22,8 +22,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
     <div class="events__grid events__grid--spacer">
       {
         allEvents.reverse().map(({ data }) => {
-          const { id, name, description, dateStart, locationText, ticketText } =
-            data;
+          const { id, name, description, dateStart, locationText } = data;
           const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
             weekday: "long",
             year: "numeric",
@@ -85,7 +84,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
                       clip-rule="evenodd"
                     />
                   </svg>
-                  {ticketText}
+                  FREE
                 </li>
               </ul>
               <p class="events__more" aria-label={`Read more ${name}`}>

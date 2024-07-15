@@ -11,6 +11,7 @@ interface Props {
   urlLinkedIn?: string;
   urlMastodon?: string;
   urlTwitter?: string;
+  urlInstagram?: string;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   urlLinkedIn,
   urlMastodon,
   urlTwitter,
+  urlInstagram,
 } = Astro.props;
 ---
 
@@ -71,6 +73,13 @@ const {
         urlTwitter && (
           <li class="profile__list-item">
             Twitter: <a href={urlTwitter}>{urlTwitter}</a>
+          </li>
+        )
+      }
+      {
+        urlInstagram && (
+          <li class="profile__list-item">
+            Instagram: <a href={urlInstagram}>{urlInstagram}</a>
           </li>
         )
       }

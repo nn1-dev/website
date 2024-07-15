@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Container from "../components/Container.astro";
-import Button from "../components/Button.astro";
+import ButtonLink from "../components/ButtonLink.astro";
 import Section from "../components/Section.astro";
 import Heading from "../components/Heading.astro";
 
@@ -54,10 +54,13 @@ const contributorsMap = contributors.map((user) => ({
         your involvement is crucial. Stay tuned for future meetups!
       </p>
       <div class="connect__buttons">
-        <Button href="https://github.com/nn1-dev" icon="github" />
-        <Button href="http://linkedin.com/company/nn1-dev" icon="linkedin" />
-        <Button href="https://mastodon.social/@nn1dev" icon="mastodon" />
-        <Button href="https://x.com/nn1dev" icon="x" />
+        <ButtonLink href="https://github.com/nn1-dev" icon="github" />
+        <ButtonLink
+          href="http://linkedin.com/company/nn1-dev"
+          icon="linkedin"
+        />
+        <ButtonLink href="https://mastodon.social/@nn1dev" icon="mastodon" />
+        <ButtonLink href="https://x.com/nn1dev" icon="x" />
       </div>
     </div>
   </Container>

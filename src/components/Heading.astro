@@ -86,8 +86,17 @@ const id = title
 }
 
 <style>
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
     font-weight: 800;
+  }
+
+  h1 {
     font-size: 32px;
     line-height: calc(var(--lh) * 1.5);
 
@@ -98,7 +107,6 @@ const id = title
   }
 
   h2 {
-    font-weight: 800;
     font-size: calc(var(--fz) * 1.5);
 
     @media (800px <= width) {
@@ -108,7 +116,6 @@ const id = title
   }
 
   h3 {
-    font-weight: 800;
     font-size: calc(var(--fz) * 1.5);
 
     @media (800px <= width) {
