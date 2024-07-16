@@ -3,6 +3,7 @@ import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
 import Layout from "../../../../layouts/Layout.astro";
 import Hero from "../../../../sections/Hero.astro";
+import ButtonLink from "../../../../components/ButtonLink.astro";
 
 export const prerender = false;
 
@@ -24,41 +25,33 @@ const ticketResponse = await fetch(
     },
   },
 );
-const ticketResponseJson = await ticketResponse.json();
-if (!ticketResponseJson.data.value?.confirmed) {
+if (!ticketResponse.ok) {
   return Astro.redirect("/404");
 }
 
-const {
-  data: {
-    id,
-    name,
-    description,
-    dateStart,
-    locationText,
-    locationUrl,
-    parkingText,
-    parkingUrl,
-    schedule,
-    guests,
-    images,
-  },
-} = entry;
+const ticketResponseJson = await ticketResponse.json();
 
-const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
-  weekday: "long",
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-  hour: "2-digit",
-  minute: "2-digit",
-});
+const {
+  data: { id, name, description },
+} = entry;
 ---
 
-<Layout
-  title={`${name} | NN1 Dev Club`}
-  description={description}
-  og={`${id}/og.jpg`}
->
-  <Hero title={`👏 Valid ticket`} description={`👏 Valid ticket`} />
+<Layout title={`${name} | NN1 Dev Club`} description={description}>
+  {
+    ticketResponseJson.data.value?.confirmed ? (
+      <Hero
+        title="🎉 Your ticket is confirmed"
+        description="Thanks a lot for signing up! We are looking forward to seeing you soon. Until then, stay safe!"
+      >
+        <ButtonLink href={`/events/${id}`} text="Go to event details" />
+      </Hero>
+    ) : (
+      <Hero
+        title="⚠️ Please confirm your email"
+        description="We don't like bots, so to ensure you are not one, please confirm your email address by clicking the link we just sent you. We won't ask you to do it for the suture signups. You will be all set up!"
+      >
+        <ButtonLink href={`/events/${id}`} text="Go to event details" />
+      </Hero>
+    )
+  }
 </Layout>

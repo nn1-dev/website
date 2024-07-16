@@ -63,7 +63,7 @@ if (Astro.request.method === "POST") {
     const name = data.get("name");
     const email = data.get("email");
 
-    await fetch("https://tickets.nn1.dev/", {
+    const ticketResponse = await fetch("https://tickets.nn1.dev/", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${API_KEY_TICKETS}`,
@@ -77,8 +77,23 @@ if (Astro.request.method === "POST") {
         eventLocation: locationText,
       }),
     });
+    if (!ticketResponse.ok) {
+      return Astro.redirect("/404");
+    }
 
-    return Astro.redirect(`/events/${id}/thanks`);
+    const ticketJson: {
+      status: "success" | "error";
+      data: {
+        key: (string | number)[];
+      } | null;
+      error: null | string;
+    } = await ticketResponse.json();
+
+    if (ticketJson.status === "error") {
+      return Astro.redirect("/404");
+    }
+
+    return Astro.redirect(`/events/${id}/${ticketJson.data.key[2]}`);
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
