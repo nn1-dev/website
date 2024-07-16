@@ -31,6 +31,10 @@ if (!ticketResponse.ok) {
 
 const ticketResponseJson = await ticketResponse.json();
 
+if (!ticketResponseJson.data.value) {
+  return Astro.redirect("/404");
+}
+
 const {
   data: { id, name, description },
 } = entry;
