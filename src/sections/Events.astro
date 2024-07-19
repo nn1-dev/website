@@ -33,7 +33,13 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
           });
           return (
             <a href={`/events/${id}`} class="events__item events__item--link">
-              <span class="events__item-label">
+              <span
+                class={
+                  isUpcoming(dateStart)
+                    ? "events__item-label events__item-label--active"
+                    : "events__item-label"
+                }
+              >
                 {isUpcoming(dateStart) ? "Upcoming event" : "Past event"}
               </span>
               <h3 class="events__item-name">{name}</h3>
@@ -226,16 +232,53 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
   }
 
   .events__item-label {
+    position: relative;
     display: inline-block;
     box-shadow: inset 0 0 0 1px var(--color-border);
     background-color: var(--color-bg-contrast);
     border-radius: 4px;
-    padding: calc(var(--lh) / 4) calc(var(--lh) / 2);
+    padding-block: calc(var(--lh) / 4);
+    padding-inline-start: calc(var(--lh) * 1.25);
+    padding-inline-end: calc(var(--lh) / 2);
     font-size: calc(var(--fz) * 0.875);
     width: fit-content;
 
-    &::before {
-      content: "#";
+    &::before,
+    &::after {
+      position: absolute;
+      left: calc(var(--lh) / 2);
+      top: calc(50% - 5px);
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: var(--color-border);
+      border-radius: 50%;
+    }
+  }
+
+  @keyframes pulse {
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.25);
+      opacity: 0;
+    }
+  }
+
+  .events__item-label--active {
+    &::before,
+    &::after {
+      background-color: var(--color-accent);
+    }
+    &::after {
+      animation: pulse 2s infinite;
+    }
+    @media (prefers-reduced-motion) {
+      &::after {
+        animation: none;
+      }
     }
   }
 
