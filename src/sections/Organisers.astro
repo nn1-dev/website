@@ -35,27 +35,27 @@ const data = [
       <div class="organisers__grid">
         {data.map((dude) => <Profile {...dude} />)}
       </div>
-      <Heading title="Partners" level={2} anchor />
-      <div class="partners">
-        <a href="https://vulcanworks.co.uk" class="partners__item">
+      <Heading title="Partners" level={3} anchor />
+      <div class="organisers__partners">
+        <a href="https://vulcanworks.co.uk" class="organisers__partner">
           <img
             src="/partners/vulcan-works.png"
             alt="S-SA Digital"
-            class="img partners__logo"
+            class="organisers__logo"
           />
         </a>
-        <a href="https://s-sa.co.uk" class="partners__item">
+        <a href="https://s-sa.co.uk" class="organisers__partner">
           <img
             src="/partners/s-sa.png"
             alt="S-SA Digital"
-            class="img partners__logo"
+            class="organisers__logo"
           />
         </a>
-        <a href="https://labs.uk.barclays" class="partners__item">
+        <a href="https://labs.uk.barclays" class="organisers__partner">
           <img
             src="/partners/barclays.png"
             alt="Barclays Eagle Labs"
-            class="img partners__logo"
+            class="organisers__logo"
           />
         </a>
       </div>
@@ -79,12 +79,13 @@ const data = [
     }
   }
 
-  .partners {
+  .organisers__partners {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--lh);
+    gap: calc(var(--lh) / 2);
   }
-  .partners__item {
+
+  .organisers__partner {
     padding-block: var(--lh);
     padding-inline: calc(var(--lh) / 2);
     background-color: var(--color-bg-contrast);
@@ -99,7 +100,8 @@ const data = [
       padding-inline: calc(var(--lh) * 2);
     }
   }
-  .partners__logo {
+
+  .organisers__logo {
     aspect-ratio: 2/1;
     object-fit: contain;
 
