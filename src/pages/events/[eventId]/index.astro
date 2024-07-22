@@ -378,22 +378,29 @@ if (Astro.request.method === "POST") {
 </style>
 
 <script>
-  const dialog = document.getElementById("signup-dialog");
-  const buttonOpenOne = document.getElementById("signup-open-1");
-  const buttonOpenTwo = document.getElementById("signup-open-2");
-  const buttonClose = document.getElementById("signup-close");
+  const dialog = document.querySelector<HTMLDialogElement>("#signup-dialog");
+  const buttonOpenOne =
+    document.querySelector<HTMLButtonElement>("#signup-open-1");
+  const buttonOpenTwo =
+    document.querySelector<HTMLButtonElement>("#signup-open-2");
+  const buttonClose =
+    document.querySelector<HTMLButtonElement>("#signup-close");
 
-  buttonOpenOne!.addEventListener("click", () => {
-    // @ts-ignore
-    dialog.showModal();
-  });
-  buttonOpenTwo!.addEventListener("click", () => {
-    // @ts-ignore
-    dialog.showModal();
-  });
+  if (buttonOpenOne && dialog) {
+    buttonOpenOne.addEventListener("click", () => {
+      dialog.showModal();
+    });
+  }
 
-  buttonClose!.addEventListener("click", () => {
-    // @ts-ignore
-    dialog.close();
-  });
+  if (buttonOpenTwo && dialog) {
+    buttonOpenTwo.addEventListener("click", () => {
+      dialog.showModal();
+    });
+  }
+
+  if (buttonClose && dialog) {
+    buttonClose.addEventListener("click", () => {
+      dialog.close();
+    });
+  }
 </script>
