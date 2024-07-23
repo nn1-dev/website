@@ -133,7 +133,7 @@ if (Astro.request.method === "POST") {
           throw new Error("This is a test error");
         }
         document
-          .querySelector("#error-button")
+          .querySelector("#error-button")!
           .addEventListener("click", handleClick);
       </script>
     </Container>
