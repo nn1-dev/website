@@ -8,21 +8,29 @@ export default defineConfig({
   output: "hybrid",
   adapter: netlify(),
   image: {
-    domains: ["avatars.githubusercontent.com"]
+    domains: ["avatars.githubusercontent.com"],
   },
   experimental: {
     env: {
       schema: {
         API_KEY_FEEDBACK: envField.string({
           context: "server",
-          access: "secret"
+          access: "secret",
         }),
         API_KEY_TICKETS: envField.string({
           context: "server",
-          access: "secret"
-        })
-      }
-    }
+          access: "secret",
+        }),
+      },
+    },
   },
-  integrations: [sentry()]
+  integrations: [
+    sentry({
+      dsn: "https://9ce758c607ef6a42feb350348185bbec@o4507649139146752.ingest.de.sentry.io/4507649154089040",
+      sourceMapsUploadOptions: {
+        project: "website",
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
+  ],
 });
