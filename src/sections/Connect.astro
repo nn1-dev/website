@@ -1,58 +1,24 @@
 ---
-import { Image } from "astro:assets";
 import Container from "../components/Container.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import Section from "../components/Section.astro";
 import Heading from "../components/Heading.astro";
-
-const GITHUB_URL = "https://api.github.com/repos/nn1-dev/website/contributors";
-
-interface GitHubUser {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}
-
-const contributors: GitHubUser[] = await fetch(GITHUB_URL).then((r) =>
-  r.json(),
-);
-const contributorsMap = contributors.map((user) => ({
-  username: user.login,
-  avatar: user.avatar_url,
-  url: user.html_url,
-}));
+import Input from "../components/Input.astro";
 ---
 
 <Section style="contrast">
   <Container>
     <div class="connect">
-      <Heading title="Stay connected" level={2} anchor />
-      <ul class="connect__contributors">
-        {
-          contributorsMap.map((contributor) => (
-            <li>
-              <a
-                href={contributor.url}
-                title={`${contributor.username} on GitHub`}
-                class="connect__contributor-link"
-              >
-                <Image
-                  src={`${contributor.avatar}&size=84`}
-                  alt={`${contributor.username} on GitHub`}
-                  class="connect__contributor-image"
-                  width="84"
-                  height="84"
-                />
-              </a>{" "}
-            </li>
-          ))
-        }
-      </ul>
+      <Heading title="Stay in touch" level={2} anchor />
       <p class="connect__message">
-        Big thanks to NN1 Dev Club contributors! Whether you want to give a
-        talk, report a bug, submit a pull request, or lend a hand at the event,
-        your involvement is crucial. Stay tuned for future meetups!
+        Get notifications about our upcoming events by signing up to our
+        newsletter. We promise never to send you annoying crap. For more
+        frequent updates, follow us on social media.
       </p>
+      <form class="connect__form" method="POST" action="/newsletter">
+        <Input type="text" label="Email" name="email" required />
+        <button class="connect__submit">Subscribe</button>
+      </form>
       <div class="connect__buttons">
         <ButtonLink href="https://github.com/nn1-dev" icon="github" />
         <ButtonLink
@@ -74,20 +40,38 @@ const contributorsMap = contributors.map((user) => ({
     align-items: center;
   }
 
-  .connect__title {
-    font-weight: 800;
-    font-size: calc(var(--fz) * 1.5);
+  .connect__message {
+    max-width: 70ch;
     text-align: center;
-
-    @media (800px <= width) {
-      font-size: 32px;
-      line-height: calc(var(--lh) * 1.5);
-    }
   }
 
-  .connect__message {
+  .connect__form {
+    display: flex;
+    gap: calc(var(--lh) / 2);
+    align-items: end;
+    width: 100%;
     max-width: 55ch;
-    text-align: center;
+  }
+
+  .connect__submit {
+    cursor: pointer;
+    font: inherit;
+    border: none;
+    border-radius: 4px;
+    padding: calc(var(--lh) / 2) calc(var(--lh) * 0.75);
+    width: fit-content;
+    height: calc(var(--lh) * 1.5);
+    color: var(--color-bg-contrast);
+    background-color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--lh) / 2);
+
+    &:hover {
+      background-color: var(--color-accent-light);
+    }
   }
 
   .connect__buttons {

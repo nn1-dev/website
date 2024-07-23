@@ -1,0 +1,25 @@
+---
+import { API_KEY_NEWSLETTER } from "astro:env/server";
+
+export const prerender = false;
+
+const { memberId } = Astro.params;
+if (!memberId) {
+  return Astro.redirect("/404");
+}
+
+try {
+  await fetch(`https://newsletter.nn1.dev/${memberId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${API_KEY_NEWSLETTER}`,
+    },
+  });
+
+  return Astro.redirect("/newsletter/thanks");
+} catch (error) {
+  if (error instanceof Error) {
+    console.error(error.message);
+  }
+}
+---

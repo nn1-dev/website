@@ -7,9 +7,6 @@ import sentry from "@sentry/astro";
 export default defineConfig({
   output: "hybrid",
   adapter: netlify(),
-  image: {
-    domains: ["avatars.githubusercontent.com"],
-  },
   experimental: {
     env: {
       schema: {
@@ -18,6 +15,10 @@ export default defineConfig({
           access: "secret",
         }),
         API_KEY_TICKETS: envField.string({
+          context: "server",
+          access: "secret",
+        }),
+        API_KEY_NEWSLETTER: envField.string({
           context: "server",
           access: "secret",
         }),
