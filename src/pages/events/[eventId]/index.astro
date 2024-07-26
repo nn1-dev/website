@@ -1,5 +1,5 @@
 ---
-import { API_KEY_TICKETS } from "astro:env/server";
+import { API_KEY_TICKETS, API_KEY_NEWSLETTER } from "astro:env/server";
 import { getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
@@ -9,6 +9,7 @@ import Profile from "../../../components/Profile.astro";
 import Section from "../../../components/Section.astro";
 import Heading from "../../../components/Heading.astro";
 import Input from "../../../components/Input.astro";
+import Checkbox from "../../../components/Checkbox.astro";
 import Button from "../../../components/Button.astro";
 
 export const prerender = false;
@@ -62,21 +63,40 @@ if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
     const name = data.get("name");
     const email = data.get("email");
+    const newsletter = data.get("newsletter");
 
-    const ticketResponse = await fetch("https://tickets.nn1.dev/", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY_TICKETS}`,
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        eventId: id,
-        eventName: entry.data.name,
-        eventDate: dateStartParsed,
-        eventLocation: locationText,
+    const newsletterEnabled = newsletter === "on";
+
+    const [ticketResponse, _newsletterResponse] = await Promise.all([
+      fetch("https://tickets.nn1.dev/", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${API_KEY_TICKETS}`,
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          eventId: id,
+          eventName: entry.data.name,
+          eventDate: dateStartParsed,
+          eventLocation: locationText,
+        }),
       }),
-    });
+      ...(newsletterEnabled
+        ? [
+            fetch("https://newsletter.nn1.dev/", {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${API_KEY_NEWSLETTER}`,
+              },
+              body: JSON.stringify({
+                email,
+              }),
+            }),
+          ]
+        : []),
+    ]);
+
     if (!ticketResponse.ok) {
       return Astro.redirect("/404");
     }
@@ -133,6 +153,11 @@ if (Astro.request.method === "POST") {
             label="Email"
             required
             placeholder="timcook@apple.com"
+          />
+          <Checkbox
+            label="Notify me about future events"
+            name="newsletter"
+            checked={true}
           />
           <div class="dialog__buttons">
             <Button id="signup-submit" text="Sign up for the event" />
