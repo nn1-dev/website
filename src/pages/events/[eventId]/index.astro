@@ -208,7 +208,10 @@ if (Astro.request.method === "POST") {
               schedule.map(({ dateStart, dateEnd, title, description }) => (
                 <li class="event__schedule-item">
                   <div class="schedule__time">
-                    <time datetime={dateStart.toISOString()}>
+                    <time
+                      class="schedule__timestamp"
+                      datetime={dateStart.toISOString()}
+                    >
                       {scheduleTimeFormat(dateStart)}
                     </time>{" "}
                     -{" "}
@@ -294,7 +297,9 @@ if (Astro.request.method === "POST") {
   .schedule__time {
     min-width: 20ch;
   }
-  .schedule__event {
+
+  .schedule__timestamp {
+    font-variant-numeric: tabular-nums;
   }
 
   .event__grid {
