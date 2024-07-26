@@ -120,8 +120,20 @@ if (Astro.request.method === "POST") {
             safety and security. We may use it for ocassional reminders or event
             updates only and won't share or sell your data.
           </p>
-          <Input type="text" name="name" label="Name" required />
-          <Input type="email" name="email" label="Email" required />
+          <Input
+            type="text"
+            name="name"
+            label="Name"
+            required
+            placeholder="Tim Cook"
+          />
+          <Input
+            type="email"
+            name="email"
+            label="Email"
+            required
+            placeholder="timcook@apple.com"
+          />
           <div class="dialog__buttons">
             <Button id="signup-submit" text="Sign up for the event" />
             <button class="dialog__close" type="button" id="signup-close"

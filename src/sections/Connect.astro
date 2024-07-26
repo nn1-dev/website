@@ -16,7 +16,13 @@ import Input from "../components/Input.astro";
         frequent updates, follow us on social media.
       </p>
       <form class="connect__form" method="POST" action="/newsletter">
-        <Input type="text" label="Email" name="email" required />
+        <Input
+          type="email"
+          label="Email"
+          name="email"
+          placeholder="timcook@apple.com"
+          required
+        />
         <button class="connect__submit">Subscribe</button>
       </form>
       <div class="connect__buttons">
