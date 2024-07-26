@@ -2,17 +2,23 @@
 interface Props {
   label: string;
   name: string;
+  placeholder?: string;
   required?: boolean;
 }
 
-const { label, required, name } = Astro.props;
+const { label, required, name, placeholder } = Astro.props;
 ---
 
 <div class="input">
   <label class="input__label" for={name}
     >{label} {required ? "(required)" : "(optional)"}</label
   >
-  <textarea class="input__field" name={name} id={name} rows="3"></textarea>
+  <textarea
+    class="input__field"
+    name={name}
+    id={name}
+    rows="3"
+    placeholder={placeholder}></textarea>
 </div>
 
 <style>

@@ -2,11 +2,12 @@
 interface Props {
   label: string;
   name: string;
+  placeholder?: string;
   type: "text" | "email";
   required?: boolean;
 }
 
-const { label, required, type, name } = Astro.props;
+const { label, required, type, name, placeholder } = Astro.props;
 ---
 
 <div class="input">
@@ -19,6 +20,7 @@ const { label, required, type, name } = Astro.props;
     name={name}
     id={name}
     required={required}
+    placeholder={placeholder}
   />
 </div>
 
