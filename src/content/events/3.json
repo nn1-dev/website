@@ -2,8 +2,8 @@
   "id": 3,
   "name": "#3: \"Visualising Data Pipelines in Diffusion Models\" by Jordan Legg and \"The impact of Generative AI on SEO\" by James Bavington",
   "description": "Whether you like it or not, AI is everywhere! We would love to invite you to our third event to explore two sectors that recently underwent transformative changes: SEO and text-to-image generation.",
-  "dateStart": "2024-09-26T18:00Z",
-  "dateEnd": "2024-09-26T20:00Z",
+  "dateStart": "2024-09-26T17:00Z",
+  "dateEnd": "2024-09-26T19:00Z",
   "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "ticketText": "FREE",
@@ -12,29 +12,29 @@
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
     {
-      "dateStart": "2024-06-27T18:00Z",
-      "dateEnd": "2024-06-27T18:15Z",
+      "dateStart": "2024-06-27T17:00Z",
+      "dateEnd": "2024-06-27T17:15Z",
       "title": "Meet and Greet"
     },
     {
-      "dateStart": "2024-06-27T18:15Z",
-      "dateEnd": "2024-06-27T18:30Z",
+      "dateStart": "2024-06-27T17:15Z",
+      "dateEnd": "2024-06-27T17:30Z",
       "title": "Intro"
     },
     {
-      "dateStart": "2024-06-27T18:30Z",
-      "dateEnd": "2024-06-27T19:00Z",
+      "dateStart": "2024-06-27T17:30Z",
+      "dateEnd": "2024-06-27T18:00Z",
       "title": "\"Visualising Data Pipelines in Diffusion Models\" by Jordan Legg",
       "description": "Explore ComfyUI, a powerful tool for visualising data pipelines in diffusion models. We'll start with an introduction to diffusion models and their significance. Then let’s discover how ComfyUI simplifies the understanding and debugging of complex data flows through practical applications and real-world examples. Highlights include Stable Diffusion 3, SDXL lighting, AI upscaling, and more. Gain insights into how I optimise my diffusion model workflows with this intuitive interface."
     },
     {
-      "dateStart": "2024-06-27T19:00Z",
-      "dateEnd": "2024-06-27T19:15Z",
+      "dateStart": "2024-06-27T18:00Z",
+      "dateEnd": "2024-06-27T18:15Z",
       "title": "Break"
     },
     {
-      "dateStart": "2024-06-27T19:15Z",
-      "dateEnd": "2024-06-27T19:45Z",
+      "dateStart": "2024-06-27T18:15Z",
+      "dateEnd": "2024-06-27T18:45Z",
       "title": "\"The impact of Generative AI on SEO\" by James Bavington",
       "description": "A fast-paced deep-dive into the continually changing landscape of search engine optimisation in the wake of generative AI. From the performance of AI generated content to Google's recently launched AI Overviews , this talk focuses on real-world client examples and actionable tips to feed into your day to day as a developer."
     }

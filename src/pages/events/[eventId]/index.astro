@@ -40,21 +40,24 @@ const {
   },
 } = entry;
 
-const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
+const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/London",
   weekday: "long",
   year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-  hour: "2-digit",
-  minute: "2-digit",
-});
+  month: "numeric",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: false,
+}).format(dateStart);
 
-function scheduleTimeFormat(date: Date) {
-  return date.toLocaleTimeString("en-GB", {
+const scheduleTimeFormat = (date: Date) =>
+  new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
     hour: "2-digit",
     minute: "2-digit",
-  });
-}
+    hour12: false,
+  }).format(date);
 
 const isUpcoming = new Date().getTime() < dateStart.getTime();
 
