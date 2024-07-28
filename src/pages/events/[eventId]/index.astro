@@ -51,12 +51,13 @@ const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
   hour12: false,
 }).format(dateStart);
 
-function scheduleTimeFormat(date: Date) {
-  return date.toLocaleDateString("en-GB", {
+const scheduleTimeFormat = (date: Date) =>
+  new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
     hour: "2-digit",
     minute: "2-digit",
-  });
-}
+    hour12: false,
+  }).format(date);
 
 const isUpcoming = new Date().getTime() < dateStart.getTime();
 
