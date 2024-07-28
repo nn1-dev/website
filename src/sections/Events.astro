@@ -12,6 +12,14 @@ const coworkingDays = [
 ];
 
 const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
+
+const formatTime = (date: Date) =>
+  new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).format(date);
 ---
 
 <Section style="contrast">
@@ -31,6 +39,12 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
             hour: "2-digit",
             minute: "2-digit",
           });
+          const dateStartParsedNew = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Europe/London",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }).format(dateStart);
           return (
             <a href={`/events/${id}`} class="events__item events__item--link">
               <span
@@ -59,7 +73,7 @@ const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
                     />
                   </svg>
                   <time datetime={dateStart.toISOString()}>
-                    {dateStartParsed}
+                    {dateStartParsed} |{dateStartParsedNew}
                   </time>
                 </li>
                 <li class="events__item-list-item">
