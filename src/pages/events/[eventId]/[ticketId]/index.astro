@@ -48,31 +48,31 @@ const {
         description="Thanks a lot for signing up! We are looking forward to seeing you soon. Until then, stay safe!"
       >
         <ButtonLink href={`/events/${id}`} text="Go to event details" />
-        <!-- <p> -->
-          <!-- Add it to your calendar:{" "} -->
-          <!-- <a -->
-            <!-- href={`/events/${id}.ics`} -->
-            <!-- download={`nn1-dev-club-${eventId}.ics`} -->
-          <!-- > -->
-            <!-- iCalendar -->
-          <!-- </a>. -->
-          <!-- ,{" "} -->
-          <!-- <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20240926T170000Z%2F20240926T190000Z&details=DESCRIPTION&location=LOCATION&text=TITLE"> -->
-            <!-- Google calendar -->
-          <!-- </a> -->
-          <!-- ,{" "} -->
-          <!-- <a href="https://outlook.live.com/calendar/0/action/compose?allday=false&body=DESCRIPTION&enddt=2024-09-26T20%3A00%3A00&location=LOCATION&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2024-09-26T18%3A00%3A00&subject=TITLE"> -->
-            <!-- Outlook -->
-          <!-- </a> -->
-          <!-- ,{" "} -->
-          <!-- <a href="https://calendar.yahoo.com/?desc=DESCRIPTION&dur=false&et=20240926T190000Z&in_loc=LOCATION&st=20240926T170000Z&title=TITLE&v=60"> -->
-            <!-- Yahoo Calendar -->
-          <!-- </a>{" "} -->
-          <!-- or{" "} -->
-          <!-- <a href="https://outlook.office.com/calendar/0/action/compose?allday=false&body=DESCRIPTION&enddt=2024-09-26T20%3A00%3A00&location=LOCATION&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2024-09-26T18%3A00%3A00&subject=TITLE"> -->
-            <!-- Office365 -->
-          <!-- </a> -->
-        <!-- </p> -->
+        <p>
+          Add it to your calendar:{" "}
+          <a
+            href={`/events/${id}/invite.ics`}
+            download={`nn1-dev-club-${eventId}.ics`}
+          >
+            iCalendar
+          </a>
+          . ,{" "}
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20240926T170000Z%2F20240926T190000Z&details=DESCRIPTION&location=LOCATION&text=TITLE">
+            Google calendar
+          </a>
+          ,{" "}
+          <a href="https://outlook.live.com/calendar/0/action/compose?allday=false&body=DESCRIPTION&enddt=2024-09-26T20%3A00%3A00&location=LOCATION&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2024-09-26T18%3A00%3A00&subject=TITLE">
+            Outlook
+          </a>
+          ,{" "}
+          <a href="https://calendar.yahoo.com/?desc=DESCRIPTION&dur=false&et=20240926T190000Z&in_loc=LOCATION&st=20240926T170000Z&title=TITLE&v=60">
+            Yahoo Calendar
+          </a>{" "}
+          or{" "}
+          <a href="https://outlook.office.com/calendar/0/action/compose?allday=false&body=DESCRIPTION&enddt=2024-09-26T20%3A00%3A00&location=LOCATION&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2024-09-26T18%3A00%3A00&subject=TITLE">
+            Office365
+          </a>
+        </p>
       </Hero>
     ) : (
       <Hero
