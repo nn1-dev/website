@@ -33,6 +33,12 @@ ORGANIZER;CN=NN1 Dev Club:MAILTO:club@nn1.dev
 END:VEVENT
 END:VCALENDAR
 `,
+    {
+      headers: {
+        "Content-Type": "text/calendar; charset=utf-8",
+        "Content-Disposition": 'attachment; filename="event.ics"',
+      },
+    },
   );
 };
 
