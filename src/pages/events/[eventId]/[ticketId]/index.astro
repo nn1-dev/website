@@ -1,6 +1,7 @@
 ---
 import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
+import { getInviteUrls } from "../../../../utils.ts";
 import Layout from "../../../../layouts/Layout.astro";
 import Hero from "../../../../sections/Hero.astro";
 import ButtonLink from "../../../../components/ButtonLink.astro";
@@ -36,15 +37,17 @@ if (!ticketResponseJson.data.value) {
 }
 
 const {
-  data: { id, name, description, dateStart, dateEnd },
+  data: { id, name, description, locationText, dateStart, dateEnd },
 } = entry;
 
-const formatDate = (date: Date) =>
-  `${date.toISOString().replaceAll("-", "").replaceAll(":", "").replaceAll(".", "").slice(0, 15)}Z`;
-const formattedDataStart = formatDate(dateStart);
-const formattedDataEnd = formatDate(dateEnd);
-console.log({ formattedDataStart });
-console.log({ formattedDataEnd });
+const inviteUrls = getInviteUrls({
+  id,
+  name,
+  description,
+  location: locationText,
+  dateStart,
+  dateEnd,
+});
 ---
 
 <Layout title={`${name} | NN1 Dev Club`} description={description} noIndex>
@@ -55,8 +58,9 @@ console.log({ formattedDataEnd });
         description="Thanks a lot for signing up! We are looking forward to seeing you soon. Until then, stay safe!"
       >
         <p>
-          Add it to your calendar:{" "}
-          <a href={`/events/${id}/event.ics`}>iCalendar</a>.
+          Add it to your calendar: <a href={inviteUrls.iCal}>iCalendar</a>,{" "}
+          <a href={inviteUrls.google}>Google</a> or{" "}
+          <a href={inviteUrls.outlook}>Outlook</a>.
         </p>
         <ButtonLink href={`/events/${id}`} text="Go to event details" />
       </Hero>
