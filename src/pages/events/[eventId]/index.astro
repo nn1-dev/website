@@ -11,6 +11,7 @@ import Heading from "../../../components/Heading.astro";
 import Input from "../../../components/Input.astro";
 import Checkbox from "../../../components/Checkbox.astro";
 import Button from "../../../components/Button.astro";
+import { getInviteUrls } from "../../../utils";
 
 export const prerender = false;
 
@@ -30,6 +31,7 @@ const {
     name,
     description,
     dateStart,
+    dateEnd,
     locationText,
     locationUrl,
     parkingText,
@@ -62,6 +64,15 @@ const scheduleTimeFormat = (date: Date) =>
 const isUpcoming = new Date().getTime() < dateStart.getTime();
 
 if (Astro.request.method === "POST") {
+  const inviteUrls = getInviteUrls({
+    id,
+    name,
+    description,
+    location: locationText,
+    dateStart,
+    dateEnd,
+  });
+
   try {
     const data = await Astro.request.formData();
     const name = data.get("name");
@@ -83,6 +94,8 @@ if (Astro.request.method === "POST") {
           eventName: entry.data.name,
           eventDate: dateStartParsed,
           eventLocation: locationText,
+          eventInviteUrlIcal: inviteUrls.iCal,
+          eventInviteUrlGoogle: inviteUrls.google,
         }),
       }),
       ...(newsletterEnabled

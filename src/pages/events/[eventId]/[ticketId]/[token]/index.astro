@@ -1,6 +1,7 @@
 ---
 import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
+import { getInviteUrls } from "../../../../../utils";
 
 export const prerender = false;
 
@@ -15,8 +16,18 @@ if (entry === undefined) {
 }
 
 const {
-  data: { id, dateStart, locationText },
+  data: { id, name, description, dateStart, dateEnd, locationText },
 } = entry;
+
+const inviteUrls = getInviteUrls({
+  id,
+  name,
+  description,
+  location: locationText,
+  dateStart,
+  dateEnd,
+});
+
 const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
   weekday: "long",
   year: "numeric",
@@ -38,6 +49,8 @@ const ticketResponse = await fetch("https://tickets.nn1.dev/", {
     eventName: entry.data.name,
     eventDate: dateStartParsed,
     eventLocation: locationText,
+    eventInviteUrlIcal: inviteUrls.iCal,
+    eventInviteUrlGoogle: inviteUrls.google,
   }),
 });
 
