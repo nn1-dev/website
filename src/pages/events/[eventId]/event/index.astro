@@ -1,0 +1,11 @@
+---
+export const prerender = false;
+
+const { eventId } = Astro.params;
+
+if (!eventId) {
+  return Astro.redirect("/404");
+}
+
+return Astro.redirect(`/events/${eventId}/event.ics`);
+---
