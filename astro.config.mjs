@@ -36,6 +36,6 @@ export default defineConfig({
     }),
   ],
   redirects: {
-    "/events/3/event": "/events/3/event.ics",
+    "/events/[...eventId]/event": "/events/[...eventId]/event.ics",
   },
 });
