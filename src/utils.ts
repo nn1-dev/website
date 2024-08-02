@@ -66,7 +66,7 @@ const getInviteUrls = ({
   const encodedLocation = encodeURIComponent(location);
 
   return {
-    iCal: `https://nn1.dev/events/${id}/ical`,
+    iCal: `https://nn1.dev/events/${id}/event.ics`,
     google: `https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${googleStart}%2F${googleEnd}&details=${encodedDescription}&location=${encodedLocation}&text=${encodedName}`,
     // outlook: `https://outlook.live.com/calendar/0/action/compose?allday=false&body=${encodedDescription}&enddt=${outlookEnd}&location=${encodedLocation}&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=${outlookStart}&subject=${encodedName}`,
     // office365: `https://outlook.office.com/calendar/0/action/compose?allday=false&body=${encodedDescription}&enddt=${outlookEnd}&location=${encodedLocation}&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=${outlookStart}&subject=${encodedName}`,
