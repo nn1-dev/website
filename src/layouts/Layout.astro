@@ -94,22 +94,6 @@ const { title, description, og, noIndex } = Astro.props;
     </style>
 
     <style is:global>
-      @font-face {
-        font-family: InterVariable;
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url("/InterVariable.woff2") format("woff2");
-      }
-
-      @font-face {
-        font-family: InterVariable;
-        font-style: italic;
-        font-weight: 100 900;
-        font-display: swap;
-        src: url("/InterVariable-Italic.woff2") format("woff2");
-      }
-
       * {
         margin: 0;
         padding: 0;
@@ -138,7 +122,7 @@ const { title, description, og, noIndex } = Astro.props;
       }
 
       body {
-        font-family: InterVariable, system-ui, sans-serif;
+        font-family: system-ui, sans-serif;
         font-size: var(--fz);
         line-height: var(--lh);
         color: var(--color-fg);
