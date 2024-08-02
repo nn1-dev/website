@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+
+const { eventId } = Astro.params;
+
+return Astro.redirect(`/events/${eventId}/ical.ics`);
+
+export async function getStaticPaths() {
+  const allEvents = await getCollection("events");
+
+  return allEvents.map(({ data }) => ({
+    params: { eventId: data.id },
+  }));
+}
+---
