@@ -32,9 +32,9 @@ const {
     description,
     dateStart,
     dateEnd,
-    locationText,
+    location,
     locationUrl,
-    parkingText,
+    parking,
     parkingUrl,
     schedule,
     guests,
@@ -68,7 +68,7 @@ if (Astro.request.method === "POST") {
     id,
     name,
     description,
-    location: locationText,
+    location: location,
     dateStart,
     dateEnd,
   });
@@ -93,7 +93,7 @@ if (Astro.request.method === "POST") {
           eventId: id,
           eventName: entry.data.name,
           eventDate: dateStartParsed,
-          eventLocation: locationText,
+          eventLocation: location,
           eventInviteUrlIcal: inviteUrls.iCal,
           eventInviteUrlGoogle: inviteUrls.google,
         }),
@@ -217,7 +217,7 @@ if (Astro.request.method === "POST") {
                   clip-rule="evenodd"></path>
               </svg>
               <a href={locationUrl}>
-                {locationText}
+                {location}
               </a>
             </li>
             <li class="events__item-list-item">
@@ -231,7 +231,7 @@ if (Astro.request.method === "POST") {
                 ></path></svg
               >
               <a href={parkingUrl}>
-                {parkingText}
+                {parking}
               </a>
             </li>
             <li class="events__item-list-item">
@@ -304,13 +304,13 @@ if (Astro.request.method === "POST") {
   .event {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--lh) * 4);
+    gap: calc(var(--lh) * 3);
   }
 
   .event__section {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--lh) * 2);
+    gap: calc(var(--lh) * 1.5);
   }
 
   .events__item-list {
