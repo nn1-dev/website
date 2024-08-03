@@ -4,11 +4,11 @@
   "description": "Following the well-received inaugural event of our new series, we are excited to invite you to a second edition of NN1 Dev Club. This time, we will dive into practical design tactics with Thomas Reeve and secrets of type-safe localization of Unsplash.com with Oliver Ash. Save the date!",
   "dateStart": "2024-06-27T17:00Z",
   "dateEnd": "2024-06-27T19:00Z",
-  "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "locatoinLatitude": "52.23585",
   "locatoinLongitude": "-0.894449",
-  "parkingText": "St. John's Multi Storey Car Park",
+  "parking": "St. John's Multi Storey Car Park",
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
     {

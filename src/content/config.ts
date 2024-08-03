@@ -8,11 +8,11 @@ const eventsCollection = defineCollection({
     description: z.string(),
     dateStart: z.coerce.date(),
     dateEnd: z.coerce.date(),
-    locationText: z.string(),
+    location: z.string(),
     locationUrl: z.string().url(),
     locatoinLatitude: z.string(),
     locatoinLongitude: z.string(),
-    parkingText: z.string(),
+    parking: z.string(),
     parkingUrl: z.string().url(),
     schedule: z.array(
       z.object({
