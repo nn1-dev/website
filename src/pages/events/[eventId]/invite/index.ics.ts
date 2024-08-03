@@ -26,7 +26,7 @@ DTSTAMP:${formatDate(new Date())}
 SUMMARY:NN1 Dev Club ${entry.data.name}
 DESCRIPTION:${entry.data.description}
 URL:https://nn1.dev/events/${eventId}
-LOCATION:${entry.data.locationText.replaceAll(", ", "\\n")}
+LOCATION:${entry.data.location.replaceAll(", ", "\\n")}
 GEO:${entry.data.locatoinLatitude};${entry.data.locatoinLongitude}
 UID:${entry.data.id}
 ORGANIZER;CN=NN1 Dev Club:MAILTO:club@nn1.dev

@@ -37,14 +37,14 @@ if (!ticketResponseJson.data.value) {
 }
 
 const {
-  data: { id, name, description, locationText, dateStart, dateEnd },
+  data: { id, name, description, location, dateStart, dateEnd },
 } = entry;
 
 const inviteUrls = getInviteUrls({
   id,
   name,
   description,
-  location: locationText,
+  location,
   dateStart,
   dateEnd,
 });

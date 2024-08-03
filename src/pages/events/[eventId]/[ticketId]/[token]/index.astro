@@ -16,14 +16,14 @@ if (entry === undefined) {
 }
 
 const {
-  data: { id, name, description, dateStart, dateEnd, locationText },
+  data: { id, name, description, dateStart, dateEnd, location },
 } = entry;
 
 const inviteUrls = getInviteUrls({
   id,
   name,
   description,
-  location: locationText,
+  location,
   dateStart,
   dateEnd,
 });
@@ -48,7 +48,7 @@ const ticketResponse = await fetch("https://tickets.nn1.dev/", {
     eventId: id,
     eventName: entry.data.name,
     eventDate: dateStartParsed,
-    eventLocation: locationText,
+    eventLocation: location,
     eventInviteUrlIcal: inviteUrls.iCal,
     eventInviteUrlGoogle: inviteUrls.google,
   }),
