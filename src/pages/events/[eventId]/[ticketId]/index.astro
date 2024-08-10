@@ -1,4 +1,5 @@
 ---
+import * as Sentry from "@sentry/astro";
 import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
 import { getInviteUrls } from "../../../../utils.ts";
@@ -10,29 +11,44 @@ export const prerender = false;
 
 const { eventId, ticketId } = Astro.params;
 if (!eventId || !ticketId) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
 const entry = await getEntry("events", eventId);
 if (entry === undefined) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
-const ticketResponse = await fetch(
-  `https://tickets.nn1.dev/${eventId}/${ticketId}`,
-  {
-    headers: {
-      Authorization: `Bearer ${API_KEY_TICKETS}`,
+let ticketConfirmed = false;
+
+try {
+  const response = await fetch(
+    `https://tickets.nn1.dev/${eventId}/${ticketId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${API_KEY_TICKETS}`,
+      },
     },
-  },
-);
-if (!ticketResponse.ok) {
-  return Astro.redirect("/404");
-}
+  );
 
-const ticketResponseJson = await ticketResponse.json();
+  if (!response.ok) {
+    throw new Error("Token validation failed.");
+  }
 
-if (!ticketResponseJson.data.value) {
+  const responseJson:
+    | { status: "success"; statusCode: number; data: any; error: null }
+    | { status: "error"; statusCode: number; data: null; error: string } =
+    await response.json();
+
+  if (responseJson.error) {
+    throw new Error(responseJson.error);
+  }
+
+  ticketConfirmed = true;
+} catch (error) {
+  Sentry.captureException(error);
   return Astro.redirect("/404");
 }
 
@@ -52,7 +68,7 @@ const inviteUrls = getInviteUrls({
 
 <Layout title={`${name} | NN1 Dev Club`} description={description} noIndex>
   {
-    ticketResponseJson.data.value?.confirmed ? (
+    ticketConfirmed ? (
       <Hero
         title="🎉 Your ticket is confirmed"
         description="Thanks a lot for signing up! We are looking forward to seeing you soon. Until then, stay safe!"

@@ -1,4 +1,5 @@
 ---
+import * as Sentry from "@sentry/astro";
 import { API_KEY_TICKETS, API_KEY_NEWSLETTER } from "astro:env/server";
 import { getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
@@ -17,11 +18,13 @@ export const prerender = false;
 
 const { eventId } = Astro.params;
 if (eventId === undefined) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
 const entry = await getEntry("events", eventId);
 if (entry === undefined) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
@@ -81,7 +84,7 @@ if (Astro.request.method === "POST") {
 
     const newsletterEnabled = newsletter === "on";
 
-    const [ticketResponse, _newsletterResponse] = await Promise.all([
+    const [response] = await Promise.all([
       fetch("https://tickets.nn1.dev/", {
         method: "POST",
         headers: {
@@ -113,27 +116,34 @@ if (Astro.request.method === "POST") {
         : []),
     ]);
 
-    if (!ticketResponse.ok) {
-      return Astro.redirect("/404");
+    if (!response.ok) {
+      throw new Error("Failed to create a new ticket.");
     }
 
-    const ticketJson: {
-      status: "success" | "error";
-      data: {
-        key: (string | number)[];
-      } | null;
-      error: null | string;
-    } = await ticketResponse.json();
+    const responseJson:
+      | {
+          status: "success";
+          statusCode: number;
+          data: {
+            key: [string, number, string];
+          };
+          error: null;
+        }
+      | {
+          status: "error";
+          statusCode: number;
+          data: null;
+          error: string;
+        } = await response.json();
 
-    if (ticketJson.status === "error") {
-      return Astro.redirect("/404");
+    if (responseJson.error) {
+      throw new Error(responseJson.error);
     }
 
-    return Astro.redirect(`/events/${id}/${ticketJson.data.key[2]}`);
+    return Astro.redirect(`/events/${id}/${responseJson.data.key[2]}`);
   } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
+    Sentry.captureException(error);
+    return Astro.redirect("/404");
   }
 }
 ---

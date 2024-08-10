@@ -1,4 +1,5 @@
 ---
+import * as Sentry from "@sentry/astro";
 import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
 import { getInviteUrls } from "../../../../../utils";
@@ -7,11 +8,13 @@ export const prerender = false;
 
 const { eventId, ticketId, token } = Astro.params;
 if (!eventId || !ticketId || !token) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
 const entry = await getEntry("events", eventId);
 if (entry === undefined) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
@@ -37,24 +40,38 @@ const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
   minute: "2-digit",
 });
 
-const ticketResponse = await fetch("https://tickets.nn1.dev/", {
-  method: "PUT",
-  headers: {
-    Authorization: `Bearer ${API_KEY_TICKETS}`,
-  },
-  body: JSON.stringify({
-    ticketId,
-    ticketToken: token,
-    eventId: id,
-    eventName: entry.data.name,
-    eventDate: dateStartParsed,
-    eventLocation: location,
-    eventInviteUrlIcal: inviteUrls.iCal,
-    eventInviteUrlGoogle: inviteUrls.google,
-  }),
-});
+try {
+  const response = await fetch("https://tickets.nn1.dev/", {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${API_KEY_TICKETS}`,
+    },
+    body: JSON.stringify({
+      ticketId,
+      ticketToken: token,
+      eventId: id,
+      eventName: entry.data.name,
+      eventDate: dateStartParsed,
+      eventLocation: location,
+      eventInviteUrlIcal: inviteUrls.iCal,
+      eventInviteUrlGoogle: inviteUrls.google,
+    }),
+  });
 
-if (ticketResponse.status !== 200) {
+  if (!response.ok) {
+    throw new Error("Token validation failed.");
+  }
+
+  const responseJson:
+    | { status: "success"; statusCode: number; data: any; error: null }
+    | { status: "error"; statusCode: number; data: null; error: string } =
+    await response.json();
+
+  if (responseJson.error) {
+    throw new Error(responseJson.error);
+  }
+} catch (error) {
+  Sentry.captureException(error);
   return Astro.redirect("/404");
 }
 
