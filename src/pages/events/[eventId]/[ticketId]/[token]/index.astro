@@ -29,7 +29,7 @@ try {
   );
 
   if (!response.ok) {
-    throw new Error("Token validation failed.");
+    throw new Error("Ticket doesn't exist.");
   }
 
   const responseJson:
