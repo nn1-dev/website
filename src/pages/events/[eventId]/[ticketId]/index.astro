@@ -46,7 +46,9 @@ try {
     throw new Error(responseJson.error);
   }
 
-  ticketConfirmed = true;
+  if (responseJson.data.value?.confirmed) {
+    ticketConfirmed = true;
+  }
 } catch (error) {
   Sentry.captureException(error);
   return Astro.redirect("/404");
