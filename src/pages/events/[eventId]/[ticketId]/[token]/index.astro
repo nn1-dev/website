@@ -18,6 +18,37 @@ if (entry === undefined) {
   return Astro.redirect("/404");
 }
 
+try {
+  const response = await fetch(
+    `https://tickets.nn1.dev/${eventId}/${ticketId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${API_KEY_TICKETS}`,
+      },
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error("Token validation failed.");
+  }
+
+  const responseJson:
+    | { status: "success"; statusCode: number; data: any; error: null }
+    | { status: "error"; statusCode: number; data: null; error: string } =
+    await response.json();
+
+  if (responseJson.error) {
+    throw new Error(responseJson.error);
+  }
+
+  if (responseJson.data.value?.confirmed) {
+    return Astro.redirect(`/events/${eventId}/${ticketId}`);
+  }
+} catch (error) {
+  Sentry.captureException(error);
+  return Astro.redirect("/404");
+}
+
 const {
   data: { id, name, description, dateStart, dateEnd, location },
 } = entry;
