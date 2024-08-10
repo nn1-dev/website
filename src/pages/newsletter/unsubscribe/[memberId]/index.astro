@@ -1,25 +1,39 @@
 ---
+import * as Sentry from "@sentry/astro";
 import { API_KEY_NEWSLETTER } from "astro:env/server";
 
 export const prerender = false;
 
 const { memberId } = Astro.params;
 if (!memberId) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
 try {
-  await fetch(`https://newsletter.nn1.dev/${memberId}`, {
+  const response = await fetch(`https://newsletter.nn1.dev/${memberId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${API_KEY_NEWSLETTER}`,
     },
   });
 
+  if (!response.ok) {
+    throw new Error("Failed to create a new ticket.");
+  }
+
+  const responseJson:
+    | { status: "success"; statusCode: number; data: any; error: null }
+    | { status: "error"; statusCode: number; data: null; error: string } =
+    await response.json();
+
+  if (responseJson.error) {
+    throw new Error(responseJson.error);
+  }
+
   return Astro.redirect("/newsletter/unsubscribe");
 } catch (error) {
-  if (error instanceof Error) {
-    console.error(error.message);
-  }
+  Sentry.captureException(error);
+  return Astro.redirect("/404");
 }
 ---
