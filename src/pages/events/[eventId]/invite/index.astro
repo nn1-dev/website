@@ -1,9 +1,17 @@
 ---
+import * as Sentry from "@sentry/astro";
+import { getEntry } from "astro:content";
+
 export const prerender = false;
 
 const { eventId } = Astro.params;
-
 if (!eventId) {
+  return Astro.redirect("/404");
+}
+
+const entry = await getEntry("events", eventId);
+if (entry === undefined) {
+  Sentry.captureMessage("Attempt to access invite.ics for non-existing event");
   return Astro.redirect("/404");
 }
 
