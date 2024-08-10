@@ -6,12 +6,13 @@ export const prerender = false;
 
 const { eventId } = Astro.params;
 if (!eventId) {
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
 const entry = await getEntry("events", eventId);
 if (entry === undefined) {
-  Sentry.captureMessage("Attempt to access invite.ics for non-existing event");
+  Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
 }
 
