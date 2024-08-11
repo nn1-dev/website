@@ -20,16 +20,7 @@ try {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to create a new ticket.");
-  }
-
-  const responseJson:
-    | { status: "success"; statusCode: number; data: any; error: null }
-    | { status: "error"; statusCode: number; data: null; error: string } =
-    await response.json();
-
-  if (responseJson.error) {
-    throw new Error(responseJson.error);
+    throw new Error("Failed to unsubscribe member.");
   }
 
   return Astro.redirect("/newsletter/unsubscribe");

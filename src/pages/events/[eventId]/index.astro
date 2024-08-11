@@ -137,10 +137,6 @@ if (Astro.request.method === "POST") {
           error: string;
         } = await response.json();
 
-    if (responseJson.error) {
-      throw new Error(responseJson.error);
-    }
-
     return Astro.redirect(`/events/${id}/${responseJson.data.key[2]}`);
   } catch (error) {
     Sentry.captureException(error);

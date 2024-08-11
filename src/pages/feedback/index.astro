@@ -35,15 +35,6 @@ if (Astro.request.method === "POST") {
       throw new Error("Failed to create a new ticket.");
     }
 
-    const responseJson:
-      | { status: "success"; statusCode: number; data: any; error: null }
-      | { status: "error"; statusCode: number; data: null; error: string } =
-      await response.json();
-
-    if (responseJson.error) {
-      throw new Error(responseJson.error);
-    }
-
     return Astro.redirect("/feedback/thanks");
   } catch (error) {
     Sentry.captureException(error);

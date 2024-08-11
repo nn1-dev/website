@@ -37,10 +37,6 @@ try {
     | { status: "error"; statusCode: number; data: null; error: string } =
     await response.json();
 
-  if (responseJson.error) {
-    throw new Error(responseJson.error);
-  }
-
   if (responseJson.data.value?.confirmed) {
     ticketConfirmed = true;
   }

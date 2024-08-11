@@ -32,10 +32,6 @@ try {
     | { status: "error"; statusCode: number; data: null; error: string } =
     await response.json();
 
-  if (responseJson.error) {
-    throw new Error(responseJson.error);
-  }
-
   if (responseJson.data.value?.confirmed) {
     return Astro.redirect(`/events/${eventId}/${ticketId}`);
   }
@@ -86,18 +82,9 @@ try {
     throw new Error("Token validation failed.");
   }
 
-  const responseJson:
-    | { status: "success"; statusCode: number; data: any; error: null }
-    | { status: "error"; statusCode: number; data: null; error: string } =
-    await response.json();
-
-  if (responseJson.error) {
-    throw new Error(responseJson.error);
-  }
+  return Astro.redirect(`/events/${eventId}/${ticketId}`);
 } catch (error) {
   Sentry.captureException(error);
   return Astro.redirect("/404");
 }
-
-return Astro.redirect(`/events/${eventId}/${ticketId}`);
 ---
