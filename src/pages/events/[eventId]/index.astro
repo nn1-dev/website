@@ -1,6 +1,5 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { API_KEY_TICKETS, API_KEY_NEWSLETTER } from "astro:env/server";
 import { getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
@@ -13,6 +12,12 @@ import Input from "../../../components/Input.astro";
 import Checkbox from "../../../components/Checkbox.astro";
 import Button from "../../../components/Button.astro";
 import { getInviteUrls } from "../../../utils";
+import {
+  API_HEADERS_NEWSLETTER,
+  API_HEADERS_TICKETS,
+  API_URL_NEWSLETTER,
+  API_URL_TICKETS,
+} from "../../../constants";
 
 export const prerender = false;
 
@@ -85,11 +90,9 @@ if (Astro.request.method === "POST") {
     const newsletterEnabled = newsletter === "on";
 
     const [response] = await Promise.all([
-      fetch("https://tickets.nn1.dev/", {
+      fetch(API_URL_TICKETS, {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${API_KEY_TICKETS}`,
-        },
+        ...API_HEADERS_TICKETS,
         body: JSON.stringify({
           name,
           email,
@@ -103,11 +106,9 @@ if (Astro.request.method === "POST") {
       }),
       ...(newsletterEnabled
         ? [
-            fetch("https://newsletter.nn1.dev/", {
+            fetch(API_URL_NEWSLETTER, {
               method: "POST",
-              headers: {
-                Authorization: `Bearer ${API_KEY_NEWSLETTER}`,
-              },
+              ...API_HEADERS_NEWSLETTER,
               body: JSON.stringify({
                 email,
               }),

@@ -1,6 +1,9 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { API_KEY_NEWSLETTER } from "astro:env/server";
+import {
+  API_HEADERS_NEWSLETTER,
+  API_URL_NEWSLETTER,
+} from "../../../../constants";
 
 export const prerender = false;
 
@@ -11,11 +14,9 @@ if (!memberId) {
 }
 
 try {
-  const response = await fetch(`https://newsletter.nn1.dev/${memberId}`, {
+  const response = await fetch(`${API_URL_NEWSLETTER}/${memberId}`, {
     method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${API_KEY_NEWSLETTER}`,
-    },
+    ...API_HEADERS_NEWSLETTER,
   });
 
   if (!response.ok) {

@@ -1,8 +1,8 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { API_KEY_TICKETS } from "astro:env/server";
 import { getEntry } from "astro:content";
 import { getInviteUrls } from "../../../../../utils";
+import { API_URL_TICKETS, API_HEADERS_TICKETS } from "../../../../../constants";
 
 export const prerender = false;
 
@@ -19,14 +19,9 @@ if (entry === undefined) {
 }
 
 try {
-  const response = await fetch(
-    `https://tickets.nn1.dev/${eventId}/${ticketId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${API_KEY_TICKETS}`,
-      },
-    },
-  );
+  const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
+    ...API_HEADERS_TICKETS,
+  });
 
   if (!response.ok) {
     throw new Error("Ticket doesn't exist.");
@@ -72,11 +67,9 @@ const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
 });
 
 try {
-  const response = await fetch("https://tickets.nn1.dev/", {
+  const response = await fetch(API_URL_TICKETS, {
     method: "PUT",
-    headers: {
-      Authorization: `Bearer ${API_KEY_TICKETS}`,
-    },
+    ...API_HEADERS_TICKETS,
     body: JSON.stringify({
       ticketId,
       ticketToken: token,

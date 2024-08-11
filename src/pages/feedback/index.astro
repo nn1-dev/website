@@ -1,12 +1,12 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { API_KEY_FEEDBACK } from "astro:env/server";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../sections/Hero.astro";
 import Section from "../../components/Section.astro";
 import Container from "../../components/Container.astro";
 import Input from "../../components/Input.astro";
 import Textarea from "../../components/Textarea.astro";
+import { API_URL_FEEDBACK, API_HEADERS_FEEDBACK } from "../../constants";
 
 export const prerender = false;
 
@@ -19,11 +19,9 @@ if (Astro.request.method === "POST") {
     const interval = data.get("interval");
     const feedback = data.get("feedback");
 
-    const response = await fetch("https://feedback.nn1.dev/", {
+    const response = await fetch(API_URL_FEEDBACK, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${API_KEY_FEEDBACK}`,
-      },
+      ...API_HEADERS_FEEDBACK,
       body: JSON.stringify({
         name,
         stack,
