@@ -28,7 +28,7 @@ export default defineConfig({
   integrations: [
     sentry({
       dsn: "https://9ce758c607ef6a42feb350348185bbec@o4507649139146752.ingest.de.sentry.io/4507649154089040",
-      environment: import.meta.env.MODE,
+      environment: process.env.NODE_ENV,
       sourceMapsUploadOptions: {
         project: "website",
         authToken: process.env.SENTRY_AUTH_TOKEN,
