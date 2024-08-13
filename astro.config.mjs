@@ -1,10 +1,12 @@
 import { defineConfig, envField } from "astro/config";
 import netlify from "@astrojs/netlify";
-
 import sentry from "@sentry/astro";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://nn1.dev",
   output: "hybrid",
   adapter: netlify(),
   experimental: {
@@ -34,5 +36,6 @@ export default defineConfig({
         authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     }),
+    sitemap(),
   ],
 });

@@ -1,12 +1,18 @@
 ---
+import { SEO_TITLE, SEO_DESCRIPTION } from "../constants";
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   og?: string;
   noIndex?: boolean;
 }
 
-const { title, description, og, noIndex } = Astro.props;
+const {
+  title = SEO_TITLE,
+  description = SEO_DESCRIPTION,
+  og,
+  noIndex,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -15,8 +21,10 @@ const { title, description, og, noIndex } = Astro.props;
     <meta charset="UTF-8" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="dark only" />
+    <link rel="canonical" href="https://nn1.dev" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
