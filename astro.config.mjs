@@ -4,6 +4,8 @@ import sentry from "@sentry/astro";
 
 import sitemap from "@astrojs/sitemap";
 
+const EXCLUDED_ROUTES = ["https://nn1.dev/feedback/thanks/"];
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://nn1.dev",
@@ -36,6 +38,8 @@ export default defineConfig({
         authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !EXCLUDED_ROUTES.includes(page),
+    }),
   ],
 });
