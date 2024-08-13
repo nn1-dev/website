@@ -37,8 +37,9 @@ const { label, required, name, placeholder } = Astro.props;
     padding-inline: calc(var(--lh) / 3);
     border-radius: 4px;
     border: none;
-    box-shadow: 0 0 0 4px var(--color-border);
     resize: vertical;
+    box-shadow: 0 0 0 4px var(--color-border-light);
+    background-color: var(--color-border);
 
     &:focus,
     &:hover {

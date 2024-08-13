@@ -4,7 +4,12 @@ import sentry from "@sentry/astro";
 
 import sitemap from "@astrojs/sitemap";
 
-const EXCLUDED_ROUTES = ["https://nn1.dev/feedback/thanks/"];
+const EXCLUDED_ROUTES = [
+  "https://nn1.dev/feedback/thanks/",
+  "https://nn1.dev/newsletter/",
+  "https://nn1.dev/newsletter/unsubscribe/",
+  "https://nn1.dev/styleguide/",
+];
 
 // https://astro.build/config
 export default defineConfig({
