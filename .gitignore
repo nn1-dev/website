@@ -19,7 +19,5 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-.netlify/functions-internal/ssr
 .env.sentry-build-plugin
-.netlify/v1/config.json
 .netlify

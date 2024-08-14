@@ -65,6 +65,13 @@ const data = [
             class="organisers__logo"
           />
         </a>
+        <a href="https://www.palarestaurant.co.uk" class="organisers__partner">
+          <img
+            src="/partners/pala.png"
+            alt="Pala Restaurant"
+            class="organisers__logo"
+          />
+        </a>
       </div>
     </div>
   </Container>
@@ -92,13 +99,15 @@ const data = [
     gap: calc(var(--lh) / 2);
 
     @media (800px <= width) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 
   .organisers__partner {
-    padding-block: var(--lh);
-    padding-inline: var(--lh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--lh);
     background-color: var(--color-bg-contrast);
     box-shadow: inset 0 0 0 1px var(--color-border);
     border-radius: 4px;
@@ -106,11 +115,31 @@ const data = [
     &:hover {
       box-shadow: inset 0 0 0 1px var(--color-accent);
     }
+
+    &:nth-child(1) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(2) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(3) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(4) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(5) .organisers__logo {
+      aspect-ratio: 6/1;
+    }
   }
 
   .organisers__logo {
-    aspect-ratio: 4/1;
     object-fit: contain;
     width: 100%;
+    max-height: calc(var(--lh) * 2);
   }
 </style>
