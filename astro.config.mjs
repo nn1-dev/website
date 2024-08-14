@@ -1,6 +1,7 @@
 import { defineConfig, envField } from "astro/config";
 import netlify from "@astrojs/netlify";
 import sentry from "@sentry/astro";
+import fs from "node:fs";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -45,6 +46,9 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => !EXCLUDED_ROUTES.includes(page),
+      customPages: fs
+        .readdirSync("./src/content/events")
+        .map((event) => `https://nn1.dev/events/${event.slice(0, 1)}/`),
     }),
   ],
 });
