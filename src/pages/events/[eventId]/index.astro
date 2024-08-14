@@ -144,17 +144,17 @@ if (Astro.request.method === "POST") {
   }
 }
 
-// Tell the browser to always check the freshness of the cache
+// no cache in the browser
 Astro.response.headers.set(
   "Cache-Control",
   "public, max-age=0, must-revalidate",
 );
 
-// Tell Netlify's CDN to treat it as fresh for a day. Use Durable Cache to
-// minimize the need for serverless function calls.
+// cnd cache for a week
+// serve stale up to a month
 Astro.response.headers.set(
   "Netlify-CDN-Cache-Control",
-  "public, durable, s-maxage=86400",
+  "public, durable, s-maxage=604800, stale-while-revalidate=2629746",
 );
 ---
 
