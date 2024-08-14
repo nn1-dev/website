@@ -143,6 +143,19 @@ if (Astro.request.method === "POST") {
     return Astro.redirect("/404");
   }
 }
+
+// Tell the browser to always check the freshness of the cache
+Astro.response.headers.set(
+  "Cache-Control",
+  "public, max-age=0, must-revalidate",
+);
+
+// Tell Netlify's CDN to treat it as fresh for a day. Use Durable Cache to
+// minimize the need for serverless function calls.
+Astro.response.headers.set(
+  "Netlify-CDN-Cache-Control",
+  "public, durable, s-maxage=86400",
+);
 ---
 
 <Layout
