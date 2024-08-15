@@ -1,4 +1,5 @@
 ---
+import "../styles.css";
 import { SEO_TITLE, SEO_DESCRIPTION } from "../constants";
 interface Props {
   title?: string;
@@ -83,6 +84,7 @@ const {
       .skip-to-content:focus {
         transform: translateY(0);
       }
+
       .header {
         display: flex;
         justify-content: center;
@@ -99,77 +101,6 @@ const {
         font-size: 14px;
         text-align: center;
         padding: calc(var(--lh) * 2) var(--lh);
-      }
-    </style>
-
-    <style is:global>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --fz: 1rem;
-        --lh: 1.75rem;
-        --color-fg: oklch(98% 0.01 290);
-        --color-fg-dim: oklch(68% 0.01 290);
-        --color-bg: oklch(20% 0.01 290);
-        --color-bg-contrast: oklch(14% 0.01 290);
-        --color-border: oklch(26% 0.01 290);
-        --color-border-light: oklch(30% 0.01 290);
-        --color-accent: oklch(83% 0.05 70);
-        --color-accent-light: oklch(93% 0.05 70);
-      }
-
-      html {
-        background: var(--color-bg);
-        scroll-padding-top: var(--lh);
-        scroll-behavior: smooth;
-        -moz-text-size-adjust: none;
-        -webkit-text-size-adjust: none;
-        text-size-adjust: none;
-      }
-
-      body {
-        font-family: system-ui, sans-serif;
-        font-size: var(--fz);
-        line-height: var(--lh);
-        color: var(--color-fg);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      a {
-        color: var(--color-accent);
-        text-underline-offset: 3px;
-        transition: all 80ms;
-
-        &:hover {
-          color: var(--color-accent-light);
-        }
-
-        &:focus-visible {
-          outline: 2px dotted var(--color-accent);
-          outline-offset: 2px;
-          color: var(--color-accent-light);
-        }
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-      }
-
-      .anchor {
-        color: var(--color-border);
-        text-decoration: none;
-        margin-inline-start: calc(var(--lh) / 4);
-
-        &:hover {
-          color: var(--color-accent);
-          opacity: 1;
-        }
       }
     </style>
   </body>
