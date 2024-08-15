@@ -72,6 +72,9 @@ const data = [
             class="organisers__logo"
           />
         </a>
+        <a href="https://www.zyte.com" class="organisers__partner">
+          <img src="/partners/zyte.svg" alt="Zyte " class="organisers__logo" />
+        </a>
       </div>
     </div>
   </Container>
@@ -99,7 +102,7 @@ const data = [
     gap: calc(var(--lh) / 2);
 
     @media (800px <= width) {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
@@ -134,6 +137,10 @@ const data = [
 
     &:nth-child(5) .organisers__logo {
       aspect-ratio: 6/1;
+    }
+
+    &:nth-child(6) .organisers__logo {
+      aspect-ratio: 5/1;
     }
   }
 
