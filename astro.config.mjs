@@ -2,6 +2,7 @@ import { defineConfig, envField } from "astro/config";
 import netlify from "@astrojs/netlify";
 import sentry from "@sentry/astro";
 import fs from "node:fs";
+import path from "node:path";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -11,6 +12,10 @@ const EXCLUDED_ROUTES = [
   "https://nn1.dev/newsletter/unsubscribe/",
   "https://nn1.dev/styleguide/",
 ];
+
+const events = fs
+  .readdirSync("./src/content/events")
+  .map((file) => path.basename(file, path.extname(file)));
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,6 +40,13 @@ export default defineConfig({
       },
     },
   },
+  redirects: events.reduce(
+    (acc, item) => ({
+      ...acc,
+      [`/events/${item}/invite`]: `/events/${item}/invite.ics`,
+    }),
+    {},
+  ),
   integrations: [
     sentry({
       dsn: "https://9ce758c607ef6a42feb350348185bbec@o4507649139146752.ingest.de.sentry.io/4507649154089040",
@@ -46,9 +58,7 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => !EXCLUDED_ROUTES.includes(page),
-      customPages: fs
-        .readdirSync("./src/content/events")
-        .map((event) => `https://nn1.dev/events/${event.slice(0, 1)}/`),
+      customPages: events.map((event) => `https://nn1.dev/events/${event}/`),
     }),
   ],
 });
