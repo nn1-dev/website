@@ -40,37 +40,40 @@ const data = [
         <a href="https://vulcanworks.co.uk" class="organisers__partner">
           <img
             src="/partners/vulcan-works.png"
-            alt="Vulcan Works"
-            class="organisers__logo organisers__logo--vulcan-works"
+            alt="S-SA Digital"
+            class="organisers__logo"
           />
         </a>
         <a href="https://s-sa.co.uk" class="organisers__partner">
           <img
             src="/partners/s-sa.png"
             alt="S-SA Digital"
-            class="organisers__logo organisers__logo--s-sa"
+            class="organisers__logo"
           />
         </a>
         <a href="https://labs.uk.barclays" class="organisers__partner">
           <img
             src="/partners/barclays.png"
             alt="Barclays Eagle Labs"
-            class="organisers__logo organisers__logo--barclays"
+            class="organisers__logo"
           />
         </a>
         <a href="https://digitalnorthants.com" class="organisers__partner">
           <img
             src="/partners/digital-northants.png"
-            alt="Digital Northants"
-            class="organisers__logo organisers__logo--digital-noorthants"
+            alt="Digital northants Logo"
+            class="organisers__logo"
+          />
+        </a>
+        <a href="https://www.palarestaurant.co.uk" class="organisers__partner">
+          <img
+            src="/partners/pala.png"
+            alt="Pala Restaurant"
+            class="organisers__logo"
           />
         </a>
         <a href="https://www.zyte.com" class="organisers__partner">
-          <img
-            src="/partners/zyte.svg"
-            alt="Zyte"
-            class="organisers__logo organisers__logo--zyte"
-          />
+          <img src="/partners/zyte.svg" alt="Zyte " class="organisers__logo" />
         </a>
       </div>
     </div>
@@ -99,7 +102,7 @@ const data = [
     gap: calc(var(--lh) / 2);
 
     @media (800px <= width) {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
@@ -115,16 +118,35 @@ const data = [
     &:hover {
       box-shadow: inset 0 0 0 1px var(--color-accent);
     }
+
+    &:nth-child(1) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(2) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(3) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(4) .organisers__logo {
+      aspect-ratio: 3/1;
+    }
+
+    &:nth-child(5) .organisers__logo {
+      aspect-ratio: 6/1;
+    }
+
+    &:nth-child(6) .organisers__logo {
+      aspect-ratio: 5/1;
+    }
   }
 
   .organisers__logo {
     object-fit: contain;
     width: 100%;
     max-height: calc(var(--lh) * 2);
-    aspect-ratio: 3/1;
-  }
-
-  .organisers__logo--zyte {
-    aspect-ratio: 5/1;
   }
 </style>
