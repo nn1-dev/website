@@ -466,13 +466,25 @@ Astro.response.headers.set(
 
   if (buttonOpenOne && dialog) {
     buttonOpenOne.addEventListener("click", () => {
-      dialog.showModal();
+      if ("showModal" in dialog) {
+        dialog.showModal();
+      } else {
+        alert(
+          "Unfortunately, your browser is not supported. Please update your browser to order a ticket, or email club@nn1.dev, and we will issue a ticket for you manually. Sorry for the inconvenience.",
+        );
+      }
     });
   }
 
   if (buttonOpenTwo && dialog) {
     buttonOpenTwo.addEventListener("click", () => {
-      dialog.showModal();
+      if ("showModal" in dialog) {
+        dialog.showModal();
+      } else {
+        alert(
+          "Unfortunately, your browser is not supported. Please update your browser to order a ticket, or email club@nn1.dev, and we will issue a ticket for you manually. Sorry for the inconvenience.",
+        );
+      }
     });
   }
 
