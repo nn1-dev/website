@@ -1,48 +1,7 @@
 ---
-import * as Sentry from "@sentry/astro";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../sections/Hero.astro";
 import ButtonLink from "../../components/ButtonLink.astro";
-import { API_URL_NEWSLETTER, API_HEADERS_NEWSLETTER } from "../../constants";
-
-export const prerender = false;
-
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const email = data.get("email");
-
-    const response = await fetch(API_URL_NEWSLETTER, {
-      method: "POST",
-      ...API_HEADERS_NEWSLETTER,
-      body: JSON.stringify({
-        email,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to subscribe member.");
-    }
-
-    return Astro.redirect("/newsletter");
-  } catch (error) {
-    Sentry.captureException(error);
-    return Astro.redirect("/404");
-  }
-}
-
-// no cache in the browser
-Astro.response.headers.set(
-  "Cache-Control",
-  "public, max-age=0, must-revalidate",
-);
-
-// cnd cache for a week
-// serve stale up to a month
-Astro.response.headers.set(
-  "Netlify-CDN-Cache-Control",
-  "public, durable, s-maxage=604800, stale-while-revalidate=2629746",
-);
 ---
 
 <Layout title="Newsletter | NN1 Dev Club" noIndex>

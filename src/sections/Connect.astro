@@ -15,7 +15,7 @@ import Input from "../components/Input.astro";
         newsletter. We promise never to send you annoying crap. For more
         frequent updates, follow us on social media.
       </p>
-      <form class="connect__form" method="POST" action="/newsletter">
+      <form class="connect__form">
         <Input
           type="email"
           label="Email"
@@ -37,6 +37,19 @@ import Input from "../components/Input.astro";
     </div>
   </Container>
 </Section>
+
+<script>
+  import { actions } from "astro:actions";
+  import { navigate } from "astro:transitions/client";
+
+  const form = document.querySelector("form");
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const { error } = await actions.submitFormNewsletter(formData);
+    if (!error) navigate("/newsletter");
+  });
+</script>
 
 <style>
   .connect {
