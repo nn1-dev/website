@@ -1,6 +1,6 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { getEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
 import Container from "../../../components/Container.astro";
@@ -20,9 +20,17 @@ if (eventId === undefined) {
 }
 
 const entry = await getEntry("events", eventId);
+
 if (entry === undefined) {
   Sentry.captureMessage("Access non-existing event.");
   return Astro.redirect("/404");
+}
+export async function getStaticPaths() {
+  const allEvents = await getCollection("events");
+
+  return allEvents.map(({ data }) => ({
+    params: { eventId: data.id.toString() },
+  }));
 }
 
 const {
