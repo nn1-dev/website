@@ -1,4 +1,4 @@
-import { ActionError, defineAction } from "astro:actions";
+import { defineAction, ActionError } from "astro:actions";
 import { z } from "astro:schema";
 import * as Sentry from "@sentry/astro";
 import { API_HEADERS_NEWSLETTER, API_URL_NEWSLETTER } from "../constants";

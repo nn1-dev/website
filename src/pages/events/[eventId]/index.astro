@@ -12,14 +12,6 @@ import Input from "../../../components/Input.astro";
 import Checkbox from "../../../components/Checkbox.astro";
 import Button from "../../../components/Button.astro";
 import { getInviteUrls } from "../../../utils";
-import {
-  API_HEADERS_NEWSLETTER,
-  API_HEADERS_TICKETS,
-  API_URL_NEWSLETTER,
-  API_URL_TICKETS,
-} from "../../../constants";
-
-export const prerender = false;
 
 const { eventId } = Astro.params;
 if (eventId === undefined) {
@@ -71,91 +63,14 @@ const scheduleTimeFormat = (date: Date) =>
 
 const isUpcoming = new Date().getTime() < dateStart.getTime();
 
-if (Astro.request.method === "POST") {
-  const inviteUrls = getInviteUrls({
-    id,
-    name,
-    description,
-    location,
-    dateStart,
-    dateEnd,
-  });
-
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const newsletter = data.get("newsletter");
-
-    const newsletterEnabled = newsletter === "on";
-
-    const [response] = await Promise.all([
-      fetch(API_URL_TICKETS, {
-        method: "POST",
-        ...API_HEADERS_TICKETS,
-        body: JSON.stringify({
-          name,
-          email,
-          eventId: id,
-          eventName: entry.data.name,
-          eventDate: dateStartParsed,
-          eventLocation: location,
-          eventInviteUrlIcal: inviteUrls.iCal,
-          eventInviteUrlGoogle: inviteUrls.google,
-        }),
-      }),
-      ...(newsletterEnabled
-        ? [
-            fetch(API_URL_NEWSLETTER, {
-              method: "POST",
-              ...API_HEADERS_NEWSLETTER,
-              body: JSON.stringify({
-                email,
-              }),
-            }),
-          ]
-        : []),
-    ]);
-
-    if (!response.ok) {
-      throw new Error("Failed to create a new ticket.");
-    }
-
-    const responseJson:
-      | {
-          status: "success";
-          statusCode: number;
-          data: {
-            key: [string, number, string];
-          };
-          error: null;
-        }
-      | {
-          status: "error";
-          statusCode: number;
-          data: null;
-          error: string;
-        } = await response.json();
-
-    return Astro.redirect(`/events/${id}/${responseJson.data.key[2]}`);
-  } catch (error) {
-    Sentry.captureException(error);
-    return Astro.redirect("/404");
-  }
-}
-
-// no cache in the browser
-Astro.response.headers.set(
-  "Cache-Control",
-  "public, max-age=0, must-revalidate",
-);
-
-// cnd cache for a week
-// serve stale up to a month
-Astro.response.headers.set(
-  "Netlify-CDN-Cache-Control",
-  "public, durable, s-maxage=604800, stale-while-revalidate=2629746",
-);
+const inviteUrls = getInviteUrls({
+  id,
+  name,
+  description,
+  location,
+  dateStart,
+  dateEnd,
+});
 ---
 
 <Layout
@@ -169,7 +84,15 @@ Astro.response.headers.set(
   <Section style="contrast">
     <Container>
       <dialog class="dialog" id="signup-dialog">
-        <form class="dialog__form" method="POST">
+        <form
+          class="dialog__form"
+          data-event-id={id}
+          data-event-name={entry.data.name}
+          data-event-date={dateStartParsed}
+          data-event-location={location}
+          data-event-invite-url-ical={inviteUrls.iCal}
+          data-event-invite-url-google={inviteUrls.google}
+        >
           <Heading level={3} title="Get your free ticket" />
           <p>
             Collecting attendee information at mass events is required for
@@ -319,6 +242,62 @@ Astro.response.headers.set(
     </Container>
   </Section>
 </Layout>
+
+<script>
+  import { actions } from "astro:actions";
+  import { navigate } from "astro:transitions/client";
+  import * as Sentry from "@sentry/astro";
+
+  function isDataFieldDefined(field: string | undefined): field is string {
+    return field !== undefined;
+  }
+
+  const form = document.querySelector("form");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const eventId = form.dataset["event-id"];
+    const eventName = form.dataset["event-name"];
+    const eventLocation = form.dataset["event-location"];
+    const eventDate = form.dataset["event-date"];
+    const eventInviteUrlIcal = form.dataset["event-invite-url-ical"];
+    const eventInviteUrlGoogle = form.dataset["event-invite-url-google"];
+
+    const isEventIdDefined = isDataFieldDefined(eventId);
+    const isEventNameDefined = isDataFieldDefined(eventName);
+    const isEventLocationDefined = isDataFieldDefined(eventLocation);
+    const isEventDateDefined = isDataFieldDefined(eventDate);
+    const isEventInviteUrlIcalDefined = isDataFieldDefined(eventInviteUrlIcal);
+    const isEventInviteUrlGoogleDefined =
+      isDataFieldDefined(eventInviteUrlGoogle);
+
+    if (
+      !isEventIdDefined ||
+      !isEventNameDefined ||
+      !isEventLocationDefined ||
+      !isEventDateDefined ||
+      !isEventInviteUrlIcalDefined ||
+      !isEventInviteUrlGoogleDefined
+    ) {
+      Sentry.captureException("Missing data field.");
+      return null;
+    }
+
+    formData.append("eventId", eventId);
+    formData.append("eventName", eventName);
+    formData.append("eventLocation", eventLocation);
+    formData.append("eventDate", eventDate);
+    formData.append("eventInviteUrlIcal", eventInviteUrlIcal);
+    formData.append("eventInviteUrlGoogle", eventInviteUrlGoogle);
+
+    const { data, error } = await actions.submitFormTicket(formData);
+
+    if (!error) {
+      navigate(`/events/${eventId}/${data}`);
+    }
+  });
+</script>
 
 <style>
   .event {
