@@ -13,7 +13,7 @@ export default defineAction({
   input: z.object({
     name: z.string().trim(),
     email: z.string().email().trim(),
-    newsletter: z.string().transform((value) => value === "on"),
+    newsletter: z.optional(z.string().transform((value) => value === "on")),
     eventId: z.string().transform((value) => parseInt(value)),
     eventName: z.string(),
     eventDate: z.string(),

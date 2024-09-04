@@ -105,15 +105,20 @@ import Textarea from "../../components/Textarea.astro";
 
 <script>
   import { actions } from "astro:actions";
+  import * as Sentry from "@sentry/astro";
 
   const form = document.querySelector("form");
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const { error } = await actions.submitFormFeedback(formData);
-    if (!error) {
-      window.location.href = "/feedback/thanks";
+
+    if (error) {
+      Sentry.captureException(error);
+      throw new Error(error.message);
     }
+
+    window.location.href = "/feedback/thanks";
   });
 </script>
 

@@ -300,9 +300,12 @@ const inviteUrls = getInviteUrls({
 
     const { data, error } = await actions.submitFormTicket(formData);
 
-    if (!error) {
-      window.location.href = `/events/${eventId}/${data}`;
+    if (error) {
+      Sentry.captureException(error);
+      throw new Error(error.message);
     }
+
+    window.location.href = `/events/${eventId}/${data}`;
   });
 </script>
 
