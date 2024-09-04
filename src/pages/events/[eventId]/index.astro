@@ -253,7 +253,6 @@ const inviteUrls = getInviteUrls({
 
 <script>
   import { actions } from "astro:actions";
-  import { navigate } from "astro:transitions/client";
   import * as Sentry from "@sentry/astro";
 
   function isDataFieldDefined(field: string | undefined): field is string {
@@ -302,7 +301,7 @@ const inviteUrls = getInviteUrls({
     const { data, error } = await actions.submitFormTicket(formData);
 
     if (!error) {
-      navigate(`/events/${eventId}/${data}`);
+      window.location.href = `/events/${eventId}/${data}`;
     }
   });
 </script>

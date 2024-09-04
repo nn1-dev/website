@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import "../styles.css";
 import { SEO_TITLE, SEO_DESCRIPTION } from "../constants";
 interface Props {
@@ -40,7 +39,6 @@ const {
     <meta property="og:image" content={`https://nn1.dev/${og ?? "og.jpg"}`} />
     <meta name="twitter:card" content="summary_large_image" />
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
-    <ViewTransitions />
   </head>
 
   <body>

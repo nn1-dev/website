@@ -40,14 +40,15 @@ import Input from "../components/Input.astro";
 
 <script>
   import { actions } from "astro:actions";
-  import { navigate } from "astro:transitions/client";
 
   const form = document.querySelector("form");
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const { error } = await actions.submitFormNewsletter(formData);
-    if (!error) navigate("/newsletter");
+    if (!error) {
+      window.location.href = "/newsletter";
+    }
   });
 </script>
 
