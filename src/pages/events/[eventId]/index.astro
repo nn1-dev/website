@@ -264,12 +264,12 @@ const inviteUrls = getInviteUrls({
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    const eventId = form.dataset["event-id"];
-    const eventName = form.dataset["event-name"];
-    const eventLocation = form.dataset["event-location"];
-    const eventDate = form.dataset["event-date"];
-    const eventInviteUrlIcal = form.dataset["event-invite-url-ical"];
-    const eventInviteUrlGoogle = form.dataset["event-invite-url-google"];
+    const eventId = form.dataset["eventId"];
+    const eventName = form.dataset["eventName"];
+    const eventLocation = form.dataset["eventLocation"];
+    const eventDate = form.dataset["eventDate"];
+    const eventInviteUrlIcal = form.dataset["eventInviteUrlIcal"];
+    const eventInviteUrlGoogle = form.dataset["eventInviteUrlGoogle"];
 
     const isEventIdDefined = isDataFieldDefined(eventId);
     const isEventNameDefined = isDataFieldDefined(eventName);
@@ -287,22 +287,7 @@ const inviteUrls = getInviteUrls({
       !isEventInviteUrlIcalDefined ||
       !isEventInviteUrlGoogleDefined
     ) {
-      Sentry.captureException({
-        error: "Missing data field.",
-        eventId,
-        eventName,
-        eventLocation,
-        eventDate,
-        eventInviteUrlIcal,
-        eventInviteUrlGoogle,
-        isEventIdDefined,
-        isEventNameDefined,
-        isEventLocationDefined,
-        isEventDateDefined,
-        isEventInviteUrlIcalDefined,
-        isEventInviteUrlGoogleDefined,
-      });
-
+      Sentry.captureException("Missing data field");
       return null;
     }
 
