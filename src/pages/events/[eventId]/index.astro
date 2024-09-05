@@ -287,7 +287,22 @@ const inviteUrls = getInviteUrls({
       !isEventInviteUrlIcalDefined ||
       !isEventInviteUrlGoogleDefined
     ) {
-      Sentry.captureException("Missing data field.");
+      Sentry.captureException({
+        error: "Missing data field.",
+        eventId,
+        eventName,
+        eventLocation,
+        eventDate,
+        eventInviteUrlIcal,
+        eventInviteUrlGoogle,
+        isEventIdDefined,
+        isEventNameDefined,
+        isEventLocationDefined,
+        isEventDateDefined,
+        isEventInviteUrlIcalDefined,
+        isEventInviteUrlGoogleDefined,
+      });
+
       return null;
     }
 
