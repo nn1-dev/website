@@ -43,13 +43,17 @@ import Input from "../components/Input.astro";
   import * as Sentry from "@sentry/astro";
 
   const form = document.querySelector("form");
+  const FORM_LOADING_CLASS = "connect__form--loading";
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    form.classList.add(FORM_LOADING_CLASS);
     const formData = new FormData(form);
     const { error } = await actions.submitFormNewsletter(formData);
 
     if (error) {
       Sentry.captureException(error);
+      form.classList.remove(FORM_LOADING_CLASS);
       throw new Error(error.message);
     }
 
@@ -76,6 +80,11 @@ import Input from "../components/Input.astro";
     align-items: end;
     width: 100%;
     max-width: 55ch;
+  }
+
+  .connect__form--loading {
+    pointer-events: none;
+    opacity: 0.25;
   }
 
   .connect__submit {

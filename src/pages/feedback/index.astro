@@ -108,13 +108,17 @@ import Textarea from "../../components/Textarea.astro";
   import * as Sentry from "@sentry/astro";
 
   const form = document.querySelector("form");
+  const FORM_LOADING_CLASS = "form--loading";
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    form.classList.add(FORM_LOADING_CLASS);
     const formData = new FormData(form);
     const { error } = await actions.submitFormFeedback(formData);
 
     if (error) {
       Sentry.captureException(error);
+      form.classList.remove(FORM_LOADING_CLASS);
       throw new Error(error.message);
     }
 
@@ -123,10 +127,15 @@ import Textarea from "../../components/Textarea.astro";
 </script>
 
 <style>
-  form {
+  .form {
     display: flex;
     flex-direction: column;
     gap: var(--lh);
+  }
+
+  .form--loading {
+    pointer-events: none;
+    opacity: 0.25;
   }
 
   .label {
