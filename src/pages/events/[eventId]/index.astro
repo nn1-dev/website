@@ -260,9 +260,11 @@ const inviteUrls = getInviteUrls({
   }
 
   const form = document.querySelector("form");
+  const FORM_LOADING_CLASS = "dialog__form--loading";
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    form.classList.add(FORM_LOADING_CLASS);
     const formData = new FormData(form);
     const eventId = form.dataset["eventId"];
     const eventName = form.dataset["eventName"];
@@ -302,6 +304,7 @@ const inviteUrls = getInviteUrls({
 
     if (error) {
       Sentry.captureException(error);
+      form.classList.remove(FORM_LOADING_CLASS);
       throw new Error(error.message);
     }
 
@@ -426,6 +429,11 @@ const inviteUrls = getInviteUrls({
     display: flex;
     flex-direction: column;
     gap: var(--lh);
+  }
+
+  .dialog__form--loading {
+    pointer-events: none;
+    opacity: 0.25;
   }
 
   .dialog__buttons {
