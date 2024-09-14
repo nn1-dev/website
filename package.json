@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
-    "@astrojs/netlify": "^5.5.1",
+    "@astrojs/netlify": "^5.5.2",
     "@astrojs/sitemap": "^3.1.6",
-    "@sentry/astro": "^8.29.0",
-    "astro": "^4.15.4",
+    "@sentry/astro": "^8.30.0",
+    "astro": "^4.15.6",
     "typescript": "^5.6.2"
   },
   "devDependencies": {
