@@ -51,7 +51,7 @@ export default defineConfig({
     sentry({
       dsn: "https://9ce758c607ef6a42feb350348185bbec@o4507649139146752.ingest.de.sentry.io/4507649154089040",
       environment: process.env.NODE_ENV,
-      replaysSessionSampleRate: 0.25,
+      replaysSessionSampleRate: 0,
       replaysOnErrorSampleRate: 1.0,
       sourceMapsUploadOptions: {
         project: "website",
