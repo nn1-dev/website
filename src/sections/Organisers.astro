@@ -37,6 +37,13 @@ const data = [
       </div>
       <Heading title="Partners" level={3} anchor />
       <div class="organisers__partners">
+        <a href="https://resend.com/" class="organisers__partner">
+          <img
+            src="/partners/resend.svg"
+            alt="Resend"
+            class="organisers__logo organisers__logo--resend"
+          />
+        </a>
         <a href="https://vulcanworks.co.uk" class="organisers__partner">
           <img
             src="/partners/vulcan-works.png"
@@ -98,8 +105,12 @@ const data = [
     grid-template-columns: repeat(2, 1fr);
     gap: calc(var(--lh) / 2);
 
-    @media (800px <= width) {
-      grid-template-columns: repeat(5, 1fr);
+    @media (600px <= width) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (1000px <= width) {
+      grid-template-columns: repeat(6, 1fr);
     }
   }
 
@@ -122,6 +133,10 @@ const data = [
     width: 100%;
     max-height: calc(var(--lh) * 2);
     aspect-ratio: 3/1;
+  }
+
+  .organisers__logo--resend {
+    aspect-ratio: 5/1;
   }
 
   .organisers__logo--pala {
