@@ -1,53 +1,58 @@
 {
-  "id": 4,
-  "name": "#4: \"XXX\" by Rob Hough and \"XXX\" by XXX",
-  "description": "XXX",
-  "dateStart": "2024-11-28T18:00Z",
-  "dateEnd": "2024-11-28T20:00Z",
-  "locationText": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
-  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
-  "locatoinLatitude": "52.23585",
-  "locatoinLongitude": "-0.894449",
-  "ticketText": "FREE",
-  "ticketUrl": "https://nn1.dev",
-  "parkingText": "St. John's Multi Storey Car Park",
-  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
-  "schedule": [
-    {
-      "dateStart": "2024-11-28T18:00Z",
-      "dateEnd": "2024-11-28T18:15Z",
-      "title": "Meet and Greet"
-    },
-    {
-      "dateStart": "2024-11-28T18:15Z",
-      "dateEnd": "2024-11-28T18:30Z",
-      "title": "Intro"
-    },
-    {
-      "dateStart": "2024-11-28T18:30Z",
-      "dateEnd": "2024-11-28T19:00Z",
-      "title": "\"XXX\" by Rob Hough",
-      "description": "XXX"
-    },
-    {
-      "dateStart": "2024-11-28T19:00Z",
-      "dateEnd": "2024-11-28T19:15Z",
-      "title": "Break"
-    },
-    {
-      "dateStart": "2024-11-28T19:15Z",
-      "dateEnd": "2024-11-28T19:45Z",
-      "title": "\"XXX\" by XXX",
-      "description": "XXX"
-    }
-  ],
-  "guests": [
-    {
-      "image": "/4/robhough.jpg",
-      "name": "Rob Hough",
-      "role": "XXX",
-      "bio": "XXX",
-      "urlLinkedIn": "https://www.linkedin.com/in/heymynameisrob/"
-    }
-  ]
+	"id": 4,
+	"name": "#4: \"XXX\" by Tom Keeber and \"XXX\" by Rob Hough",
+	"description": "XXX",
+	"dateStart": "2024-11-28T18:00Z",
+	"dateEnd": "2024-11-28T20:00Z",
+	"location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+	"locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+	"locatoinLatitude": "52.23585",
+	"locatoinLongitude": "-0.894449",
+	"parking": "St. John's Multi Storey Car Park",
+	"parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+	"schedule": [
+		{
+			"dateStart": "2024-11-28T18:00Z",
+			"dateEnd": "2024-11-28T18:15Z",
+			"title": "Meet and Greet"
+		},
+		{
+			"dateStart": "2024-11-28T18:15Z",
+			"dateEnd": "2024-11-28T18:30Z",
+			"title": "Intro"
+		},
+		{
+			"dateStart": "2024-11-28T18:30Z",
+			"dateEnd": "2024-11-28T19:00Z",
+			"title": "\"XXX\" by Tom Keeber",
+			"description": "XXX"
+		},
+		{
+			"dateStart": "2024-11-28T19:00Z",
+			"dateEnd": "2024-11-28T19:15Z",
+			"title": "Break"
+		},
+		{
+			"dateStart": "2024-11-28T19:15Z",
+			"dateEnd": "2024-11-28T19:45Z",
+			"title": "\"XXX\" by Rob Hough",
+			"description": "XXX"
+		}
+	],
+	"guests": [
+		{
+			"image": "/4/tomkeeber.jpg",
+			"name": "Tom Keeber",
+			"role": "Head of Quality (Technology) at Dunelm",
+			"bio": "XXX",
+			"urlLinkedIn": "https://www.linkedin.com/in/tom-keeber/"
+		},
+		{
+			"image": "/4/robhough.jpg",
+			"name": "Rob Hough",
+			"role": "Lead Product Designer",
+			"bio": "XXX",
+			"urlLinkedIn": "https://www.linkedin.com/in/heymynameisrob/"
+		}
+	]
 }
