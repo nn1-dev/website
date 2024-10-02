@@ -11,6 +11,7 @@ import Heading from "../../../components/Heading.astro";
 import Input from "../../../components/Input.astro";
 import Checkbox from "../../../components/Checkbox.astro";
 import Button from "../../../components/Button.astro";
+import ButtonLink from "../../../components/ButtonLink.astro";
 import { getInviteUrls } from "../../../utils";
 
 const { eventId } = Astro.params;
@@ -87,54 +88,14 @@ const inviteUrls = getInviteUrls({
   og={`${id}/og.jpg`}
 >
   <Hero title={name} description={description}>
-    {isUpcoming && <Button id="signup-open-1" text="Get a FREE ticket now" />}
+    {
+      isUpcoming && (
+        <ButtonLink text="Get a FREE ticket now" href="#get-your-free-ticket" />
+      )
+    }
   </Hero>
   <Section style="contrast">
     <Container>
-      <dialog class="dialog" id="signup-dialog">
-        <form
-          class="dialog__form"
-          data-event-id={id}
-          data-event-name={entry.data.name}
-          data-event-date={dateStartParsed}
-          data-event-location={location}
-          data-event-invite-url-ical={inviteUrls.iCal}
-          data-event-invite-url-google={inviteUrls.google}
-        >
-          <Heading level={3} title="Get your free ticket" />
-          <p>
-            Collecting attendee information at mass events is required for
-            safety and security. We may use it for ocassional reminders or event
-            updates only and won't share or sell your data.
-          </p>
-          <Input
-            type="text"
-            name="name"
-            label="Name"
-            required
-            placeholder="Tim Cook"
-          />
-          <Input
-            type="email"
-            name="email"
-            label="Email"
-            required
-            placeholder="timcook@apple.com"
-          />
-          <Checkbox
-            label="Notify me about future events"
-            name="newsletter"
-            checked={true}
-          />
-          <div class="dialog__buttons">
-            <Button id="signup-submit" text="Sign up for the event" />
-            <button class="dialog__close" type="button" id="signup-close"
-              >Cancel</button
-            >
-          </div>
-        </form>
-      </dialog>
-
       <div class="event">
         <section class="event__section">
           <Heading title="Details" level={2} anchor />
@@ -247,6 +208,49 @@ const inviteUrls = getInviteUrls({
           ) : null
         }
       </div>
+    </Container>
+  </Section>
+  <Section>
+    <Container narrow>
+      <form
+        class="dialog__form"
+        data-event-id={id}
+        data-event-name={entry.data.name}
+        data-event-date={dateStartParsed}
+        data-event-location={location}
+        data-event-invite-url-ical={inviteUrls.iCal}
+        data-event-invite-url-google={inviteUrls.google}
+      >
+        <Heading level={3} title="Get your free ticket" anchor />
+        <p>
+          Collecting attendee information at mass events is required for safety
+          and security. We may use it for ocassional reminders or event updates
+          only and won't share or sell your data. By registering, you also agree
+          to follow our <a href="/code-of-conduct">code of conduct</a>.
+        </p>
+        <Input
+          type="text"
+          name="name"
+          label="Name"
+          required
+          placeholder="Tim Cook"
+        />
+        <Input
+          type="email"
+          name="email"
+          label="Email"
+          required
+          placeholder="timcook@apple.com"
+        />
+        <Checkbox
+          label="Notify me about future events"
+          name="newsletter"
+          checked={true}
+        />
+        <div class="dialog__buttons">
+          <Button id="signup-submit" text="Sign up for the event" />
+        </div>
+      </form>
     </Container>
   </Section>
 </Layout>
@@ -451,43 +455,3 @@ const inviteUrls = getInviteUrls({
     }
   }
 </style>
-
-<script>
-  const dialog = document.querySelector<HTMLDialogElement>("#signup-dialog");
-  const buttonOpenOne =
-    document.querySelector<HTMLButtonElement>("#signup-open-1");
-  const buttonOpenTwo =
-    document.querySelector<HTMLButtonElement>("#signup-open-2");
-  const buttonClose =
-    document.querySelector<HTMLButtonElement>("#signup-close");
-
-  if (buttonOpenOne && dialog) {
-    buttonOpenOne.addEventListener("click", () => {
-      if ("showModal" in dialog) {
-        dialog.showModal();
-      } else {
-        alert(
-          "Unfortunately, your browser is not supported. Please update your browser to order a ticket, or email club@nn1.dev, and we will issue a ticket for you manually. Sorry for the inconvenience.",
-        );
-      }
-    });
-  }
-
-  if (buttonOpenTwo && dialog) {
-    buttonOpenTwo.addEventListener("click", () => {
-      if ("showModal" in dialog) {
-        dialog.showModal();
-      } else {
-        alert(
-          "Unfortunately, your browser is not supported. Please update your browser to order a ticket, or email club@nn1.dev, and we will issue a ticket for you manually. Sorry for the inconvenience.",
-        );
-      }
-    });
-  }
-
-  if (buttonClose && dialog) {
-    buttonClose.addEventListener("click", () => {
-      dialog.close();
-    });
-  }
-</script>
