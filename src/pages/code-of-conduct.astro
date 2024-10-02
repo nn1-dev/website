@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../sections/Hero.astro";
+import Connect from "../sections/Connect.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+---
+
+<Layout
+  title="Code of Conduct | NN1 Dev Club"
+  description="We are dedicated to providing a harassment-free experience for all meetup atendees and community members. We do not tolerate harassment of participants in any form."
+>
+  <Hero
+    title="Code of Conduct"
+    description="We are dedicated to providing a harassment-free experience for all meetup atendees and community members. We do not tolerate harassment of participants in any form."
+  />
+  <Section>
+    <Container narrow>
+      <p>
+        We are dedicated to providing a harassment-free conference experience
+        for everyone, regardless of gender, gender identity and expression, age,
+        sexual orientation, disability, physical appearance, body size, race,
+        ethnicity, religion (or lack thereof), or technology choices. We do not
+        tolerate harassment of conference participants in any form. Sexual
+        language and imagery is not appropriate for any conference venue,
+        including talks, workshops, parties, Twitter and other online media.
+        Conference participants violating these rules may be sanctioned or
+        expelled from the conference without a refund at the discretion of the
+        conference organisers.
+      </p>
+    </Container>
+  </Section>
+  <Connect />
+</Layout>
