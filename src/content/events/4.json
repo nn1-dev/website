@@ -1,6 +1,6 @@
 {
 	"id": 4,
-	"name": "#4: \"XXX\" by Tom Keeber and \"XXX\" by Rob Hough",
+	"name": "#4: \"XXX\" by Tom Keeber and \"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
 	"description": "XXX",
 	"dateStart": "2024-11-28T18:00Z",
 	"dateEnd": "2024-11-28T20:00Z",
@@ -35,8 +35,8 @@
 		{
 			"dateStart": "2024-11-28T19:15Z",
 			"dateEnd": "2024-11-28T19:45Z",
-			"title": "\"XXX\" by Rob Hough",
-			"description": "XXX"
+			"title": "\"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
+			"description": "Since 2022, when ChatGPT first launched, we've been living in a completely different world. LLM's represent a complete paradigm shift for software. But over time we've seen it shoehorned into every product going, leaving us with something interesting but often not useful and even annoying. In this talk, I'll show you how, when designed right, LLM's can contribute to a delightful user experience without relying on goofy gimmicks, confusing chatbots, or harrowing hallucinations."
 		}
 	],
 	"guests": [
