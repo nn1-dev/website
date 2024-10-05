@@ -51,7 +51,9 @@
 			"image": "/4/robhough.jpg",
 			"name": "Rob Hough",
 			"role": "Lead Product Designer",
-			"bio": "XXX",
+			"bio": "Rob is a product designers from Nottingham. For around 10 years, he's worked with early-stage companies, particularly in the B2B and healthcare spaces. He also enjoys riding motorcycles and cheese and pickle sandwiches.",
+			"urlWebsite": "https://www.heymynameisrob.com",
+			"urlGitHub": "https://github.com/heymynameisrob",
 			"urlLinkedIn": "https://www.linkedin.com/in/heymynameisrob/"
 		}
 	]
