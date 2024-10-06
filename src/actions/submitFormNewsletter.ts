@@ -5,9 +5,11 @@ import { API_HEADERS_NEWSLETTER, API_URL_NEWSLETTER } from "../constants";
 
 export default defineAction({
   accept: "form",
-  input: z.object({
-    email: z.string().email(),
-  }),
+  input: z
+    .object({
+      email: z.string().email(),
+    })
+    .strict(),
   handler: async (input) => {
     const response = await fetch(API_URL_NEWSLETTER, {
       method: "POST",
