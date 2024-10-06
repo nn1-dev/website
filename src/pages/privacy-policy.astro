@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../sections/Hero.astro";
+import Connect from "../sections/Connect.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+---
+
+<Layout
+  title="Privacy Policy | NN1 Dev Club"
+  description="Info about the way we treat your data, what we do about it, and our rules regarding communications with you."
+>
+  <Hero
+    title="Privacy Policy"
+    description="Info about the way we treat your data, what we do about it, and our rules regarding communications with you."
+  />
+  <Section>
+    <Container narrow>
+      <p>
+        We only collect a minimum of data about our events attendees. This is
+        required for safety and security, but also helpful for communication. We
+        keep our communication minimal, and it includes new event announcements
+        and important updates about the events you registered for. We will never
+        share your data! If you wish to have your details removed after an
+        event, then please message us at <a href="mailto:club@nn1.dev"
+          >club@nn1.dev</a
+        >.
+      </p>
+    </Container>
+  </Section>
+  <Connect />
+</Layout>
