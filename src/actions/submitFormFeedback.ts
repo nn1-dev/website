@@ -5,13 +5,15 @@ import { API_HEADERS_FEEDBACK, API_URL_FEEDBACK } from "../constants";
 
 export default defineAction({
   accept: "form",
-  input: z.object({
-    name: z.string().trim().optional(),
-    stack: z.string().trim().optional(),
-    who: z.string(),
-    interval: z.string(),
-    feedback: z.string().trim().optional(),
-  }),
+  input: z
+    .object({
+      name: z.string().trim().optional(),
+      stack: z.string().trim().optional(),
+      who: z.string(),
+      interval: z.string(),
+      feedback: z.string().trim().optional(),
+    })
+    .strict(),
   handler: async ({ name, stack, who, interval, feedback }) => {
     const response = await fetch(API_URL_FEEDBACK, {
       method: "POST",

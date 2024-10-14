@@ -10,17 +10,19 @@ import {
 
 export default defineAction({
   accept: "form",
-  input: z.object({
-    name: z.string().trim(),
-    email: z.string().email().trim(),
-    newsletter: z.optional(z.string().transform((value) => value === "on")),
-    eventId: z.string().transform((value) => parseInt(value)),
-    eventName: z.string(),
-    eventDate: z.string(),
-    eventLocation: z.string(),
-    eventInviteUrlIcal: z.string().url(),
-    eventInviteUrlGoogle: z.string().url(),
-  }),
+  input: z
+    .object({
+      name: z.string().trim(),
+      email: z.string().email().trim(),
+      newsletter: z.optional(z.string().transform((value) => value === "on")),
+      eventId: z.string().transform((value) => parseInt(value)),
+      eventName: z.string(),
+      eventDate: z.string(),
+      eventLocation: z.string(),
+      eventInviteUrlIcal: z.string().url(),
+      eventInviteUrlGoogle: z.string().url(),
+    })
+    .strict(),
   handler: async ({
     name,
     email,
