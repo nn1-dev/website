@@ -14,7 +14,7 @@
     "@astrojs/netlify": "^5.5.4",
     "@astrojs/sitemap": "^3.1.6",
     "@sentry/astro": "^8.30.0",
-    "astro": "4.16.4",
+    "astro": "4.16.5",
     "typescript": "^5.6.2"
   },
   "devDependencies": {
