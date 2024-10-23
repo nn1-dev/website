@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^5.5.4",
-    "@astrojs/sitemap": "^3.2.1",
-    "@sentry/astro": "^8.35.0",
-    "astro": "^4.16.7",
-    "typescript": "^5.6.3"
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/netlify": "^5.5.2",
+    "@astrojs/sitemap": "^3.1.6",
+    "@sentry/astro": "^8.30.0",
+    "astro": "^4.15.6",
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
     "prettier": "^3.3.3",
