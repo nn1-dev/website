@@ -1,8 +1,11 @@
-# Redirect with a 301
 [[redirects]]
 from = "http://chat.nnq.dev"
 to = "https://discord.com/invite/PeTqzv5Vp7"
+status = 301
+force = true
 
 [[redirects]]
 from = "https://chat.nnq.dev"
 to = "https://discord.com/invite/PeTqzv5Vp7"
+status = 301
+force = true
