@@ -205,48 +205,52 @@ const inviteUrls = getInviteUrls({
       </div>
     </Container>
   </Section>
-  <Section>
-    <Container narrow>
-      <form
-        class="dialog__form"
-        data-event-id={id}
-        data-event-name={entry.data.name}
-        data-event-date={dateStartParsed}
-        data-event-location={location}
-        data-event-invite-url-ical={inviteUrls.iCal}
-        data-event-invite-url-google={inviteUrls.google}
-      >
-        <Heading level={3} title="Get your free ticket" anchor />
-        <p>
-          By registering, you agree to our <a href="/privacy-policy"
-            >privacy policy</a
-          > and to follow our <a href="/code-of-conduct">code of conduct</a>.
-        </p>
-        <Input
-          type="text"
-          name="name"
-          label="Name"
-          required
-          placeholder="Tim Cook"
-        />
-        <Input
-          type="email"
-          name="email"
-          label="Email"
-          required
-          placeholder="timcook@apple.com"
-        />
-        <Checkbox
-          label="Notify me about future events"
-          name="newsletter"
-          checked={true}
-        />
-        <div class="dialog__buttons">
-          <Button id="signup-submit" text="Register for the event" />
-        </div>
-      </form>
-    </Container>
-  </Section>
+  {
+    isUpcoming ? (
+      <Section>
+        <Container narrow>
+          <form
+            class="dialog__form"
+            data-event-id={id}
+            data-event-name={entry.data.name}
+            data-event-date={dateStartParsed}
+            data-event-location={location}
+            data-event-invite-url-ical={inviteUrls.iCal}
+            data-event-invite-url-google={inviteUrls.google}
+          >
+            <Heading level={3} title="Get your free ticket" anchor />
+            <p>
+              By registering, you agree to our{" "}
+              <a href="/privacy-policy">privacy policy</a> and to follow our{" "}
+              <a href="/code-of-conduct">code of conduct</a>.
+            </p>
+            <Input
+              type="text"
+              name="name"
+              label="Name"
+              required
+              placeholder="Tim Cook"
+            />
+            <Input
+              type="email"
+              name="email"
+              label="Email"
+              required
+              placeholder="timcook@apple.com"
+            />
+            <Checkbox
+              label="Notify me about future events"
+              name="newsletter"
+              checked={true}
+            />
+            <div class="dialog__buttons">
+              <Button id="signup-submit" text="Register for the event" />
+            </div>
+          </form>
+        </Container>
+      </Section>
+    ) : null
+  }
 </Layout>
 
 <script>
