@@ -1,61 +1,75 @@
 {
-	"id": 4,
-	"name": "#4: \"Dunelm's Digital Journey\" by Tom Keeber and \"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
-	"description": "On our fourth event, we will explore how Dunelm scaled from an unwieldy Websphere site managed by a single software developer to one of Europe's largest AWS serverless infrastructures. We will also look into the paradigm shift introduced by LLMs and their potential to enhance the user experience.",
-	"dateStart": "2024-11-28T18:00Z",
-	"dateEnd": "2024-11-28T20:00Z",
-	"location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
-	"locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
-	"locatoinLatitude": "52.23585",
-	"locatoinLongitude": "-0.894449",
-	"parking": "St. John's Multi Storey Car Park",
-	"parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
-	"schedule": [
-		{
-			"dateStart": "2024-11-28T18:00Z",
-			"dateEnd": "2024-11-28T18:15Z",
-			"title": "Meet and Greet"
-		},
-		{
-			"dateStart": "2024-11-28T18:15Z",
-			"dateEnd": "2024-11-28T18:30Z",
-			"title": "Intro"
-		},
-		{
-			"dateStart": "2024-11-28T18:30Z",
-			"dateEnd": "2024-11-28T19:00Z",
-			"title": "\"Dunelm's Digital Journey\" by Tom Keeber",
-			"description": "Back in 2015, Dunelm had just one software engineer, an unwieldy Websphere site, and more challenges than solutions. Fast forward to 2024, and we’ve grown into one of Europe’s largest users of AWS Lambda with a technology department numbering 100s. Having joined the company in 2018, I’ll take you on a candid, behind-the-scenes tour of Dunelm’s transformation—from success to the problems moving at pace and scale mean for technology and organisational design."
-		},
-		{
-			"dateStart": "2024-11-28T19:00Z",
-			"dateEnd": "2024-11-28T19:15Z",
-			"title": "Break"
-		},
-		{
-			"dateStart": "2024-11-28T19:15Z",
-			"dateEnd": "2024-11-28T19:45Z",
-			"title": "\"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
-			"description": "Since 2022, when ChatGPT first launched, we've been living in a completely different world. LLM's represent a complete paradigm shift for software. But over time we've seen it shoehorned into every product going, leaving us with something interesting but often not useful and even annoying. In this talk, I'll show you how, when designed right, LLM's can contribute to a delightful user experience without relying on goofy gimmicks, confusing chatbots, or harrowing hallucinations."
-		}
-	],
-	"guests": [
-		{
-			"image": "/4/tomkeeber.jpg",
-			"name": "Tom Keeber",
-			"role": "Head of Quality (Technology) at Dunelm",
-			"bio": "A software professional since 2002 with a proven track record in delivering complex engineering projects and products.",
-			"urlLinkedIn": "https://www.linkedin.com/in/tom-keeber/"
-		},
-		{
-			"image": "/4/robhough.jpg",
-			"name": "Rob Hough",
-			"role": "Lead Product Designer",
-			"bio": "Rob is a product designers from Nottingham. For around 10 years, he's worked with early-stage companies, particularly in the B2B and healthcare spaces. He also enjoys riding motorcycles and cheese and pickle sandwiches.",
-			"urlWebsite": "https://www.heymynameisrob.com",
-			"urlGitHub": "https://github.com/heymynameisrob",
-			"urlLinkedIn": "https://www.linkedin.com/in/heymynameisrob/",
-			"urlMastodon": "https://mastodon.social/@heymynameisrob"
-		}
-	]
+  "id": 4,
+  "name": "#4: \"Dunelm's Digital Journey\" by Tom Keeber and \"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
+  "description": "On our fourth event, we will explore how Dunelm scaled from an unwieldy Websphere site managed by a single software developer to one of Europe's largest AWS serverless infrastructures. We will also look into the paradigm shift introduced by LLMs and their potential to enhance the user experience.",
+  "dateStart": "2024-11-28T18:00Z",
+  "dateEnd": "2024-11-28T20:00Z",
+  "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "locatoinLatitude": "52.23585",
+  "locatoinLongitude": "-0.894449",
+  "parking": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2024-11-28T18:00Z",
+      "dateEnd": "2024-11-28T18:15Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2024-11-28T18:15Z",
+      "dateEnd": "2024-11-28T18:30Z",
+      "title": "Intro"
+    },
+    {
+      "dateStart": "2024-11-28T18:30Z",
+      "dateEnd": "2024-11-28T19:00Z",
+      "title": "\"Dunelm's Digital Journey\" by Tom Keeber",
+      "description": "Back in 2015, Dunelm had just one software engineer, an unwieldy Websphere site, and more challenges than solutions. Fast forward to 2024, and we’ve grown into one of Europe’s largest users of AWS Lambda with a technology department numbering 100s. Having joined the company in 2018, I’ll take you on a candid, behind-the-scenes tour of Dunelm’s transformation—from success to the problems moving at pace and scale mean for technology and organisational design."
+    },
+    {
+      "dateStart": "2024-11-28T19:00Z",
+      "dateEnd": "2024-11-28T19:15Z",
+      "title": "Break"
+    },
+    {
+      "dateStart": "2024-11-28T19:15Z",
+      "dateEnd": "2024-11-28T19:45Z",
+      "title": "\"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
+      "description": "Since 2022, when ChatGPT first launched, we've been living in a completely different world. LLM's represent a complete paradigm shift for software. But over time we've seen it shoehorned into every product going, leaving us with something interesting but often not useful and even annoying. In this talk, I'll show you how, when designed right, LLM's can contribute to a delightful user experience without relying on goofy gimmicks, confusing chatbots, or harrowing hallucinations."
+    }
+  ],
+  "guests": [
+    {
+      "image": "/4/tomkeeber.jpg",
+      "name": "Tom Keeber",
+      "role": "Head of Quality (Technology) at Dunelm",
+      "bio": "A software professional since 2002 with a proven track record in delivering complex engineering projects and products.",
+      "urlLinkedIn": "https://www.linkedin.com/in/tom-keeber/"
+    },
+    {
+      "image": "/4/robhough.jpg",
+      "name": "Rob Hough",
+      "role": "Lead Product Designer",
+      "bio": "Rob is a product designers from Nottingham. For around 10 years, he's worked with early-stage companies, particularly in the B2B and healthcare spaces. He also enjoys riding motorcycles and cheese and pickle sandwiches.",
+      "urlWebsite": "https://www.heymynameisrob.com",
+      "urlGitHub": "https://github.com/heymynameisrob",
+      "urlLinkedIn": "https://www.linkedin.com/in/heymynameisrob/",
+      "urlMastodon": "https://mastodon.social/@heymynameisrob"
+    }
+  ],
+  "images": [
+    {
+      "src": "/4/gallery/1.jpg",
+      "caption": "Guests at NN1 Dev Club #4"
+    },
+    {
+      "src": "/4/gallery/2.jpg",
+      "caption": "Guests at NN1 Dev Club #4"
+    },
+    {
+      "src": "/4/gallery/3.jpg",
+      "caption": "Guests at NN1 Dev Club #4"
+    }
+  ]
 }
