@@ -1,0 +1,31 @@
+{
+  "id": 5,
+  "name": "#5: Showcase time",
+  "description": "",
+  "dateStart": "2025-01-30T18:00Z",
+  "dateEnd": "2025-01-30T20:00Z",
+  "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "locatoinLatitude": "52.23585",
+  "locatoinLongitude": "-0.894449",
+  "parking": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2024-11-28T18:00Z",
+      "dateEnd": "2024-11-28T18:15Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2024-11-28T18:15Z",
+      "dateEnd": "2024-11-28T18:30Z",
+      "title": "Intro"
+    },
+    {
+      "dateStart": "2024-11-28T18:30Z",
+      "dateEnd": "2024-11-28T19:00Z",
+      "title": "Showcase time"
+    }
+  ],
+  "guests": []
+}
