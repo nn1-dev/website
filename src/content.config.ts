@@ -1,7 +1,8 @@
 import { z, defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 
-const eventsCollection = defineCollection({
-  type: "data",
+const events = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/events" }),
   schema: z
     .object({
       id: z.number(),
@@ -55,4 +56,4 @@ const eventsCollection = defineCollection({
     .strict(),
 });
 
-export const collections = { events: eventsCollection };
+export const collections = { events };
