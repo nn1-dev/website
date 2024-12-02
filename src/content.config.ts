@@ -39,6 +39,7 @@ const events = defineCollection({
             urlLinkedIn: z.string().url().optional(),
             urlInstagram: z.string().url().optional(),
             urlTwitter: z.string().url().optional(),
+            urlBluesky: z.string().url().optional(),
           })
           .strict(),
       ),
