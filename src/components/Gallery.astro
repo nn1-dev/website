@@ -197,6 +197,7 @@ const { images } = Astro.props;
 <script>
   const buttonsOpen = document.querySelectorAll(".gallery__button");
   const buttonsClose = document.querySelectorAll(".gallery__close");
+  const dialogs = document.querySelectorAll(".gallery__dialog");
 
   for (const buttonOpen of buttonsOpen) {
     buttonOpen.addEventListener("click", (e) => {
@@ -211,4 +212,38 @@ const { images } = Astro.props;
       e.currentTarget.parentNode.close();
     });
   }
+
+  let currentIndex = 0;
+
+  /**
+   * Displays an image in the modal gallery at the specified index
+   */
+  function showImage(index: number) {
+    dialogs.forEach((dialog) => (dialog as HTMLDialogElement).close());
+    currentIndex = (index + dialogs.length) % dialogs.length;
+    (dialogs[currentIndex] as HTMLDialogElement).showModal();
+  }
+
+  /** @heymynameisrob: Keyboard events move between images. Might be cool to preload the next one so it feels more 'instant' but not sure.  */
+  document.addEventListener("keydown", (e) => {
+    // Only handle keyboard events when a dialog is open
+    const isDialogOpen = Array.from(dialogs).some(
+      (dialog) => (dialog as HTMLDialogElement).open,
+    );
+
+    if (!isDialogOpen) return;
+
+    switch (e.key) {
+      case "ArrowRight":
+        e.preventDefault();
+        showImage(e.ctrlKey ? dialogs.length - 1 : currentIndex + 1);
+        break;
+      case "ArrowLeft":
+        e.preventDefault();
+        showImage(e.ctrlKey ? 0 : currentIndex - 1);
+        break;
+      case "Escape":
+        break;
+    }
+  });
 </script>
