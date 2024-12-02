@@ -199,10 +199,13 @@ const { images } = Astro.props;
   const buttonsClose = document.querySelectorAll(".gallery__close");
   const dialogs = document.querySelectorAll(".gallery__dialog");
 
-  for (const buttonOpen of buttonsOpen) {
+  let currentIndex = 0;
+
+  for (const [index, buttonOpen] of Array.from(buttonsOpen).entries()) {
     buttonOpen.addEventListener("click", (e) => {
       // @ts-ignore
       e.currentTarget.previousElementSibling.showModal();
+      currentIndex = index;
     });
   }
 
@@ -212,8 +215,6 @@ const { images } = Astro.props;
       e.currentTarget.parentNode.close();
     });
   }
-
-  let currentIndex = 0;
 
   /**
    * Displays an image in the modal gallery at the specified index
