@@ -2,7 +2,7 @@ import { z, defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 
 const events = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/events" }),
+  loader: glob({ pattern: "*.json", base: "./src/data/events" }),
   schema: z
     .object({
       id: z.number(),

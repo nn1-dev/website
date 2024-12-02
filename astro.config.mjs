@@ -15,7 +15,7 @@ const EXCLUDED_ROUTES = [
 
 //TODO: Check if this stil works after migration to Astro 5
 const events = fs
-  .readdirSync("./src/events")
+  .readdirSync("./src/data/events")
   .map((file) => path.basename(file, path.extname(file)));
 
 // https://astro.build/config

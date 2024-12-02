@@ -35,7 +35,7 @@ const formatTime = (date: Date) =>
         <div class="events__grid">
           {
             allEvents
-              .reverse()
+              .sort((a, b) => parseInt(b.id) - parseInt(a.id))
               .map(
                 ({ data: { id, name, description, dateStart, location } }) => (
                   <a
