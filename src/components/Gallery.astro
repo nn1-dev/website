@@ -237,11 +237,13 @@ const { images } = Astro.props;
     switch (e.key) {
       case "ArrowRight":
         e.preventDefault();
-        showImage(e.ctrlKey ? dialogs.length - 1 : currentIndex + 1);
+        showImage(
+          e.ctrlKey || e.metaKey ? dialogs.length - 1 : currentIndex + 1,
+        );
         break;
       case "ArrowLeft":
         e.preventDefault();
-        showImage(e.ctrlKey ? 0 : currentIndex - 1);
+        showImage(e.ctrlKey || e.metaKey ? 0 : currentIndex - 1);
         break;
     }
   });
