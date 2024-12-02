@@ -12,6 +12,7 @@ interface Props {
   urlMastodon?: string | undefined;
   urlTwitter?: string | undefined;
   urlInstagram?: string | undefined;
+  urlBluesky?: string | undefined;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   urlMastodon,
   urlTwitter,
   urlInstagram,
+  urlBluesky,
 } = Astro.props;
 ---
 
@@ -80,6 +82,13 @@ const {
         urlInstagram && (
           <li class="profile__list-item">
             Instagram: <a href={urlInstagram}>{urlInstagram}</a>
+          </li>
+        )
+      }
+      {
+        urlBluesky && (
+          <li class="profile__list-item">
+            Bluesky: <a href={urlBluesky}>{urlBluesky}</a>
           </li>
         )
       }
