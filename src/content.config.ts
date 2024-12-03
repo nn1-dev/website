@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 
 const events = defineCollection({
@@ -26,23 +26,7 @@ const events = defineCollection({
           })
           .strict(),
       ),
-      guests: z.array(
-        z
-          .object({
-            name: z.string(),
-            role: z.string(),
-            image: z.string(),
-            bio: z.string().optional(),
-            urlWebsite: z.string().url().optional(),
-            urlGitHub: z.string().url().optional(),
-            urlMastodon: z.string().url().optional(),
-            urlLinkedIn: z.string().url().optional(),
-            urlInstagram: z.string().url().optional(),
-            urlTwitter: z.string().url().optional(),
-            urlBluesky: z.string().url().optional(),
-          })
-          .strict(),
-      ),
+      speakers: z.array(reference("speaker")),
       images: z
         .array(
           z
@@ -57,4 +41,23 @@ const events = defineCollection({
     .strict(),
 });
 
-export const collections = { events };
+const speaker = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/data/speakers" }),
+  schema: z
+    .object({
+      name: z.string(),
+      role: z.string(),
+      image: z.string(),
+      bio: z.string().optional(),
+      urlWebsite: z.string().url().optional(),
+      urlGitHub: z.string().url().optional(),
+      urlMastodon: z.string().url().optional(),
+      urlBluesky: z.string().url().optional(),
+      urlLinkedIn: z.string().url().optional(),
+      urlInstagram: z.string().url().optional(),
+      urlTwitter: z.string().url().optional(),
+    })
+    .strict(),
+});
+
+export const collections = { events, speaker };

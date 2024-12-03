@@ -1,6 +1,6 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntries, getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
 import Container from "../../../components/Container.astro";
@@ -46,10 +46,12 @@ const {
     parking,
     parkingUrl,
     schedule,
-    guests,
+    speakers,
     images,
   },
 } = entry;
+
+const relatedSpeakers = await getEntries(speakers);
 
 const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/London",
@@ -191,7 +193,7 @@ const inviteUrls = getInviteUrls({
         <section class="event__section">
           <Heading title="Special guests" level={2} anchor />
           <div class="event__grid">
-            {guests.map((dude) => <Profile {...dude} />)}
+            {relatedSpeakers.map(({ data }) => <Profile {...data} />)}
           </div>
         </section>
         {
