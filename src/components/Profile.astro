@@ -65,6 +65,13 @@ const {
         )
       }
       {
+        urlBluesky && (
+          <li class="profile__list-item">
+            Bluesky: <a href={urlBluesky}>{urlBluesky}</a>
+          </li>
+        )
+      }
+      {
         urlLinkedIn && (
           <li class="profile__list-item">
             LinkedIn: <a href={urlLinkedIn}>{urlLinkedIn}</a>
@@ -82,13 +89,6 @@ const {
         urlInstagram && (
           <li class="profile__list-item">
             Instagram: <a href={urlInstagram}>{urlInstagram}</a>
-          </li>
-        )
-      }
-      {
-        urlBluesky && (
-          <li class="profile__list-item">
-            Bluesky: <a href={urlBluesky}>{urlBluesky}</a>
           </li>
         )
       }
