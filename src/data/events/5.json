@@ -28,5 +28,11 @@
       "description": "Series of snappy presentations and demos where everyone can share the results of their weekend hacks. In no particular order, not limited to any category."
     }
   ],
-  "speakers": ["dan-jordan", "jordan-legg", "roger-hughes"]
+  "speakers": [
+    "dan-jordan",
+    "jordan-legg",
+    "roger-hughes",
+    "matthew-owen",
+    "pawel-grzybek"
+  ]
 }
