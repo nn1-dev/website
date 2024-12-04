@@ -13,19 +13,14 @@
   "schedule": [
     {
       "dateStart": "2024-11-28T18:00Z",
-      "dateEnd": "2024-11-28T18:15Z",
-      "title": "Meet and Greet"
-    },
-    {
-      "dateStart": "2024-11-28T18:15Z",
       "dateEnd": "2024-11-28T18:30Z",
-      "title": "Intro"
+      "title": "Meet and Greet"
     },
     {
       "dateStart": "2024-11-28T18:30Z",
       "dateEnd": "2024-11-28T20:00Z",
-      "title": "Showcase time",
-      "description": "Series of snappy presentations and demos where everyone can share the results of their weekend hacks. In no particular order, not limited to any category."
+      "title": "Rundown of side projects by Northamptonshire geeks",
+      "description": "Series of snappy presentations and demos where everyone can share the results of their weekend hacks. In no particular order, not limited to any category. The idea is to present what our local geeks are about and connect people with similar interests."
     }
   ],
   "speakers": [
@@ -35,6 +30,7 @@
     "matthew-owen",
     "pj-evans",
     "richard-burt",
+    "rob-hough",
     "pawel-grzybek"
   ]
 }
