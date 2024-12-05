@@ -39,22 +39,7 @@
       "description": "Over the past few years, Dr Junade Ali has studied the health of software engineering teams, with research covered in outlets including Forbes, The Register, ZDNet and ComputerWeekly. During this research, Dr Ali has assessed the real-world performance of engineering teams and interviewed thousands of people; including sampling software engineers, business decision-makers and consumers. Dr Ali’s work on developer burnout in 2021 and workplace retaliation in 2023 has been widely shared across the industry. This talk will present insights from investigations and studies into engineering teams."
     }
   ],
-  "guests": [
-    {
-      "name": "PJ Evans",
-      "role": "Senior Engineer at Mindera",
-      "image": "/1/pjevans.jpg",
-      "urlLinkedIn": "https://www.linkedin.com/in/mrpjevans/",
-      "urlMastodon": "https://mastodon.social/@mrpjevans"
-    },
-    {
-      "name": "Dr Junade Ali CEng FIET",
-      "role": "CEO at Engprax",
-      "image": "/1/junadeali.jpg",
-      "urlWebsite": "https://junade.com",
-      "urlLinkedIn": "https://www.linkedin.com/in/junade/"
-    }
-  ],
+  "speakers": ["pj-evans", "junade-ali"],
   "images": [
     {
       "src": "/1/gallery/1.jpg",

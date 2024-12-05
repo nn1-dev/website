@@ -1,6 +1,6 @@
 ---
 import * as Sentry from "@sentry/astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntries, getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
 import Container from "../../../components/Container.astro";
@@ -46,10 +46,12 @@ const {
     parking,
     parkingUrl,
     schedule,
-    guests,
+    speakers,
     images,
   },
 } = entry;
+
+const relatedSpeakers = await getEntries(speakers);
 
 const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/London",
@@ -188,26 +190,60 @@ const inviteUrls = getInviteUrls({
             }
           </ul>
         </section>
-        <section class="event__section">
-          <Heading title="Special guests" level={2} anchor />
-          <div class="event__grid">
-            {guests.map((dude) => <Profile {...dude} />)}
+        <section class="features">
+          <div class="features__section">
+            <Heading title="Accessibility" level={3} anchor />
+            <p>
+              Our venue is wheelchair accessible, and we provide on-site
+              assistance for anyone requiring additional support during the
+              meetup. While we currently do not offer live captioning for talks,
+              we are committed to creating an inclusive environment and welcome
+              all participants. Please contact the organisers with any specific
+              accessibility requirements.
+            </p>
+          </div>
+          <div class="features__section">
+            <Heading title="Food and drinks" level={3} anchor />
+            <p>
+              Learning new things and socialising with others is a lot easier
+              when you are properly energised. Pizza, some sweets and beverages
+              are on us. There is something for everyone: pepperoni pizza, vegan
+              ones, fizzy drinks, water and a selection of beers. You are
+              welcome!
+            </p>
           </div>
         </section>
-        {
-          images?.length ? (
-            <section class="event__section">
-              <Heading title="Gallery" level={2} anchor />
-              <Gallery images={images} />
-            </section>
-          ) : null
-        }
       </div>
     </Container>
   </Section>
+
+  <Section>
+    <Container>
+      <section class="event__section">
+        <Heading title="Speakers" level={2} anchor />
+        <div class="event__grid">
+          {relatedSpeakers.map(({ data }) => <Profile {...data} />)}
+        </div>
+      </section>
+    </Container>
+  </Section>
+
+  {
+    images?.length ? (
+      <Section style="contrast">
+        <Container>
+          <section class="event__section">
+            <Heading title="Gallery" level={2} anchor />
+            <Gallery images={images} />
+          </section>
+        </Container>
+      </Section>
+    ) : null
+  }
+
   {
     isUpcoming ? (
-      <Section>
+      <Section style="contrast">
         <Container narrow>
           <form
             class="dialog__form"
@@ -453,5 +489,20 @@ const inviteUrls = getInviteUrls({
     &:hover {
       opacity: 1;
     }
+  }
+
+  .features {
+    display: grid;
+    gap: calc(var(--lh) * 2);
+
+    @media (800px <= width) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .features__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lh);
   }
 </style>

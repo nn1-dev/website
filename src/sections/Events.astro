@@ -7,9 +7,9 @@ import Section from "../components/Section.astro";
 const allEvents = await getCollection("events");
 
 const coworkingDays = [
-  new Date("2024-09-27"),
-  new Date("2024-10-25"),
-  new Date("2024-11-29"),
+  new Date("2024-12-20"),
+  new Date("2025-01-31"),
+  new Date("2025-02-28"),
 ];
 
 const isUpcoming = (date: Date) => new Date().getTime() < date.getTime();
@@ -35,7 +35,7 @@ const formatTime = (date: Date) =>
         <div class="events__grid">
           {
             allEvents
-              .reverse()
+              .sort((a, b) => parseInt(b.id) - parseInt(a.id))
               .map(
                 ({ data: { id, name, description, dateStart, location } }) => (
                   <a

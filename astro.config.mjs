@@ -13,31 +13,29 @@ const EXCLUDED_ROUTES = [
   "https://nn1.dev/styleguide/",
 ];
 
+//TODO: Check if this stil works after migration to Astro 5
 const events = fs
-  .readdirSync("./src/content/events")
+  .readdirSync("./src/data/events")
   .map((file) => path.basename(file, path.extname(file)));
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://nn1.dev",
-  output: "hybrid",
   adapter: netlify(),
-  experimental: {
-    env: {
-      schema: {
-        API_KEY_FEEDBACK: envField.string({
-          context: "server",
-          access: "secret",
-        }),
-        API_KEY_TICKETS: envField.string({
-          context: "server",
-          access: "secret",
-        }),
-        API_KEY_NEWSLETTER: envField.string({
-          context: "server",
-          access: "secret",
-        }),
-      },
+  env: {
+    schema: {
+      API_KEY_FEEDBACK: envField.string({
+        context: "server",
+        access: "secret",
+      }),
+      API_KEY_TICKETS: envField.string({
+        context: "server",
+        access: "secret",
+      }),
+      API_KEY_NEWSLETTER: envField.string({
+        context: "server",
+        access: "secret",
+      }),
     },
   },
   redirects: events.reduce(
@@ -60,6 +58,8 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => !EXCLUDED_ROUTES.includes(page),
+      //TODO: Is this still needed, potentially not, it may be a legacy
+      //since we used to render events apges on the server, not they are statically rendered
       customPages: events.map((event) => `https://nn1.dev/events/${event}/`),
     }),
   ],

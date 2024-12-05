@@ -8,7 +8,9 @@ import Events from "../sections/Events.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 
 const eventsAll = await getCollection("events");
-const eventRecent = eventsAll.at(-1);
+const eventRecent = eventsAll
+  .sort((a, b) => parseInt(b.id) - parseInt(a.id))
+  .at(0);
 const eventRecentIsUpcoming =
   eventRecent && new Date().getTime() < eventRecent.data.dateStart.getTime();
 ---

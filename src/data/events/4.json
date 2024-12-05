@@ -39,25 +39,7 @@
       "description": "Since 2022, when ChatGPT first launched, we've been living in a completely different world. LLM's represent a complete paradigm shift for software. But over time we've seen it shoehorned into every product going, leaving us with something interesting but often not useful and even annoying. In this talk, I'll show you how, when designed right, LLM's can contribute to a delightful user experience without relying on goofy gimmicks, confusing chatbots, or harrowing hallucinations."
     }
   ],
-  "guests": [
-    {
-      "image": "/4/tomkeeber.jpg",
-      "name": "Tom Keeber",
-      "role": "Head of Quality (Technology) at Dunelm",
-      "bio": "A software professional since 2002 with a proven track record in delivering complex engineering projects and products.",
-      "urlLinkedIn": "https://www.linkedin.com/in/tom-keeber/"
-    },
-    {
-      "image": "/4/robhough.jpg",
-      "name": "Rob Hough",
-      "role": "Lead Product Designer",
-      "bio": "Rob is a product designers from Nottingham. For around 10 years, he's worked with early-stage companies, particularly in the B2B and healthcare spaces. He also enjoys riding motorcycles and cheese and pickle sandwiches.",
-      "urlWebsite": "https://www.heymynameisrob.com",
-      "urlGitHub": "https://github.com/heymynameisrob",
-      "urlLinkedIn": "https://www.linkedin.com/in/heymynameisrob/",
-      "urlMastodon": "https://mastodon.social/@heymynameisrob"
-    }
-  ],
+  "speakers": ["tom-keeber", "rob-hough"],
   "images": [
     {
       "src": "/4/gallery/1.jpg",
