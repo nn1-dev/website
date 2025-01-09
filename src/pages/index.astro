@@ -7,8 +7,9 @@ import Connect from "../sections/Connect.astro";
 import Events from "../sections/Events.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 
-const eventsAll = await getCollection("events");
-const eventRecent = eventsAll
+const allEvents = await getCollection("events");
+const eventRecent = allEvents
+  .filter((event) => !event.data.draft)
   .sort((a, b) => parseInt(b.id) - parseInt(a.id))
   .at(0);
 const eventRecentIsUpcoming =

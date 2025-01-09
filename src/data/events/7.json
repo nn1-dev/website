@@ -1,0 +1,37 @@
+{
+  "id": 7,
+  "draft": true,
+  "name": "#7: TBC",
+  "description": "TBC",
+  "dateStart": "2025-05-29T17:00Z",
+  "dateEnd": "2025-05-29T19:00Z",
+  "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "locatoinLatitude": "52.23585",
+  "locatoinLongitude": "-0.894449",
+  "parking": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2025-05-29T17:00Z",
+      "dateEnd": "2025-05-29T17:30Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2025-05-29T17:30Z",
+      "dateEnd": "2025-05-29T18:00Z",
+      "title": "Talk 1"
+    },
+    {
+      "dateStart": "2025-05-29T18:00Z",
+      "dateEnd": "2025-05-29T18:15Z",
+      "title": "Break"
+    },
+    {
+      "dateStart": "2025-05-29T18:15Z",
+      "dateEnd": "2025-05-29T18:45Z",
+      "title": "Talk 2"
+    }
+  ],
+  "speakers": ["jordan-legg", "pawel-grzybek"]
+}

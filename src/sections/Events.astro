@@ -35,6 +35,10 @@ const formatTime = (date: Date) =>
         <div class="events__grid">
           {
             allEvents
+              .filter(
+                (event) =>
+                  import.meta.env.MODE === "development" || !event.data.draft,
+              )
               .sort((a, b) => parseInt(b.id) - parseInt(a.id))
               .map(
                 ({ data: { id, name, description, dateStart, location } }) => (
