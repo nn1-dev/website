@@ -6,6 +6,7 @@ const events = defineCollection({
   schema: z
     .object({
       id: z.number(),
+      draft: z.boolean().default(false),
       name: z.string(),
       description: z.string(),
       dateStart: z.coerce.date(),

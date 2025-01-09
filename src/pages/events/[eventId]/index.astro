@@ -29,9 +29,13 @@ if (entry === undefined) {
 export async function getStaticPaths() {
   const allEvents = await getCollection("events");
 
-  return allEvents.map(({ data }) => ({
-    params: { eventId: data.id.toString() },
-  }));
+  return allEvents
+    .filter(
+      (event) => import.meta.env.MODE === "development" || !event.data.draft,
+    )
+    .map(({ data }) => ({
+      params: { eventId: data.id.toString() },
+    }));
 }
 
 const {
