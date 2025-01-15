@@ -17,8 +17,3 @@ export const API_HEADERS_NEWSLETTER = {
 export const API_HEADERS_FEEDBACK = {
   headers: { Authorization: `Bearer ${API_KEY_FEEDBACK}` },
 };
-
-export const SEO_TITLE =
-  "NN1 Dev Club - free meet-up for developers from Northampton";
-export const SEO_DESCRIPTION =
-  "A free, quarterly meet-up for a local community of Northamptonshire-based software developers. A place to meet, collaborate and share knowledge with each other.";
