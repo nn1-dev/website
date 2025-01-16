@@ -41,7 +41,7 @@ export default defineConfig({
   redirects: events.reduce(
     (acc, item) => ({
       ...acc,
-      [`/events/${item}/invite`]: `/events/${item}/invite.ics`,
+      [`/events/${item}/invite`]: `/events/${item}/invite/index.ics`,
     }),
     {},
   ),
