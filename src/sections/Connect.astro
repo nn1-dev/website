@@ -14,7 +14,7 @@ import Input from "../components/Input.astro";
         newsletter. We promise never to send you annoying crap. For more
         frequent updates, follow us on social media.
       </p>
-      <form class="connect__form">
+      <form class="connect__form connect__form--loading">
         <Input
           type="email"
           label="Email"
@@ -150,7 +150,50 @@ import Input from "../components/Input.astro";
 
   .connect__form--loading {
     pointer-events: none;
-    opacity: 0.25;
+    position: relative;
+
+    * {
+      opacity: 0.2;
+      filter: blur(10px);
+    }
+
+    &::after {
+      position: absolute;
+      inset: 50%;
+      content: "";
+      width: var(--lh);
+      aspect-ratio: 1;
+      --_g: no-repeat radial-gradient(farthest-side, #fff 90%, transparent);
+      background: var(--_g), var(--_g), var(--_g), var(--_g);
+      background-size: calc(var(--lh) / 3) calc(var(--lh) / 3);
+      animation: loader 1s infinite;
+    }
+  }
+
+  @keyframes loader {
+    0% {
+      background-position:
+        0 0,
+        100% 0,
+        100% 100%,
+        0 100%;
+    }
+    40%,
+    50% {
+      background-position:
+        100% 100%,
+        100% 0,
+        0 0,
+        0 100%;
+    }
+    90%,
+    100% {
+      background-position:
+        100% 100%,
+        0 100%,
+        0 0,
+        100% 0;
+    }
   }
 
   .connect__submit {
