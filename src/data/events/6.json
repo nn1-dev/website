@@ -1,7 +1,7 @@
 {
   "id": 6,
   "draft": true,
-  "name": "#6: TBC",
+  "name": "#6: \"ABC\" by Eric Bye and \"XYZ\" by Rehan Butt",
   "description": "TBC",
   "dateStart": "2025-03-27T18:00Z",
   "dateEnd": "2025-03-27T20:00Z",
@@ -20,7 +20,7 @@
     {
       "dateStart": "2025-03-27T18:30Z",
       "dateEnd": "2025-03-27T19:00Z",
-      "title": "Talk 1"
+      "title": "\"ABC\" by Eric"
     },
     {
       "dateStart": "2025-03-27T19:00Z",
@@ -30,8 +30,8 @@
     {
       "dateStart": "2025-03-27T19:15Z",
       "dateEnd": "2025-03-27T19:45Z",
-      "title": "Talk 2"
+      "title": "\"XYZ\" by Rehan Butt"
     }
   ],
-  "speakers": ["jordan-legg", "pawel-grzybek"]
+  "speakers": ["eric-bye", "rehan-butt"]
 }
