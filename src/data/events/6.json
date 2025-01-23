@@ -1,7 +1,7 @@
 {
   "id": 6,
   "draft": true,
-  "name": "#6: \"ABC\" by Eric Bye and \"XYZ\" by Rehan Butt",
+  "name": "#6: \"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye and \"XYZ\" by Rehan Butt",
   "description": "TBC",
   "dateStart": "2025-03-27T18:00Z",
   "dateEnd": "2025-03-27T20:00Z",
@@ -20,7 +20,8 @@
     {
       "dateStart": "2025-03-27T18:30Z",
       "dateEnd": "2025-03-27T19:00Z",
-      "title": "\"ABC\" by Eric"
+      "title": "\"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye",
+      "description": "Ever needed just one feature from an expensive subscription or waited weeks for a basic proof of concept? While AI agents may not live up to all the hype, they are genuinely transforming how quickly we can build and deploy software. In this talk, I'll demonstrate how to turn an idea into a working product in hours, outline a practical process to follow, highlight common pitfalls, and discuss the limitations. Whether you're a technical founder or simply have an idea, this session will show you how AI agents can help you build faster."
     },
     {
       "dateStart": "2025-03-27T19:00Z",
