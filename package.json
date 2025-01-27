@@ -15,9 +15,13 @@
     "@astrojs/sitemap": "^3.2.1",
     "@sentry/astro": "^8.51.0",
     "astro": "^5.1.9",
+    "canvas-confetti": "^1.9.3",
+    "qrcode": "^1.5.4",
     "typescript": "^5.7.3"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/qrcode": "^1.5.5",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1"
   }
