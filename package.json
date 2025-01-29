@@ -13,8 +13,8 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/netlify": "^6.1.0",
     "@astrojs/sitemap": "^3.2.1",
-    "@sentry/astro": "^8.51.0",
-    "astro": "^5.1.9",
+    "@sentry/astro": "^8.52.0",
+    "astro": "^5.1.10",
     "canvas-confetti": "^1.9.3",
     "qrcode": "^1.5.4",
     "typescript": "^5.7.3"
