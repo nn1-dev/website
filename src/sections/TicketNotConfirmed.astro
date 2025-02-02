@@ -1,0 +1,17 @@
+---
+import Hero from "./Hero.astro";
+import ButtonLink from "../components/ButtonLink.astro";
+
+interface Props {
+  id: number;
+}
+
+const { id } = Astro.props;
+---
+
+<Hero
+  title="Please confirm your email"
+  description="We don't like bots, so to ensure you are not one, please confirm your email address by clicking the link we just sent you. We won't ask you to do it for future signups. You will be all set up!"
+>
+  <ButtonLink href={`/events/${id}`} text="Go to event details" />
+</Hero>

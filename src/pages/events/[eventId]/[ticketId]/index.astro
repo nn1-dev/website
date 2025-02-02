@@ -1,15 +1,10 @@
 ---
 import * as Sentry from "@sentry/astro";
 import { getEntry } from "astro:content";
-import qrcode from "qrcode";
-import { getInviteUrls } from "../../../../utils.ts";
 import Layout from "../../../../layouts/Layout.astro";
-import Hero from "../../../../sections/Hero.astro";
-import ButtonLink from "../../../../components/ButtonLink.astro";
 import { API_URL_TICKETS, API_HEADERS_TICKETS } from "../../../../constants";
-import Section from "../../../../components/Section.astro";
-import Container from "../../../../components/Container.astro";
-import Heading from "../../../../components/Heading.astro";
+import TicketNotConfirmed from "../../../../sections/TicketNotConfirmed.astro";
+import TicketSuccess from "../../../../sections/TicketSuccess.astro";
 
 export const prerender = false;
 
@@ -26,9 +21,8 @@ if (entry === undefined) {
 }
 
 let ticketConfirmed = false;
-let qr = "";
-let attendeeName = "";
-let attendeeEmail = "";
+let ticketName = "";
+let ticketEmail = "";
 
 try {
   const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
@@ -46,12 +40,8 @@ try {
 
   if (responseJson.data.value?.confirmed) {
     ticketConfirmed = true;
-    attendeeName = responseJson.data.value.name;
-    attendeeEmail = responseJson.data.value.email;
-
-    qr = await qrcode.toDataURL(
-      `https://nn1.dev/events/${eventId}/${ticketId}`,
-    );
+    ticketName = responseJson.data.value.name;
+    ticketEmail = responseJson.data.value.email;
 
     // no cache in the browser
     Astro.response.headers.set(
@@ -74,256 +64,24 @@ try {
 const {
   data: { id, name, description, location, dateStart, dateEnd },
 } = entry;
-
-const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
-  timeZone: "Europe/London",
-  weekday: "long",
-  year: "numeric",
-  month: "numeric",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-  hour12: false,
-}).format(dateStart);
-
-const inviteUrls = getInviteUrls({
-  id,
-  name,
-  description,
-  location,
-  dateStart,
-  dateEnd,
-});
-
-function obfuscateName(fullName: string) {
-  // Split the full name into parts
-  const nameParts = fullName.split(" ");
-
-  // Map through each part and obfuscate
-  const obfuscated = nameParts.map((part) => {
-    if (part.length <= 1) return part;
-    // Keep first character and replace rest with asterisks
-    return part[0] + "*".repeat(part.length - 1);
-  });
-
-  // Join back with space
-  return obfuscated.join(" ");
-}
-
-function obfuscateEmail(email: string) {
-  // Return empty string if email is too short
-  if (!email || email.length < 3) return "";
-
-  // Find the position of @
-  const atIndex = email.indexOf("@");
-
-  // If no @ found or it's at invalid position, return empty string
-  if (atIndex === -1 || atIndex === 0 || atIndex === email.length - 1) {
-    return "";
-  }
-
-  // Get first and last characters
-  const firstChar = email[0];
-  const lastChar = email[email.length - 1];
-
-  // Calculate how many asterisks go before and after @
-  const asterisksBeforeAt = "*".repeat(atIndex - 1);
-  const asterisksAfterAt = "*".repeat(email.length - atIndex - 2);
-
-  return `${firstChar}${asterisksBeforeAt}@${asterisksAfterAt}${lastChar}`;
-}
 ---
 
 <Layout title={`${name} | NN1 Dev Club`} description={description} noIndex>
   {
     ticketConfirmed ? (
-      <Section style="contrast">
-        <Container>
-          <div class="container">
-            <Heading level={1} title="Your ticket" />
-            <p class="lead">
-              Thanks for registering. We are looking forward to seeing you at
-              the event. Here is your ticket. Add an event to your calendar:{" "}
-              <a href={inviteUrls.iCal}>iCalendar</a> or{" "}
-              <a href={inviteUrls.google}>Google Calendar</a>
-            </p>
-
-            <div class="ticket__container">
-              <div class="ticket">
-                <div class="ticket__info">
-                  <dl>
-                    <dt class="ticket__term">Name</dt>
-                    <dd class="ticket__description">
-                      {obfuscateName(attendeeName)}
-                    </dd>
-                    <dt class="ticket__term">Email</dt>
-                    <dd class="ticket__description">
-                      {obfuscateEmail(attendeeEmail)}
-                    </dd>
-                    <dt class="ticket__term">Event</dt>
-                    <dd class="ticket__description">{name}</dd>
-                    <dt class="ticket__term">Date/time</dt>
-                    <dd class="ticket__description">{dateStartParsed}</dd>
-                  </dl>
-                </div>
-                <div class="ticket__code">
-                  <img src={qr} alt="QR Code" class="ticket__code-img" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <TicketSuccess
+        eventId={id}
+        eventName={name}
+        eventDescription={description}
+        eventLocation={location}
+        eventDateStart={dateStart}
+        eventDateEnd={dateEnd}
+        ticketId={ticketId}
+        ticketName={ticketName}
+        ticketEmail={ticketEmail}
+      />
     ) : (
-      <Hero
-        title="Please confirm your email"
-        description="We don't like bots, so to ensure you are not one, please confirm your email address by clicking the link we just sent you. We won't ask you to do it for future signups. You will be all set up!"
-      >
-        <ButtonLink href={`/events/${id}`} text="Go to event details" />
-      </Hero>
+      <TicketNotConfirmed id={id} />
     )
   }
 </Layout>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--lh);
-    align-items: center;
-  }
-
-  .lead {
-    max-width: 70ch;
-    text-align: center;
-  }
-
-  .ticket__container {
-    container-type: inline-size;
-    container-name: ticket;
-    width: 100%;
-  }
-
-  .ticket {
-    width: min(100%, 80ch);
-    margin-inline: auto;
-    border-radius: calc(var(--lh) / 2);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    @container (min-width: 600px) {
-      flex-direction: row;
-    }
-  }
-
-  .ticket__info {
-    background-color: var(--color-bg);
-    padding: var(--lh);
-    box-shadow: 0 0 0 4px var(--color-border);
-    border-radius: calc(var(--lh) / 2);
-    flex-grow: 1;
-    position: relative;
-    min-width: 1px;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: calc(var(--lh) / 2);
-      height: 4px;
-      width: calc(100% - var(--lh));
-      background-image: repeating-linear-gradient(
-        to right,
-        var(--color-bg) 0px,
-        var(--color-bg) 6px,
-        transparent 6px,
-        transparent 12px
-      );
-      background-size: 12px 4px;
-
-      @container (min-width: 600px) {
-        top: calc(var(--lh) / 2);
-        left: initial;
-        right: -4px;
-        width: 4px;
-        height: calc(100% - var(--lh));
-        background-image: repeating-linear-gradient(
-          to bottom,
-          var(--color-bg) 0px,
-          var(--color-bg) 6px,
-          transparent 6px,
-          transparent 12px
-        );
-        background-size: 4px 12px;
-      }
-    }
-  }
-
-  .ticket__term {
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 700;
-    opacity: 0.5;
-    line-height: calc(var(--lh) * 0.5);
-  }
-
-  .ticket__description:not(:last-of-type) {
-    margin-bottom: calc(var(--lh) / 2);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .ticket__code {
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-bg);
-    border-radius: 14px;
-    padding: var(--lh);
-  }
-
-  .ticket__code-img {
-    border-radius: 14px;
-  }
-</style>
-
-<script>
-  import confetti from "canvas-confetti";
-  const ticket = document.querySelector(".ticket");
-
-  if (ticket) {
-    const duration = 7 * 1000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-    function randomInRange(min: number, max: number) {
-      return Math.random() * (max - min) + min;
-    }
-
-    const interval = setInterval(function () {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval as NodeJS.Timeout);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        disableForReducedMotion: true,
-      });
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        disableForReducedMotion: true,
-      });
-    }, 250);
-  }
-</script>
