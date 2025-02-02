@@ -90,6 +90,8 @@ function obfuscateEmail(email: string) {
 
   return `${firstChar}${asterisksBeforeAt}@${asterisksAfterAt}${lastChar}`;
 }
+
+const shouldShowCancellation = eventDateStart.getTime() > Date.now();
 ---
 
 <Section style="contrast">
@@ -126,12 +128,18 @@ function obfuscateEmail(email: string) {
           </div>
         </div>
       </div>
-      <p class="ticket__cancel">
-        Can't make it anymore? You can <a
-          href={`/events/${eventId}/${ticketId}/cancel`}
-          >cancel your ticket here</a
-        >.
-      </p>
+
+      {
+        shouldShowCancellation && (
+          <p class="ticket__cancel">
+            Can't make it anymore? You can{" "}
+            <a href={`/events/${eventId}/${ticketId}/cancel`}>
+              cancel your ticket here
+            </a>
+            .
+          </p>
+        )
+      }
     </div>
   </Container>
 </Section>
