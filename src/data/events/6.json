@@ -1,8 +1,7 @@
 {
   "id": 6,
-  "draft": true,
-  "name": "#6: \"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye and \"Dark side of the Moon\" by Rehan Butt",
-  "description": "TBC",
+  "name": "#6: \"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye and \"Dark Side of the Moon\" by Rehan Butt",
+  "description": "Discover how AI agents can turn your ideas into working products in hours, and learn firsthand wisdom about running a successful tech business. Whether you're coding, building side projects, or dreaming big, you'll walk away with practical skills and knowledge.",
   "dateStart": "2025-03-27T18:00Z",
   "dateEnd": "2025-03-27T20:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -31,7 +30,7 @@
     {
       "dateStart": "2025-03-27T19:15Z",
       "dateEnd": "2025-03-27T19:45Z",
-      "title": "\"Dark side of the Moon\" by Rehan Butt",
+      "title": "\"Dark Side of the Moon\" by Rehan Butt",
       "description": "Developers often see the world of tech through the lens of code, frameworks, and innovation. But beyond the Git commits and pull requests lies a business reality that many don’t see—or worse, choose to ignore. \"Dark Side of the Moon\" is a candid look at what it truly takes to work in and run a tech business. Many developers assume that technical prowess alone guarantees success, but the hidden pitfalls of the industry tell a different story. From financial mismanagement and poor client relationships to the dangers of unchecked ego, this talk will expose the common mistakes that can derail careers and businesses alike. Whether you're a junior developer, a freelancer, or an experienced coder considering your own venture, this session will arm you with hard-earned lessons from two decades in the trenches. You’ll walk away with insights into how to navigate company politics, build sustainable client relationships, and avoid becoming the biggest obstacle to your own success. Because in tech, it’s not just about writing great code—it’s about knowing what not to do."
     }
   ],
