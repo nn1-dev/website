@@ -1,0 +1,49 @@
+---
+import * as Sentry from "@sentry/astro";
+import { getEntry } from "astro:content";
+import { API_URL_TICKETS, API_HEADERS_TICKETS } from "../../../../constants.ts";
+import Hero from "../../../../sections/Hero.astro";
+import ButtonLink from "../../../../components/ButtonLink.astro";
+import Layout from "../../../../layouts/Layout.astro";
+
+export const prerender = false;
+
+const { eventId, ticketId } = Astro.params;
+if (!eventId || !ticketId) {
+  Sentry.captureMessage("Access non-existing event.");
+  return Astro.redirect("/404");
+}
+
+const entry = await getEntry("events", eventId);
+if (entry === undefined) {
+  Sentry.captureMessage("Access non-existing event.");
+  return Astro.redirect("/404");
+}
+
+try {
+  const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
+    method: "DELETE",
+    ...API_HEADERS_TICKETS,
+  });
+
+  if (!response.ok) {
+    throw new Error("Token validation failed.");
+  }
+} catch (error) {
+  Sentry.captureException(error);
+  return Astro.redirect("/404");
+}
+---
+
+<Layout
+  title="Cancellation successful | NN1 Dev Club"
+  description="Your ticket has been successfully cancelled. Maybe next time you can make it."
+  noIndex
+>
+  <Hero
+    title="Cancellation successful"
+    description="Your ticket has been successfully cancelled. Maybe next time you can make it."
+  >
+    <ButtonLink href={`/events/${eventId}`} text="Go to event details" />
+  </Hero>
+</Layout>
