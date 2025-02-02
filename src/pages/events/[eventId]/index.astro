@@ -96,7 +96,7 @@ const inviteUrls = getInviteUrls({
   <Hero title={name} description={description}>
     {
       isUpcoming && (
-        <ButtonLink text="Register for free now" href="#get-your-free-ticket" />
+        <ButtonLink text="Get your ticket now" href="#get-your-ticket" />
       )
     }
   </Hero>
@@ -258,7 +258,7 @@ const inviteUrls = getInviteUrls({
             data-event-invite-url-ical={inviteUrls.iCal}
             data-event-invite-url-google={inviteUrls.google}
           >
-            <Heading level={3} title="Get your free ticket" anchor />
+            <Heading level={3} title="Get your ticket" anchor />
             <p>
               By registering, you agree to our{" "}
               <a href="/privacy-policy">privacy policy</a> and to follow our{" "}
@@ -284,7 +284,7 @@ const inviteUrls = getInviteUrls({
               checked={true}
             />
             <div class="dialog__buttons">
-              <Button id="signup-submit" text="Register for the event" />
+              <Button id="signup-submit" text="Get your ticket" />
             </div>
           </form>
         </Container>
