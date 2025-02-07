@@ -1,0 +1,59 @@
+---
+interface Props {
+  event: string;
+  success: string;
+  text: string;
+}
+
+const { event, success, text } = Astro.props;
+---
+
+<div class="countdown" data-target-date={event} data-success-message={success}>
+  <span class="prefix">{text}</span>
+  <span class="digit days">00</span>d
+  <span class="digit hours">00</span>h
+  <span class="digit minutes">00</span>m
+  <span class="digit seconds">00</span>s
+</div>
+
+<script>
+  function updateCountdown() {
+    const countdowns = document.querySelectorAll('.countdown');
+    
+    countdowns.forEach(countdown => {
+      const targetDate = new Date(countdown.dataset.targetDate).getTime();
+      const successMessage = countdown.dataset.successMessage;
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        countdown.innerHTML = successMessage;
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      countdown.querySelector('.days').textContent = days.toString().padStart(2, '0');
+      countdown.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+      countdown.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+      countdown.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+    });
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+<style>
+  .countdown {
+    font-size: 18px;
+  }
+  
+  .countdown .digit {
+    font-family: monospace;
+    font-weight: bold;
+  }
+</style>

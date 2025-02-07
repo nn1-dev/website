@@ -6,6 +6,7 @@ import Organisers from "../sections/Organisers.astro";
 import Connect from "../sections/Connect.astro";
 import Events from "../sections/Events.astro";
 import ButtonLink from "../components/ButtonLink.astro";
+import Countdown from "../components/Countdown.astro";
 
 const allEvents = await getCollection("events");
 const eventRecent = allEvents
@@ -23,6 +24,11 @@ const eventRecentIsUpcoming =
   >
     {
       eventRecentIsUpcoming && (
+        <Countdown
+          text="Next event in:"
+          success="The event has started!"y
+          event={`${eventRecent.data.dateStart}`}
+        />
         <ButtonLink
           text="Check upcoming event"
           href={`/events/${eventRecent.id}`}
