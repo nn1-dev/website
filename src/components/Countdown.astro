@@ -8,7 +8,7 @@ interface Props {
 const { event, success, text } = Astro.props;
 ---
 
-<div class="countdown" data-target-date={event} data-success-message={success}>
+<div id="countdown" data-target-date={event} data-success-message={success}>
   <div class="countdown-wrapper">
     <div class="prefix">{text}</div>
     <div class="countdown-items">
@@ -33,7 +33,7 @@ const { event, success, text } = Astro.props;
 </div>
 
 <style>
-  .countdown {
+  #countdown {
     font-size: 18px;
     display: flex;
     align-items: flex-start;
@@ -110,29 +110,27 @@ const { event, success, text } = Astro.props;
 
 <script>
   function updateCountdown() {
-    const countdowns = document.querySelectorAll('.countdown');
+    const countdown = document.getElementById('countdown');
     
-    countdowns.forEach(countdown => {
-      const targetDate = new Date(countdown.dataset.targetDate).getTime();
-      const successMessage = countdown.dataset.successMessage;
-      const now = new Date().getTime();
-      const difference = targetDate - now;
+    const targetDate = new Date(countdown.dataset.targetDate).getTime();
+    const successMessage = countdown.dataset.successMessage;
+    const now = new Date().getTime();
+    const difference = targetDate - now;
 
-      if (difference <= 0) {
-        countdown.innerHTML = successMessage;
-        return;
-      }
+    if (difference <= 0) {
+      countdown.innerHTML = successMessage;
+      return;
+    }
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-      countdown.querySelector('.days').textContent = days.toString().padStart(2, '0');
-      countdown.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
-      countdown.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
-      countdown.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
-    });
+    countdown.querySelector('.days').textContent = days.toString().padStart(2, '0');
+    countdown.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+    countdown.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+    countdown.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
   }
 
   updateCountdown();
