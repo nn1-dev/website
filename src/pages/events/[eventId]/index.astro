@@ -97,11 +97,6 @@ const inviteUrls = getInviteUrls({
   <Hero title={name} description={description}>
     {
       isUpcoming && (
-        <Countdown
-          text="The countdown has begun:"
-          success="The event has started!"
-          event={`${dateStart}`}
-        />
         <ButtonLink text="Get your ticket now" href="#get-your-ticket" />
       )
     }
@@ -173,6 +168,7 @@ const inviteUrls = getInviteUrls({
             </li>
           </ul>
         </section>
+        <Countdown date={dateStart} />
         <section class="event__section">
           <Heading title="Schedule" level={2} anchor />
           <ul class="event__schedule">

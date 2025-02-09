@@ -1,136 +1,118 @@
 ---
 interface Props {
-  event: string;
-  success: string;
-  text: string;
+  date: Date;
 }
 
-const { event, success, text } = Astro.props;
+const { date } = Astro.props;
 ---
 
-<div id="countdown" data-target-date={event} data-success-message={success}>
-  <div class="countdown-wrapper">
-    <div class="prefix">{text}</div>
-    <div class="countdown-items">
-      <div class="countdown-item">
-        <span class="digit days">00</span>
-        <span class="label">days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="digit hours">00</span>
-        <span class="label">hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="digit minutes">00</span>
-        <span class="label">mins</span>
-      </div>
-      <div class="countdown-item">
-        <span class="digit seconds">00</span>
-        <span class="label">secs</span>
-      </div>
+<div class="countdown" id="countdown" data-target-date={date}>
+  <div class="prefix">The countdown has begun:</div>
+  <div class="countdown-items">
+    <div class="countdown-item">
+      <span class="digit days">00</span>
+      <span class="label">days</span>
+    </div>
+    <div class="countdown-item">
+      <span class="digit hours">00</span>
+      <span class="label">hours</span>
+    </div>
+    <div class="countdown-item">
+      <span class="digit minutes">00</span>
+      <span class="label">mins</span>
+    </div>
+    <div class="countdown-item">
+      <span class="digit seconds">00</span>
+      <span class="label">secs</span>
     </div>
   </div>
 </div>
 
 <style>
-  #countdown {
-    font-size: 18px;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .countdown-wrapper {
-    background: #f5f5f5;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  .countdown {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 0 1px var(--color-border);
+    background-color: var(--color-bg);
+    padding: var(--lh);
+    border-radius: 4px;
   }
 
   .prefix {
-    font-size: 1.1em;
-    color: #666;
-    padding-bottom: 1rem;
+    margin-block-end: var(--lh);
   }
 
   .countdown-items {
     display: flex;
-    gap: 1rem;
+    gap: calc(var(--lh) * 0.5);
   }
 
   .countdown-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 60px;
+    gap: calc(var(--lh) / 4);
   }
 
   .digit {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: monospace;
     font-weight: 700;
-    font-size: 1.8em;
-    color: #2d3748;
-    background: white;
-    padding: 0.5rem 0.8rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 0 0 1px var(--color-border);
+    background-color: var(--color-bg-contrast);
+    padding: calc(var(--lh) / 2);
+    border-radius: 4px;
   }
 
   .label {
-    font-size: 0.8em;
+    font-size: 12px;
+    color: var(--color-fg-dim);
     text-transform: uppercase;
-    color: #718096;
-    margin-top: 0.5rem;
-    letter-spacing: 0.05em;
-  }
-
-  .countdown-item:hover .digit {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-  }
-
-  @media (max-width: 600px) {
-    .countdown-item {
-      min-width: 50px;
-    }
-
-    .digit {
-      font-size: 1.4em;
-      padding: 0.4rem 0.6rem;
-    }
-
-    .label {
-      font-size: 0.7em;
-    }
   }
 </style>
 
 <script>
   function updateCountdown() {
-    const countdown = document.getElementById('countdown');
-    
-    const targetDate = new Date(countdown.dataset.targetDate).getTime();
-    const successMessage = countdown.dataset.successMessage;
+    const countdown = document.getElementById("countdown");
+    const countdownDate = countdown?.dataset.targetDate;
+
+    if (!countdown || !countdownDate) {
+      return;
+    }
+
+    const targetDate = new Date(countdownDate).getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
 
     if (difference <= 0) {
-      countdown.innerHTML = successMessage;
+      countdown?.remove();
+    }
+
+    const DAY_IN_MS = 1000 * 60 * 60 * 24;
+    const HOUR_IN_MS = 1000 * 60 * 60;
+    const MINUTE_IN_MS = 1000 * 60;
+    const SECOND_IN_MS = 1000;
+
+    const days = Math.floor(difference / DAY_IN_MS);
+    const hours = Math.floor((difference % DAY_IN_MS) / HOUR_IN_MS);
+    const minutes = Math.floor((difference % HOUR_IN_MS) / MINUTE_IN_MS);
+    const seconds = Math.floor((difference % MINUTE_IN_MS) / SECOND_IN_MS);
+
+    const elmDays = countdown.querySelector<HTMLDivElement>(".days");
+    const elmHours = countdown.querySelector<HTMLDivElement>(".hours");
+    const elmMinutes = countdown.querySelector<HTMLDivElement>(".minutes");
+    const elmSeconds = countdown.querySelector<HTMLDivElement>(".seconds");
+
+    if (!elmDays || !elmHours || !elmMinutes || !elmSeconds) {
       return;
     }
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    countdown.querySelector('.days').textContent = days.toString().padStart(2, '0');
-    countdown.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
-    countdown.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
-    countdown.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+    elmDays.textContent = days.toString().padStart(2, "0");
+    elmHours.textContent = hours.toString().padStart(2, "0");
+    elmMinutes.textContent = minutes.toString().padStart(2, "0");
+    elmSeconds.textContent = seconds.toString().padStart(2, "0");
   }
 
   updateCountdown();
