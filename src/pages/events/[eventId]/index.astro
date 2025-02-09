@@ -4,6 +4,7 @@ import { getCollection, getEntries, getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
 import Container from "../../../components/Container.astro";
+import Countdown from "../../../components/Countdown.astro";
 import Gallery from "../../../components/Gallery.astro";
 import Profile from "../../../components/Profile.astro";
 import Section from "../../../components/Section.astro";
@@ -96,6 +97,11 @@ const inviteUrls = getInviteUrls({
   <Hero title={name} description={description}>
     {
       isUpcoming && (
+        <Countdown
+          text="The countdown has begun:"
+          success="The event has started!"
+          event={`${dateStart}`}
+        />
         <ButtonLink text="Get your ticket now" href="#get-your-ticket" />
       )
     }
