@@ -1,7 +1,7 @@
 {
   "id": 7,
   "draft": true,
-  "name": "#7: TBC",
+  "name": "#7: \"ABC\" by Dr Kardi Somerfield and \"XYZ\" by Natalie de Weerd",
   "description": "TBC",
   "dateStart": "2025-05-29T17:00Z",
   "dateEnd": "2025-05-29T19:00Z",
@@ -20,7 +20,7 @@
     {
       "dateStart": "2025-05-29T17:30Z",
       "dateEnd": "2025-05-29T18:00Z",
-      "title": "Talk 1"
+      "title": "\"ABC\" by Dr Kardi Somerfield"
     },
     {
       "dateStart": "2025-05-29T18:00Z",
@@ -30,8 +30,8 @@
     {
       "dateStart": "2025-05-29T18:15Z",
       "dateEnd": "2025-05-29T18:45Z",
-      "title": "Talk 2"
+      "title": "\"XYZ\" by Natalie de Weerd"
     }
   ],
-  "speakers": ["dr-kardi-somerfield"]
+  "speakers": ["dr-kardi-somerfield", "natalie-de-weerd"]
 }
