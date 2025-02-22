@@ -61,6 +61,9 @@ const {
             fill="#fafafa"></path></svg
         >
       </a>
+      <div id="theme-toggle">
+        <div class="theme-icon"></div>
+      </div>
     </header>
     <main id="main" class="main" transition:animate="slide">
       <slot />
@@ -92,6 +95,44 @@ const {
         box-shadow: inset 0 -1px 0 0 var(--color-border);
       }
 
+      #theme-toggle {
+        width: 70px;
+        height: 30px;
+        border-radius: 75px;
+        position: relative;
+        transition: all 500ms ease-in-out;
+        background: #423966;
+        font-size: 12%;
+      }
+
+      .theme-icon {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        transition: all 400ms ease-in-out;
+        top: 2.5em;
+        left: 5em;
+        transform: rotate(-75deg);
+        width: 10em;
+        height: 10em;
+        background: #423966;
+        box-shadow: 3em 2.5em 0 0em #D9FBFF inset,rgba(255,255,255,0.1) 0em -7em 0 -4.5em,rgba(255,255,255,0.1) 3em 7em 0 -4.5em,rgba(255,255,255,0.1) 2em 13em 0 -4em,rgba(255,255,255,0.1) 6em 2em 0 -4.1em,rgba(255,255,255,0.1) 8em 8em 0 -4.5em,rgba(255,255,255,0.1) 6em 13em 0 -4.5em,rgba(255,255,255,0.1) -4em 7em 0 -4.5em,rgba(255,255,255,0.1) -1em 10em 0 -4.5em;
+      }
+
+      #theme-toggle.theme-toggle--light{
+        background:var(--lm-color-border-light);
+      }
+
+      .theme-toggle--light .theme-icon{
+        top: 4.5em;
+        left: 24em;
+        transform: rotate(0deg);
+        width: 7em;
+        height: 7em;
+        background: #fff;
+        box-shadow: 3em 3em 0 5em #fff inset, 0 -5em 0 -2.7em #fff, 3.5em -3.5em 0 -3em #fff, 5em 0 0 -2.7em #fff, 3.5em 3.5em 0 -3em #fff, 0 5em 0 -2.7em #fff, -3.5em 3.5em 0 -3em #fff, -5em 0 0 -2.7em #fff, -3.5em -3.5em 0 -3em #fff;
+      }
+
       .header__logo {
         display: block;
       }
@@ -102,6 +143,63 @@ const {
         text-align: center;
         padding: calc(var(--lh) * 2) var(--lh);
       }
+
+      html.light_mode {
+        .header {
+          box-shadow: inset 0 -1px 0 0 var(--lm-color-border-light);
+          background-color: var(--lm-color-bg);
+        }
+
+        .header__logo path {
+          fill: var(--color-bg);
+        }
+
+        .footer {
+          color: var(--color-bg-contrast);
+        }
+      }
     </style>
+
+    
   </body>
+
+  <script>
+    if(getCookie("light_mode") == 1){
+      document.getElementById('theme-toggle').classList.add('theme-toggle--light');
+      document.documentElement.classList.add('light_mode');      
+    }
+    document.getElementById('theme-toggle').onclick = function() {
+      this.classList.toggle('theme-toggle--light');
+      document.documentElement.classList.toggle('light_mode');
+      
+      if(getCookie("light_mode") == 1){
+        setCookie("light_mode",0,365);
+      } else {
+        setCookie("light_mode",1,365);
+      }
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  </script>
 </html>

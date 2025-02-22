@@ -71,6 +71,20 @@ const { date } = Astro.props;
     color: var(--color-fg-dim);
     text-transform: uppercase;
   }
+
+  html.light_mode{
+    .countdown {
+      box-shadow: 0 0 0 1px var(--lm-color-border);
+      background-color: var(--lm-color-bg);
+    }
+    .digit{
+      box-shadow: 0 0 0 1px var(--lm-color-border);
+      background-color: var(--lm-color-bg-contrast);
+    }
+    .label {
+      color: var(--color-fg-dim);
+    }
+  }
 </style>
 
 <script>

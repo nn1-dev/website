@@ -247,4 +247,25 @@ import Input from "../components/Input.astro";
     width: var(--lh);
     height: var(--lh);
   }
+
+  html.light_mode{
+    .connect__submit {
+        color: var(--lm-color-bg);
+        background-color: var(--lm-color-accent);
+        &:hover {
+            background-color: var(--lm-color-accent-light);
+        }
+    }
+    .button {
+        color: var(--lm-color-bg-contrast);
+        background-color: var(--lm-color-accent);
+        &:hover {
+            background-color: var(--lm-color-accent-light);
+            color: var(--color-accent-light);
+        }
+    }
+    .button__icon path {
+      fill: var(--lm-color-bg);
+    }
+}
 </style>
