@@ -15,6 +15,13 @@
   --color-border-light: oklch(30% 0.01 290);
   --color-accent: oklch(83% 0.05 70);
   --color-accent-light: oklch(93% 0.05 70);
+
+  --lm-color-bg: oklch(0.88 0.04 69.08);
+  --lm-color-bg-contrast: oklch(0.79 0.06 68.96);
+  --lm-color-border: oklch(0.82 0.05 69.01);
+  --lm-color-border-light: oklch(0.81 0.05 73.41);
+  --lm-color-accent: oklch(30% 0.01 290);
+  --lm-color-accent-light: oklch(0.19 0.01 289.14)
 }
 
 html {
@@ -64,5 +71,27 @@ img {
   &:hover {
     color: var(--color-accent);
     opacity: 1;
+  }
+}
+
+html.light_mode{
+  background: var(--lm-color-bg);
+
+  body {
+    color:var(--lm-color-accent-light);
+  }
+
+  a {
+    color: var(--lm-color-accent);
+    &:hover {
+      color: var(--lm-color-accent-light);
+    }
+  }
+
+  .anchor {
+    color: rgb(255 255 255 / 50%);
+    &:hover {
+      color: rgb(255 255 255 / 70%);
+    }
   }
 }
