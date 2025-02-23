@@ -137,16 +137,9 @@ const data = [
     aspect-ratio: 7/1;
   }
 
-  html.light_mode{
-    .organisers__partner {
-      background-color: var(--lm-color-bg-contrast);
-      box-shadow: inset 0 0 0 1px var(--lm-color-border);    
-      &:hover {
-        box-shadow: inset 0 0 0 1px var(--lm-color-accent);
-      }
-    }
+  [data-theme="dark"]{
     .organisers__logo {
-      filter: invert(0.85);
+      filter: invert(0.8);
     }
   }
 </style>

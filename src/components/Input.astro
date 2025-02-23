@@ -53,16 +53,9 @@ const { label, required, type, name, placeholder } = Astro.props;
     }
   }
 
-  html.light_mode{
-    .input__field {
-      box-shadow: 0 0 0 4px var(--lm-color-border-light);
-      background-color: var(--lm-color-bg);
-      color:var(--color-bg);
-
-      &:focus,
-      &:hover {
-        outline: 2px solid var(--lm-color-accent);
-      }
+  [data-theme="dark"]{
+    .input__field{
+      background-color: var(--color-bg);
     }
   }
 </style>

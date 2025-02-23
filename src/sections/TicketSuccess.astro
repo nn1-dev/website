@@ -257,38 +257,6 @@ const shouldShowCancellation = eventDateStart.getTime() > Date.now();
       color: inherit;
     }
   }
-
-  html.light_mode{
-    .ticket__info {
-        background-color: var(--lm-color-bg);
-        box-shadow: 0 0 0 4px var(--lm-color-border);
-        &::after {
-            background-image: repeating-linear-gradient(
-            to right,
-            var(--lm-color-bg) 0px,
-            var(--lm-color-bg) 6px,
-            transparent 6px,
-            transparent 12px
-            );
-            @container (min-width: 600px) {
-                background-image: repeating-linear-gradient(
-                  to bottom,
-                  var(--lm-color-bg) 0px,
-                  var(--lm-color-bg) 6px,
-                  transparent 6px,
-                  transparent 12px
-                );
-            }
-        }
-    }
-    .ticket__code {
-        box-shadow: 0 0 0 4px var(--lm-color-border);
-        background-color: var(--lm-color-bg);
-    }    
-    .ticket__cancel {
-        color: var(--lm-color-fg-dim);
-    }
-}
 </style>
 
 <script>
