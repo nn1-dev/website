@@ -2,7 +2,7 @@
 name: "Rob Hough"
 role: "Freelance Design Engineer"
 date: "Tuesday, March 04 2025"
-ogImage: "./rob-hough.jpg"
+ogImage: "./rob-hough/og.jpg"
 urlWebsite: "https://www.heymynameisrob.com/"
 urlGitHub: "https://github.com/heymynameisrob"
 urlMastodon: "https://mastodon.social/@heymynameisrob#."
@@ -14,7 +14,7 @@ urlLinkedIn: "https://www.linkedin.com/in/heymynameisrob/"
 
 My name is Rob. I’m a product designer who codes based in the UK. I guess I’d call myself a design engineer as that’s the modern nomenclature of the day but whatever. I went freelance last August after leading design at Lantum, a health startup where we built scheduling software for the NHS.
 
-![Rob Hough](./rob-hough.jpg)
+![Rob Hough](./rob-hough/portrait.jpg)
 
 ## **What first got you into tech?**
 

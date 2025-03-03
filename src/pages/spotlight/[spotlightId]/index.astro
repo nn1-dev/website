@@ -47,12 +47,13 @@ const {
 } = entry;
 
 const { Content, headings } = await render(entry);
-
-console.log({ ogImage });
 ---
 
-<!-- TODO: Add og images -->
-<Layout title={`${name} | NN1 Dev Club`} description={`${name} | NN1 Dev Club`}>
+<Layout
+  title={`${name} in the Spotlight | NN1 Dev Club`}
+  description={`${name} in the Spotlight | NN1 Dev Club`}
+  og={ogImage.src}
+>
   <Section style="contrast">
     <Container>
       <div class="article__container">
@@ -346,6 +347,7 @@ console.log({ ogImage });
 
     img {
       border-radius: 4px;
+      box-shadow: 0 0 0 4px var(--color-border);
     }
 
     ul {
