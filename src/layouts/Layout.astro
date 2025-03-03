@@ -42,11 +42,11 @@ const {
   </head>
 
   <body>
-    <a href="#main" class="skip-to-content">Skip to main content</a>
     <header class="header">
+      <a href="#main" class="skip-link">Skip to main content</a>
       <a href="/">
         <svg
-          class="header__logo"
+          class="logo"
           width="121"
           height="28"
           viewBox="0 0 102 24"
@@ -61,6 +61,110 @@ const {
             fill="#fafafa"></path></svg
         >
       </a>
+      <button class="nav-toggle js-nav-toggle" aria-expanded="false">
+        <span class="nav-toggle__label js-nav-toggle__label">Open menu</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="nav-toggle__icon nav-toggle__icon--close"
+          ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="nav-toggle__icon nav-toggle__icon--open"
+          ><line x1="4" x2="20" y1="12" y2="12"></line><line
+            x1="4"
+            x2="20"
+            y1="6"
+            y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg
+        >
+      </button>
+      <nav class="nav js-nav">
+        <div class="nav__inner">
+          <ul class="menu">
+            <li><a href="/events">Events</a></li>
+            <li><a href="/spotlight">Spotlight</a></li>
+          </ul>
+          <div class="theme-picker js-theme-picker">
+            <button
+              class="theme-picker__button js-theme-picker__button"
+              aria-pressed="true"
+              data-theme="system"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="theme-picker__icon"
+                ><circle cx="12" cy="12" r="10"></circle><path
+                  d="M12 18a6 6 0 0 0 0-12v12z"></path></svg
+              >
+            </button>
+            <button
+              class="theme-picker__button js-theme-picker__button"
+              aria-pressed="false"
+              data-theme="light"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="theme-picker__icon"
+                ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"
+                ></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"
+                ></path><path d="m17.66 17.66 1.41 1.41"></path><path
+                  d="M2 12h2"></path><path d="M20 12h2"></path><path
+                  d="m6.34 17.66-1.41 1.41"></path><path
+                  d="m19.07 4.93-1.41 1.41"></path></svg
+              ></button
+            >
+            <button
+              class="theme-picker__button js-theme-picker__button"
+              aria-pressed="false"
+              data-theme="dark"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="theme-picker__icon"
+                ><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg
+              ></button
+            >
+          </div>
+        </div>
+      </nav>
     </header>
     <main id="main" class="main" transition:animate="slide">
       <slot />
@@ -72,28 +176,163 @@ const {
       >.
     </footer>
     <style>
-      .skip-to-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        transform: translateY(-100%);
-        padding: 0.5rem;
-      }
-
-      .skip-to-content:focus {
-        transform: translateY(0);
-      }
-
+      /* header */
       .header {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         padding: calc(var(--lh) * 1.25);
         box-shadow: inset 0 -1px 0 0 var(--color-border);
+        position: relative;
+        overflow-x: clip;
       }
 
-      .header__logo {
+      /* skip link */
+      .skip-link {
+        position: absolute;
+        top: 0.5lh;
+        left: 50%;
+        z-index: 1;
+        transform: translateY(calc(-100% - 0.5lh)) translateX(-50%);
+        opacity: 0;
+        padding: 0.5rem;
+        font-size: 14px;
+
+        &:focus {
+          transform: translateX(-50%);
+          opacity: 1;
+        }
+      }
+
+      /* logo */
+      .logo {
         display: block;
+        transition: opacity 0.18s ease-in-out;
+
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+
+      /* nav-toggle */
+      .nav-toggle {
+        display: flex;
+        gap: 0.5lh;
+        align-items: center;
+        font: inherit;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+
+        @media (min-width: 800px) {
+          display: none;
+        }
+
+        &[aria-expanded="true"] .nav-toggle__icon--open {
+          display: none;
+        }
+
+        &[aria-expanded="false"] .nav-toggle__icon--close {
+          display: none;
+        }
+      }
+
+      /* nav */
+      .nav {
+        position: absolute;
+        top: 3.5lh;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+        background-color: var(--color-bg);
+        box-shadow: inset 0 -1px 0 0 var(--color-border);
+        transform: translateX(100%);
+        opacity: 0;
+        transition: all 0.18s ease-in-out;
+
+        &.nav--open {
+          transform: none;
+          opacity: 1;
+        }
+
+        @media (min-width: 800px) {
+          opacity: 1;
+          transform: none;
+          position: static;
+          height: auto;
+          width: auto;
+          box-shadow: none;
+        }
+      }
+
+      .nav__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5lh;
+        padding: 1lh;
+
+        @media (min-width: 800px) {
+          flex-direction: row;
+          padding: 0;
+        }
+      }
+
+      /* menu */
+      .menu {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25lh;
+        width: 100%;
+
+        @media (min-width: 800px) {
+          flex-direction: row;
+          gap: 0.75lh;
+        }
+      }
+
+      /* theme-picker */
+      .theme-picker {
+        display: flex;
+        justify-content: center;
+        gap: 0.5lh;
+      }
+
+      .theme-picker__button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.75lh;
+        background-color: var(--color-border);
+        border-radius: 4px;
+
+        &[aria-pressed="true"] {
+          color: var(--color-accent);
+        }
+
+        @media (min-width: 800px) {
+          padding: 8px;
+        }
+      }
+
+      @keyframes pop {
+        10% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .theme-picker__icon {
+        width: 16px;
+        height: 16px;
+        display: block;
+
+        .theme-picker__button:hover & {
+          animation: pop 0.18s ease-in-out;
+        }
       }
 
       .footer {
@@ -105,3 +344,41 @@ const {
     </style>
   </body>
 </html>
+
+<script>
+  // naviation
+  const nav = document.querySelector(".js-nav");
+  const navToggle = document.querySelector(".js-nav-toggle");
+  const navToggleLabel = document.querySelector(".js-nav-toggle__label");
+
+  if (nav && navToggle && navToggleLabel) {
+    navToggle.addEventListener("click", () => {
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      nav.classList[expanded ? "remove" : "add"]("nav--open");
+      navToggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+      navToggleLabel.textContent = expanded ? "Open menu" : "Close menu";
+    });
+  }
+
+  // theme-picker
+  const themePickerButtons = document.querySelectorAll(
+    ".js-theme-picker .js-theme-picker__button",
+  );
+
+  if (themePickerButtons) {
+    themePickerButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        if (event.currentTarget instanceof HTMLButtonElement === false) {
+          return;
+        }
+
+        themePickerButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", "false");
+        });
+
+        event.currentTarget.setAttribute("aria-pressed", "true");
+        const theme = event.currentTarget.dataset.theme;
+      });
+    });
+  }
+</script>
