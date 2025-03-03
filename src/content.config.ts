@@ -66,7 +66,8 @@ const spotlight = defineCollection({
   schema: z.object({
     draft: z.boolean().default(false),
     name: z.string(),
-    description: z.string(),
+    role: z.string(),
+    ogImage: z.string(),
     date: z.coerce.date(),
     urlWebsite: z.string().url().optional(),
     urlGitHub: z.string().url().optional(),
@@ -74,7 +75,6 @@ const spotlight = defineCollection({
     urlBluesky: z.string().url().optional(),
     urlLinkedIn: z.string().url().optional(),
     urlInstagram: z.string().url().optional(),
-    urlTwitter: z.string().url().optional(),
   }),
 });
 

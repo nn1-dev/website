@@ -1,12 +1,20 @@
 ---
 name: "Rob Hough"
-description: "hi rob"
+role: "Freelance Design Engineer"
 date: "Tuesday, March 04 2025"
+ogImage: "./rob-hough.jpg"
+urlWebsite: "https://www.heymynameisrob.com/"
+urlGitHub: "https://github.com/heymynameisrob"
+urlMastodon: "https://mastodon.social/@heymynameisrob#."
+urlBluesky: "https://bsky.app/profile/heymynameisrob.com"
+urlLinkedIn: "https://www.linkedin.com/in/heymynameisrob/"
 ---
 
 ## **Who are you and what do you do?**
 
 My name is Rob. I’m a product designer who codes based in the UK. I guess I’d call myself a design engineer as that’s the modern nomenclature of the day but whatever. I went freelance last August after leading design at Lantum, a health startup where we built scheduling software for the NHS.
+
+![Rob Hough](./rob-hough.jpg)
 
 ## **What first got you into tech?**
 
@@ -34,7 +42,7 @@ I stop at around 6/7 to work out and make dinner in the evening. After that I ei
 
 I bought a Mac Mini M4 last year and it rocks. I can travel with it super easy and it still has everything I need for dev work. I’m a typical designer so I use a lot of Apple stuff.
 
-Hardware looks like:
+### Hardware looks like:
 
 - BenQ Designer 4k Monitor
 - Apple Magic Keyboard
@@ -42,7 +50,7 @@ Hardware looks like:
 - iLoud Monitors
 - Apple Airpod Max cans
 
-Software looks like:
+### Software looks like:
 
 - Cursor for coding
 - Figma for design

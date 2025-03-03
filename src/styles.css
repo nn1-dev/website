@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
   --fz: 1rem;
   --lh: 1.75rem;
@@ -17,6 +11,17 @@
   --color-accent-light: oklch(93% 0.05 70);
 }
 
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  text-shadow: none;
+}
+
+::target-text {
+  background-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  color: var(--color-text);
+}
+
 html {
   background: var(--color-bg);
   scroll-padding-top: var(--lh);
@@ -24,6 +29,13 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 body {
@@ -54,6 +66,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 .anchor {

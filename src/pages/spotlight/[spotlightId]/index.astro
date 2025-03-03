@@ -34,45 +34,322 @@ export async function getStaticPaths() {
 const {
   data: {
     name,
-    description,
-    // date,
-    // urlWebsite,
-    // urlGitHub,
-    // urlMastodon,
-    // urlBluesky,
-    // urlLinkedIn,
-    // urlInstagram,
-    // urlTwitter,
+    role,
+    date,
+    ogImage,
+    urlWebsite,
+    urlGitHub,
+    urlMastodon,
+    urlBluesky,
+    urlLinkedIn,
+    urlInstagram,
   },
 } = entry;
 
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+
+console.log({ ogImage });
 ---
 
-<!-- todo: add og image per fell -->
-<Layout title={`${name} | NN1 Dev Club`} description={description}>
+<!-- TODO: Add og images -->
+<Layout title={`${name} | NN1 Dev Club`} description={`${name} | NN1 Dev Club`}>
   <Section style="contrast">
-    <Container narrow>
-      <article class="article">
-        <Heading title={name} level={1} />
-        <div class="content">
-          <Content />
-        </div>
-      </article>
+    <Container>
+      <div class="article__container">
+        <article class="article">
+          <div class="article__header">
+            <Heading title={name} level={1} />
+            <p class="article__role">{role}</p>
+            <ul class="socials">
+              {
+                urlWebsite ? (
+                  <li class="socials_item">
+                    <a href={urlWebsite} class="socials__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        class="socials__icon"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"
+                        />
+                      </svg>
+                      <span class="socials__label">Website</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlGitHub ? (
+                  <li class="socials_item">
+                    <a href={urlGitHub} class="socials__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="0.97em"
+                        height="1em"
+                        viewBox="0 0 496 512"
+                        class="socials__icon"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6c-3.3.3-5.6-1.3-5.6-3.6c0-2 2.3-3.6 5.2-3.6c3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9c2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9c.3 2 2.9 3.3 5.9 2.6c2.9-.7 4.9-2.6 4.6-4.6c-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2c12.8 2.3 17.3-5.6 17.3-12.1c0-6.2-.3-40.4-.3-61.4c0 0-70 15-84.7-29.8c0 0-11.4-29.1-27.8-36.6c0 0-22.9-15.7 1.6-15.4c0 0 24.9 2 38.6 25.8c21.9 38.6 58.6 27.5 72.9 20.9c2.3-16 8.8-27.1 16-33.7c-55.9-6.2-112.3-14.3-112.3-110.5c0-27.5 7.6-41.3 23.6-58.9c-2.6-6.5-11.1-33.3 2.6-67.9c20.9-6.5 69 27 69 27c20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27c13.7 34.7 5.2 61.4 2.6 67.9c16 17.7 25.8 31.5 25.8 58.9c0 96.5-58.9 104.2-114.8 110.5c9.2 7.9 17 22.9 17 46.4c0 33.7-.3 75.4-.3 83.6c0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252C496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2c1.6 1.6 3.9 2.3 5.2 1c1.3-1 1-3.3-.7-5.2c-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9c1.6 1 3.6.7 4.3-.7c.7-1.3-.3-2.9-2.3-3.9c-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2c2.3 2.3 5.2 2.6 6.5 1c1.3-1.3.7-4.3-1.3-6.2c-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2c-1.4-2.3-4-3.3-5.6-2"
+                        />
+                      </svg>
+                      <span class="socials__label">GitHub</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlMastodon ? (
+                  <li class="socials_item">
+                    <a href={urlMastodon} class="socials__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="448"
+                        height="512"
+                        viewBox="0 0 448 512"
+                        class="socials__icon"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7c-62.52-28.7-228.56-28.4-290.48 0c0 0-63.72 28.5-63.72 125.7c0 115.7-6.6 259.4 105.63 289.1c40.51 10.7 75.32 13 103.33 11.4c50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.5 102.5 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7c56.12-6.7 105-41.3 111.23-72.9c9.8-49.8 9-121.5 9-121.5m-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175c25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5l11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1c23.71 27.3 18.4 53 18.4 175z"
+                        />
+                      </svg>
+                      <span class="socials__label">Mastodon</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlBluesky ? (
+                  <li class="socials_item">
+                    <a href={urlBluesky} class="socials__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        class="socials__icon"
+                      >
+                        <g fill="none">
+                          <>
+                            <path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                            <path
+                              fill="currentColor"
+                              d="M5.892 2.93c-1.78-1.06-3.813.446-3.63 2.359l.398 4.185c.176 1.855 1.84 4.026 4.195 3.823C4.5 14 3.132 15.865 4.88 18.145c.286.373.597.745.914 1.062s.69.628 1.062.914c1.88 1.441 4.375-.65 5.055-2.69l.09-.268l.09.269c.68 2.04 3.174 4.13 5.055 2.689c.372-.286.745-.597 1.062-.914s.628-.69.914-1.062c1.747-2.28.379-4.145-1.976-4.848c2.355.203 4.018-1.968 4.195-3.823l.399-4.185c.182-1.913-1.852-3.418-3.631-2.36C15.2 4.66 13.485 7.393 12 9.902C10.515 7.392 8.8 4.66 5.892 2.93"
+                            />
+                          </>
+                        </g>
+                      </svg>
+                      <span class="socials__label">Bluesky</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlLinkedIn ? (
+                  <li class="socials_item">
+                    <a href={urlLinkedIn} class="socials__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="0.88em"
+                        height="1em"
+                        viewBox="0 0 448 512"
+                        class="socials__icon"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3M447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2c-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3c94 0 111.28 61.9 111.28 142.3V448z"
+                        />
+                      </svg>
+                      <span class="socials__label">LinkedIn</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlInstagram ? (
+                  <li class="socials_item">
+                    <a href={urlInstagram} class="socials__link">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="448"
+                        height="512"
+                        viewBox="0 0 448 512"
+                        class="socials__icon"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9S287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7s74.7 33.5 74.7 74.7s-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8c-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8s26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9c-26.2-26.2-58-34.4-93.9-36.2c-37-2.1-147.9-2.1-184.9 0c-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9c1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0c35.9-1.7 67.7-9.9 93.9-36.2c26.2-26.2 34.4-58 36.2-93.9c2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6c-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6c-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6c29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6c11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"
+                        />
+                      </svg>
+                      <span class="socials__label">Instagram</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+            </ul>
+          </div>
+          <div class="article__content">
+            <Content />
+          </div>
+          <div class="article__toc">
+            <p class="article__toc-title">Table of content</p>
+            <ul class="article__toc-list">
+              {
+                headings
+                  .filter(({ depth }) => depth == 2)
+                  .map(({ slug, text }) => (
+                    <li class="article__toc-item">
+                      <a class="article__toc-link" href={`#${slug}`}>
+                        {text}
+                      </a>
+                    </li>
+                  ))
+              }
+            </ul>
+            <p class="article__date">Published: {date.toLocaleDateString()}</p>
+          </div>
+        </article>
+      </div>
     </Container>
   </Section>
 </Layout>
 
 <style>
-  .article {
-    display: flex;
-    flex-direction: column;
-    gap: 2lh;
+  .article__container {
+    container-type: inline-size;
   }
 
-  .content {
-    * + * {
+  .article {
+    display: grid;
+    gap: 2lh;
+
+    @container (min-width: 900px) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .article__role {
+    font-style: italic;
+    margin-block-end: 0.5lh;
+    opacity: 0.5;
+  }
+
+  .article__date {
+    opacity: 0.5;
+    margin-block-start: 0.5lh;
+    font-size: 14px;
+  }
+
+  .article__header {
+    @container (min-width: 900px) {
+      grid-column: span 2;
+    }
+  }
+
+  .article__content {
+  }
+
+  .article__toc {
+    display: none;
+
+    @container (min-width: 900px) {
+      display: block;
+      align-self: start;
+      position: sticky;
+      top: 1lh;
+    }
+  }
+
+  .article__toc-title {
+    font-weight: 600;
+    margin-block-end: 0.5lh;
+  }
+
+  .article__toc-list {
+    box-shadow: 0 0 0 1px var(--color-border);
+    background-color: var(--color-border);
+    border-radius: 4px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .article__toc-item {
+  }
+
+  .article__toc-link {
+    display: block;
+    padding: calc(0.5lh - 1px) 0.5lh 0.5lh;
+    background-color: var(--color-bg);
+
+    &:hover {
+      background-color: var(--color-border);
+    }
+  }
+
+  .socials {
+    list-style: none;
+    display: flex;
+    gap: 0.25lh;
+  }
+
+  .socials__link {
+    background-color: var(--color-border);
+    padding: 0.5lh;
+    border-radius: 4px;
+    display: flex;
+    gap: 0.25lh;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+
+    @container (min-width: 900px) {
+      padding: 0.25lh 0.5lh;
+    }
+
+    &:hover {
+      background-color: var(--color-accent);
+      color: var(--color-bg);
+    }
+  }
+
+  .socials__icon {
+    width: var(--fz);
+    height: var(--fz);
+  }
+
+  .socials__label {
+    display: none;
+
+    @container (min-width: 900px) {
+      display: block;
+    }
+  }
+</style>
+
+<style is:global>
+  .article__content {
+    > * {
       margin-block-end: 1lh;
+    }
+
+    * + h2 {
+      margin-block-start: 2lh;
+    }
+
+    img {
+      border-radius: 4px;
+    }
+
+    ul {
+      margin-inline-start: 1lh;
     }
   }
 </style>
