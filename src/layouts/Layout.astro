@@ -23,8 +23,9 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Pawel Grzybek - https://pawelgrzybek.com/" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="color-scheme" content="dark only" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="https://nn1.dev" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -37,8 +38,19 @@ const {
     <meta property="og:type" content="page" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`https://nn1.dev/${og ?? "og.jpg"}`} />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="fediverse:creator" content="@nn1dev@mastodon.social" />
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <script>
+      const userThemeCritical = localStorage.getItem("theme");
+      const elmMeta = document.querySelector('meta[name="color-scheme"]');
+      const elmHtml = document.querySelector("html");
+
+      if (userThemeCritical && elmMeta && elmHtml) {
+        elmMeta.setAttribute("content", userThemeCritical);
+        elmHtml.style.setProperty("color-scheme", userThemeCritical);
+      }
+    </script>
   </head>
 
   <body>
@@ -58,7 +70,7 @@ const {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M60.8236 0.00575361L60.8261 0L60.8203 0.00575361H60.8236ZM60.8236 0.00575361L60.285 1.24922C63.0309 1.50827 63.267 1.75581 61.9084 4.88174L55.7083 19.1528H55.6795L51.8513 2.55025C51.7304 2.03214 52.07 1.51403 52.5997 1.42192C52.6524 1.41261 52.7052 1.40498 52.7588 1.39721C52.8047 1.39057 52.8512 1.38383 52.899 1.37587H52.9278C53.0635 1.35703 53.2041 1.34065 53.3512 1.32351C53.4288 1.31447 53.5083 1.30522 53.5898 1.29527C53.6129 1.29527 53.6416 1.29527 53.6647 1.28952C53.7798 1.278 53.9007 1.26649 54.0216 1.25497L54.5627 0.00575361H35.6172L35.076 1.25497C35.2487 1.27224 35.4099 1.28952 35.5596 1.30679C35.7093 1.32406 35.8532 1.34132 35.9856 1.3586C36.0177 1.36394 36.0485 1.36805 36.0787 1.37206C36.1135 1.3767 36.1474 1.38121 36.1813 1.38738C36.4922 1.43919 36.7455 1.50252 36.9412 1.58311C36.9614 1.59175 36.9801 1.60038 36.9988 1.60901C37.0175 1.61765 37.0362 1.62628 37.0564 1.63492C37.1255 1.66946 37.1888 1.71552 37.2406 1.75581C37.35 1.84792 37.419 1.9573 37.4651 2.08971C37.5284 2.2912 37.5227 2.53874 37.4478 2.86687C37.4304 2.9495 37.4065 3.03541 37.3809 3.12709C37.3726 3.15677 37.3642 3.18706 37.3557 3.21804C37.3287 3.3171 37.2911 3.41969 37.2512 3.52856C37.2401 3.55887 37.2288 3.58967 37.2176 3.62101C37.0852 3.97793 36.9125 4.39818 36.6995 4.8875L30.4994 19.1586H30.4706L26.6424 2.55601C26.5215 2.0379 26.8611 1.51979 27.3907 1.42768C27.7937 1.3586 28.26 1.30678 28.8184 1.25497L29.3596 0.00575361H10.4255L9.88439 1.25497C12.6304 1.51403 12.8664 1.76157 11.5078 4.8875L5.30775 19.1586C3.95491 22.273 3.55193 22.4687 0.541137 22.7508L0 24H18.9456L19.4867 22.7508C16.7234 22.4399 16.4817 22.2615 17.8345 19.1586L24.0345 4.8875C24.2994 4.27728 24.5296 3.77644 24.7484 3.36771L28.8587 21.2022C28.9508 21.6109 28.7666 22.0485 28.3867 22.2327C28.3723 22.2384 28.3579 22.2456 28.3435 22.2528C28.3291 22.26 28.3147 22.2672 28.3003 22.273C28.2946 22.2758 28.2874 22.2787 28.2802 22.2816C28.273 22.2845 28.2658 22.2874 28.26 22.2902L28.1737 22.3248C28.169 22.3263 28.1648 22.3279 28.1607 22.3294C28.1498 22.3336 28.1402 22.3378 28.1276 22.3421C28.0988 22.3536 28.07 22.3651 28.0355 22.3766C28.0247 22.3766 28.0162 22.3811 28.0071 22.3858C28.0016 22.3887 27.996 22.3917 27.9895 22.3939C27.8858 22.4284 27.7764 22.4572 27.6556 22.486C27.6469 22.486 27.6368 22.4888 27.6268 22.4917C27.6167 22.4946 27.6066 22.4975 27.598 22.4975C27.5634 22.5032 27.5347 22.509 27.5001 22.5205C27.4848 22.5205 27.4694 22.5256 27.4541 22.5307C27.4464 22.5333 27.4387 22.5359 27.431 22.5378C27.4138 22.5407 27.3979 22.5435 27.3821 22.5464C27.3663 22.5493 27.3504 22.5522 27.3332 22.555C27.3188 22.555 27.3058 22.5579 27.2929 22.5608C27.2799 22.5637 27.267 22.5666 27.2526 22.5666C27.2303 22.5666 27.2105 22.5713 27.19 22.5763C27.1786 22.579 27.167 22.5818 27.1547 22.5838C27.1403 22.5838 27.1245 22.5867 27.1087 22.5896C27.0928 22.5925 27.077 22.5954 27.0626 22.5954C27.0367 22.5982 27.0108 22.6025 26.9849 22.6069C26.959 22.6112 26.9331 22.6155 26.9072 22.6184C26.887 22.6213 26.8654 22.6241 26.8438 22.627C26.8222 22.6299 26.8007 22.6328 26.7805 22.6356C26.7517 22.6356 26.7172 22.6414 26.6827 22.6472C26.6558 22.6472 26.6289 22.6523 26.6021 22.6574C26.5886 22.66 26.5752 22.6625 26.5618 22.6644C26.5272 22.6644 26.4927 22.6702 26.4582 22.6759L26.4581 22.6759C26.4387 22.6759 26.4179 22.6786 26.3963 22.6814C26.3733 22.6844 26.3495 22.6875 26.3257 22.6875C26.297 22.6875 26.2624 22.6932 26.2279 22.699C26.1949 22.699 26.1619 22.7036 26.1274 22.7085C26.1078 22.7113 26.0876 22.7141 26.0667 22.7162H26.0666C26.0379 22.7162 26.0149 22.7162 25.9861 22.722C25.9458 22.7249 25.9041 22.7292 25.8623 22.7335C25.8206 22.7378 25.7789 22.7421 25.7386 22.745L25.1974 23.9942H44.143L44.6841 22.745C44.0796 22.6759 43.5961 22.6184 43.2219 22.5263C43.1701 22.5148 43.1183 22.5032 43.0664 22.486C42.9686 22.4572 42.8822 22.4284 42.8016 22.3939C42.6404 22.3305 42.5196 22.2499 42.4274 22.1521C42.3814 22.106 42.3411 22.0485 42.3123 21.9909C42.0763 21.5188 42.3526 20.6956 43.0261 19.147L49.2262 4.87599C49.2546 4.81513 49.2801 4.75427 49.3048 4.69543C49.3152 4.67078 49.3254 4.64649 49.3356 4.62269C49.3424 4.60208 49.3514 4.58351 49.3599 4.56578C49.3657 4.55379 49.3712 4.54219 49.3759 4.53058C49.3874 4.50755 49.3975 4.48309 49.4075 4.45862C49.4176 4.43415 49.4277 4.40969 49.4392 4.38666L49.4393 4.38633C49.4566 4.34614 49.4738 4.30597 49.491 4.27153C49.4981 4.25733 49.5042 4.24312 49.5102 4.22932C49.5187 4.20956 49.5269 4.19061 49.5371 4.17366C49.6119 4.00672 49.6867 3.85128 49.7616 3.7016C49.7616 3.69585 49.7673 3.68434 49.7731 3.67858C49.7871 3.64709 49.8032 3.61772 49.8189 3.58919C49.829 3.57078 49.8389 3.55272 49.8479 3.53466C49.8479 3.52315 49.8594 3.51163 49.8652 3.50588C49.8767 3.48283 49.8897 3.45835 49.9026 3.43386C49.9156 3.40941 49.9285 3.38497 49.94 3.36196L54.0504 21.1965C54.1482 21.6109 53.9583 22.0427 53.5783 22.2327C52.9739 22.532 52.1794 22.6356 50.936 22.7508L50.3948 24H69.3404L69.8815 22.7508C67.1183 22.4399 66.8765 22.2615 68.2293 19.1586L74.4294 4.8875C75.788 1.76157 76.2255 1.54281 79.2248 1.25497L79.7659 0.00575361H60.8236ZM93.4383 19.1528L101.757 0H86.0293L85.4881 1.24922C88.2341 1.50827 88.4702 1.75581 87.1116 4.88174L80.9115 19.1528C79.5587 22.2672 79.1499 22.4629 76.1449 22.745L75.6038 23.9942H94.5493L95.0905 22.745C92.333 22.4399 92.0912 22.2557 93.4383 19.1528Z"
-            fill="#fafafa"></path></svg
+          ></path></svg
         >
       </a>
       <button class="nav-toggle js-nav-toggle" aria-expanded="false">
@@ -207,6 +219,7 @@ const {
       .logo {
         display: block;
         transition: opacity 0.18s ease-in-out;
+        fill: var(--color-fg);
 
         &:hover {
           opacity: 0.75;
@@ -218,6 +231,7 @@ const {
         display: flex;
         gap: 0.5lh;
         align-items: center;
+        color: var(--color-fg);
         font: inherit;
         border: none;
         background: none;
@@ -306,6 +320,7 @@ const {
         padding: 0.75lh;
         background-color: var(--color-border);
         border-radius: 4px;
+        color: var(--color-fg);
 
         &[aria-pressed="true"] {
           color: var(--color-accent);
@@ -364,6 +379,23 @@ const {
   const themePickerButtons = document.querySelectorAll(
     ".js-theme-picker .js-theme-picker__button",
   );
+  const elmMeta = document.querySelector('meta[name="color-scheme"]');
+  const elmHtml = document.querySelector("html");
+
+  const userTheme = localStorage.getItem("theme");
+
+  if (userTheme && themePickerButtons) {
+    const selectedbutton = document.querySelector(
+      `.js-theme-picker__button[data-theme="${userTheme}"]`,
+    );
+    themePickerButtons.forEach((button) =>
+      button.setAttribute("aria-pressed", "false"),
+    );
+
+    if (selectedbutton) {
+      selectedbutton.setAttribute("aria-pressed", "true");
+    }
+  }
 
   if (themePickerButtons) {
     themePickerButtons.forEach((button) => {
@@ -377,7 +409,21 @@ const {
         });
 
         event.currentTarget.setAttribute("aria-pressed", "true");
-        const theme = event.currentTarget.dataset.theme;
+        const themeSelected = event.currentTarget.dataset.theme ?? "system";
+
+        if (!elmMeta || !elmHtml) {
+          return;
+        }
+
+        if (themeSelected === "system") {
+          localStorage.removeItem("theme");
+          elmMeta.setAttribute("content", "dark light");
+          elmHtml.style.setProperty("color-scheme", "dark light");
+        } else {
+          localStorage.setItem("theme", themeSelected);
+          elmMeta.setAttribute("content", themeSelected);
+          elmHtml.style.setProperty("color-scheme", themeSelected);
+        }
       });
     });
   }
