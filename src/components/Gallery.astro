@@ -96,7 +96,7 @@ const { images } = Astro.props;
     height: 100%;
     object-fit: cover;
     border-radius: 4px;
-    opacity: 0.5;
+    opacity: 0.75;
     filter: grayscale(0.75);
     transition: all 80ms;
 
@@ -159,6 +159,7 @@ const { images } = Astro.props;
     background-color: var(--color-accent);
     cursor: pointer;
     border: none;
+    fill: var(--color-bg);
 
     &:hover {
       background-color: var(--color-accent-light);

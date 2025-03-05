@@ -61,4 +61,23 @@ const speaker = defineCollection({
     .strict(),
 });
 
-export const collections = { events, speaker };
+const spotlight = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/data/spotlight" }),
+  schema: ({ image }) =>
+    z.object({
+      draft: z.boolean().default(false),
+      name: z.string(),
+      role: z.string(),
+      image: image(),
+      ogImage: image(),
+      date: z.coerce.date(),
+      urlWebsite: z.string().url().optional(),
+      urlGitHub: z.string().url().optional(),
+      urlMastodon: z.string().url().optional(),
+      urlBluesky: z.string().url().optional(),
+      urlLinkedIn: z.string().url().optional(),
+      urlInstagram: z.string().url().optional(),
+    }),
+});
+
+export const collections = { events, speaker, spotlight };
