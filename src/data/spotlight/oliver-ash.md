@@ -2,7 +2,7 @@
 name: "Oliver Ash"
 role: "Head of Web at Unsplash"
 date: "2025-03-07"
-image: "./oliver-ash/og.jpg"
+image: "./oliver-ash/portrait.jpg"
 ogImage: "./oliver-ash/og.jpg"
 urlWebsite: "https://oliverjash.me/"
 urlGitHub: "https://github.com/OliverJAsh"
