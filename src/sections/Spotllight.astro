@@ -1,0 +1,125 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Container from "../components/Container.astro";
+import Section from "../components/Section.astro";
+
+const allSpotlights = await getCollection("spotlight");
+---
+
+<Section style="contrast">
+  <Container>
+    <div class="events">
+      <div class="events__grid">
+        {
+          allSpotlights
+            .filter(
+              (event) =>
+                import.meta.env.MODE === "development" || !event.data.draft,
+            )
+            .sort(
+              (a, b) =>
+                new Date(b.data.date).getTime() -
+                new Date(a.data.date).getTime(),
+            )
+            .map(({ data: { name, role, date, image }, id }) => {
+              return (
+                <a href={`/spotlight/${id}`} class="events__item" data-id={id}>
+                  <div class="events__item-content">
+                    <Image
+                      src={image}
+                      alt={name}
+                      width="100"
+                      height="100"
+                      loading="lazy"
+                      class="events__item__image"
+                    />
+                    <div class="events__item__info">
+                      <h2 class={`events__item-name`}>{name}</h2>
+                      <p class={`events__item-role`}>{role}</p>
+                      <date class={`events__item-date`}>
+                        Published:{" "}
+                        {date.toISOString().slice(0, 10).replace(/-/g, ".")}
+                      </date>
+                    </div>
+                  </div>
+                </a>
+              );
+            })
+        }
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .events {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) * 1.5);
+  }
+
+  .events__grid {
+    display: grid;
+    gap: var(--lh);
+
+    @media (800px <= width) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (1100px <= width) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .events__item {
+    box-shadow: 0 0 0 1px var(--color-border);
+    background-color: var(--color-bg);
+    padding: 0.5lh;
+    color: inherit;
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) * 0.75);
+
+    &:hover {
+      box-shadow: 0 0 0 1px var(--color-accent);
+      color: var(--color-accent);
+    }
+  }
+
+  .events__item-name {
+    max-width: 60ch;
+  }
+
+  .events__item__info {
+    min-width: 0px;
+  }
+
+  .events__item-role {
+    opacity: 0.5;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .events__item-date {
+    font-size: 14px;
+    opacity: 0.5;
+  }
+
+  .events__item-content {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5lh;
+  }
+
+  .events__item__image {
+    width: 3lh;
+    height: 3lh;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+</style>

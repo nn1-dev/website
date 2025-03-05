@@ -1,7 +1,8 @@
 ---
 name: "Thomas Reeve"
 role: "Head of Design"
-date: "Tuesday, March 04 2025"
+date: "2025-02-21"
+image: "./thomas-reeve/og.jpg"
 ogImage: "./thomas-reeve/og.jpg"
 urlLinkedIn: "https://www.linkedin.com/in/thomas-reeve/"
 ---

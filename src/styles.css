@@ -1,14 +1,23 @@
 :root {
   --fz: 1rem;
   --lh: 1.75rem;
-  --color-fg: light-dark(oklch(30% 0.01 290), oklch(98% 0.01 290));
-  --color-fg-dim: light-dark(oklch(32% 0.01 290), oklch(68% 0.01 290));
-  --color-bg: light-dark(oklch(97% 0.01 70), oklch(20% 0.01 290));
-  --color-bg-contrast: light-dark(oklch(94% 0.01 70), oklch(14% 0.01 290));
-  --color-border: light-dark(oklch(90% 0.01 70), oklch(26% 0.01 290));
-  --color-border-light: light-dark(oklch(80% 0.01 70), oklch(30% 0.01 290));
-  --color-accent: light-dark(oklch(50% 0.06 70), oklch(83% 0.05 70));
-  --color-accent-light: light-dark(oklch(7% 0.05 70), oklch(93% 0.05 70));
+  --color-fg: light-dark(oklch(0.147 0.004 49.25), oklch(98% 0.01 290));
+  --color-fg-dim: light-dark(oklch(0.553 0.013 58.071), oklch(68% 0.01 290));
+  --color-bg: light-dark(oklch(0.985 0.001 106.423), oklch(20% 0.01 290));
+  --color-bg-contrast: light-dark(
+    oklch(0.97 0.001 106.424),
+    oklch(14% 0.01 290)
+  );
+  --color-border: light-dark(oklch(0.869 0.005 56.366), oklch(26% 0.01 290));
+  --color-border-light: light-dark(
+    oklch(0.923 0.003 48.717),
+    oklch(30% 0.01 290)
+  );
+  --color-accent: light-dark(oklch(0.374 0.01 67.558), oklch(83% 0.05 70));
+  --color-accent-light: light-dark(
+    oklch(0.553 0.013 58.071),
+    oklch(93% 0.05 70)
+  );
 }
 
 ::selection {
@@ -44,8 +53,6 @@ body {
   font-size: var(--fz);
   line-height: var(--lh);
   color: var(--color-fg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {

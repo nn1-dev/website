@@ -68,6 +68,7 @@ const spotlight = defineCollection({
       draft: z.boolean().default(false),
       name: z.string(),
       role: z.string(),
+      image: image(),
       ogImage: image(),
       date: z.coerce.date(),
       urlWebsite: z.string().url().optional(),
