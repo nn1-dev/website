@@ -32,7 +32,7 @@ urlLinkedIn: "https://www.linkedin.com/in/oliver-joseph-ash-00791a241/"
 
 -
 
-## What’s one thing about coding you wish more people knew?
+## What’s one thing about your profession you wish more people knew?
 
 -
 

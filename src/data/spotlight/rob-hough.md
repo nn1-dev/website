@@ -69,7 +69,7 @@ It was great to see how something so simple unlocked such creativity in the team
 
 Also I’ve recently redesigned my website. There’s a ton of little personal touches which I really like. I’m trying out Tidal over Spotify because it has higher-quality music streaming. I built a custom API to connect to last.fm, which connects to Tidal, so whenever I’m playing music - it shows up on my website.
 
-## What’s one thing about coding you wish more people knew?
+## What’s one thing about your profession you wish more people knew?
 
 I wish more designers worked in code. I love that AI tools like Cursor or v0 have made it so easy to throw together prototypes in real code. However, I think these still abstract designers away from what the product truly is. Working directly with the code allows you to suspend disblief and start expericing the product like your users do. The more you break down these barriers the better the experience becomes.
 

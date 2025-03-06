@@ -493,7 +493,8 @@ const inviteUrls = getInviteUrls({
       content: "";
       width: var(--lh);
       aspect-ratio: 1;
-      --_g: no-repeat radial-gradient(farthest-side, #fff 90%, transparent);
+      --_g: no-repeat
+        radial-gradient(farthest-side, var(--color-fg) 90%, transparent);
       background: var(--_g), var(--_g), var(--_g), var(--_g);
       background-size: calc(var(--lh) / 3) calc(var(--lh) / 3);
       animation: loader 1s infinite;

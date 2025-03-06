@@ -28,7 +28,7 @@ urlLinkedIn: "https://www.linkedin.com/in/thomas-reeve/"
 
 -
 
-## What’s one thing about coding you wish more people knew?
+## What’s one thing about your profession you wish more people knew?
 
 -
 
