@@ -2,7 +2,7 @@
 draft: true
 name: "Thomas Reeve"
 role: "Head of Design"
-date: "2025-02-21"
+date: "2025-03-21"
 image: "./thomas-reeve/portrait.jpg"
 ogImage: "./thomas-reeve/og.jpg"
 urlLinkedIn: "https://www.linkedin.com/in/thomas-reeve/"

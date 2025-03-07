@@ -1,7 +1,7 @@
 ---
 name: "Rob Hough"
 role: "Freelance Design Engineer"
-date: "2025-02-07"
+date: "2025-02-21"
 image: "./rob-hough/portrait.jpg"
 ogImage: "./rob-hough/og.jpg"
 urlWebsite: "https://www.heymynameisrob.com/"
