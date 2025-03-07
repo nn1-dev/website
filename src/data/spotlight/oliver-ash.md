@@ -33,7 +33,7 @@ At university I spent all of my free time trying to build this idea I had for an
 
 I get up with the kids around 6am, have breakfast and spend some time with the family.
 
-I work from home, either from my home small office, the dining room, or when the sun is occasionally shining, the garden. I usually start work at 8am and finish around 5pm, although with half of my team being on the east coast of America, I'm sometimes pulled into things later in the evening. The days can be quite long, but I enjoy it.
+I work from home, either from my small home office, the dining room, or when the sun is occasionally shining, the garden. I usually start work at 8am and finish around 5pm, although with half of my team being on the east coast of America, I'm sometimes pulled into things later in the evening. The days can be quite long, but I enjoy it.
 
 A typical day at Unsplash involves coding, pair programming, and 1-to-1s with my team. My time is split between technical improvements and helping the team to develop new features for the site. With the codebase being a decade old now, it's a challenge keeping it up to modern standards. Front-end development is an unsolved problem, and there's a lot of churn in the ecosystem whilst the industry attempts to figure that out.
 
