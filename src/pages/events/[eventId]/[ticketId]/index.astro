@@ -23,6 +23,7 @@ if (entry === undefined) {
 let ticketConfirmed = false;
 let ticketName = "";
 let ticketEmail = "";
+let ticketTimestamp = "";
 
 try {
   const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
@@ -34,11 +35,32 @@ try {
   }
 
   const responseJson:
-    | { status: "success"; statusCode: number; data: any; error: null }
+    | {
+        status: "success";
+        statusCode: number;
+        data: {
+          key: ["nn1-dev-tickets", number, string];
+          value: {
+            timestamp: string;
+            eventId: number;
+            name: string;
+            email: string;
+            confirmed: boolean;
+          };
+          versionstamp: string;
+        };
+        error: null;
+      }
     | { status: "error"; statusCode: number; data: null; error: string } =
     await response.json();
 
-  if (responseJson.data.value?.confirmed) {
+  if (responseJson.status === "error") {
+    throw new Error("Ticket doesn't exist.");
+  }
+
+  ticketTimestamp = responseJson.data.value.timestamp;
+
+  if (responseJson.data.value.confirmed) {
     ticketConfirmed = true;
     ticketName = responseJson.data.value.name;
     ticketEmail = responseJson.data.value.email;
@@ -81,7 +103,7 @@ const {
         ticketEmail={ticketEmail}
       />
     ) : (
-      <TicketNotConfirmed id={id} />
+      <TicketNotConfirmed id={id} timestamp={ticketTimestamp} />
     )
   }
 </Layout>
