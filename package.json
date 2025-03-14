@@ -11,18 +11,19 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^6.2.2",
+    "@astrojs/netlify": "^6.2.3",
     "@astrojs/sitemap": "^3.2.1",
-    "@sentry/astro": "^9.3.0",
-    "astro": "^5.4.1",
+    "@sentry/astro": "^9.5.0",
+    "astro": "^5.5.2",
     "canvas-confetti": "^1.9.3",
     "qrcode": "^1.5.4",
+    "sharp": "^0.33.5",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
     "@types/qrcode": "^1.5.5",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
