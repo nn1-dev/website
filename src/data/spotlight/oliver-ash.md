@@ -11,7 +11,7 @@ urlBluesky: "https://bsky.app/profile/oliverjash.me"
 urlLinkedIn: "https://www.linkedin.com/in/oliver-joseph-ash-00791a241/"
 ---
 
-## **Who are you and what do you do?**
+## Who are you and what do you do?
 
 My name is Oliver. I live in Rushden, Northamptonshire with my partner, two boys, and dog. I'm also a software engineer with a passion for the web.
 
@@ -19,7 +19,7 @@ For the past 8 years I've been working at [Unsplash](https://unsplash.com/) as t
 
 ![Oliver Ash with a dog and one of the sons](./oliver-ash/family-pic.jpg)
 
-## **What first got you into tech?**
+## What first got you into tech?
 
 When I was a kid, I discovered that anyone could create a web page and share it with anyone, whether that's friends at school or someone on the other side of the planet. I found this fascinating.
 
