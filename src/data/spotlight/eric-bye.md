@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Eric Bye"
 role: "Founder, AI Transformation Expert at Erictron AI Ltd."
 date: "2025-04-04"
