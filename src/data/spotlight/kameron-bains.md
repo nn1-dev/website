@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Kameron Bains"
 role: "Freelance Design Engineer"
 date: "2025-04-18"
