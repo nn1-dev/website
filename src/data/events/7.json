@@ -1,7 +1,7 @@
 {
   "id": 7,
   "draft": true,
-  "name": "#7: \"ABC\" by Dr Kardi Somerfield and \"XYZ\" by Natalie de Weerd",
+  "name": "#7: \"The Future Needs More You\" by Natalie de Weerd and \"ABC\" by Dr Kardi Somerfield ",
   "description": "TBC",
   "dateStart": "2025-05-29T17:00Z",
   "dateEnd": "2025-05-29T19:00Z",
@@ -20,7 +20,8 @@
     {
       "dateStart": "2025-05-29T17:30Z",
       "dateEnd": "2025-05-29T18:00Z",
-      "title": "\"ABC\" by Dr Kardi Somerfield"
+      "title": "\"The Future Needs More You\" by Natalie de Weerd",
+      "description": "In a world racing toward AI dominance, there’s one thing the machines can't replicate: the boundless spark of human creativity. Join me for a deep dive into why \"intelligent\" AI still can't outthink human imagination - and how developers and innovators have always thrived by embracing the unknown. We'll expose real-world AI slip-ups, revisit times we thought technology might replace us (spoiler alert - it didn't), and reveal how your personal spark remains the ultimate edge in any AI-driven future."
     },
     {
       "dateStart": "2025-05-29T18:00Z",
@@ -30,8 +31,8 @@
     {
       "dateStart": "2025-05-29T18:15Z",
       "dateEnd": "2025-05-29T18:45Z",
-      "title": "\"XYZ\" by Natalie de Weerd"
+      "title": "\"ABC\" by Dr Kardi Somerfield"
     }
   ],
-  "speakers": ["dr-kardi-somerfield", "natalie-de-weerd"]
+  "speakers": ["natalie-de-weerd", "dr-kardi-somerfield"]
 }
