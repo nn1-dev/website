@@ -14,11 +14,11 @@
     "@astrojs/netlify": "^6.2.5",
     "@astrojs/sitemap": "^3.3.0",
     "@sentry/astro": "^9.11.0",
-    "astro": "^5.6.0",
+    "astro": "^5.6.1",
     "canvas-confetti": "^1.9.3",
     "qrcode": "^1.5.4",
-    "sharp": "^0.33.5",
-    "typescript": "^5.8.2"
+    "sharp": "^0.34.0",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
