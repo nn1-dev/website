@@ -8,21 +8,15 @@ export default defineAction({
   input: z
     .object({
       name: z.string().trim().optional(),
-      stack: z.string().trim().optional(),
-      who: z.string(),
-      interval: z.string(),
-      feedback: z.string().trim().optional(),
+      feedback: z.string().trim(),
     })
     .strict(),
-  handler: async ({ name, stack, who, interval, feedback }) => {
+  handler: async ({ name = "Anonymous", feedback }) => {
     const response = await fetch(API_URL_FEEDBACK, {
       method: "POST",
       ...API_HEADERS_FEEDBACK,
       body: JSON.stringify({
         name,
-        stack,
-        who,
-        interval,
         feedback,
       }),
     });

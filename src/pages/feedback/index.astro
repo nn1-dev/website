@@ -16,83 +16,10 @@ import Textarea from "../../components/Textarea.astro";
     <Container narrow>
       <form class="form">
         <Input type="text" label="Name" name="name" placeholder="Tim Cook" />
-        <Input
-          type="text"
-          label="What's your tech stack?"
-          name="stack"
-          placeholder="Objective-C and Swift"
-        />
-
-        <fieldset class="form__section">
-          <legend class="label">Who are you?</legend>
-          <div class="radiogroup">
-            <input
-              type="radio"
-              id="who_student"
-              name="who"
-              value="Student"
-              required
-            />
-            <label for="who_student">Student</label>
-          </div>
-
-          <div class="radiogroup">
-            <input
-              type="radio"
-              id="who_hobbyist"
-              name="who"
-              value="Hobbyist"
-              required
-            />
-            <label for="who_hobbyist">Hobbyist</label>
-          </div>
-
-          <div class="radiogroup">
-            <input type="radio" id="who_pro" name="who" value="Pro" required />
-            <label for="who_pro">Pro</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="form__section">
-          <legend class="label">Meet-up interval</legend>
-          <div>
-            <div class="radiogroup">
-              <input
-                type="radio"
-                id="interval_ok"
-                name="interval"
-                value="Every 3 months is fine"
-                required
-              />
-              <label for="interval_ok">Every 3 months is fine</label>
-            </div>
-
-            <div class="radiogroup">
-              <input
-                type="radio"
-                id="interval_more_frequent"
-                name="interval"
-                value="More frequent please"
-                required
-              />
-              <label for="interval_more_frequent">More frequent please</label>
-            </div>
-
-            <div class="radiogroup">
-              <input
-                type="radio"
-                id="interval_less_frequent"
-                name="interval"
-                value="Less frequent please"
-                required
-              />
-              <label for="interval_less_frequent">Less frequent please</label>
-            </div>
-          </div>
-        </fieldset>
 
         <Textarea
           label="Your feedback"
+          required
           name="feedback"
           placeholder="I think..."
         />
