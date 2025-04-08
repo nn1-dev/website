@@ -1,8 +1,7 @@
 {
   "id": 7,
-  "draft": true,
-  "name": "#7: \"The Future Needs More You\" by Natalie de Weerd and \"ABC\" by Dr Kardi Somerfield ",
-  "description": "TBC",
+  "name": "#7: \"The Future Needs More You\" by Natalie de Weerd and \"Charge or Cheat? The Ethics of Billing for AI-Generated Work\" by Dr Kardi Somerfield ",
+  "description": "Explore the human edge in AI development and the ethics of AI-assisted client work. Two thought-provoking talks on staying relevant and ethical in an AI-driven future. These subjects are sure to spark great conversations.",
   "dateStart": "2025-05-29T17:00Z",
   "dateEnd": "2025-05-29T19:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -31,8 +30,9 @@
     {
       "dateStart": "2025-05-29T18:15Z",
       "dateEnd": "2025-05-29T18:45Z",
-      "title": "\"ABC\" by Dr Kardi Somerfield"
+      "title": "\"Charge or Cheat? The Ethics of Billing for AI-Generated Work\" by Dr Kardi Somerfield",
+      "description": "AI can do in minutes what once took hours—but should clients be charged the same? This provocative session tackles the commercial dilemma developers face when using AI in client work. We'll explore industry expectations, and unpack emerging norms around transparency, value-based pricing, human oversight and client consent in AI-augmented work."
     }
   ],
-  "speakers": ["natalie-de-weerd", "dr-kardi-somerfield"]
+  "speakers": ["natalie-de-weerd", "kardi-somerfield"]
 }
