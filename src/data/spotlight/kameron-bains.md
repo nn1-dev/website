@@ -41,9 +41,8 @@ When I get back, I usually focus on assignments, whether it’s working on a mob
 - Keyboard: Ducky Project D Tinker 7%
 - Mouse: Logitech G Pro Superlight 2
 - Microphone: Logitech Blue Yeti
-- Monitors:
-- Primary: LG UltraGear 27GP85OP
-- Secondary: MSI 27" G2712F
+- Monitor primary: LG UltraGear 27GP85OP
+- Monitor secondary: MSI 27" G2712F
 - Webcam: Logitech C920
 - Headphones: Astro A30
 
@@ -63,7 +62,7 @@ Not only did I enjoy developing it, but I’m also really proud of how practical
 
 ## What’s one thing about your profession you wish more people knew?
 
-One thing I wish more people knew about the tech profession is how much of a community it is. It’s not like the stereotypical image of just sitting alone, typing away all day. In reality, the connections you make are incredible—whether it’s collaborating on projects, learning from others, or participating in meetups and online communities.(Like NN1 Dev Club) Tech is all about sharing ideas, solving problems together, and supporting one another.
+One thing I wish more people knew about the tech profession is how much of a community it is. It’s not like the stereotypical image of just sitting alone, typing away all day. In reality, the connections you make are incredible—whether it’s collaborating on projects, learning from others, or participating in meetups and online communities (like NN1 Dev Club). Tech is all about sharing ideas, solving problems together, and supporting one another.
 
 ## Share with others something worth checking out. Not necessarily tech related. Shameless plugs welcomed.
 
