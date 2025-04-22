@@ -1,7 +1,7 @@
 {
   "id": 9,
   "draft": true,
-  "name": "#9: TBC",
+  "name": "#9: \"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie and \"\" by XXX",
   "description": "TBC",
   "dateStart": "2025-11-27T18:00Z",
   "dateEnd": "2025-11-27T20:00Z",
@@ -20,7 +20,8 @@
     {
       "dateStart": "2025-11-27T18:30Z",
       "dateEnd": "2025-11-27T19:00Z",
-      "title": "Talk 1"
+      "title": "\"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie",
+      "description": "This session introduces Model Context Protocol (MCP) through an engaging blend of theory, practical application, and future vision. It aims to inspire developers while equipping them with the tools and understanding to start building their own personal AI assistants, laying the groundwork for a \"Jarvis-like\" future."
     },
     {
       "dateStart": "2025-11-27T19:00Z",
@@ -33,5 +34,5 @@
       "title": "Talk 2"
     }
   ],
-  "speakers": ["jordan-legg", "pawel-grzybek"]
+  "speakers": ["emmanuella-okorie"]
 }
