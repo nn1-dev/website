@@ -1,6 +1,7 @@
 :root {
   --fz: 1rem;
   --lh: 1.75rem;
+  --br: 4px;
   --color-fg: light-dark(oklch(0.147 0.004 49.25), oklch(98% 0.01 290));
   --color-fg-dim: light-dark(oklch(0.553 0.013 58.071), oklch(68% 0.01 290));
   --color-bg: light-dark(oklch(0.985 0.001 106.423), oklch(20% 0.01 290));

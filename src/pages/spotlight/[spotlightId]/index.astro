@@ -275,7 +275,7 @@ const { Content, headings } = await render(entry);
   .article__toc-list {
     box-shadow: 0 0 0 1px var(--color-border);
     background-color: var(--color-border);
-    border-radius: 4px;
+    border-radius: var(--br);
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -305,7 +305,7 @@ const { Content, headings } = await render(entry);
   .socials__link {
     background-color: var(--color-border);
     padding: 0.5lh;
-    border-radius: 4px;
+    border-radius: var(--br);
     display: flex;
     gap: 0.25lh;
     justify-content: center;
@@ -347,7 +347,7 @@ const { Content, headings } = await render(entry);
     }
 
     img {
-      border-radius: 4px;
+      border-radius: var(--br);
       box-shadow: 0 0 0 4px var(--color-border);
     }
 
