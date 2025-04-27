@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Paul Maddern"
 role: "Web Platform Consultant"
 date: "2025-05-02"
