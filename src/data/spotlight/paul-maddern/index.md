@@ -5,7 +5,7 @@ role: "Web Platform Consultant"
 date: "2025-05-02"
 image: "portrait.jpg"
 ogImage: "pob.jpg"
-urlWebsite: "https://www.pobtastic.co.uk/"
+urlWebsite: "https://www.arcadegeek.co.uk/"
 urlGitHub: "https://github.com/pobtastic/"
 urlInstagram: "https://www.instagram.com/pobtastic/"
 urlLinkedIn: "https://www.linkedin.com/in/pobtastic/"
@@ -92,6 +92,8 @@ I spend most of my time in a terminal and rarely use an IDE, so my tech is nothi
 ### Other tech:
 
 Some of my arcade tech includes:
+
+![My (old) tech set-up](desk.jpg)
 
 - Fluke 9100FT
 - Xytronic LF-8800 Solder/ Desoldering Station
