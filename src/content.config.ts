@@ -62,7 +62,7 @@ const speaker = defineCollection({
 });
 
 const spotlight = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/data/spotlight" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/data/spotlight" }),
   schema: ({ image }) =>
     z.object({
       draft: z.boolean().default(false),

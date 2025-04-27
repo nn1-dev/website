@@ -3,8 +3,8 @@ draft: true
 name: "Paul Maddern"
 role: "Web Platform Consultant"
 date: "2025-05-02"
-image: "./paul-maddern/portrait.jpg"
-ogImage: "./paul-maddern/pob.jpg"
+image: "portrait.jpg"
+ogImage: "pob.jpg"
 urlWebsite: "https://www.pobtastic.co.uk/"
 urlGitHub: "https://github.com/pobtastic/"
 urlInstagram: "https://www.instagram.com/pobtastic/"
@@ -26,7 +26,7 @@ second career.
 I dropped out of school at 17 and had a whirlwind career in finance, on the
 [London International Financial Futures and Options Exchange][1].
 
-![My LIFFE Trading Floor Badge (from 1993)](./paul-maddern/pob.jpg)
+![My LIFFE Trading Floor Badge (from 1993)](pob.jpg)
 
 Even though that was a very manual and physical job, I was never very far from
 programming, and still coded a lot in my spare time.
@@ -51,7 +51,7 @@ Anyways, none of that time was wasted as I've spent the last 25 years or so,
 collecting and restoring arcade machines - so it's come in incredibly handy as
 it's really helped with learning how to fix circuit boards/ games.
 
-![Paul Maddern](./paul-maddern/portrait.jpg)
+![Paul Maddern](moon-patrol.jpg)
 
 Plus, I'm also somewhat of a "Historian" for ZX Spectrum games and I like to
 disassemble the code and publish it online using a toolkit called

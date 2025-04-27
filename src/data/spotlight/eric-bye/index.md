@@ -2,8 +2,8 @@
 name: "Eric Bye"
 role: "Founder, AI Transformation Expert at Erictron AI Ltd."
 date: "2025-04-04"
-image: "./eric-bye/portrait.jpg"
-ogImage: "./eric-bye/og.jpg"
+image: "portrait.jpg"
+ogImage: "og.jpg"
 urlWebsite: "https://www.erictronai.com/"
 urlLinkedIn: "https://www.linkedin.com/in/ericqbye"
 ---
@@ -14,9 +14,9 @@ My name is Eric Bye, a Canadian who's been living in the UK for almost 7 years. 
 
 My current 'titles' include AI Consultant, Founder, and more recently, working to add 'builder' to that. Primarily, I spend my time on AI consulting, helping businesses understand and get value from AI through my company, Erictron AI. My background spans startups, enterprise digital transformation, and now entrepreneurship.
 
-![Eric Bye](./eric-bye/family-1.jpg)
+![Eric Bye](family-1.jpg)
 
-![Eric Bye](./eric-bye/family-2.jpg)
+![Eric Bye](family-2.jpg)
 
 ## What first got you into tech?
 
@@ -38,7 +38,7 @@ Software: Replit, ChatGPT, Claude, Gemini, Fireflies, Google Workspace, Canva
 
 Hardware: MacBook Pro, AirPods Pro, iPhone
 
-![Eric's home office](./eric-bye/office.jpg)
+![Eric's home office](office.jpg)
 
 ## What’s the last piece of work you feel proud of?
 

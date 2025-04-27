@@ -2,8 +2,8 @@
 name: "Oliver Ash"
 role: "Head of Web at Unsplash"
 date: "2025-03-07"
-image: "./oliver-ash/portrait.jpg"
-ogImage: "./oliver-ash/og.jpg"
+image: "portrait.jpg"
+ogImage: "og.jpg"
 urlWebsite: "https://oliverjash.me/"
 urlGitHub: "https://github.com/OliverJAsh"
 urlMastodon: "https://fosstodon.org/@oliverjash"
@@ -17,7 +17,7 @@ My name is Oliver. I live in Rushden, Northamptonshire with my partner, two boys
 
 For the past 8 years I've been working at [Unsplash](https://unsplash.com/) as the team lead for the Web team. Before that I worked at [The Guardian](https://www.theguardian.com/) where I helped to develop a new content management system and various improvements to the public website.
 
-![Oliver Ash with a dog and one of the sons](./oliver-ash/family-pic.jpg)
+![Oliver Ash with a dog and one of the sons](family-pic.jpg)
 
 ## What first got you into tech?
 
@@ -45,11 +45,11 @@ Software: lazygit, VS Code, Raycast, Linear, TypeScript, React.
 
 Hardware: MacBook Pro, Studio Display, AirPods.
 
-![Olivers home office](./oliver-ash/office-1.jpg)
+![Olivers home office](office-1.jpg)
 
-![Olivers home office](./oliver-ash/office-2.jpg)
+![Olivers home office](office-2.jpg)
 
-![Olivers home office](./oliver-ash/office-3.jpg)
+![Olivers home office](office-3.jpg)
 
 ## What’s the last piece of work you feel proud of?
 

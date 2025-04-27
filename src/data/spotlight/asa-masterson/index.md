@@ -2,8 +2,8 @@
 name: "Asa Masterson"
 role: "Student at the University of Northampton"
 date: "2025-03-21"
-image: "./asa-masterson/portrait.jpg"
-ogImage: "./asa-masterson/og.jpg"
+image: "./portrait.jpg"
+ogImage: "./og.jpg"
 urlWebsite: "https://asamasterson.com/"
 urlGitHub: "https://github.com/asa-masterson"
 urlInstagram: "https://www.instagram.com/asa_the_apricot/"
@@ -14,7 +14,7 @@ urlLinkedIn: "https://www.linkedin.com/in/asa-masterson/"
 
 My name is Asa. I am a Business Computing student at the University of Northampton. I grew up in Oxford and was in the first cohort to study a T-Level in Digital Production, Design and Development. This was a great course and, as well as learning programming and business skills, I , also, had the opportunity to work for Oxfordshire County Council as a customer support engineer. I work at Vue cinemas when I’m not studying.
 
-![Asa Masterson](./asa-masterson/portrait.jpg)
+![Asa Masterson](./portrait.jpg)
 
 ## What first got you into tech?
 
@@ -45,7 +45,7 @@ Software:
 - ARC for browsing
 - Notion for notes & productivity
 
-![Asa' home office](./asa-masterson/office.webp)
+![Asa' home office](./office.webp)
 
 ## What’s the last piece of work you feel proud of?
 

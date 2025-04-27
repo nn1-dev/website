@@ -2,8 +2,8 @@
 name: "Kameron Bains"
 role: "Freelance Design Engineer"
 date: "2025-04-18"
-image: "./kameron-bains/portrait.jpg"
-ogImage: "./kameron-bains/og.jpg"
+image: "portrait.jpg"
+ogImage: "og.jpg"
 urlWebsite: "https://kam-bains.com/"
 urlGitHub: "https://github.com/kambains226"
 urlLinkedIn: "https://www.linkedin.com/in/kameron-bains-b752b7226/"
@@ -13,7 +13,7 @@ urlLinkedIn: "https://www.linkedin.com/in/kameron-bains-b752b7226/"
 
 My name is Kameorn, and I am a Software Engineering student at the University of Northampton. I'm really enjoying my time at university, meeting lots of new people, and taking on the role of Course Representative. I’m originally from Royal Leamington Spa, and my first work experience was at McDonald's and as a Sales Assistant at Millets. These roles helped me develop my confidence, communication skills, and ability to work in a fast-paced environment.
 
-![Kameron Kains](./kameron-bains/portrait.jpg)
+![Kameron Kains](portrait.jpg)
 
 ## What first got you into tech?
 
@@ -52,7 +52,7 @@ When I get back, I usually focus on assignments, whether it’s working on a mob
 - Video Editing: DaVinci Resolve
 - Version Control: GitHub
 
-![Kameron's setup](./kameron-bains/office.jpg)
+![Kameron's setup](office.jpg)
 
 ## What’s the last piece of work you feel proud of?
 
