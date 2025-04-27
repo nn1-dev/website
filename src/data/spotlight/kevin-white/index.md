@@ -2,8 +2,8 @@
 draft: true
 name: "Kevin White"
 role: "Software Engineering Manager at West Northants Council"
-image: "./kevin-white/portrait.jpg"
-ogImage: "./kevin-white/og.jpg"
+image: "portrait.jpg"
+ogImage: "og.jpg"
 date: "2025-05-16"
 urlLinkedIn: "https://www.linkedin.com/in/kevin-white-60051711/"
 ---
@@ -24,7 +24,7 @@ I've had the same routine for the last 40yrs aside from the addition of some mod
 
 Primarily a 2023 MacBook Pro with an M2 Max processor - all the local computing power a dev needs, an inherited monitor from one of my sons, a Microsoft surface ergonomic keyboard with a nice velvety wrist rest and a funky Microsoft surface arc mouse. The MacBook runs both MacOS and Windows together (via Parallels) so I can support our team who have a mixture of Windows and MacOS hardware. Personally, it's Windows, C# and Visual Studio for the IDE, plugged into AWS as our primary cloud and Amazon Q as my AI buddy to assist me with coding and general techie stuff that I'm too lazy to search for.
 
-![Kevin's office setup](./kevin-white/office.jpg)
+![Kevin's office setup](office.jpg)
 
 ## What’s the last piece of work you feel proud of?
 
