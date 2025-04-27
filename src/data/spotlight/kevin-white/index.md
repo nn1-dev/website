@@ -35,3 +35,5 @@ Oddly I don't get proud about the tech itself anymore. We're a slightly differen
 Bins - arguably the least exciting thing in anyone's life, but as is evident when they're not collected - it becomes national news. All the latest tech you read about supporting all the cool companies out there - we have to support bins. From traditional servers and filestore, through to microservices, message buses, CDNs, mobile apps and AI. We have around a hundred microservices and four million messages on our message bus relating to waste every month co-ordinating the service and 99% of the time it just works, quietly doing it's thing to keep your bins being collected and our streets clean.
 
 ## Share with others something worth checking out. Not necessarily tech related. Shameless plugs welcomed.
+
+- [Celebrating 50 years of Microsoft](https://www.gatesnotes.com/microsoft-original-source-code)
