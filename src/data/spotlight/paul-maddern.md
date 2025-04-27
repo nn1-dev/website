@@ -1,7 +1,8 @@
 ---
+draft: true
 name: "Paul Maddern"
 role: "Web Platform Consultant"
-date: "2025-04-15"
+date: "2025-05-02"
 image: "./paul-maddern/portrait.jpg"
 ogImage: "./paul-maddern/pob.jpg"
 urlWebsite: "https://www.pobtastic.co.uk/"
@@ -91,6 +92,7 @@ I spend most of my time in a terminal and rarely use an IDE, so my tech is nothi
 ### Other tech:
 
 Some of my arcade tech includes:
+
 - Fluke 9100FT
 - Xytronic LF-8800 Solder/ Desoldering Station
 - Various other electronics stuff ...
@@ -128,9 +130,9 @@ Please take some time to check out my blog at [https://www.pobtastic.co.uk][5]!
 Also my [Skoolkit][3] disassembly projects can be found on my GitHub and
 there's an index at [https://skoolkit.arcadegeek.co.uk][6].
 
-[1]: <https://en.wikipedia.org/wiki/London_International_Financial_Futures_and_Options_Exchange> "Wikipedia page for the London International Financial Futures and Options Exchange"
-[2]: <https://en.wikipedia.org/wiki/Zilog_Z80> "Wikipedia link to information about the Zilog Z80 CPU (used in the ZX Spectrum home computer)"
-[3]: <https://skoolkit.ca/> "The official site for Skoolkit, which is a collection of utilities that can be used to disassemble ZX Spectrum games"
-[4]: <https://phaser.io/> "Phaser is a 2D game framework used for making HTML5 games for desktop and mobile"
-[5]: <https://www.pobtastic.co.uk/> "My arcade and disassembly blog"
-[6]: <https://skoolkit.arcadegeek.co.uk/> "A collection of disassembly projects"
+[1]: https://en.wikipedia.org/wiki/London_International_Financial_Futures_and_Options_Exchange "Wikipedia page for the London International Financial Futures and Options Exchange"
+[2]: https://en.wikipedia.org/wiki/Zilog_Z80 "Wikipedia link to information about the Zilog Z80 CPU (used in the ZX Spectrum home computer)"
+[3]: https://skoolkit.ca/ "The official site for Skoolkit, which is a collection of utilities that can be used to disassemble ZX Spectrum games"
+[4]: https://phaser.io/ "Phaser is a 2D game framework used for making HTML5 games for desktop and mobile"
+[5]: https://www.pobtastic.co.uk/ "My arcade and disassembly blog"
+[6]: https://skoolkit.arcadegeek.co.uk/ "A collection of disassembly projects"
