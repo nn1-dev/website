@@ -37,3 +37,4 @@ Bins - arguably the least exciting thing in anyone's life, but as is evident whe
 ## Share with others something worth checking out. Not necessarily tech related. Shameless plugs welcomed.
 
 - [Celebrating 50 years of Microsoft](https://www.gatesnotes.com/microsoft-original-source-code)
+- [Coders at Work: Reflections on the Craft of Programming](https://codersatwork.com/)
