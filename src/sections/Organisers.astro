@@ -27,69 +27,101 @@ const data = [
     urlMastodon: "",
   },
 ];
+
+interface Contributor {
+  role: string;
+  totalAmountDonated: number;
+  name: string;
+  image?: string;
+}
+
+const contributors = await fetch(
+  "https://opencollective.com/nn1-dev/members/all.json",
+);
+const contributorsJson: Array<Contributor> = await contributors.json();
+const contributorsData = contributorsJson
+  .filter(({ role }) => role === "BACKER")
+  .sort((a, b) => b.totalAmountDonated - a.totalAmountDonated);
 ---
 
 <Section>
   <Container>
     <div class="organisers">
-      <Heading title="Who's behind it?" level={2} anchor />
-      <div class="organisers__grid">
-        {data.map((dude) => <Profile {...dude} />)}
+      <div class="organisers__section">
+        <Heading title="Who's behind it?" level={2} anchor />
+        <div class="organisers__grid">
+          {data.map((dude) => <Profile {...dude} />)}
+        </div>
       </div>
-      <Heading title="Partners" level={3} anchor />
-      <div class="organisers__partners">
-        <a href="https://resend.com/" class="organisers__partner">
-          <picture>
-            <source
-              srcset="/partners/resend-dark.svg"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              class="organisers__logo organisers__logo--resend"
-              src="/partners/resend.svg"
-              alt="Resend"
-            />
-          </picture>
-        </a>
-        <a href="https://vulcanworks.co.uk" class="organisers__partner">
-          <picture>
-            <source
-              srcset="/partners/vulcan-works-dark.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/partners/vulcan-works.png"
-              alt="Vulcan Works"
-              class="organisers__logo organisers__logo--vulcan-works"
-            />
-          </picture>
-        </a>
-        <a href="https://s-sa.co.uk" class="organisers__partner">
-          <picture>
-            <source
-              srcset="/partners/s-sa-dark.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/partners/s-sa.png"
-              alt="S-SA Digital"
-              class="organisers__logo organisers__logo--s-sa"
-            />
-          </picture>
-        </a>
-        <a href="https://digitalnorthants.com" class="organisers__partner">
-          <picture>
-            <source
-              srcset="/partners/digital-northants-dark.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/partners/digital-northants.png"
-              alt="Digital northants Logo"
-              class="organisers__logo organisers__logo--digital-northants"
-            />
-          </picture>
-        </a>
+      <div class="organisers__section">
+        <Heading title="Partners" level={3} anchor />
+        <div class="organisers__partners">
+          <a href="https://resend.com/" class="organisers__partner">
+            <picture>
+              <source
+                srcset="/partners/resend-dark.svg"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                class="organisers__logo organisers__logo--resend"
+                src="/partners/resend.svg"
+                alt="Resend"
+              />
+            </picture>
+          </a>
+          <a href="https://vulcanworks.co.uk" class="organisers__partner">
+            <picture>
+              <source
+                srcset="/partners/vulcan-works-dark.png"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="/partners/vulcan-works.png"
+                alt="Vulcan Works"
+                class="organisers__logo organisers__logo--vulcan-works"
+              />
+            </picture>
+          </a>
+          <a href="https://s-sa.co.uk" class="organisers__partner">
+            <picture>
+              <source
+                srcset="/partners/s-sa-dark.png"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="/partners/s-sa.png"
+                alt="S-SA Digital"
+                class="organisers__logo organisers__logo--s-sa"
+              />
+            </picture>
+          </a>
+          <a href="https://digitalnorthants.com" class="organisers__partner">
+            <picture>
+              <source
+                srcset="/partners/digital-northants-dark.png"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                src="/partners/digital-northants.png"
+                alt="Digital northants Logo"
+                class="organisers__logo organisers__logo--digital-northants"
+              />
+            </picture>
+          </a>
+        </div>
+      </div>
+      <div class="organisers__section">
+        <Heading title="Open Collective contributors" level={3} anchor />
+        <p class="organisers__p">
+          We're grateful for the support of our Open Collective contributors.
+          Every contribution, big or small, helps us sustain the event and focus
+          on what matters most - creating a great experience for our community.
+          Any excess funds will be donated to local charities, amplifying the
+          impact of your generosity. Your support means the world to us.
+        </p>
+        <ul class="contributors__list">
+          {contributorsData.map(({ name }) => <li>{name}</li>)}
+        </ul>
       </div>
     </div>
   </Container>
@@ -99,7 +131,13 @@ const data = [
   .organisers {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--lh) * 1.5);
+    gap: calc(var(--lh) * 3);
+  }
+
+  .organisers__section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lh);
   }
 
   .organisers__grid {
@@ -151,5 +189,27 @@ const data = [
 
   .organisers__logo--pala {
     aspect-ratio: 7/1;
+  }
+
+  @media (800px <= width) {
+    .organisers__p {
+      max-width: 70ch;
+    }
+  }
+
+  .contributors__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      padding: calc(var(--lh) / 6) calc(var(--lh) / 2);
+      background-color: var(--color-bg-contrast);
+      box-shadow: inset 0 0 0 1px var(--color-border);
+      border-radius: var(--br);
+      margin-inline-end: calc(var(--lh) / 2);
+      margin-block-end: calc(var(--lh) / 2);
+      font-size: 14px;
+    }
   }
 </style>
