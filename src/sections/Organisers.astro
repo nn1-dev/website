@@ -113,11 +113,12 @@ const contributorsData = contributorsJson
       <div class="organisers__section">
         <Heading title="Open Collective contributors" level={3} anchor />
         <p class="organisers__p">
-          We're grateful for the support of our Open Collective contributors.
-          Every contribution, big or small, helps us sustain the event and focus
-          on what matters most - creating a great experience for our community.
-          Any excess funds will be donated to local charities, amplifying the
-          impact of your generosity. Your support means the world to us.
+          We thank <a href="https://opencollective.com/nn1-dev"
+            >our Open Collective</a
+          > contributors. Every support, big or small, helps us sustain the event
+          and focus on what matters most - creating a great experience for our community.
+          Any excess funds will be donated to local charities, amplifying the impact
+          of your generosity. Your support means the world to us.
         </p>
         <ul class="contributors__list">
           {contributorsData.map(({ name }) => <li>{name}</li>)}
@@ -207,8 +208,8 @@ const contributorsData = contributorsJson
       background-color: var(--color-bg-contrast);
       box-shadow: inset 0 0 0 1px var(--color-border);
       border-radius: var(--br);
-      margin-inline-end: calc(var(--lh) / 2);
-      margin-block-end: calc(var(--lh) / 2);
+      margin-inline-end: calc(var(--lh) / 4);
+      margin-block-end: calc(var(--lh) / 4);
       font-size: 14px;
     }
   }
