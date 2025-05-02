@@ -1,7 +1,7 @@
 {
   "id": 9,
   "draft": true,
-  "name": "#9: \"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie and \"\" by XXX",
+  "name": "#9: \"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie and \"IOT\" by Gabriel Baker",
   "description": "TBC",
   "dateStart": "2025-11-27T18:00Z",
   "dateEnd": "2025-11-27T20:00Z",
@@ -34,5 +34,5 @@
       "title": "Talk 2"
     }
   ],
-  "speakers": ["emmanuella-okorie"]
+  "speakers": ["emmanuella-okorie", "gabriel-baker"]
 }
