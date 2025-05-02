@@ -77,6 +77,7 @@ const spotlight = defineCollection({
       urlBluesky: z.string().url().optional(),
       urlLinkedIn: z.string().url().optional(),
       urlInstagram: z.string().url().optional(),
+      urlTwitter: z.string().url().optional(),
     }),
 });
 
