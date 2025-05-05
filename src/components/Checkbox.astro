@@ -8,41 +8,120 @@ interface Props {
 const { label, name, checked } = Astro.props;
 ---
 
-<div class="input">
+<label class="label" for={name}>
   <input
-    class="input__field"
+    class="input__field js-checkbox"
     type="checkbox"
     name={name}
     id={name}
     checked={checked}
+    tabindex="-1"
+    aria-hidden="true"
   />
-  <label class="input__label" for={name}>{label}</label>
-</div>
+  <button
+    class="button js-button"
+    type="button"
+    role="checkbox"
+    aria-checked="false"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon"><path d="M20 6 9 17l-5-5"></path></svg
+    >
+  </button>
+  {label}
+</label>
+
 <style>
-  .input {
-    width: 100%;
+  .label {
+    width: max-content;
     display: flex;
-    gap: calc(var(--lh) / 3);
+    gap: calc(var(--lh) / 2);
     align-items: center;
-  }
+    cursor: pointer;
 
-  .input__label {
-    color: inherit;
-  }
-
-  .input__field {
-    display: block;
-    font: inherit;
-    padding-block: calc(var(--lh) / 4);
-    padding-inline: calc(var(--lh) / 3);
-    border-radius: var(--br);
-    border: none;
-    box-shadow: 0 0 0 4px var(--color-border);
-
-    &:focus,
-    &:hover {
-      outline: 2px solid var(--color-accent);
+    &:hover button {
+      outline: 2px dotted var(--color-accent);
       outline-offset: 2px;
     }
   }
+
+  .input__field {
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    &:checked + .button .icon {
+      display: block;
+    }
+  }
+
+  .button {
+    width: calc(var(--lh) * 0.75);
+    height: calc(var(--lh) * 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--br);
+    background-color: var(--color-bg);
+    border: none;
+    box-shadow:
+      0 0 0 1px var(--color-border),
+      0 0 0 4px var(--color-border-light);
+    cursor: pointer;
+    color: var(--color-text);
+
+    &:focus-visible {
+      outline: 2px dotted var(--color-accent);
+      outline-offset: 2px;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .icon {
+    display: none;
+    width: calc(var(--lh) / 2);
+    height: calc(var(--lh) / 2);
+    animation-name: pulse;
+    animation-duration: 0.2s;
+  }
 </style>
+
+<script>
+  const checkbox = document.querySelector<HTMLInputElement>(".js-checkbox");
+  const button = document.querySelector<HTMLButtonElement>(".js-button");
+
+  button?.addEventListener("click", () => {
+    if (!checkbox) return;
+
+    checkbox.checked = !checkbox.checked;
+    button.setAttribute("aria-checked", checkbox.checked ? "true" : "false");
+  });
+</script>
