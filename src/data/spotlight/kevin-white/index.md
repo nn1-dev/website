@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Kevin White"
 role: "Software Engineering Manager at West Northants Council"
 image: "portrait.jpg"
