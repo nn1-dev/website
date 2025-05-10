@@ -345,6 +345,12 @@ const {
         @media (min-width: 800px) {
           padding: 8px;
         }
+
+        &:focus-visible {
+          outline: 2px dotted var(--color-accent);
+          outline-offset: 2px;
+          color: var(--color-accent-light);
+        }
       }
 
       @keyframes pop {
