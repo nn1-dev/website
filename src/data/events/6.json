@@ -34,5 +34,19 @@
       "description": "Developers often see the world of tech through the lens of code, frameworks, and innovation. But beyond the Git commits and pull requests lies a business reality that many don’t see—or worse, choose to ignore. \"Dark Side of the Moon\" is a candid look at what it truly takes to work in and run a tech business. Many developers assume that technical prowess alone guarantees success, but the hidden pitfalls of the industry tell a different story. From financial mismanagement and poor client relationships to the dangers of unchecked ego, this talk will expose the common mistakes that can derail careers and businesses alike. Whether you're a junior developer, a freelancer, or an experienced coder considering your own venture, this session will arm you with hard-earned lessons from two decades in the trenches. You’ll walk away with insights into how to navigate company politics, build sustainable client relationships, and avoid becoming the biggest obstacle to your own success. Because in tech, it’s not just about writing great code—it’s about knowing what not to do."
     }
   ],
-  "speakers": ["eric-bye", "rehan-butt"]
+  "speakers": ["eric-bye", "rehan-butt"],
+  "images": [
+    {
+      "src": "/6/gallery/1.jpg",
+      "caption": "Intro section"
+    },
+    {
+      "src": "/6/gallery/2.jpg",
+      "caption": "\"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye"
+    },
+    {
+      "src": "/6/gallery/3.jpg",
+      "caption": "\"Dark Side of the Moon\" by Rehan Butt"
+    }
+  ]
 }
