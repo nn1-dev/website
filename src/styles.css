@@ -32,6 +32,10 @@
   color: var(--color-text);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 html {
   background: var(--color-bg);
   scroll-padding-top: var(--lh);
