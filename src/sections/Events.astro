@@ -136,7 +136,7 @@ const formatTime = (date: Date) =>
 
   .events__grid {
     display: grid;
-    gap: var(--lh);
+    gap: calc(var(--lh) / 2);
 
     @media (800px <= width) {
       grid-template-columns: repeat(3, 1fr);

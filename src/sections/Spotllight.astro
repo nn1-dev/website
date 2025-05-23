@@ -52,7 +52,7 @@ const allSpotlights = await getCollection("spotlight");
 <style>
   .spotlight {
     display: grid;
-    gap: var(--lh);
+    gap: calc(var(--lh) / 2);
 
     @media (800px <= width) {
       grid-template-columns: repeat(2, 1fr);
