@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/netlify": "^6.3.3",
+    "@astrojs/netlify": "^6.3.4",
     "@astrojs/sitemap": "^3.4.0",
-    "@sentry/astro": "^9.20.0",
-    "astro": "^5.7.13",
+    "@sentry/astro": "^9.22.0",
+    "astro": "^5.8.0",
     "canvas-confetti": "^1.9.3",
     "qrcode": "^1.5.4",
-    "sharp": "^0.34.1",
+    "sharp": "^0.34.2",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
