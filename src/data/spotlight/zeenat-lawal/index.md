@@ -48,6 +48,8 @@ Finally, around 7 PM, I focus on university work, which includes assignments, re
 - Design: Figma
 - Version Control: GitHub
 
+![Zeenat's setup](setup.jpg)
+
 ## What’s the last piece of work you feel proud of?
 
 I developed a smart city application using React Native and Firebase for an assignment. The app integrates business and hospital management features, offering role-based dashboards, organisation switching, and scheduling features. This was my first project with React Native, and although it was a bit challenging, the learning process was fun, which makes me eager to build more mobile apps.
