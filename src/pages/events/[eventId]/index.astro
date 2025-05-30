@@ -223,16 +223,22 @@ const inviteUrls = getInviteUrls({
     </Container>
   </Section>
 
-  <Section>
-    <Container>
-      <section class="event__section">
-        <Heading title="Speakers" level={2} anchor />
-        <div class="event__grid">
-          {relatedSpeakers.map(({ data }) => <Profile {...data} />)}
-        </div>
-      </section>
-    </Container>
-  </Section>
+  {
+    relatedSpeakers.length ? (
+      <Section>
+        <Container>
+          <section class="event__section">
+            <Heading title="Speakers" level={2} anchor />
+            <div class="event__grid">
+              {relatedSpeakers.map(({ data }) => (
+                <Profile {...data} />
+              ))}
+            </div>
+          </section>
+        </Container>
+      </Section>
+    ) : null
+  }
 
   {
     images?.length ? (

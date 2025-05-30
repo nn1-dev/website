@@ -1,8 +1,7 @@
 {
   "id": 8,
-  "draft": true,
-  "name": "#8: TBC",
-  "description": "TBC",
+  "name": "#8: Hack & Share - a rundown of side projects by Northamptonshire geeks",
+  "description": "After a very well-received Hack & Share event that we hosted in January, we’re doing it again! Come and join us for a series of snappy presentations and demos, where community members can showcase their side projects. This is the essence of passion for software!",
   "dateStart": "2025-09-25T17:00Z",
   "dateEnd": "2025-09-25T19:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -13,25 +12,16 @@
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
     {
-      "dateStart": "2025-09-25T17:00Z",
-      "dateEnd": "2025-09-25T17:30Z",
+      "dateStart": "2024-11-28T18:00Z",
+      "dateEnd": "2024-11-28T18:30Z",
       "title": "Meet and Greet"
     },
     {
-      "dateStart": "2025-09-25T17:30Z",
-      "dateEnd": "2025-09-25T18:00Z",
-      "title": "Talk 1"
-    },
-    {
-      "dateStart": "2025-09-25T18:00Z",
-      "dateEnd": "2025-09-25T18:15Z",
-      "title": "Break"
-    },
-    {
-      "dateStart": "2025-09-25T18:15Z",
-      "dateEnd": "2025-09-25T18:45Z",
-      "title": "Talk 2"
+      "dateStart": "2024-11-28T18:30Z",
+      "dateEnd": "2024-11-28T20:00Z",
+      "title": "Rundown of side projects by Northamptonshire geeks",
+      "description": "Series of snappy presentations and demos where everyone can share the results of their weekend hacks. In no particular order, not limited to any category. The idea is to present what our local geeks are about and connect people with similar interests."
     }
   ],
-  "speakers": ["richard-burt", "ryan-gichuru", "paul-maddern", "gabriel-baker"]
+  "speakers": []
 }
