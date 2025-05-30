@@ -34,5 +34,39 @@
       "description": "AI can do in minutes what once took hours—but should clients be charged the same? This provocative session tackles the commercial dilemma developers face when using AI in client work. We'll explore industry expectations, and unpack emerging norms around transparency, value-based pricing, human oversight and client consent in AI-augmented work."
     }
   ],
-  "speakers": ["natalie-de-weerd", "kardi-somerfield"]
+  "speakers": ["natalie-de-weerd", "kardi-somerfield"],
+  "images": [
+    {
+      "src": "/7/gallery/event-7-1.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-2.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-3.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-4.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-5.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-6.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-7.jpg",
+      "caption": "NN1 Dev Club #7"
+    },
+    {
+      "src": "/7/gallery/event-7-8.jpg",
+      "caption": "NN1 Dev Club #7"
+    }
+  ]
 }
