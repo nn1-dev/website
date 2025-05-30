@@ -1,6 +1,5 @@
 ---
 name: "Sally Wright"
-draft: true
 role: "Product Owner at Mindera"
 date: "2025-05-30"
 image: "./portrait.jpg"
