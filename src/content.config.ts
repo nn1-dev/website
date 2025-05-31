@@ -58,6 +58,7 @@ const speaker = defineCollection({
         urlLinkedIn: z.string().url().optional(),
         urlInstagram: z.string().url().optional(),
         urlTwitter: z.string().url().optional(),
+        urlHuggingFace: z.string().url().optional(),
       })
       .strict(),
 });
@@ -79,6 +80,7 @@ const spotlight = defineCollection({
       urlLinkedIn: z.string().url().optional(),
       urlInstagram: z.string().url().optional(),
       urlTwitter: z.string().url().optional(),
+      urlHuggingFace: z.string().url().optional(),
     }),
 });
 

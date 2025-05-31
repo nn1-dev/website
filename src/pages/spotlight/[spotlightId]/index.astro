@@ -44,6 +44,7 @@ const {
     urlLinkedIn,
     urlInstagram,
     urlTwitter,
+    urlHuggingFace,
   },
 } = entry;
 
@@ -211,6 +212,15 @@ const { Content, headings } = await render(entry);
                         />
                       </svg>
                       <span class="socials__label">Twitter</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlHuggingFace ? (
+                  <li class="socials_item">
+                    <a href={urlHuggingFace} class="socials__link">
+                      <span class="socials__label">Hugging Face</span>
                     </a>
                   </li>
                 ) : null

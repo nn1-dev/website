@@ -5,8 +5,11 @@ role: "Chief AI Officer of takara.ai"
 date: "2025-06-27"
 image: "./portrait.jpg"
 ogImage: "./og.jpg"
-urlWebsite: "https://takara.ai/"
 urlLinkedIn: "https://www.linkedin.com/in/404missinglink/"
+urlWebsite: "https://takara.ai"
+urlInstagram: "https://www.instagram.com/404_missinglink/"
+urlHuggingFace: "https://huggingface.co/takarajordan"
+urlGitHub: "https://github.com/404missinglink"
 ---
 
 ## Who are you and what do you do?

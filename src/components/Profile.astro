@@ -28,6 +28,7 @@ interface Props {
   urlTwitter?: string | undefined;
   urlInstagram?: string | undefined;
   urlBluesky?: string | undefined;
+  urlHuggingFace?: string | undefined;
 }
 
 const {
@@ -42,9 +43,8 @@ const {
   urlTwitter,
   urlInstagram,
   urlBluesky,
+  urlHuggingFace,
 } = Astro.props;
-
-console.log({ image });
 ---
 
 <div class="profile">
@@ -106,6 +106,13 @@ console.log({ image });
         urlInstagram && (
           <li class="profile__list-item">
             Instagram: <a href={urlInstagram}>{urlInstagram}</a>
+          </li>
+        )
+      }
+      {
+        urlHuggingFace && (
+          <li class="profile__list-item">
+            Hugging Face: <a href={urlHuggingFace}>{urlHuggingFace}</a>
           </li>
         )
       }
