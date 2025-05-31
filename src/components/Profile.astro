@@ -49,7 +49,7 @@ console.log({ image });
 
 <div class="profile">
   <Image
-    src={typeof image === "string" ? image : image.src}
+    src={image as string}
     alt={name}
     class="profile__image"
     width="224"
