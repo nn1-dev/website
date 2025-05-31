@@ -43,22 +43,23 @@ const events = defineCollection({
 });
 
 const speaker = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/data/speakers" }),
-  schema: z
-    .object({
-      name: z.string(),
-      role: z.string(),
-      image: z.string(),
-      bio: z.string().optional(),
-      urlWebsite: z.string().url().optional(),
-      urlGitHub: z.string().url().optional(),
-      urlMastodon: z.string().url().optional(),
-      urlBluesky: z.string().url().optional(),
-      urlLinkedIn: z.string().url().optional(),
-      urlInstagram: z.string().url().optional(),
-      urlTwitter: z.string().url().optional(),
-    })
-    .strict(),
+  loader: glob({ pattern: "**/*.json", base: "./src/data/speakers" }),
+  schema: ({ image }) =>
+    z
+      .object({
+        name: z.string(),
+        role: z.string(),
+        image: image(),
+        bio: z.string().optional(),
+        urlWebsite: z.string().url().optional(),
+        urlGitHub: z.string().url().optional(),
+        urlMastodon: z.string().url().optional(),
+        urlBluesky: z.string().url().optional(),
+        urlLinkedIn: z.string().url().optional(),
+        urlInstagram: z.string().url().optional(),
+        urlTwitter: z.string().url().optional(),
+      })
+      .strict(),
 });
 
 const spotlight = defineCollection({

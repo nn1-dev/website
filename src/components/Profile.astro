@@ -2,7 +2,22 @@
 import { Image } from "astro:assets";
 
 interface Props {
-  image: string;
+  image:
+    | string
+    | {
+        src: string;
+        width: number;
+        height: number;
+        format:
+          | "png"
+          | "jpg"
+          | "jpeg"
+          | "tiff"
+          | "webp"
+          | "gif"
+          | "svg"
+          | "avif";
+      };
   name: string;
   role: string;
   bio?: string | undefined;
@@ -28,11 +43,13 @@ const {
   urlInstagram,
   urlBluesky,
 } = Astro.props;
+
+console.log({ image });
 ---
 
 <div class="profile">
   <Image
-    src={image}
+    src={typeof image === "string" ? image : image.src}
     alt={name}
     class="profile__image"
     width="224"
