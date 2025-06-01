@@ -3,30 +3,12 @@ import Container from "../components/Container.astro";
 import Profile from "../components/Profile.astro";
 import Heading from "../components/Heading.astro";
 import Section from "../components/Section.astro";
+import { getEntry } from "astro:content";
 
-const data = [
-  {
-    image: "/pawel.jpg",
-    name: "Pawel Grzybek",
-    role: "Senior Software Engineer",
-    bio: "I'm a software developer from Poland living in Northampton, UK. I'm a web standards, accessibility and performance enthusiast. Recently, I have enjoyed coding in Rust. After hours, I listen to funky records.",
-    urlWebsite: "https://pawelgrzybek.com/",
-    urlGitHub: "https://github.com/pawelgrzybek",
-    urlLinkedIn: "https://www.linkedin.com/in/pgrzybek/",
-    urlMastodon: "https://mastodon.social/@pawelgrzybek",
-    urlBluesky: "https://bsky.app/profile/pawelgrzybek.com",
-  },
-  {
-    image: "/darren.jpg",
-    name: "Darren Sharp",
-    role: "CEO at S-SA Digital",
-    bio: "Darren the CEO of S-SA Digital Recruitment , With over 20 years under belt, he's been busy building tech teams all across the UK and Europe. As the CEO, he's all about making those perfect matches between top talent and forward-thinking tech companies. As Northampton based organization Darren is passionate about nurturing / championing local talent and helping folks reach their full potential.",
-    urlWebsite: "https://s-sa.co.uk/",
-    urlGitHub: "",
-    urlLinkedIn: "https://www.linkedin.com/in/staffordsharp/",
-    urlMastodon: "",
-  },
-];
+const organisers = await Promise.all([
+  getEntry("member", "pawel-grzybek"),
+  getEntry("member", "darrn-sharp"),
+]);
 
 interface Contributor {
   role: string;
@@ -50,9 +32,14 @@ const contributorsData = contributorsJson
       <div class="organisers__section">
         <Heading title="Who's behind it?" level={2} anchor />
         <div class="organisers__grid">
-          {data.map((dude) => <Profile {...dude} />)}
+          {
+            organisers?.map((organiser) =>
+              organiser?.data ? <Profile {...organiser.data} /> : null,
+            )
+          }
         </div>
       </div>
+
       <div class="organisers__section">
         <Heading title="Partners" level={3} anchor />
         <div class="organisers__partners">

@@ -29,7 +29,7 @@ const events = defineCollection({
             })
             .strict(),
         ),
-        speakers: z.array(reference("speaker")),
+        speakers: z.array(reference("member")),
         images: z
           .array(
             z
@@ -44,8 +44,8 @@ const events = defineCollection({
       .strict(),
 });
 
-const speaker = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/data/speakers" }),
+const member = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/data/members" }),
   schema: ({ image }) =>
     z
       .object({
@@ -86,4 +86,4 @@ const spotlight = defineCollection({
     }),
 });
 
-export const collections = { events, speaker, spotlight };
+export const collections = { events, member, spotlight };

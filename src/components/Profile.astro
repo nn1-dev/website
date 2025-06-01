@@ -2,22 +2,7 @@
 import { Image } from "astro:assets";
 
 interface Props {
-  image:
-    | string
-    | {
-        src: string;
-        width: number;
-        height: number;
-        format:
-          | "png"
-          | "jpg"
-          | "jpeg"
-          | "tiff"
-          | "webp"
-          | "gif"
-          | "svg"
-          | "avif";
-      };
+  image: ImageMetadata;
   name: string;
   role: string;
   bio?: string | undefined;
@@ -49,7 +34,7 @@ const {
 
 <div class="profile">
   <Image
-    src={image as string}
+    src={image}
     alt={name}
     class="profile__image"
     width="224"

@@ -3,18 +3,12 @@ import { Image, Picture } from "astro:assets";
 
 interface Props {
   images: {
-    src: {
-      src: string;
-      width: number;
-      height: number;
-      format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
-    };
+    src: ImageMetadata;
     caption: string;
   }[];
 }
 
 const { images } = Astro.props;
-console.log({ images });
 ---
 
 <div class="wrapper">
