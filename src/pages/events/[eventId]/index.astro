@@ -42,6 +42,7 @@ export async function getStaticPaths() {
 const {
   data: {
     id,
+    ogImage,
     name,
     description,
     dateStart,
@@ -55,6 +56,8 @@ const {
     images,
   },
 } = entry;
+
+console.log({ images });
 
 const relatedSpeakers = await getEntries(speakers);
 
@@ -92,7 +95,7 @@ const inviteUrls = getInviteUrls({
 <Layout
   title={`${name} | NN1 Dev Club`}
   description={description}
-  og={`${id}/og.jpg`}
+  og={ogImage.src}
 >
   <Hero title={name} description={description}>
     {

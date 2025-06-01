@@ -1,5 +1,6 @@
 {
   "id": 7,
+  "ogImage": "./og.jpg",
   "name": "#7: \"The Future Needs More You\" by Natalie de Weerd and \"Charge or Cheat? The Ethics of Billing for AI-Generated Work\" by Dr Kardi Somerfield ",
   "description": "Explore the human edge in AI development and the ethics of AI-assisted client work. Two thought-provoking talks on staying relevant and ethical in an AI-driven future. These subjects are sure to spark great conversations.",
   "dateStart": "2025-05-29T17:00Z",
@@ -37,35 +38,35 @@
   "speakers": ["natalie-de-weerd", "kardi-somerfield"],
   "images": [
     {
-      "src": "/7/gallery/event-7-1.jpg",
+      "src": "./gallery/event-7-1.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-2.jpg",
+      "src": "./gallery/event-7-2.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-3.jpg",
+      "src": "./gallery/event-7-3.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-4.jpg",
+      "src": "./gallery/event-7-4.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-5.jpg",
+      "src": "./gallery/event-7-5.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-6.jpg",
+      "src": "./gallery/event-7-6.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-7.jpg",
+      "src": "./gallery/event-7-7.jpg",
       "caption": "NN1 Dev Club #7"
     },
     {
-      "src": "/7/gallery/event-7-8.jpg",
+      "src": "./gallery/event-7-8.jpg",
       "caption": "NN1 Dev Club #7"
     }
   ]

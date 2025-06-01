@@ -2,44 +2,46 @@ import { z, defineCollection, reference } from "astro:content";
 import { glob } from "astro/loaders";
 
 const events = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/data/events" }),
-  schema: z
-    .object({
-      id: z.number(),
-      draft: z.boolean().default(false),
-      name: z.string(),
-      description: z.string(),
-      dateStart: z.coerce.date(),
-      dateEnd: z.coerce.date(),
-      location: z.string(),
-      locationUrl: z.string().url(),
-      locatoinLatitude: z.string(),
-      locatoinLongitude: z.string(),
-      parking: z.string(),
-      parkingUrl: z.string().url(),
-      schedule: z.array(
-        z
-          .object({
-            dateStart: z.coerce.date(),
-            dateEnd: z.coerce.date(),
-            title: z.string(),
-            description: z.string().optional(),
-          })
-          .strict(),
-      ),
-      speakers: z.array(reference("speaker")),
-      images: z
-        .array(
+  loader: glob({ pattern: "**/*.json", base: "./src/data/events" }),
+  schema: ({ image }) =>
+    z
+      .object({
+        id: z.number(),
+        draft: z.boolean().default(false),
+        ogImage: image(),
+        name: z.string(),
+        description: z.string(),
+        dateStart: z.coerce.date(),
+        dateEnd: z.coerce.date(),
+        location: z.string(),
+        locationUrl: z.string().url(),
+        locatoinLatitude: z.string(),
+        locatoinLongitude: z.string(),
+        parking: z.string(),
+        parkingUrl: z.string().url(),
+        schedule: z.array(
           z
             .object({
-              src: z.string(),
-              caption: z.string(),
+              dateStart: z.coerce.date(),
+              dateEnd: z.coerce.date(),
+              title: z.string(),
+              description: z.string().optional(),
             })
             .strict(),
-        )
-        .optional(),
-    })
-    .strict(),
+        ),
+        speakers: z.array(reference("speaker")),
+        images: z
+          .array(
+            z
+              .object({
+                src: image(),
+                caption: z.string(),
+              })
+              .strict(),
+          )
+          .optional(),
+      })
+      .strict(),
 });
 
 const speaker = defineCollection({

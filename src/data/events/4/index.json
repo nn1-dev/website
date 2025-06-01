@@ -1,5 +1,6 @@
 {
   "id": 4,
+  "ogImage": "./og.jpg",
   "name": "#4: \"Dunelm's Digital Journey\" by Tom Keeber and \"Designing for LLM's (or how to make ChatGPT suck less)\" by Rob Hough",
   "description": "On our fourth event, we will explore how Dunelm scaled from an unwieldy Websphere site managed by a single software developer to one of Europe's largest AWS serverless infrastructures. We will also look into the paradigm shift introduced by LLMs and their potential to enhance the user experience.",
   "dateStart": "2024-11-28T18:00Z",
@@ -42,27 +43,27 @@
   "speakers": ["tom-keeber", "rob-hough"],
   "images": [
     {
-      "src": "/4/gallery/1.jpg",
+      "src": "./gallery/1.jpg",
       "caption": "Guests at NN1 Dev Club #4"
     },
     {
-      "src": "/4/gallery/2.jpg",
+      "src": "./gallery/2.jpg",
       "caption": "Guests at NN1 Dev Club #4"
     },
     {
-      "src": "/4/gallery/3.jpg",
+      "src": "./gallery/3.jpg",
       "caption": "Guests at NN1 Dev Club #4"
     },
     {
-      "src": "/4/gallery/DSC08276.jpeg",
+      "src": "./gallery/DSC08276.jpeg",
       "caption": "Guests at NN1 Dev Club #4"
     },
     {
-      "src": "/4/gallery/DSC08277.jpeg",
+      "src": "./gallery/DSC08277.jpeg",
       "caption": "Guests at NN1 Dev Club #4"
     },
     {
-      "src": "/4/gallery/DSC08281.jpeg",
+      "src": "./gallery/DSC08281.jpeg",
       "caption": "Guests at NN1 Dev Club #4"
     }
   ]

@@ -1,5 +1,6 @@
 {
   "id": 1,
+  "ogImage": "./og.jpg",
   "name": "#1: \"Boiling Nemo\" by PJ Evans and \"The Science of Software Engineering\"by  Junade Ali",
   "description": "We are thrilled to invite you to the inaugural event of our new series of events! Join us for an insightful talks, networking opportunities, and talks by very special guests. Save the date and be part of this community!",
   "dateStart": "2024-03-27T18:00Z",
@@ -42,75 +43,75 @@
   "speakers": ["pj-evans", "junade-ali"],
   "images": [
     {
-      "src": "/1/gallery/1.jpg",
+      "src": "./gallery/1.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/2.jpg",
+      "src": "./gallery/2.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/3.jpg",
+      "src": "./gallery/3.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/4.jpg",
+      "src": "./gallery/4.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/5.jpg",
+      "src": "./gallery/5.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/6.jpg",
+      "src": "./gallery/6.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/7.jpg",
+      "src": "./gallery/7.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/8.jpg",
+      "src": "./gallery/8.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/9.jpg",
+      "src": "./gallery/9.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/10.jpg",
+      "src": "./gallery/10.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/11.jpg",
+      "src": "./gallery/11.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/12.jpg",
+      "src": "./gallery/12.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/13.jpg",
+      "src": "./gallery/13.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/14.jpg",
+      "src": "./gallery/14.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/15.jpg",
+      "src": "./gallery/15.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/16.jpg",
+      "src": "./gallery/16.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/17.jpg",
+      "src": "./gallery/17.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     },
     {
-      "src": "/1/gallery/18.jpg",
+      "src": "./gallery/18.jpg",
       "caption": "Guests at NN1 Dev Club #1"
     }
   ]

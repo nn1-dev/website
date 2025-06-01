@@ -1,5 +1,6 @@
 {
   "id": 6,
+  "ogImage": "./og.jpg",
   "name": "#6: \"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye and \"Dark Side of the Moon\" by Rehan Butt",
   "description": "Discover how AI agents can turn your ideas into working products in hours, and learn firsthand wisdom about running a successful tech business. Whether you're coding, building side projects, or dreaming big, you'll walk away with practical skills and knowledge.",
   "dateStart": "2025-03-27T18:00Z",
@@ -37,15 +38,15 @@
   "speakers": ["eric-bye", "rehan-butt"],
   "images": [
     {
-      "src": "/6/gallery/1.jpg",
+      "src": "./gallery/1.jpg",
       "caption": "Intro section"
     },
     {
-      "src": "/6/gallery/2.jpg",
+      "src": "./gallery/2.jpg",
       "caption": "\"Move Fast and Build Things: A Non-Technical Guide to AI Agents\" by Eric Bye"
     },
     {
-      "src": "/6/gallery/3.jpg",
+      "src": "./gallery/3.jpg",
       "caption": "\"Dark Side of the Moon\" by Rehan Butt"
     }
   ]

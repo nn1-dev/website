@@ -1,9 +1,10 @@
 {
-  "id": 8,
-  "name": "#8: Hack & Share - a rundown of side projects by Northamptonshire geeks",
-  "description": "After a very well-received Hack & Share event that we hosted in January, we’re doing it again! Come and join us for a series of snappy presentations and demos, where community members can showcase their side projects. This is the essence of passion for software!",
-  "dateStart": "2025-09-25T17:00Z",
-  "dateEnd": "2025-09-25T19:00Z",
+  "id": 5,
+  "ogImage": "./og.jpg",
+  "name": "#5: Hack & Share - a rundown of side projects by Northamptonshire geeks",
+  "description": "This one is different, it is all about our community members and their side projects. Come and join us for a series of snappy presentations and demos where everyone can share the results of their weekend hacks.",
+  "dateStart": "2025-01-30T18:00Z",
+  "dateEnd": "2025-01-30T20:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "locatoinLatitude": "52.23585",
@@ -24,9 +25,11 @@
     }
   ],
   "speakers": [
-    "paul-maddern",
-    "robert-jamborski",
-    "nabil-abbas",
-    "ryan-gichuru"
+    "dan-jordan",
+    "jordan-legg",
+    "roger-hughes",
+    "pj-evans",
+    "matthew-owen",
+    "rob-hough"
   ]
 }
