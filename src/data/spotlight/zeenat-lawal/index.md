@@ -1,6 +1,5 @@
 ---
 name: "Zeenat Lawal"
-draft: true
 role: "Frontend Developer at SPAARKD"
 date: "2025-06-13"
 image: "./portrait.jpg"
