@@ -12,9 +12,9 @@
 // Note: All standard RSS parsers expects full RFC-1123 timestamps. Omitting the time on pubDate causes RSS readers to reject this.
 // TODO: Reparse & recache on file change? Get images.
 
-import type { APIRoute } from "astro";
-import { parseSpotlightPosts } from "../utils";
 import rss from "@astrojs/rss";
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
 
 let cachedXML: string | null = null;
 
@@ -26,14 +26,19 @@ export const GET: APIRoute = async () => {
   }
 
   try {
-    const posts = parseSpotlightPosts();
+    const spotlight = await getCollection("spotlight");
 
     const rssResponse = await rss({
       title: "NN1 Dev Club - Spotlight",
       description:
         "Spotlight is our bi-weekly series of short-form interviews with community members. Same questions spark different perspectives, as we discover a new face and story every time. Let's get to know each other a little bit better, shall we?",
       site: "https://nn1.dev",
-      items: posts,
+      items: spotlight.map((post) => ({
+        title: post.data.name,
+        pubDate: post.data.date,
+        link: `/spotlight/${post.id}`
+        // TODO: description
+      })),
       xmlns: {
         content: "http://purl.org/rss/1.0/modules/content/",
       },
