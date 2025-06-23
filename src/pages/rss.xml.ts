@@ -12,12 +12,13 @@
 // Note: All standard RSS parsers expects full RFC-1123 timestamps. Omitting the time on pubDate causes RSS readers to reject this.
 // TODO: Reparse & recache on file change? Get images.
 
+import type { APIRoute } from "astro";
 import { parseSpotlightPosts } from "../utils";
 import rss from "@astrojs/rss";
 
 let cachedXML: string | null = null;
 
-export async function GET() {
+export const GET: APIRoute = async () => {
   if (cachedXML) {
     return new Response(cachedXML, {
       headers: { "Content-Type": "application/rss+xml; charset=utf-8" },
