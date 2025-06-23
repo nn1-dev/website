@@ -127,7 +127,7 @@ export async function GET() {
       xmlns: {
         content: "http://purl.org/rss/1.0/modules/content/",
       },
-      customData: `<language>en-us</language>`,
+      customData: `<language>en-gb</language>`,
     });
 
     const xml = await rssResponse.text()
