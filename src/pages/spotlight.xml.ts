@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import sanitizeHtml from 'sanitize-html';
 
 export const GET: APIRoute = async (context) => {
   const spotlights = await getCollection(
@@ -20,7 +21,9 @@ export const GET: APIRoute = async (context) => {
       title: post.data.name,
       pubDate: new Date(post.data.date),
       link: `/spotlight/${post.id}`,
-      description: `In todays spotlight, we interview ${post.data.name}, ${post.data.role}.`,
+      ...(post.rendered?.html && {
+        description: sanitizeHtml(post.rendered.html)
+      }),
       guid: `/spotlight/${post.id}`,
     })),
     customData: `<language>en-gb</language>`,
