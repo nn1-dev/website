@@ -14,7 +14,7 @@
     "@astrojs/netlify": "^6.4.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
-    "@sentry/astro": "^9.31.0",
+    "@sentry/astro": "^9.32.0",
     "astro": "^5.10.1",
     "canvas-confetti": "^1.9.3",
     "qrcode": "^1.5.4",
@@ -26,7 +26,7 @@
     "@types/canvas-confetti": "^1.9.0",
     "@types/qrcode": "^1.5.5",
     "@types/sanitize-html": "^2.16.0",
-    "prettier": "^3.6.0",
+    "prettier": "^3.6.1",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
