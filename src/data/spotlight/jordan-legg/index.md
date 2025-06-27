@@ -1,6 +1,5 @@
 ---
 name: "Jordan Legg"
-draft: true
 role: "Chief AI Officer of takara.ai"
 date: "2025-06-27"
 image: "./portrait.jpg"
