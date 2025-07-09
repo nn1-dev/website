@@ -1,6 +1,6 @@
 ---
 name: "Dan Jordan"
-draft: true
+draft: false
 role: "Tech Lead at Mindera"
 date: "2025-07-11"
 image: "dan.jpg"
