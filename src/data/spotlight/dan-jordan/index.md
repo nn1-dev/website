@@ -41,6 +41,8 @@ It’s not always glamorous, and it can feel a bit thankless at times, but it's 
 
 My work machine is a 14" M4 MacBook Pro. At home, I use a PC I built during lockdown. Switching between them can be a pain, but I’ve finally stopped hitting cmd when using Windows.
 
+![Dan's setup](setup.jpg)
+
 For the full list, you can check out my [uses page](https://www.danjordan.dev/uses).
 
 ## What’s the last piece of work you feel proud of?
