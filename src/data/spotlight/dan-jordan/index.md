@@ -55,7 +55,7 @@ As a silly answer, I was recently asked the question...
 
 > If you were given 1000 cherries how many would you eat if you got £100,000 for each one. The caveat is that one of them is poisnonous.
 
-We had a good laugh discussing that with everyone so I made a small app for people to play with and see how brave they are. The money and poison are entirely fictional, feel free to click away... https://cherrygame.netlify.app/
+We had a good laugh discussing that with everyone so I made a small app for people to play with and see how brave they are. The money and poison are entirely fictional, feel free to click away... https://cherrygame.danjordan.dev/
 
 ## What’s one thing about your profession you wish more people knew?
 
