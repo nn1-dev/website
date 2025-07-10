@@ -4,7 +4,7 @@ draft: false
 role: "Tech Lead at Mindera"
 date: "2025-07-11"
 image: "dan.jpg"
-ogImage: ""
+ogImage: "og.jpg"
 urlWebsite: "https://www.danjordan.dev/"
 urlGitHub: "https://github.com/danjordan"
 urlBluesky: "https://bsky.app/profile/danjordan.dev"
