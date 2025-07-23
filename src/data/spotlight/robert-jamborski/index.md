@@ -1,7 +1,8 @@
 ---
+draft: true
 name: "Robert Jamborski"
 role: "Senior Software Developer at SDG Group"
-date: "2025-07-24"
+date: "2025-07-25"
 image: "./portrait.png"
 ogImage: "./og.jpg"
 urlGitHub: "https://github.com/jamborski-dev"
@@ -20,10 +21,7 @@ Outside of music and tech, I’m a big Lego fan (currently sitting at just over 
 
 ![Robert Jamborski](./portrait.png)
 
-<div style="display: flex; margin-bottom: 2rem;">
-  <img src="./lego1.jpg" alt="Robert Jamborski" style="width: 50%;">
-  <img src="./lego2.jpg" alt="Robert Jamborski" style="width: 50%;">
-</div>
+![Robert's lego collection](lego.jpg)
 
 ## What first got you into tech?
 
@@ -62,8 +60,9 @@ Software:
 - Browser: Firefox Nightly
 - DAW: FL Studio and Ableton
 
-![Robert Jamborski](./setup.jpg)
-![Robert Jamborski](./drums.png)
+![Robert' setup](setup.jpg)
+
+![Robert' drumkit](drums.png)
 
 ## What’s the last piece of work you feel proud of?
 
@@ -71,10 +70,7 @@ A few months ago, I had the pleasure of rebranding our entire app. Up until then
 
 It also gave me a chance to jump back into Figma and Illustrator - something I’ve always enjoyed. I designed a new logo, created both light and dark themes, and implemented it. It was super refreshing task.
 
-<div style="display: flex; margin-bottom: 2rem;">
-  <img src="./nxs-light.png" alt="Robert Jamborski" style="width: 50%;">
-  <img src="./nxs-dark.png" alt="Robert Jamborski" style="width: 50%;">
-</div>
+![NXS logo](nxs.jpg)
 
 ## What’s one thing about your profession you wish more people knew?
 
@@ -82,8 +78,8 @@ In recent years, coding has become incredibly accessible. You don’t need a fan
 
 ## Share with others something worth checking out. Not necessarily tech related. Shameless plugs welcomed.
 
-- [x] For anyone remotely interested in tech I cannot recommend it enough - [Darknet Diaries](https://darknetdiaries.com/) by Jack Rhysider - my favourite podcast of all time. Perfect blend of true-crime story telling and the world of cyber security.
-- [x] As a shameless plug - few of my favourite tracks I produced over the years under alias ‘Collision Vortex’
-    - [Life Path](https://soundcloud.com/collision-vortex/life-path)
-    - [Kinetic](https://soundcloud.com/collision-vortex/collision-vortex-kinetic2)
-    - [Keep Going](https://soundcloud.com/collision-vortex/keep-going-pre-master)
+- For anyone remotely interested in tech I cannot recommend it enough - [Darknet Diaries](https://darknetdiaries.com/) by Jack Rhysider - my favourite podcast of all time. Perfect blend of true-crime story telling and the world of cyber security.
+- As a shameless plug - few of my favourite tracks I produced over the years under alias ‘Collision Vortex’
+- - [Life Path](https://soundcloud.com/collision-vortex/life-path)
+- - [Kinetic](https://soundcloud.com/collision-vortex/collision-vortex-kinetic2)
+- - [Keep Going](https://soundcloud.com/collision-vortex/keep-going-pre-master)
