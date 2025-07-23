@@ -35,7 +35,7 @@ After dropping my son off to school, I’d usually pop-in to a polish shop for a
 
 Our team currently consists of just three developers (including myself), with a few colleagues from our Spanish branch helping out with AI-related features.
 
-We solely work on a single project called NXS (Nexus) Data - an end-to-end solution for market data analysis and visualisation. For the most part I'm responsible for a front end side of the application, so typically I would be either implementing entire new feature, refactoring legacy parts, or upgrading old packages driving modern use of modern solutions. Over the course of 5 years it evolved from being just a plugin to a full-fledged standalone application.
+We solely work on a single project called NXS (Nexus) Data - an end-to-end solution for market data analysis and visualisation. For the most part I'm responsible for a front end side of the application, so typically I would be either implementing an entire new feature, refactoring legacy parts, or upgrading old packages driving modern use of modern solutions. Over the course of 5 years it evolved from being just a plugin to a full-fledged standalone application.
 
 When I joined two years ago, I was tasked with building an admin panel for user and role management. Currently, I’m working on implementation of a secondary data ingestion system which will be used to feed data into AI driven anomaly detection model - exciting stuff!
 
@@ -43,8 +43,8 @@ When I joined two years ago, I was tasked with building an admin panel for user 
 
 Hardware:
 
-- Apple 14” M1 MacBook Pro - I was a Windows guy ever since my first PC, but once I tasted world of MacOS, couple years back I have never looked back.
-- Primary screen - used to be 27” Phillips IPS, but just few days ago died on me - an upgrade that was long awaited
+- Apple 14” M1 MacBook Pro - I was a Windows guy ever since my first PC, but once I tasted the world of MacOS a couple years back, I have never looked back.
+- Primary screen - used to be 27” Phillips IPS, but just a few days ago died on me - an upgrade that was long awaited
 - Secondary screen - Pixio Hayabusa 2, 24” full HD gaming IPS @240hz, brilliant panel, but a little small, mostly use it in portrait for the docs…
 - MX Keys Mini + MX Master 3
 - Ikea MITTZON 160x80 sit-stand desk
@@ -56,7 +56,7 @@ Software:
 
 - IDE: VS Code
 - Terminal: Warp + OhMyZSH
-- Luncher: Raycast
+- Launcher: Raycast
 - Browser: Firefox Nightly
 - DAW: FL Studio and Ableton
 
