@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Robert Jamborski"
 role: "Senior Software Developer at SDG Group"
 date: "2025-07-25"
