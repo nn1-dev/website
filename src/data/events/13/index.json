@@ -1,0 +1,39 @@
+{
+  "id": 13,
+  "ogImage": "./og.jpg",
+  "draft": true,
+  "name": "#13: \"TBC\" by TBC and \"TBC\" by TBC",
+  "description": "TBC",
+  "dateStart": "2026-09-24T17:00Z",
+  "dateEnd": "2026-09-24T19:00Z",
+  "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
+  "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
+  "locatoinLatitude": "52.23585",
+  "locatoinLongitude": "-0.894449",
+  "parking": "St. John's Multi Storey Car Park",
+  "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
+  "schedule": [
+    {
+      "dateStart": "2026-09-24T17:00Z",
+      "dateEnd": "2026-09-24T17:30Z",
+      "title": "Meet and Greet"
+    },
+    {
+      "dateStart": "2026-09-24T17:30Z",
+      "dateEnd": "2026-09-24T18:00Z",
+      "title": "\"TBC\" by TBC",
+      "description": ""
+    },
+    {
+      "dateStart": "2026-09-24T18:00Z",
+      "dateEnd": "2026-09-24T18:15Z",
+      "title": "Break"
+    },
+    {
+      "dateStart": "2026-09-24T18:15Z",
+      "dateEnd": "2026-09-24T18:45Z",
+      "title": "\"TBC\" by TBC"
+    }
+  ],
+  "speakers": []
+}
