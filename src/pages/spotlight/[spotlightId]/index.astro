@@ -313,6 +313,8 @@ const { Content, headings } = await render(entry);
     flex-direction: column;
     gap: 1px;
     overflow: clip;
+
+    scroll-target-group: auto;
   }
 
   .article__toc-item {
@@ -324,6 +326,10 @@ const { Content, headings } = await render(entry);
     background-color: var(--color-bg);
 
     &:hover {
+      background-color: var(--color-border);
+    }
+
+    &:target-current {
       background-color: var(--color-border);
     }
   }
