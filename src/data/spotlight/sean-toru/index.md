@@ -1,7 +1,7 @@
 ---
 name: "Sean Toru"
 role: "Managing Director at toru.digital"
-date: "2025-08-06"
+date: "2025-08-08"
 image: "./portrait.jpg"
 ogImage: "./og.jpg"
 urlLinkedIn: "https://www.linkedin.com/in/sean-toru/"
