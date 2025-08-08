@@ -1,6 +1,5 @@
 ---
 name: "Sean Toru"
-draft: true
 role: "Managing Director at toru.digital"
 date: "2025-08-08"
 image: "./portrait.jpg"
