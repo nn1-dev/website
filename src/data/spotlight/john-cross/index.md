@@ -1,6 +1,5 @@
 ---
 name: "John Cross"
-draft: true
 role: "Software Engineer at Santander UK"
 date: "2025-09-05"
 image: "./portrait.jpg"
