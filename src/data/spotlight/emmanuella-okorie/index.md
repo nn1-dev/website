@@ -1,6 +1,5 @@
 ---
 name: "Emmanuella Okorie"
-draft: true
 role: "Frontend Developer"
 date: "2025-09-19"
 image: "./portrait.jpg"
