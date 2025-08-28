@@ -1,6 +1,5 @@
 ---
 name: "Douglas Muir"
-draft: true
 role: "CEO at Carduan"
 date: "2025-10-03"
 image: "portrait.jpg"
