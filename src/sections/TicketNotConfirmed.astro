@@ -9,17 +9,20 @@ interface Props {
 
 const { id, timestamp } = Astro.props;
 
+const timeZone = "Europe/London";
 const date = new Date(timestamp);
 const datePart = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "long",
   year: "numeric",
+  timeZone,
 }).format(date);
 
 const timePart = new Intl.DateTimeFormat("en-GB", {
   hour: "2-digit",
   minute: "2-digit",
   hour12: false,
+  timeZone,
 }).format(date);
 
 const resultDateAndTime = `${datePart} at ${timePart}`;
