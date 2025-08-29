@@ -3,6 +3,7 @@ import * as Sentry from "@sentry/astro";
 import { getCollection, getEntries, getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Hero from "../../../sections/Hero.astro";
+import Organisers from "../../../sections/Organisers.astro";
 import Container from "../../../components/Container.astro";
 import Countdown from "../../../sections/Countdown.astro";
 import Gallery from "../../../components/Gallery.astro";
@@ -300,6 +301,8 @@ const inviteUrls = getInviteUrls({
       </Section>
     ) : null
   }
+
+  <Organisers founders={false} supporters={false} />
 </Layout>
 
 <script>
