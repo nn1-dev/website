@@ -63,7 +63,7 @@ We aim to have a family meal around 18:30. Evenings are a time for karate traini
 
 ## What’s the last piece of work you feel proud of?
 
-As CTO of a health tech company, I led development of a patient engagement platform that helped chemotherapy patients stay out of hospital and feel better informed, reducing anxiety at a stressful time. The work was recognised with a Patient Safety Award for the NHS Trust.
+When I was the CTO of a health tech company, I led development of a patient engagement platform that helped chemotherapy patients stay out of hospital and feel better informed, reducing anxiety at a stressful time. The work was recognised with a Patient Safety Award for the NHS Trust.
 
 More recently, I’m proud of every day that I show up at my desk ready to do work, particularly those days where I don’t know how to solve the issue of the day, where uncertainty is high and a path to progress far from clear. As a solo entrepreneur, one thing is certain: if I don’t keep up the momentum, no-one else is going to do it for me!
 
