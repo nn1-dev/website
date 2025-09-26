@@ -2,8 +2,8 @@
   "id": 9,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#9: \"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie and \"TBD\" by Kiran Patel",
-  "description": "TBC",
+  "name": "#9: \"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie and \"Effective Partnerships Between Developers and Product Teams\" by Kiran Patel",
+  "description": "Join us for a perfect combination of technical deep dives and product-oriented skills worth pursuing in your career. It's the balance we always strive for in our community.",
   "dateStart": "2025-11-27T18:00Z",
   "dateEnd": "2025-11-27T20:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -32,7 +32,8 @@
     {
       "dateStart": "2025-11-27T19:15Z",
       "dateEnd": "2025-11-27T19:45Z",
-      "title": "\"TBD\" by Kiran Patel"
+      "title": "\"Effective Partnerships Between Developers and Product Teams\" by Kiran Patel",
+      "description": "Join us for a session where we explore how to build stronger, more effective partnerships between developers and product teams. We'll dive into the critical role of transparency and open communication in making better decisions and shipping great products. Drawing on real-world experiences, this talk will challenge the idea that these are management problems and show how every single team member has a part to play in fostering a culture of psychological safety where we can all challenge ideas, learn from mistakes, and thrive together."
     }
   ],
   "speakers": ["emmanuella-okorie", "kiran-patel"]
