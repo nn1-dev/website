@@ -31,5 +31,27 @@
     "richard-burt",
     "dennis-k-bijo",
     "nabil-abbas"
+  ],
+  "images": [
+    {
+      "src": "./gallery/1.jpg",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "./gallery/2.jpg",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "./gallery/3.jpg",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "./gallery/4.jpg",
+      "caption": "Guests at NN1 Dev Club #1"
+    },
+    {
+      "src": "./gallery/5.jpg",
+      "caption": "Guests at NN1 Dev Club #1"
+    }
   ]
 }
