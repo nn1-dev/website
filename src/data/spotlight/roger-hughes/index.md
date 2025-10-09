@@ -1,7 +1,7 @@
 ---
 name: "Roger Hughes"
 role: "Full Stack Engineer at Sign In Solutions"
-date: "2025-06-27"
+date: "2025-10-17"
 image: "./portrait.png"
 ogImage: "./portrait.png"
 urlLinkedIn: "https://www.linkedin.com/in/roger-hughes-b813098/"
