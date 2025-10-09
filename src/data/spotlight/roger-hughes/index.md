@@ -1,9 +1,9 @@
 ---
-name: "Jordan Legg"
-role: "Chief AI Officer of takara.ai"
+name: "Roger Hughes"
+role: "Full Stack Engineer at Sign In Solutions"
 date: "2025-06-27"
-image: "./portrait.jpg"
-ogImage: "./og.jpg"
+image: "./portrait.png"
+ogImage: "./portrait.png"
 urlLinkedIn: "https://www.linkedin.com/in/roger-hughes-b813098/"
 urlWebsite: "https://rogerhughes.pro/"
 urlInstagram: "https://www.instagram.com/meatpaste"
@@ -12,29 +12,40 @@ urlGitHub: "https://github.com/meatpaste"
 
 ## Who are you and what do you do?
 
-Hi I'm Roger, Senior Full Stack Engineer at Sign In App, I'm a full time geek, tech enthusiast, music lover and dad of one.
+I'm Roger, Senior Full Stack Engineer for Sign In Solutions. Sign In Solutions is a visitor management platform, and I work across the full stack building features and maintaining our systems.
+
+I'm also part of an internal 'AI Champions' team, which involves running team meetings and one-to-one sessions helping other developers introduce AI tools into their workflow.
 
 ## What first got you into tech?
 
-I've always been facscinated by how things work, my dad has told me that as a child I would take toys apart and put them back together instead of just playing with them. My first proper bit of tech was a ZX Spectrum, typing in code using the rubber keys and loading games of an external cassette player. The real catalyst to where I am today was when I first saw the web, I had the same itch to know how it worked and soon produced my first website using Notepad and hosting on GeoCities.
+I've always wanted to know how things work. As a child, I'd take toys apart to see what was inside and build small electronics projects.
+My first website came at school aged about 15, built using nothing more than Notepad. Just raw HTML. There was something magical about writing text in a file and seeing it come to life in a browser. That sense of creating something from nothing has stayed with me ever since.
 
 ## What does your typical working day look like?
 
-I normally get to the office early to beat the traffic, preferring to get up to date on emails/news over sitting in a queue of cars! After a coffee and stand-up meeting its time to work through the current task, usually either a ticket of my own or code review. There is plenty of time and encouragement to experiment with new ideas and to help others level up as we discover more efficient ways of working.
+My day starts with a stand-up meeting, then coffee - essential! The rest is usually a mixture of development work and code review. I value the code review process; it's not just about catching bugs, but sharing knowledge and maintaining consistency.
+As part of the AI Champions team, I have regular sessions with developers across the company. Helping someone discover how AI tools can speed up their workflow is really rewarding. It's exciting to see how quickly AI-assisted development is becoming part of our everyday toolkit.
 
 ## What’s your setup? Software and hardware. Pictures welcomed!
 
-My work PC is a 16" MBP, and I use a 13" MBA for personal projects. Usually tethered to a single 4k monitor (I used to run up to 3 screens but since 4k became prevalent and my eyes are still good, I prefer a single monitor). I also have a Ryzen tower PC although that doesn't get much use unless I need to burn some GPU time or (rarely) do some PC gaming. Somehow I find myself with 3 mechanical keyboards which has become a minor obsession, we type so much, why shouldn't it feel this good :D
+For work, I use a MacBook Pro. I have a MacBook Air for personal projects - it's nice to keep things separate. I've also got a desktop PC for occasional gaming and machine learning experiments. Having access to a proper GPU when you want to train models makes a real difference.
+
+I also just picked up a Switch 2 for chilling out in the evenings.
 
 ## What’s the last piece of work you feel proud of?
 
-Pretty much everything we put out at Sign In App feels significant, the software serves over 22k premises with over 1 million operations occuring per day, so you know that even a small change is having a wide impact.
+To learn about AI, I built a website that scraped trading card data from eBay and other sources. The most challenging part was implementing image recognition that could identify a specific trading card from a photo out of a database of 35,000 cards.
+
+The system showed current and historical pricing for that card across various regions and currencies. Unfortunately, scraping has become more difficult recently with sites implementing anti-bot measures, so I've taken it down while I think about a refactor and relaunch.
+
+It was an incredible learning experience, covering web scraping, data processing, computer vision, and building a user-friendly interface.
 
 ## What’s one thing about your profession you wish more people knew?
 
-Coders are very often un-sung heroes, because our output is often not very visual and we're seen to be always fixing 'problems'. Coders are basically learning at University pace for their entire career as the landscape changes around them and often much of this has to occur in personal time. It's a life long passion!
+Technology moves so fast it's like a new job every few years, even when you stay with the same company. The frameworks, tools, and best practices are constantly evolving.
+You have to roll with the changes, be open to learning and experimenting. You need to be comfortable feeling like a beginner again. Some people find this exhausting, but I find it exciting - there's always something new to explore.
 
 ## Share with others something worth checking out. Not necessarily tech related. Shameless plugs welcomed.
 
-Right now I'd encourage anyone to have at least an overview knowledge of AI, its not going away and the tools we have available today are likely the worst ones we'll ever have due to the rapid pace of development. Check out YouTubers such as [Matt Berman](https://www.youtube.com/@mattberman) for some great content. Finally don't be hesitant to try things out while there are so many free tier options available, it looks like this will eventually go away as companies seek a return on their investments!
+The NN1 Discord server! Come and collaborate - we're stronger when we work together. It's a great community for asking questions, sharing knowledge, or just chatting about tech. Having that local connection makes a real difference when you're working remotely.
 
