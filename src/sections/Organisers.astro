@@ -17,9 +17,20 @@ interface Contributor {
   image?: string;
 }
 
+// this is awful fallback but open collective meessed up wheir cose recently and sometimes it fails
 const contributors = await fetch(
   "https://opencollective.com/nn1-dev/members/all.json",
-);
+)
+  .then((response) => {
+    if (!response.ok) {
+      return { json: async () => [] as Array<Contributor> };
+    }
+
+    return response;
+  })
+  .catch(() => ({
+    json: async () => [] as Array<Contributor>,
+  }));
 const contributorsJson: Array<Contributor> = await contributors.json();
 const contributorsData = contributorsJson
   .filter(({ role }) => role === "BACKER")
