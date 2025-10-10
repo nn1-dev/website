@@ -30,6 +30,8 @@ As part of the AI Champions team, I have regular sessions with developers across
 
 For work, I use a MacBook Pro. I have a MacBook Air for personal projects - it's nice to keep things separate. I've also got a desktop PC for occasional gaming and machine learning experiments. Having access to a proper GPU when you want to train models makes a real difference.
 
+![Rogers setup](setup.jpg)
+
 I also just picked up a Switch 2 for chilling out in the evenings.
 
 ## What’s the last piece of work you feel proud of?
@@ -48,4 +50,3 @@ You have to roll with the changes, be open to learning and experimenting. You ne
 ## Share with others something worth checking out. Not necessarily tech related. Shameless plugs welcomed.
 
 The NN1 Discord server! Come and collaborate - we're stronger when we work together. It's a great community for asking questions, sharing knowledge, or just chatting about tech. Having that local connection makes a real difference when you're working remotely.
-
