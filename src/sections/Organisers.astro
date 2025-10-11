@@ -17,22 +17,26 @@ interface Contributor {
   image?: string;
 }
 
-// this is awful fallback but open collective meessed up wheir cose recently and sometimes it fails
-const contributors = await fetch(
-  "https://opencollective.com/nn1-dev/members/all.json",
-)
-  .then((response) => {
-    if (!response.ok) {
-      return { json: async () => [] as Array<Contributor> };
-    }
+const fetchContributors = async () => {
+  try {
+    const response = await fetch(
+      "https://opencollective.com/nn1-dev/members/all.json",
+    );
 
-    return response;
-  })
-  .catch(() => ({
-    json: async () => [] as Array<Contributor>,
-  }));
-const contributorsJson: Array<Contributor> = await contributors.json();
-const contributorsData = contributorsJson
+    if (!response.ok) {
+      return [] as Array<Contributor>;
+    }
+    const responseJson: Array<Contributor> = await response.json();
+
+    return responseJson;
+  } catch (e) {
+    console.error("Error fetching contributors", e);
+    return [] as Array<Contributor>;
+  }
+};
+
+const contributors = await fetchContributors();
+const contributorsData = contributors
   .filter(({ role }) => role === "BACKER")
   .sort((a, b) => b.totalAmountDonated - a.totalAmountDonated);
 
