@@ -14,6 +14,8 @@ urlGitHub: "https://github.com/meatpaste"
 
 I'm Roger, Senior Full Stack Engineer for Sign In Solutions. Sign In Solutions is a visitor management platform, and I work across the full stack building features and maintaining our systems.
 
+![Roger Hughes](./portrait.png)
+
 I'm also part of an internal 'AI Champions' team, which involves running team meetings and one-to-one sessions helping other developers introduce AI tools into their workflow.
 
 ## What first got you into tech?
