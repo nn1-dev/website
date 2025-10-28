@@ -1,6 +1,8 @@
 {
-  "image": "./avatar.jpg",
+  "image": "./avatar.png",
   "name": "Paul Jesson",
-  "role": "TBC",
-  "bio": "Paul Jesson is a seasoned Finance Director and Chartered Accountant with over 35 years' experience advising more than 100 companies on business-critical events including MBOs, fundraising, acquisitions, and exits. Paul works closely with scaling technology businesses to help them build robust financial infrastructure, attract investment, and navigate periods of high growth with confidence."
+  "role": "Managing Director",
+  "bio": "Paul Jesson is a seasoned Finance Director and Chartered Accountant with over 35 years' experience advising more than 100 companies on business-critical events including MBOs, fundraising, acquisitions, and exits. Paul works closely with scaling technology businesses to help them build robust financial infrastructure, attract investment, and navigate periods of high growth with confidence.",
+  "urlLinkedIn": "https://www.linkedin.com/in/paul-jesson/",
+  "urlWebsite": "https://www.mpa.co.uk/"
 }
