@@ -1,0 +1,11 @@
+{
+  "image": "./avatar.jpg",
+  "name": "Keith Cirkel",
+  "role": "Staff Software Engineer at Mozilla",
+  "bio": "Keith has been a web developer for the last 20 or so years, building UIs for some of the biggest organizations in the world. Keith participates in various standards groups to help improve web standards, such as the ARIA, CSS, HTML working groups, and the OpenUI and Web Components Community Groups. When not surfing the web, Keith likes to pick up a garden fork and literally touch grass.",
+  "urlWebsite": "https://www.keithcirkel.co.uk/",
+  "urlGitHub": "https://github.com/keithamus",
+  "urlLinkedIn": "https://www.linkedin.com/in/keithcirkel/",
+  "urlMastodon": "https://indieweb.social/@keithamus",
+  "urlBluesky": "https://bsky.app/profile/keithamus.social"
+}

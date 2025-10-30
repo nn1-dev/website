@@ -2,7 +2,7 @@
   "id": 10,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#10: \"TBC\" by TBC and \"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
+  "name": "#10: \"TBC\" by Keith Cirkel and \"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
   "description": "TBC",
   "dateStart": "2026-01-29T18:00Z",
   "dateEnd": "2026-01-29T20:00Z",
@@ -21,7 +21,7 @@
     {
       "dateStart": "2026-01-29T18:30Z",
       "dateEnd": "2026-01-29T19:00Z",
-      "title": "\"TBC\" by TBC",
+      "title": "\"TBC\" by Keith Cirkel",
       "description": ""
     },
     {
@@ -36,5 +36,5 @@
       "description": "From idea to investment to exit, every stage of a tech company’s journey brings new financial and strategic challenges. In this session, Paul Jesson and Ian Zant-Boer share insights from their work advising high-growth technology businesses on how to build a finance foundation that attracts investors, supports innovation, and maximises long-term value. Paul will explore the key financial levers that drive growth, how to prepare for fundraising rounds and exits. Ian Zant-Boer will offer a legal and investor lens on scaling, sharing his experience as a venture capital founder and adviser to scale-ups on how to structure for investment and avoid common legal pitfalls during growth and exit."
     }
   ],
-  "speakers": ["paul-jesson", "ian-zant-boer"]
+  "speakers": ["keith-cirkel", "paul-jesson", "ian-zant-boer"]
 }
