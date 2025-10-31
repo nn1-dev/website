@@ -1,6 +1,5 @@
 ---
 name: "Ashley John"
-draft: true
 role: "Owner @ OYNK"
 date: "2025-10-31"
 image: "./portrait.jpg"
