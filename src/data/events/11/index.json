@@ -2,7 +2,7 @@
   "id": 11,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#11: \"TBC\" by TBC and \"TBC\" by TBC",
+  "name": "#11: \"TBC\" by Oliver Medhurst and \"TBC\" by TBC",
   "description": "TBC",
   "dateStart": "2026-03-26T18:00Z",
   "dateEnd": "2026-03-26T20:00Z",
@@ -21,7 +21,7 @@
     {
       "dateStart": "2026-03-26T18:30Z",
       "dateEnd": "2026-03-26T19:00Z",
-      "title": "\"TBC\" by TBC",
+      "title": "\"TBC\" by Oliver Medhurst",
       "description": ""
     },
     {
@@ -35,5 +35,5 @@
       "title": "\"TBC\" by TBC"
     }
   ],
-  "speakers": []
+  "speakers": ["oliver-medhurst"]
 }
