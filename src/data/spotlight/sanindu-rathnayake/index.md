@@ -14,6 +14,8 @@ urlInstagram: "https://www.instagram.com/sanindu_r/"
 
 I'm Sanindu Rathnayake, a software engineer who enjoys working on projects that connect software engineering and AI. I recently completed my master's in Computing at the University of Northampton. Lately, I've been exploring solution architecture, accessibility technology, and ways to design scalable and maintainable software systems. Outside of work, I love playing the violin, going hiking, and doing a bit of photography whenever I can.
 
+![Sanindu](sanindu.jpg)
+
 ## What first got you into tech?
 
 I've always been interested in technology since I was a child. I used to collect tech magazines and build small Arduino projects, and it was fun to make things work. When I started my degree, I learned the theory behind technology, but I wasn't completely sure if I had made the right choice. That changed after I did my internship as a software engineer, where I built web applications used by real people. During the COVID period, I started building my own apps and using what I had learned in a practical way. That's when I realised how much I enjoy doing this. After that, I joined IFS as a software engineer and started my career there with an amazing work culture and supportive people who helped me learn and grow.
