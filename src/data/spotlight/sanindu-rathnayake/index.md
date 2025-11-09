@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Sanindu Rathnayake"
 role: "Software Engineer at Mavis Technologies Limited"
 date: "2025-11-14"
