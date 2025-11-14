@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Sanindu Rathnayake"
 role: "Software Engineer at Mavis Technologies Limited"
 date: "2025-11-14"
@@ -14,6 +13,8 @@ urlInstagram: "https://www.instagram.com/sanindu_r/"
 ## Who are you and what do you do?
 
 I'm Sanindu Rathnayake, a software engineer who enjoys working on projects that connect software engineering and AI. I recently completed my master's in Computing at the University of Northampton. Lately, I've been exploring solution architecture, accessibility technology, and ways to design scalable and maintainable software systems. Outside of work, I love playing the violin, going hiking, and doing a bit of photography whenever I can.
+
+![Sanindu](sanindu.jpg)
 
 ## What first got you into tech?
 
