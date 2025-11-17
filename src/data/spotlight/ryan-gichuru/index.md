@@ -6,7 +6,7 @@ image: "./portrait.jpg"
 ogImage: "./og.jpg"
 urlWebsite: "https://ryangichuru.com/"
 urlLinkedIn: "https://www.linkedin.com/in/ryan-gichuru-1bba671a8/"
-urlGitHub: "https://github.com/ryantig254"
+urlGitHub: "https://github.com/ryantigi254"
 ---
 
 ## Who are you and what do you do?
