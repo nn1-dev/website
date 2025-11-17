@@ -14,6 +14,8 @@ urlGitHub: "https://github.com/ryantig254"
 
 I’m Ryan, a final-year AI and Data Science student at the University of Northampton.  I mentor the UON AI & Robotics Society after previously serving as President and Treasurer, and I also work as a Student Futures Career Coach, helping students with CVs, applications and interview prep. I’m quite a proactive person and I rarely have just one thing on my plate – if there’s a research, competition or industry-linked project happening at the university, I’m usually involved in some way. A lot of my current work revolves around chatbots and conversational AI – especially mental-health and support-focused bots – so most of my projects end up circling back to “how do we make chatbots more helpful, reliable and safe?”
 
+![Ryan Gichuru](ryan.jpg)
+
 ## What first got you into tech?
 
 I’ve always been drawn to technology. When I was younger, I’d spend a lot of time on my laptop or phone just fiddling with things – trying out new apps, customising settings and generally seeing what I could make the device do. That curiosity gradually turned into wanting to build things myself instead of just using them.
@@ -45,6 +47,8 @@ Stack: Python, PyTorch, scikit-learn, Pandas
 Compute: Runpod
 
 The monitor is essential for multitasking, plus I keep things deliberately light since I'm constantly on the move. When a project needs serious compute, I just spin up Runpod or use the university's machines. It's a setup that lets me work from anywhere without being tied to one desk. 
+
+![Ryan Gichuru's setup](setup.jpg)
 
 ## What's the last piece of work you feel proud of?
 
