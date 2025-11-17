@@ -1,5 +1,4 @@
 ---
-draft: true
 name: "Ryan Gichuru"
 role: "AI Student @ UON"
 date: "2025-11-28"
