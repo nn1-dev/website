@@ -23,6 +23,10 @@ export default defineConfig({
         context: "server",
         access: "secret",
       }),
+      API_KEY_NEWSLETTER: envField.string({
+        context: "server",
+        access: "secret",
+      }),
     },
   },
   redirects: events.reduce(
