@@ -6,12 +6,7 @@ import path from "node:path";
 
 import sitemap from "@astrojs/sitemap";
 
-const EXCLUDED_ROUTES = [
-  "https://nn1.dev/feedback/thanks/",
-  "https://nn1.dev/newsletter/",
-  "https://nn1.dev/newsletter/unsubscribe/",
-  "https://nn1.dev/styleguide/",
-];
+const EXCLUDED_ROUTES = ["https://nn1.dev/newsletter/unsubscribe/"];
 
 //TODO: Check if this stil works after migration to Astro 5
 const events = fs
@@ -24,15 +19,7 @@ export default defineConfig({
   adapter: netlify(),
   env: {
     schema: {
-      API_KEY_FEEDBACK: envField.string({
-        context: "server",
-        access: "secret",
-      }),
       API_KEY_TICKETS: envField.string({
-        context: "server",
-        access: "secret",
-      }),
-      API_KEY_NEWSLETTER: envField.string({
         context: "server",
         access: "secret",
       }),
