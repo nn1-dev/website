@@ -14,16 +14,6 @@ import Input from "../components/Input.astro";
         newsletter. We promise never to send you annoying crap. For more
         frequent updates, follow us on social media.
       </p>
-      <form class="connect__form" aria-label="Subscribe form">
-        <Input
-          type="email"
-          label="Email"
-          name="email"
-          placeholder="timcook@apple.com"
-          required
-        />
-        <button class="connect__submit">Subscribe</button>
-      </form>
       <div class="connect__buttons">
         <a
           href="https://github.com/nn1-dev"
@@ -104,29 +94,6 @@ import Input from "../components/Input.astro";
   </Container>
 </Section>
 
-<script>
-  import { actions } from "astro:actions";
-  import * as Sentry from "@sentry/astro";
-
-  const form = document.querySelector("form");
-  const FORM_LOADING_CLASS = "connect__form--loading";
-
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    form.classList.add(FORM_LOADING_CLASS);
-    const formData = new FormData(form);
-    const { error } = await actions.submitFormNewsletter(formData);
-
-    if (error) {
-      Sentry.captureException(error);
-      form.classList.remove(FORM_LOADING_CLASS);
-      throw new Error(error.message);
-    }
-
-    window.location.href = "/newsletter";
-  });
-</script>
-
 <style>
   .connect {
     display: flex;
@@ -138,85 +105,6 @@ import Input from "../components/Input.astro";
   .connect__message {
     max-width: 70ch;
     text-align: center;
-  }
-
-  .connect__form {
-    display: flex;
-    gap: calc(var(--lh) / 2);
-    align-items: end;
-    width: 100%;
-    max-width: 55ch;
-  }
-
-  .connect__form--loading {
-    pointer-events: none;
-    position: relative;
-
-    * {
-      opacity: 0.2;
-      filter: blur(10px);
-    }
-
-    &::after {
-      position: absolute;
-      inset: 50%;
-      content: "";
-      width: var(--lh);
-      aspect-ratio: 1;
-      --_g: no-repeat
-        radial-gradient(farthest-side, var(--color-fg) 90%, transparent);
-      background: var(--_g), var(--_g), var(--_g), var(--_g);
-      background-size: calc(var(--lh) / 3) calc(var(--lh) / 3);
-      animation: loader 1s infinite;
-      translate: calc(var(--lh) / -2) calc(var(--lh) / -2);
-    }
-  }
-
-  @keyframes loader {
-    0% {
-      background-position:
-        0 0,
-        100% 0,
-        100% 100%,
-        0 100%;
-    }
-    40%,
-    50% {
-      background-position:
-        100% 100%,
-        100% 0,
-        0 0,
-        0 100%;
-    }
-    90%,
-    100% {
-      background-position:
-        100% 100%,
-        0 100%,
-        0 0,
-        100% 0;
-    }
-  }
-
-  .connect__submit {
-    cursor: pointer;
-    font: inherit;
-    border: none;
-    border-radius: var(--br);
-    padding: calc(var(--lh) / 2) calc(var(--lh) * 0.75);
-    width: fit-content;
-    height: calc(var(--lh) * 1.5);
-    color: var(--color-bg-contrast);
-    background-color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: calc(var(--lh) / 2);
-
-    &:hover {
-      background-color: var(--color-accent-light);
-    }
   }
 
   .connect__buttons {
