@@ -2,8 +2,8 @@
   "id": 10,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#10: \"TBC\" by Keith Cirkel and \"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
-  "description": "TBC",
+  "name": "#10: \"Bad at CSS\" by Keith Cirkel and \"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
+  "description": "Join us for an evening featuring internationally renowned speaker Keith Cirkel presenting \"Bad at CSS\", a masterclass exploring the beautiful chaos of CSS. Complementing this technical deep dive, Paul Jesson and Ian Zant-Boer will share invaluable insights on building robust financial foundations and navigating fundraising rounds for tech businesses.",
   "dateStart": "2026-01-29T18:00Z",
   "dateEnd": "2026-01-29T20:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -21,8 +21,8 @@
     {
       "dateStart": "2026-01-29T18:30Z",
       "dateEnd": "2026-01-29T19:00Z",
-      "title": "\"TBC\" by Keith Cirkel",
-      "description": ""
+      "title": "\"Bad at CSS\" by Keith Cirkel",
+      "description": "CSS is a beautiful nightmare of cascading chaos. To be truly bad at it requires mastery of arcane syntax. Together we’ll dive into the depths of the cascade to explore the \"wrong\" ways to write CSS - the hacks, the horrors, and the head-scratchers - and uncover the logic (or lack thereof) behind the language’s most unhinged features. You’ll leave this talk worse at CSS… and somehow better for it."
     },
     {
       "dateStart": "2026-01-29T19:00Z",
