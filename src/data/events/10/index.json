@@ -1,7 +1,6 @@
 {
   "id": 10,
   "ogImage": "./og.jpg",
-  "draft": true,
   "name": "#10: \"Bad at CSS\" by Keith Cirkel and \"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
   "description": "We've got some absolute legends speaking at this one! Keith Cirkel, ex-GitHub senior engineer now a staff-level member of Mozilla's DOM Core team and prolific contributor to all dominant browser engines, is going to walk us through the chaos of CSS. Following this technical deep dive, Paul Jesson and Ian Zant-Boer will share insights on building financial foundations and navigating fundraising rounds for tech businesses.",
   "dateStart": "2026-01-29T18:00Z",
