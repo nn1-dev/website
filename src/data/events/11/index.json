@@ -2,7 +2,7 @@
   "id": 11,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#11: \"TBC\" by Oliver Medhurst and \"TBC\" by TBC",
+  "name": "#11: \"TBC\" by Oliver Medhurst and \"TBC\" by Rob Hough",
   "description": "TBC",
   "dateStart": "2026-03-26T18:00Z",
   "dateEnd": "2026-03-26T20:00Z",
@@ -35,5 +35,5 @@
       "title": "\"TBC\" by TBC"
     }
   ],
-  "speakers": ["oliver-medhurst"]
+  "speakers": ["oliver-medhurst", "rob-hough"]
 }
