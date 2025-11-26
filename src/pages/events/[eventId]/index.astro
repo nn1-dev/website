@@ -15,6 +15,7 @@ import Checkbox from "../../../components/Checkbox.astro";
 import Button from "../../../components/Button.astro";
 import ButtonLink from "../../../components/ButtonLink.astro";
 import { getInviteUrls } from "../../../utils";
+import Videos from "../../../components/Videos.astro";
 
 const { eventId } = Astro.params;
 if (eventId === undefined) {
@@ -55,6 +56,7 @@ const {
     schedule,
     speakers,
     images,
+    videos,
   },
 } = entry;
 
@@ -243,13 +245,23 @@ const inviteUrls = getInviteUrls({
   }
 
   {
-    images?.length ? (
+    images?.length || videos?.length ? (
       <Section style="contrast">
         <Container>
-          <section class="event__section">
-            <Heading title="Gallery" level={2} anchor />
-            <Gallery images={images} />
-          </section>
+          <div class="event">
+            {images?.length ? (
+              <section class="event__section">
+                <Heading title="Gallery" level={2} anchor />
+                <Gallery images={images} />
+              </section>
+            ) : null}
+            {videos?.length ? (
+              <section class="event__section">
+                <Heading title="Videos" level={2} anchor />
+                <Videos videos={videos} />
+              </section>
+            ) : null}
+          </div>
         </Container>
       </Section>
     ) : null

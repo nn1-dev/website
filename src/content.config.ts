@@ -40,6 +40,17 @@ const events = defineCollection({
               .strict(),
           )
           .optional(),
+        videos: z
+          .array(
+            z
+              .object({
+                youtubeId: z.string(),
+                poster: image(),
+                caption: z.string(),
+              })
+              .strict(),
+          )
+          .optional(),
       })
       .strict(),
 });

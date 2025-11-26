@@ -1,0 +1,233 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  videos: {
+    youtubeId: string;
+    poster: ImageMetadata;
+    caption: string;
+  }[];
+}
+
+const { videos } = Astro.props;
+---
+
+  <ul class="gallery">
+    {
+      videos.map((video) => (
+        <li>
+          <dialog class="gallery__dialog">
+            <iframe src=`https://www.youtube-nocookie.com/embed/${video.youtubeId}` title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+            <button class="gallery__close" title="Close image">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="gallery__close__icon"
+                viewBox="0 0 512 512"
+              >
+                <path d="M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z" />
+              </svg>
+            </button>
+          </dialog>
+          <button class="gallery__button">
+            <Image
+              class="gallery__thumb"
+              src={video.poster}
+              alt={video.caption}
+              width="1280"
+              height="720"
+            />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="gallery__svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+      </svg>
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+
+<style>
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--lh);
+  list-style: none;
+}
+
+.gallery__button {
+  position: relative;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--br);
+  box-shadow: 0 0 0 4px var(--color-border);
+  background: transparent;
+  outline: none;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+
+  &:hover,
+  &:focus-visible {
+    .gallery__thumb {
+      opacity: 1;
+      filter: grayscale(0);
+      scale: 1.02;
+    }
+  }
+}
+
+.gallery__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--br);
+  opacity: 0.5;
+  filter: grayscale(0.75);
+  transition: all 80ms;
+
+  @media (prefers-reduced-motion) {
+    transition: unset;
+  }
+}
+
+.gallery__svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  color: var(--color-bg);
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 1;
+  stroke: var(--color-fg);
+}
+
+.gallery__dialog {
+  margin: auto;
+  border: none;
+  background: none;
+  width: 100%;
+  max-inline-size: min(1200px, 90dvw);
+  transition:
+    display 240ms allow-discrete,
+    overlay 240ms allow-discrete,
+    opacity 240ms;
+  opacity: 0;
+
+  @media (prefers-reduced-motion) {
+    transition: unset;
+  }
+
+  &::backdrop {
+    background: color-mix(in srgb, var(--color-bg), transparent 10%);
+    transition:
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete,
+      opacity 240ms;
+    opacity: 0;
+
+    @media (prefers-reduced-motion) {
+      transition: unset;
+    }
+  }
+
+  &[open] {
+    display: flex;
+    opacity: 1;
+
+    &::backdrop {
+      opacity: 1;
+    }
+  }
+
+  @starting-style {
+    &[open],
+    &[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: var(--br);
+    box-shadow: 0 0 0 4px var(--color-border);
+  }
+}
+
+.gallery__close {
+  position: fixed;
+  inset-inline-end: var(--fz);
+  inset-block-start: var(--fz);
+  border-radius: var(--br);
+  padding: calc(var(--lh) / 2);
+  background-color: var(--color-accent);
+  cursor: pointer;
+  border: none;
+  fill: var(--color-bg);
+
+  &:hover {
+    background-color: var(--color-accent-light);
+  }
+}
+
+.gallery__close__icon {
+  width: var(--fz);
+  display: block;
+}
+</style>
+
+<script>
+  const buttonsOpen = document.querySelectorAll(".gallery__button");
+  const buttonsClose = document.querySelectorAll(".gallery__close");
+  const dialogs =
+    document.querySelectorAll<HTMLDialogElement>(".gallery__dialog");
+
+  let currentIndex = 0;
+
+  for (const [index, buttonOpen] of Array.from(buttonsOpen).entries()) {
+    buttonOpen.addEventListener("click", (e) => {
+      // @ts-ignore
+      e.currentTarget.previousElementSibling.showModal();
+      currentIndex = index;
+    });
+  }
+
+  for (const buttonClose of buttonsClose) {
+    buttonClose.addEventListener("click", (e) => {
+      // @ts-ignore
+      e.currentTarget.parentNode.close();
+    });
+  }
+
+  /**
+   * Displays an image in the modal gallery at the specified index
+   */
+  function showImage(index: number) {
+    dialogs.forEach((dialog) => dialog.close());
+    currentIndex = (index + dialogs.length) % dialogs.length;
+    dialogs[currentIndex]?.showModal();
+  }
+
+  /** @heymynameisrob: Keyboard events move between images. Might be cool to preload the next one so it feels more 'instant' but not sure.  */
+  document.addEventListener("keydown", (e) => {
+    // Only handle keyboard events when a dialog is open
+    const isDialogOpen = Array.from(dialogs).some((dialog) => dialog.open);
+
+    if (!isDialogOpen) return;
+
+    switch (e.key) {
+      case "ArrowRight":
+        e.preventDefault();
+        showImage(
+          e.ctrlKey || e.metaKey ? dialogs.length - 1 : currentIndex + 1,
+        );
+        break;
+      case "ArrowLeft":
+        e.preventDefault();
+        showImage(e.ctrlKey || e.metaKey ? 0 : currentIndex - 1);
+        break;
+    }
+  });
+</script>
