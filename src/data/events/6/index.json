@@ -49,5 +49,12 @@
       "src": "./gallery/3.jpg",
       "caption": "\"Dark Side of the Moon\" by Rehan Butt"
     }
+  ],
+  "videos": [
+    {
+      "youtubeId": "QBbPDQvjYR8",
+      "poster": "./video-poster-rehan.jpg",
+      "caption": "\"Dark Side of the Moon\" by Rehan Butt"
+    }
   ]
 }
