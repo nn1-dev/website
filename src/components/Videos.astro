@@ -17,7 +17,7 @@ const { videos } = Astro.props;
       videos.map((video) => (
         <li>
           <dialog class="gallery__dialog">
-            <iframe src=`https://www.youtube-nocookie.com/embed/${video.youtubeId}` title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+            <iframe src=`https://www.youtube-nocookie.com/embed/${video.youtubeId}?enablejsapi=1` title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="js-yt" />
             <button class="gallery__close" title="Close image">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,6 +198,13 @@ const { videos } = Astro.props;
     buttonClose.addEventListener("click", (e) => {
       // @ts-ignore
       e.currentTarget.parentNode.close();
+
+      const iframes = document.querySelectorAll('.js-yt');
+      for (const iframe of iframes) {
+        // @ts-ignore
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      }
+
     });
   }
 
