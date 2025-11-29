@@ -3,7 +3,7 @@ import Heading from "../components/Heading.astro";
 import Section from "../components/Section.astro";
 import Container from "../components/Container.astro";
 import { getInviteUrls } from "../utils";
-import qrcode from "qrcode";
+// import qrcode from "qrcode";
 
 interface Props {
   eventId: number;
@@ -49,9 +49,9 @@ const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
   hour12: false,
 }).format(eventDateStart);
 
-const qr = await qrcode.toDataURL(
-  `https://nn1.dev/events/${eventId}/${ticketId}`,
-);
+// const qr = await qrcode.toDataURL(
+//   `https://nn1.dev/events/${eventId}/${ticketId}`,
+// );
 
 function obfuscateName(fullName: string) {
   // Split the full name into parts
@@ -124,7 +124,7 @@ const shouldShowCancellation = eventDateStart.getTime() > Date.now();
             </dl>
           </div>
           <div class="ticket__code">
-            <img src={qr} alt="QR Code" class="ticket__code-img" />
+            <!-- <img src={qr} alt="QR Code" class="ticket__code-img" /> -->
           </div>
         </div>
       </div>
