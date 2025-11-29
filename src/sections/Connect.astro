@@ -75,6 +75,21 @@ import Heading from "../components/Heading.astro";
           >
         </a>
         <a
+          href="https://www.youtube.com/@nn1dev"
+          class="button"
+          aria-label="NN1 Dev Club on YouTube"
+        >
+          <svg
+            class="button__icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+          >
+            <path
+              d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.122-48.597C458.59 64 288 64 288 64s-170.59 0-213.533 11.486c-23.335 6.32-41.841 24.947-48.122 48.597C16 167.197 16 256.001 16 256.001s0 88.804 10.345 131.918c6.281 23.65 24.787 42.276 48.122 48.597C117.41 448 288 448 288 448s170.59 0 213.533-11.486c23.335-6.32 41.841-24.947 48.122-48.597C560 344.805 560 256.001 560 256.001s0-88.804-10.345-131.918zM232.001 334.839V177.163l142.739 78.838-142.739 78.838z"
+            ></path>
+          </svg>
+        </a>
+        <a
           href="https://chat.nn1.dev"
           class="button"
           aria-label="NN1 Dev Club on Discord"
@@ -132,8 +147,8 @@ import Heading from "../components/Heading.astro";
   }
 
   .button__icon {
-    width: var(--lh);
-    height: var(--lh);
+    width: calc(var(--lh) * 0.75);
+    height: calc(var(--lh) * 0.75);
     fill: currentColor;
   }
 </style>
