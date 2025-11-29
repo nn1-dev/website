@@ -3,7 +3,7 @@ import Heading from "../components/Heading.astro";
 import Section from "../components/Section.astro";
 import Container from "../components/Container.astro";
 import { getInviteUrls } from "../utils";
-import qrImage from "qr-image";
+import { renderSVG } from "uqr";
 
 interface Props {
   eventId: number;
@@ -49,9 +49,7 @@ const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
   hour12: false,
 }).format(eventDateStart);
 
-const qr = qrImage.imageSync(`https://nn1.dev/events/${eventId}/${ticketId}`, {
-  type: "svg",
-});
+const qr = renderSVG(`https://nn1.dev/events/${eventId}/${ticketId}`);
 
 function obfuscateName(fullName: string) {
   // Split the full name into parts
