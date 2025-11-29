@@ -16,7 +16,7 @@ const events = fs
 export default defineConfig({
   site: "https://nn1.dev",
   adapter: cloudflare({
-    imageService: "cloudflare",
+    imageService: "compile",
   }),
   env: {
     schema: {
