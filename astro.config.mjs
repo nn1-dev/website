@@ -21,10 +21,12 @@ export default defineConfig({
       API_KEY_TICKETS: envField.string({
         context: "server",
         access: "secret",
+        optional: true,
       }),
       API_KEY_NEWSLETTER: envField.string({
         context: "server",
         access: "secret",
+        optional: true,
       }),
     },
   },
