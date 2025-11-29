@@ -65,5 +65,17 @@
       "src": "./gallery/9-7.jpg",
       "caption": "Kiran Patel presenting at NN1 Dev Club #9"
     }
+  ],
+  "videos": [
+    {
+      "youtubeId": "M9aR_xUQiyo",
+      "poster": "./posters/1-poster.jpg",
+      "caption": "\"The MCP Revolution: Building Your Personal AI Assistant - From Theory to Jarvis\" by Emmanuella Okorie"
+    },
+    {
+      "youtubeId": "Vfyp-o29x3M",
+      "poster": "./posters/2-poster.jpg",
+      "caption": "\"Effective Partnerships Between Developers and Product Teams\" by Kiran Patel"
+    }
   ]
 }
