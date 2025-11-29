@@ -3,7 +3,7 @@ import Heading from "../components/Heading.astro";
 import Section from "../components/Section.astro";
 import Container from "../components/Container.astro";
 import { getInviteUrls } from "../utils";
-// import qrcode from "qrcode";
+import qrImage from "qr-image";
 
 interface Props {
   eventId: number;
@@ -49,9 +49,9 @@ const dateStartParsed = new Intl.DateTimeFormat("en-GB", {
   hour12: false,
 }).format(eventDateStart);
 
-// const qr = await qrcode.toDataURL(
-//   `https://nn1.dev/events/${eventId}/${ticketId}`,
-// );
+const qr = qrImage.imageSync(`https://nn1.dev/events/${eventId}/${ticketId}`, {
+  type: "svg",
+});
 
 function obfuscateName(fullName: string) {
   // Split the full name into parts
@@ -124,7 +124,7 @@ const shouldShowCancellation = eventDateStart.getTime() > Date.now();
             </dl>
           </div>
           <div class="ticket__code">
-            <!-- <img src={qr} alt="QR Code" class="ticket__code-img" /> -->
+            <Fragment set:html={qr} />
           </div>
         </div>
       </div>
@@ -243,10 +243,13 @@ const shouldShowCancellation = eventDateStart.getTime() > Date.now();
     background-color: var(--color-bg);
     border-radius: 14px;
     padding: var(--lh);
-  }
 
-  .ticket__code-img {
-    border-radius: 14px;
+    svg {
+      display: block;
+      width: 128px;
+      height: 128px;
+      fill: var(--color-fg);
+    }
   }
 
   .ticket__cancel {
@@ -260,35 +263,35 @@ const shouldShowCancellation = eventDateStart.getTime() > Date.now();
 </style>
 
 <script>
-  // import confetti from "canvas-confetti";
+  import confetti from "canvas-confetti";
 
-  // const duration = 7 * 1000;
-  // const animationEnd = Date.now() + duration;
-  // const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+  const duration = 7 * 1000;
+  const animationEnd = Date.now() + duration;
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-  // function randomInRange(min: number, max: number) {
-  //   return Math.random() * (max - min) + min;
-  // }
+  function randomInRange(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+  }
 
-  // const interval = setInterval(function () {
-  //   const timeLeft = animationEnd - Date.now();
-  //
-  //   if (timeLeft <= 0) {
-  //     return clearInterval(interval as NodeJS.Timeout);
-  //   }
-  //
-  //   const particleCount = 50 * (timeLeft / duration);
-  //   confetti({
-  //     ...defaults,
-  //     particleCount,
-  //     origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-  //     disableForReducedMotion: true,
-  //   });
-  //   confetti({
-  //     ...defaults,
-  //     particleCount,
-  //     origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-  //     disableForReducedMotion: true,
-  //   });
-  // }, 250);
+  const interval = setInterval(function () {
+    const timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) {
+      return clearInterval(interval as NodeJS.Timeout);
+    }
+
+    const particleCount = 50 * (timeLeft / duration);
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      disableForReducedMotion: true,
+    });
+    confetti({
+      ...defaults,
+      particleCount,
+      origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      disableForReducedMotion: true,
+    });
+  }, 250);
 </script>
