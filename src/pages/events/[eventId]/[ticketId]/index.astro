@@ -70,14 +70,6 @@ try {
       "Cache-Control",
       "public, max-age=0, must-revalidate",
     );
-
-    // cnd cache for a week
-    // serve stale up to a month
-    // TODO: replace with Cloudflare caching when moving to Cloudflare
-    // Astro.response.headers.set(
-    //   "Netlify-CDN-Cache-Control",
-    //   "public, durable, s-maxage=604800, stale-while-revalidate=2629746",
-    // );
   }
 } catch (error) {
   Sentry.captureException(error);
