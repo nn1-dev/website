@@ -38,7 +38,6 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !EXCLUDED_ROUTES.includes(page),
-      // customPages: events.map((event) => `https://nn1.dev/events/${event}/`),
     }),
   ],
 });
