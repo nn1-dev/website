@@ -15,7 +15,9 @@ const events = fs
 // https://astro.build/config
 export default defineConfig({
   site: "https://nn1.dev",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "cloudflare",
+  }),
   env: {
     schema: {
       API_KEY_TICKETS: envField.string({
