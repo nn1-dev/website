@@ -38,6 +38,7 @@ const fetchContributors = async () => {
 const contributors = await fetchContributors();
 const contributorsData = contributors
   .filter(({ role }) => role === "BACKER")
+  .filter(({ name }) => name !== "Guest")
   .sort((a, b) => b.totalAmountDonated - a.totalAmountDonated);
 
 interface Props {
