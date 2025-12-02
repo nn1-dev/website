@@ -2,7 +2,7 @@
 import * as Sentry from "@sentry/astro";
 import { getEntry } from "astro:content";
 import Layout from "../../../../layouts/Layout.astro";
-import { API_URL_TICKETS, API_HEADERS_TICKETS } from "../../../../constants";
+import { API_AUTH, API_URL } from "astro:env/server";
 import TicketNotConfirmed from "../../../../sections/TicketNotConfirmed.astro";
 import TicketSuccess from "../../../../sections/TicketSuccess.astro";
 
@@ -26,8 +26,8 @@ let ticketEmail = "";
 let ticketTimestamp = "";
 
 try {
-  const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
-    ...API_HEADERS_TICKETS,
+  const response = await fetch(`${API_URL}/tickets/${eventId}/${ticketId}`, {
+    headers: { Authorization: `Bearer ${API_AUTH}` },
   });
 
   if (!response.ok) {
@@ -37,33 +37,30 @@ try {
   const responseJson:
     | {
         status: "success";
-        statusCode: number;
         data: {
-          key: ["nn1-dev-tickets", number, string];
-          value: {
-            timestamp: string;
-            eventId: number;
-            name: string;
-            email: string;
-            confirmed: boolean;
-          };
-          versionstamp: string;
+          id: string;
+          event_id: number;
+          email: string;
+          name: string;
+          confirmed: number;
+          confirmation_token: string;
+          subscribe: number;
+          created_at: string;
         };
         error: null;
       }
-    | { status: "error"; statusCode: number; data: null; error: string } =
-    await response.json();
+    | { status: "error"; data: string } = await response.json();
 
   if (responseJson.status === "error") {
     throw new Error("Ticket doesn't exist.");
   }
 
-  ticketTimestamp = responseJson.data.value.timestamp;
+  ticketTimestamp = responseJson.data.created_at;
 
-  if (responseJson.data.value.confirmed) {
+  if (responseJson.data.confirmed) {
     ticketConfirmed = true;
-    ticketName = responseJson.data.value.name;
-    ticketEmail = responseJson.data.value.email;
+    ticketName = responseJson.data.name;
+    ticketEmail = responseJson.data.email;
 
     // no cache in the browser
     Astro.response.headers.set(

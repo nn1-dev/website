@@ -2,7 +2,7 @@
 import * as Sentry from "@sentry/astro";
 import { getEntry } from "astro:content";
 import { getInviteUrls } from "../../../../../utils";
-import { API_URL_TICKETS, API_HEADERS_TICKETS } from "../../../../../constants";
+import { API_AUTH, API_URL } from "astro:env/server";
 
 export const prerender = false;
 
@@ -18,9 +18,14 @@ if (entry === undefined) {
   return Astro.redirect("/404");
 }
 
+if (!API_URL || !API_AUTH) {
+  Sentry.captureException("API_AUTH is not defined.");
+  throw new Error("API_URL or API_AUTH is not defined.");
+}
+
 try {
-  const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
-    ...API_HEADERS_TICKETS,
+  const response = await fetch(`${API_URL}/tickets/${eventId}/${ticketId}`, {
+    headers: { Authorization: `Bearer ${API_AUTH}` },
   });
 
   if (!response.ok) {
@@ -28,11 +33,22 @@ try {
   }
 
   const responseJson:
-    | { status: "success"; statusCode: number; data: any; error: null }
-    | { status: "error"; statusCode: number; data: null; error: string } =
-    await response.json();
+    | {
+        status: "success";
+        data: {
+          id: string;
+          event_id: number;
+          email: string;
+          name: string;
+          confirmed: number;
+          confirmation_token: string;
+          subscribe: number;
+          created_at: string;
+        };
+      }
+    | { status: "error"; data: null } = await response.json();
 
-  if (responseJson.data.value?.confirmed) {
+  if (responseJson.data?.confirmed) {
     return Astro.redirect(`/events/${eventId}/${ticketId}`);
   }
 } catch (error) {
@@ -63,18 +79,16 @@ const dateStartParsed = dateStart.toLocaleDateString("en-GB", {
 });
 
 try {
-  const response = await fetch(API_URL_TICKETS, {
+  const response = await fetch(`${API_URL}/tickets/${eventId}/${ticketId}`, {
     method: "PUT",
-    ...API_HEADERS_TICKETS,
+    headers: { Authorization: `Bearer ${API_AUTH}` },
     body: JSON.stringify({
-      ticketId,
-      ticketToken: token,
-      eventId: id,
       eventName: entry.data.name,
       eventDate: dateStartParsed,
       eventLocation: location,
       eventInviteUrlIcal: inviteUrls.iCal,
       eventInviteUrlGoogle: inviteUrls.google,
+      confirmationToken: token,
     }),
   });
 

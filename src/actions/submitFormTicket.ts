@@ -1,12 +1,7 @@
 import { defineAction, ActionError } from "astro:actions";
+import { API_AUTH, API_URL } from "astro:env/server";
 import { z } from "astro:schema";
 import * as Sentry from "@sentry/astro";
-import {
-  API_HEADERS_NEWSLETTER,
-  API_HEADERS_TICKETS,
-  API_URL_NEWSLETTER,
-  API_URL_TICKETS,
-} from "../constants";
 
 export default defineAction({
   accept: "form",
@@ -26,41 +21,37 @@ export default defineAction({
   handler: async ({
     name,
     email,
-    newsletter,
     eventId,
     eventName,
     eventLocation,
     eventDate,
     eventInviteUrlIcal,
     eventInviteUrlGoogle,
+    newsletter,
   }) => {
-    const [response] = await Promise.all([
-      fetch(API_URL_TICKETS, {
-        method: "POST",
-        ...API_HEADERS_TICKETS,
-        body: JSON.stringify({
-          name,
-          email,
-          eventId,
-          eventName,
-          eventDate,
-          eventLocation,
-          eventInviteUrlIcal,
-          eventInviteUrlGoogle,
-        }),
+    if (!API_URL || !API_AUTH) {
+      Sentry.captureException("API_AUTH is not defined.");
+      throw new ActionError({
+        code: "BAD_REQUEST",
+        message: "API_URL or API_AUTH is not defined.",
+      });
+    }
+
+    const response = await fetch(`${API_URL}/tickets`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${API_AUTH}` },
+      body: JSON.stringify({
+        name,
+        email,
+        eventId,
+        eventName,
+        eventDate,
+        eventLocation,
+        eventInviteUrlIcal,
+        eventInviteUrlGoogle,
+        subscribe: newsletter || false,
       }),
-      ...(newsletter
-        ? [
-            fetch(API_URL_NEWSLETTER, {
-              method: "POST",
-              ...API_HEADERS_NEWSLETTER,
-              body: JSON.stringify({
-                email,
-              }),
-            }),
-          ]
-        : []),
-    ]);
+    });
 
     if (!response.ok) {
       Sentry.captureException("Failed to create a new ticket.");
@@ -73,27 +64,30 @@ export default defineAction({
     const responseJson:
       | {
           status: "success";
-          statusCode: number;
           data: {
-            key: [string, number, string];
+            id: string;
+            event_id: number;
+            email: string;
+            name: string;
+            confirmed: number;
+            confirmation_token: string;
+            subscribe: number;
+            created_at: string;
           };
-          error: null;
         }
       | {
           status: "error";
-          statusCode: number;
-          data: null;
-          error: string;
+          data: string;
         } = await response.json();
 
     if (responseJson.status === "error") {
-      Sentry.captureException(responseJson.error);
+      Sentry.captureException(responseJson.data);
       throw new ActionError({
         code: "BAD_REQUEST",
-        message: responseJson.error,
+        message: responseJson.data,
       });
     }
 
-    return responseJson.data.key[2];
+    return responseJson.data.id;
   },
 });

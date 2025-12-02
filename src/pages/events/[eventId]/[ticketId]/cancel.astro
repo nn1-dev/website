@@ -1,7 +1,7 @@
 ---
 import * as Sentry from "@sentry/astro";
 import { getEntry } from "astro:content";
-import { API_URL_TICKETS, API_HEADERS_TICKETS } from "../../../../constants.ts";
+import { API_AUTH, API_URL } from "astro:env/server";
 import Hero from "../../../../sections/Hero.astro";
 import ButtonLink from "../../../../components/ButtonLink.astro";
 import Layout from "../../../../layouts/Layout.astro";
@@ -21,13 +21,13 @@ if (entry === undefined) {
 }
 
 try {
-  const response = await fetch(`${API_URL_TICKETS}/${eventId}/${ticketId}`, {
+  const response = await fetch(`${API_URL}/tickets/${eventId}/${ticketId}`, {
     method: "DELETE",
-    ...API_HEADERS_TICKETS,
+    headers: { Authorization: `Bearer ${API_AUTH}` },
   });
 
   if (!response.ok) {
-    throw new Error("Token validation failed.");
+    throw new Error("Failed to cancel the ticket.");
   }
 } catch (error) {
   Sentry.captureException(error);
