@@ -8,6 +8,9 @@ image: "./portrait.jpg"
 ogImage: "./og.jpg"
 urlLinkedIn: "https://www.linkedin.com/in/Adiomojeed/"
 urlWebsite: "https://codeleaf.vercel.app/"
+urlGithub: "https://www.github.com/Adiomojeed/"
+urlTwitter: "https://www.x.com/adio_mojeed/"
+urlInstagram: "https://www.instagram.com/codeleaf_/"
 ---
 
 ## Who are you and what do you do?
@@ -20,7 +23,7 @@ I’m passionate about tech communities and have led developer groups in the pas
 
 I recently completed my master’s degree in Software Engineering at the University of Northampton, graduating with distinction. My thesis focused on improving learning management systems for Nigerian institutions; a topic I’m deeply passionate about. Professionally, I enjoy contributing to projects in AI, FinTech, HealthTech, EduTech, E-Commerce, and SaaS.
 
-When I’m not coding, you’ll likely find me contributing to open-source, writing, listening to music, or exploring new technologies to stay on the cutting edge of web development.
+When I’m not coding, you’ll likely find me contributing to tech conversations, writing, listening to music, or exploring new technologies to stay on the cutting edge of web development.
 
 ## What first got you into tech?
 
@@ -112,7 +115,15 @@ My system introduced:
 
 ![Project](project.png)
 
-This project wasn’t just academic, it was personal. I’ve seen firsthand how outdated systems frustrate students and educators, so creating a solution that genuinely improves learning experiences meant a lot to me.
+This project wasn’t just academic, it was personal. I’ve seen firsthand how outdated systems frustrate students and educators, so creating a solution that genuinely improves learning experiences meant a lot to me. You can check out the project on [Github](https://github.com/Adiomojeed/my-elearn-fe). You can also find the links to some other projects I have worked on below:
+
+- [Mainstack](https://mainstack.com/)
+
+- [Green Africa](https://www.greenafrica.com/)
+
+- [Dojah](https://dojah.io/)
+
+- [Muzu](https://muzu.co/)
 
 ## What’s one thing about your profession you wish more people knew?
 
@@ -126,6 +137,6 @@ Also, tech is not a get-rich-quick scheme. Many people come into tech believing 
 
 1. **[Replit](https://replit.com):** I recently created my [portfolio](https://codeleaf.vercel.app) on Replit during a vibe-coding session. Tools like Replit show how quickly AI is transforming software development. AI can help accelerate work, but it still produces redundant or inefficient code. So, the expertise of a real engineer is still very important.
 
-2. **Local communities and meetups:** Whether it’s tech, arts, entrepreneurship, or creative spaces, showing up where people learn and build together can truly change your life. Some of my biggest opportunities came from simple conversations at community events. <br>
+2. **Local communities and meetups:** Whether it’s tech, arts, entrepreneurship, or creative spaces, showing up where people learn and build together can truly change your life. Some of my biggest opportunities came from simple conversations at community events.
 
 Cheers!!!🚀
