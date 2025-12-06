@@ -4,12 +4,10 @@ draft: true
 role: "Senior Software Engineer, Frontend"
 date: "2025-12-12"
 image: "./portrait.jpg"
-# I used one of the eixsting og images here. I assume you will replace it with a custom one for me.
 ogImage: "./og.jpg"
 urlLinkedIn: "https://www.linkedin.com/in/Adiomojeed/"
 urlWebsite: "https://codeleaf.vercel.app/"
 urlGithub: "https://www.github.com/Adiomojeed/"
-urlTwitter: "https://www.x.com/adio_mojeed/"
 urlInstagram: "https://www.instagram.com/codeleaf_/"
 ---
 
@@ -62,17 +60,11 @@ I prefer a clean and efficient setup. My workspace includes:
 ### Hardwares
 
 - 14” MacBook M4 Pro
-
 - 13” MacBook M1 Pro
-
 - 27” external monitor
-
 - Logitech MX Anywhere 3
-
 - Headphone
-
 - Ring light
-
 - Phone holder for video recordings
 
 ![Setup](setup.jpg)
@@ -80,15 +72,10 @@ I prefer a clean and efficient setup. My workspace includes:
 ### Day-to-Day Softwares
 
 - VS Code
-
 - GitHub Desktop + GitHub Copilot
-
 - Slack
-
 - Figma
-
 - Postman / Apidog
-
 - Jira
 
 Still looking forward to improving my setup. Open to any suggestions too.
@@ -113,7 +100,7 @@ My system introduced:
 
 - Responsive design that works smoothly across devices
 
-![Project](project.png)
+![Project](project.jpg)
 
 This project wasn’t just academic, it was personal. I’ve seen firsthand how outdated systems frustrate students and educators, so creating a solution that genuinely improves learning experiences meant a lot to me. You can check out the project on [Github](https://github.com/Adiomojeed/my-elearn-fe). You can also find the links to some other projects I have worked on below:
 
