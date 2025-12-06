@@ -82,6 +82,10 @@ img {
   height: auto;
 }
 
+p {
+  text-wrap: pretty;
+}
+
 .anchor {
   color: var(--color-border);
   text-decoration: none;
