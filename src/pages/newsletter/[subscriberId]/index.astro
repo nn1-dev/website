@@ -1,0 +1,100 @@
+---
+import * as Sentry from "@sentry/astro";
+import Layout from "../../../layouts/Layout.astro";
+import { API_AUTH, API_URL } from "astro:env/server";
+import Hero from "../../../sections/Hero.astro";
+import ButtonLink from "../../../components/ButtonLink.astro";
+
+export const prerender = false;
+
+const {  subscriberId } = Astro.params;
+if (!subscriberId) {
+  Sentry.captureMessage("Access non-existing subscriber.");
+  return Astro.redirect("/404");
+}
+
+let subscriptionConfirmed = false;
+let subscriptionTimestamp = "";
+
+try {
+  const response = await fetch(`${API_URL}/subscribers/${subscriberId}`, {
+    headers: { Authorization: `Bearer ${API_AUTH}` },
+  });
+
+
+  if (!response.ok) {
+    throw new Error("Ticket doesn't exist.");
+  }
+
+  const responseJson:
+    | {
+        status: "success";
+        data: {
+          id: string;
+          email: string;
+          confirmed: number;
+          confirmation_token: string | null;
+          created_at: string;
+        };
+        error: null;
+      }
+    | { status: "error"; data: string } = await response.json();
+
+
+  if (responseJson.status === "error") {
+    throw new Error("Subscriber doesn't exist.");
+  }
+
+  subscriptionTimestamp = responseJson.data.created_at;
+
+  if (responseJson.data.confirmed) {
+    subscriptionConfirmed = true;
+
+    const timeZone = "Europe/London";
+    const date = new Date(responseJson.data.created_at);
+    const datePart = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone,
+    }).format(date);
+
+    const timePart = new Intl.DateTimeFormat("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      timeZone,
+    }).format(date);
+
+    subscriptionTimestamp = `${datePart} at ${timePart}`;
+
+    // no cache in the browser
+    Astro.response.headers.set(
+      "Cache-Control",
+      "public, max-age=0, must-revalidate",
+    );
+  }
+} catch (error) {
+  Sentry.captureException(error);
+  return Astro.redirect("/404");
+}
+---
+
+<Layout title={`Newsletter | NN1 Dev Club`} noIndex>
+  {
+    subscriptionConfirmed ? (
+      <Hero
+        title="Thanks for signing up to the newsletter"
+        description="We promise never to send you annoying crap. These are just updates about the upcoming events."
+      >
+        <ButtonLink text="Go back to homepage" href="/" />
+      </Hero>
+    ) : (
+      <Hero
+        title="Please confirm your email"
+        description=`We don't like bots, so to ensure you are not one, please confirm your email address by clicking the link we sent you on ${subscriptionTimestamp}. You will be all set up!`
+      >
+      </Hero>
+    )
+  }
+</Layout>
