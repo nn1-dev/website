@@ -1,6 +1,5 @@
 import { defineConfig, envField } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
-import sentry from "@sentry/astro";
 import fs from "node:fs";
 import path from "node:path";
 
