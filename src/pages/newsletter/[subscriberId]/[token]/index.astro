@@ -1,0 +1,70 @@
+---
+import * as Sentry from "@sentry/astro";
+import { API_AUTH, API_URL } from "astro:env/server";
+
+export const prerender = false;
+
+const { subscriberId, token } = Astro.params;
+console.log({
+  subscrberId: subscriberId,
+  token,
+});
+if (!subscriberId || !token) {
+  Sentry.captureMessage("Access non-existing event.");
+  return Astro.redirect("/404");
+}
+
+if (!API_URL || !API_AUTH) {
+  Sentry.captureException("API_AUTH is not defined.");
+  throw new Error("API_URL or API_AUTH is not defined.");
+}
+
+try {
+  const response = await fetch(`${API_URL}/subscribers/${subscriberId}`, {
+    headers: { Authorization: `Bearer ${API_AUTH}` },
+  });
+
+  if (!response.ok) {
+    throw new Error("Subscriber doesn't exist.");
+  }
+
+  const responseJson:
+    | {
+        status: "success";
+        data: {
+          id: string;
+          email: string;
+          confirmed: number;
+          confirmation_token: string | null;
+          created_at: string;
+        };
+      }
+    | { status: "error"; data: string } = await response.json();
+
+  if (responseJson.status === "success" && responseJson.data.confirmed) {
+    return Astro.redirect(`/newsletter/${subscriberId}`);
+  }
+} catch (error) {
+  Sentry.captureException(error);
+  return Astro.redirect("/404");
+}
+
+try {
+  const response = await fetch(`${API_URL}/subscribers/${subscriberId}`, {
+    method: "PUT",
+    headers: { Authorization: `Bearer ${API_AUTH}` },
+    body: JSON.stringify({
+      confirmationToken: token,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Token validation failed.");
+  }
+
+  return Astro.redirect(`/newsletter/${subscriberId}`);
+} catch (error) {
+  Sentry.captureException(error);
+  return Astro.redirect("/404");
+}
+---

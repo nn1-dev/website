@@ -1,34 +1,17 @@
-import { defineAction, ActionError } from "astro:actions";
-import { API_AUTH, API_URL } from "astro:env/server";
-import { z } from "astro:schema";
 import * as Sentry from "@sentry/astro";
+import { defineAction, ActionError } from "astro:actions";
+import { z } from "astro:schema";
+
+import { API_AUTH, API_URL } from "astro:env/server";
 
 export default defineAction({
   accept: "form",
   input: z
     .object({
-      name: z.string().trim(),
-      email: z.string().email().trim(),
-      newsletter: z.optional(z.string().transform((value) => value === "on")),
-      eventId: z.string().transform((value) => parseInt(value)),
-      eventName: z.string(),
-      eventDate: z.string(),
-      eventLocation: z.string(),
-      eventInviteUrlIcal: z.string().url(),
-      eventInviteUrlGoogle: z.string().url(),
+      email: z.string().email(),
     })
     .strict(),
-  handler: async ({
-    name,
-    email,
-    eventId,
-    eventName,
-    eventLocation,
-    eventDate,
-    eventInviteUrlIcal,
-    eventInviteUrlGoogle,
-    newsletter,
-  }) => {
+  handler: async (input) => {
     if (!API_URL || !API_AUTH) {
       Sentry.captureException("API_AUTH is not defined.");
       throw new ActionError({
@@ -37,27 +20,19 @@ export default defineAction({
       });
     }
 
-    const response = await fetch(`${API_URL}/tickets`, {
+    const response = await fetch(`${API_URL}/subscribers`, {
       method: "POST",
       headers: { Authorization: `Bearer ${API_AUTH}` },
       body: JSON.stringify({
-        name,
-        email,
-        eventId,
-        eventName,
-        eventDate,
-        eventLocation,
-        eventInviteUrlIcal,
-        eventInviteUrlGoogle,
-        subscribe: newsletter || false,
+        email: input.email,
       }),
     });
 
     if (!response.ok) {
-      Sentry.captureException("Failed to create a new ticket.");
+      Sentry.captureException("Failed to subscribe member.");
       throw new ActionError({
         code: "BAD_REQUEST",
-        message: "Failed to create a new ticket.",
+        message: "Failed to subscribe member.",
       });
     }
 
@@ -66,12 +41,9 @@ export default defineAction({
           status: "success";
           data: {
             id: string;
-            event_id: number;
             email: string;
-            name: string;
             confirmed: number;
             confirmation_token: string | null;
-            subscribe: number;
             created_at: string;
           };
         }
