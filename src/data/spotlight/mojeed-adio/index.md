@@ -1,6 +1,5 @@
 ---
 name: "Mojeed Adio"
-draft: true
 role: "Senior Software Engineer, Frontend"
 date: "2025-12-12"
 image: "./portrait.jpg"
