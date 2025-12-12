@@ -1,6 +1,6 @@
 ---
 name: "Mojeed Adio"
-role: "Senior Software Engineer, Frontend"
+role: "Senior Software Engineer"
 date: "2025-12-12"
 image: "./portrait.jpg"
 ogImage: "./og.jpg"
