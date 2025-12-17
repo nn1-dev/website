@@ -1,8 +1,8 @@
 {
   "id": 10,
   "ogImage": "./og.jpg",
-  "name": "#10: \"Bad at CSS\" by Keith Cirkel and \"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
-  "description": "We've got some absolute legends speaking at this one! Keith Cirkel, ex-GitHub senior engineer now a staff-level member of Mozilla's DOM Core team and prolific contributor to all dominant browser engines, is going to walk us through the chaos of CSS. Following this technical deep dive, Paul Jesson and Ian Zant-Boer will share insights on building financial foundations and navigating fundraising rounds for tech businesses.",
+  "name": "#10: \"Bad at CSS\" by Keith Cirkel and \"Start-Up to Exit: The Journey for Tech Companies\" by Samantha Wildman and Ian Zant-Boer",
+  "description": "We've got some absolute legends speaking at this one! Keith Cirkel, ex-GitHub senior engineer now a staff-level member of Mozilla's DOM Core team and prolific contributor to all dominant browser engines, is going to walk us through the chaos of CSS. Following this technical deep dive, Samantha Wildman and Ian Zant-Boer will share insights on building financial foundations and navigating fundraising rounds for tech businesses.",
   "dateStart": "2026-01-29T18:00Z",
   "dateEnd": "2026-01-29T20:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
@@ -31,8 +31,8 @@
     {
       "dateStart": "2026-01-29T19:15Z",
       "dateEnd": "2026-01-29T19:45Z",
-      "title": "\"Start-Up to Exit: The Journey for Tech Companies\" by Paul Jesson and Ian Zant-Boer",
-      "description": "From idea to investment to exit, every stage of a tech company’s journey brings new financial and strategic challenges. In this session, Paul Jesson and Ian Zant-Boer share insights from their work advising high-growth technology businesses on how to build a finance foundation that attracts investors, supports innovation, and maximises long-term value. Paul will explore the key financial levers that drive growth, how to prepare for fundraising rounds and exits. Ian Zant-Boer will offer a legal and investor lens on scaling, sharing his experience as a venture capital founder and adviser to scale-ups on how to structure for investment and avoid common legal pitfalls during growth and exit."
+      "title": "\"Start-Up to Exit: The Journey for Tech Companies\" by Samantha Wildman and Ian Zant-Boer",
+      "description": "From idea to investment to exit, every stage of a tech company’s journey brings new financial and strategic challenges. In this session, Samantha Wildman and Ian Zant-Boer share insights from their work advising high-growth technology businesses on how to build a finance foundation that attracts investors, supports innovation, and maximises long-term value. Samantha will explore the key financial levers that drive growth, how to prepare for fundraising rounds and exits. Ian Zant-Boer will offer a legal and investor lens on scaling, sharing his experience as a venture capital founder and adviser to scale-ups on how to structure for investment and avoid common legal pitfalls during growth and exit."
     }
   ],
   "speakers": ["keith-cirkel", "samantha-wildman", "ian-zant-boer"]
