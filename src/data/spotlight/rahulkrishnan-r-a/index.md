@@ -18,6 +18,8 @@ My current roles include Senior Platform Engineer, Open Source Contributor, and 
 
 Professionally, I work at the intersection of platform engineering, cloud-native infrastructure, and Agentic AI. Over the course of my career, I’ve gained experience across multiple companies and domains, which has helped me develop a strong systems mindset—balancing scalability, reliability, security, and developer experience.
 
+![Compilation of images from Rahuls passions](images.jpg)
+
 My journey has included founding an early-stage startup, Zaagpro, contributing to major Open Source projects such as Debian and OpenEBS, and helping organizations design scalable, reliable engineering platforms.
 
 The experience I gained through entrepreneurship has been deeply formative. Running a startup strengthened my ability to identify opportunities, think in terms of impact, and collaborate effectively to solve complex problems. That entrepreneurial mindset continues to shape how I work today—especially when building systems that require both technical depth and cross-functional collaboration.
