@@ -35,7 +35,7 @@ I love travelling and have visited Goa, Bali, Thailand, Frankfurt, London, Scotl
 
 Curiosity was the spark. I still remember being in 9th grade, the first time I got hands-on experience with a computer. I was using MS Paint, experimenting with simple drawings, when I asked my teacher a question that changed everything for me: “Who created this MS Paint thing?”
 
-My teacher replied, “Software developers—they build these kinds of things that run on a PC.” That single answer opened a whole new world for me😊, From that moment, my curiosity turned into a deep interest in understanding how software is created and how it works behind the scenes.
+My teacher replied, “Software developers—they build these kinds of things that run on a PC.” That single answer opened a whole new world for me😊, from that moment, my curiosity turned into a deep interest in understanding how software is created and how it works behind the scenes.
 
 That curiosity led me to learn my first programming language, FoxPro, and once I wrote my first program, I was hooked. What started as simple experimentation soon became a passion for building solutions that solve real-world problems. Even after 15+ years in the industry, that same curiosity continues to drive me to learn, improve, and explore new technologies.
 
