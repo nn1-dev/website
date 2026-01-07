@@ -45,6 +45,8 @@ const {
     urlInstagram,
     urlTwitter,
     urlHuggingFace,
+    urlYouTube,
+    urlNuGet,
   },
 } = entry;
 
@@ -221,6 +223,24 @@ const { Content, headings } = await render(entry);
                   <li class="socials_item">
                     <a href={urlHuggingFace} class="socials__link">
                       <span class="socials__label">Hugging Face</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlYouTube ? (
+                  <li class="socials_item">
+                    <a href={urlYouTube} class="socials__link">
+                      <span class="socials__label">YouTube</span>
+                    </a>
+                  </li>
+                ) : null
+              }
+              {
+                urlNuGet ? (
+                  <li class="socials_item">
+                    <a href={urlNuGet} class="socials__link">
+                      <span class="socials__label">NuGet</span>
                     </a>
                   </li>
                 ) : null

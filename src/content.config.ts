@@ -72,6 +72,8 @@ const member = defineCollection({
         urlInstagram: z.string().url().optional(),
         urlTwitter: z.string().url().optional(),
         urlHuggingFace: z.string().url().optional(),
+        urlYouTube: z.string().url().optional(),
+        urlNuGet: z.string().url().optional(),
       })
       .strict(),
 });
@@ -94,6 +96,8 @@ const spotlight = defineCollection({
       urlInstagram: z.string().url().optional(),
       urlTwitter: z.string().url().optional(),
       urlHuggingFace: z.string().url().optional(),
+      urlYouTube: z.string().url().optional(),
+      urlNuGet: z.string().url().optional(),
     }),
 });
 
