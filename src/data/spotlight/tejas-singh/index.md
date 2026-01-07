@@ -15,6 +15,8 @@ I’m Tejas, a 2nd year Electronics and Computer Engineering student at the Univ
 
 Alongside my studies, I work on university research and technical projects involving immersive technologies, digital media, and emerging engineering tools. I’ve also been involved in student engagement, outreach, and community-focused initiatives, which has helped me develop strong leadership, communication, and project management skills alongside my technical background.
 
+![Tejas Singh](tj.jpg)
+
 I enjoy working at the intersection of engineering, problem-solving, and community building, especially where students get to build, test, and learn together.
 
 ## What first got you into tech?
@@ -45,7 +47,7 @@ Once the academic and project work is done, I usually wind down in the evening b
 - Development & analysis via Jupyter Notebooks and IDEs
 - Media and technical tools for filming, editing, and immersive content
 
-!(TJ's setup)[setup.jpg]
+![TJ's setup](setup.jpg)
 
 I keep my setup practical and flexible so I can work both on campus and at home without being tied to one location.
 
