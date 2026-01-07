@@ -1,6 +1,5 @@
 ---
 name: "Tejas Singh"
-draft: true
 role: "President | UON AI & Robotics Society"
 date: "2026-01-23"
 image: "portrait.jpg"
