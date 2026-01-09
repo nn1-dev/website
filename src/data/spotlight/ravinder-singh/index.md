@@ -1,6 +1,5 @@
 ---
 name: "Ravinder Singh"
-draft: true
 role: "Senior .NET & Full-Stack Developer"
 date: "2026-01-09"
 image: "ravinder.jpg"
