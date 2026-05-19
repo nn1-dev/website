@@ -2,10 +2,10 @@
   "id": 14,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#14: \"TBC\" by Silvia Coletto and \"TBC\" by Rahul Krishnan R A",
+  "name": "#14: \"Talk 1\" by TCB, \"Talk 2\" by TCB and \"Talk 3\" by Rehan Butt",
   "description": "TBC",
   "dateStart": "2026-11-26T18:00Z",
-  "dateEnd": "2026-11-26T20:00Z",
+  "dateEnd": "2026-11-26T21:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "locationLatitude": "52.23585",
@@ -20,20 +20,26 @@
     },
     {
       "dateStart": "2026-11-26T18:30Z",
-      "dateEnd": "2026-11-26T19:00Z",
-      "title": "\"TBC\" by Silvia Coletto",
+      "dateEnd": "2026-11-26T19:15Z",
+      "title": "\"Talk 1\" by TBC",
       "description": ""
     },
     {
-      "dateStart": "2026-11-26T19:00Z",
-      "dateEnd": "2026-11-26T19:15Z",
+      "dateStart": "2026-11-26T19:15Z",
+      "dateEnd": "2026-11-26T20:00Z",
+      "title": "\"Talk 2\" by TBC",
+      "description": ""
+    },
+    {
+      "dateStart": "2026-11-26T20:00Z",
+      "dateEnd": "2026-11-26T20:30Z",
       "title": "Break"
     },
     {
-      "dateStart": "2026-11-26T19:15Z",
-      "dateEnd": "2026-11-26T19:45Z",
-      "title": "\"TBC\" by Rahul Krishnan R A"
+      "dateStart": "2026-11-26T20:30Z",
+      "dateEnd": "2026-11-26T21:00Z",
+      "title": "\"Talk 3\" by Rehan Butt"
     }
   ],
-  "speakers": ["silvia-coletto", "rahul-krishnan-r-a"]
+  "speakers": ["rehan-butt"]
 }
