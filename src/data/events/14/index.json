@@ -1,7 +1,7 @@
 {
   "id": 14,
   "ogImage": "./og.jpg",
-  "name": "#14: \"Talk 1\" by TCB, \"Talk 2\" by TCB and \"Talk 3\" by Rehan Butt",
+  "name": "#14: \"Still Curious: Open Source and AI\" by Lotte Pitcher, \"Talk 2\" by TCB and \"Talk 3\" by Rehan Butt",
   "description": "TBC",
   "dateStart": "2026-11-26T18:00Z",
   "dateEnd": "2026-11-26T21:00Z",
@@ -20,8 +20,8 @@
     {
       "dateStart": "2026-11-26T18:30Z",
       "dateEnd": "2026-11-26T19:15Z",
-      "title": "\"Talk 1\" by TBC",
-      "description": ""
+      "title": "\"Still Curious: Open Source and AI\" by Lotte Pitcher",
+      "description": "Open source has always depended on curious people building what didn’t exist, sharing it openly, and helping it grow through community. But if AI increasingly nudges us toward reusing the same few projects, what happens to the other ones, the newer ideas, and the people doing the work behind them? This talk explores how AI is changing the way we choose our dependencies, how that's reshaping the wider ecosystem, and what it means for the communities (and the economics) keeping open source alive. My hope is you'll leave seeing why we humans matter more than ever in keeping software creative, sustainable, and capable of innovation."
     },
     {
       "dateStart": "2026-11-26T19:15Z",
@@ -40,5 +40,5 @@
       "title": "\"Talk 3\" by Rehan Butt"
     }
   ],
-  "speakers": ["rehan-butt"]
+  "speakers": ["lotte-pitcher", "rehan-butt"]
 }
