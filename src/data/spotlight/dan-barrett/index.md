@@ -63,6 +63,6 @@ When the whole system starts working, though, it’s extremely rewarding.
 
 You’ve given me permission for a shameless plug, so here it is.
 
-If you’re a WordPress user, check out our plugin, WP Extended. We originally created it to solve an internal need.
+If you’re a WordPress user, check out our plugin, [WP Extended](https://wpextended.io/). We originally created it to solve an internal need.
 
 It consolidates the functionality of multiple plugins into one modular plugin, so you can enable the features you need without filling your WordPress installation with separate tools. Fewer plugins, less clutter and fewer things demanding an update at the worst possible moment.(Edited)
