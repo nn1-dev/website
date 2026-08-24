@@ -1,11 +1,11 @@
 {
-  "id": 15,
+  "id": 19,
   "ogImage": "./og.jpg",
   "draft": true,
-  "name": "#15: \"TBC\" by Ainsley Clark and \"TBC\" by TBC",
+  "name": "#19: \"TBC\" by TBC and \"TBC\" by TBC",
   "description": "TBC",
-  "dateStart": "2027-01-28T18:00Z",
-  "dateEnd": "2027-01-28T20:00Z",
+  "dateStart": "2027-11-25T18:00Z",
+  "dateEnd": "2027-11-25T20:00Z",
   "location": "Vulcan Works, 34-38 Guildhall Rd, Northampton, NN1 1EW",
   "locationUrl": "https://maps.app.goo.gl/q7RFeDME5cLZWPFA7",
   "locationLatitude": "52.23585",
@@ -14,26 +14,26 @@
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
     {
-      "dateStart": "2027-01-28T18:00Z",
-      "dateEnd": "2027-01-28T18:30Z",
+      "dateStart": "2027-11-25T18:00Z",
+      "dateEnd": "2027-11-25T18:30Z",
       "title": "Meet and Greet"
     },
     {
-      "dateStart": "2027-01-28T18:30Z",
-      "dateEnd": "2027-01-28T19:00Z",
-      "title": "\"TBC\" by Ainsley Clark",
+      "dateStart": "2027-11-25T18:30Z",
+      "dateEnd": "2027-11-25T19:00Z",
+      "title": "\"TBC\" by TBC",
       "description": ""
     },
     {
-      "dateStart": "2027-01-28T19:00Z",
-      "dateEnd": "2027-01-28T19:15Z",
+      "dateStart": "2027-11-25T19:00Z",
+      "dateEnd": "2027-11-25T19:15Z",
       "title": "Break"
     },
     {
-      "dateStart": "2027-01-28T19:15Z",
-      "dateEnd": "2027-01-28T19:45Z",
+      "dateStart": "2027-11-25T19:15Z",
+      "dateEnd": "2027-11-25T19:45Z",
       "title": "\"TBC\" by TBC"
     }
   ],
-  "speakers": ["ainsley-clark"]
+  "speakers": []
 }

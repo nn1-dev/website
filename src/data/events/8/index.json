@@ -13,13 +13,13 @@
   "parkingUrl": "https://maps.app.goo.gl/fk3jpaPLSLGrHNmH6",
   "schedule": [
     {
-      "dateStart": "2024-11-28T18:00Z",
-      "dateEnd": "2024-11-28T18:30Z",
+      "dateStart": "2025-09-25T17:00Z",
+      "dateEnd": "2025-09-25T17:30Z",
       "title": "Meet and Greet"
     },
     {
-      "dateStart": "2024-11-28T18:30Z",
-      "dateEnd": "2024-11-28T20:00Z",
+      "dateStart": "2025-09-25T17:30Z",
+      "dateEnd": "2025-09-25T19:00Z",
       "title": "Rundown of side projects by Northamptonshire geeks",
       "description": "Series of snappy presentations and demos where everyone can share the results of their weekend hacks. In no particular order, not limited to any category. The idea is to present what our local geeks are about and connect people with similar interests."
     }
