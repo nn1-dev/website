@@ -1,0 +1,136 @@
+---
+interface Props {
+  items: any[];
+}
+
+const { items } = Astro.props;
+---
+
+<dialog class="modal">
+  <div class="modal__content">
+    <slot />
+  </div>
+  <button class="modal__close" title="Close">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="modal__close-icon">
+      <path d="M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z" />
+    </svg>
+  </button>
+  {items.length > 1 && (
+    <>
+      <button class="modal__prev" title="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="modal__nav-icon">
+          <path d="M15 18l-6-6 6-6v12z"/>
+        </svg>
+      </button>
+      <button class="modal__next" title="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="modal__nav-icon">
+          <path d="M9 18l6-6-6-6v12z"/>
+        </svg>
+      </button>
+    </>
+  )}
+</dialog>
+
+<style>
+  .modal {
+    margin: auto;
+    border: none;
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+    transition: display 240ms allow-discrete, overlay 240ms allow-discrete, opacity 240ms;
+    opacity: 0;
+
+    @media (prefers-reduced-motion) {
+      transition: unset;
+    }
+
+    &::backdrop {
+      background: color-mix(in srgb, var(--color-bg), transparent 10%);
+      transition: display 240ms allow-discrete, overlay 240ms allow-discrete, opacity 240ms;
+      opacity: 0;
+
+      @media (prefers-reduced-motion) {
+        transition: unset;
+      }
+    }
+
+    &[open] {
+      display: flex;
+      opacity: 1;
+
+      &::backdrop {
+        opacity: 1;
+      }
+    }
+
+    @starting-style {
+      &[open],
+      &[open]::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+
+  .modal__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--lh) / 4);
+    height: 100%;
+  }
+
+  .modal__close {
+    position: fixed;
+    inset-inline-end: var(--fz);
+    inset-block-start: var(--fz);
+    border-radius: var(--br);
+    padding: calc(var(--lh) / 2);
+    background-color: var(--color-accent);
+    cursor: pointer;
+    border: none;
+    fill: var(--color-bg);
+
+    &:hover {
+      background-color: var(--color-accent-light);
+    }
+  }
+
+  .modal__close-icon {
+    width: var(--fz);
+    display: block;
+  }
+
+  .modal__prev,
+  .modal__next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: var(--br);
+    padding: calc(var(--lh) / 2);
+    background-color: var(--color-accent);
+    cursor: pointer;
+    border: none;
+    fill: var(--color-bg);
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--color-accent-light);
+    }
+  }
+
+  .modal__prev {
+    inset-inline-start: var(--fz);
+  }
+
+  .modal__next {
+    inset-inline-end: calc(var(--fz) * 3);
+  }
+
+  .modal__nav-icon {
+    width: var(--fz);
+    display: block;
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
-import { Image, Picture } from "astro:assets";
+import { Image } from "astro:assets";
+import Modal from "./Modal.astro";
 
 interface Props {
   images: {
@@ -11,45 +12,33 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<div class="wrapper">
-  <ul class="gallery">
-    {
-      images.map((image) => (
-        <li class="gallery__item">
-          <dialog class="gallery__dialog">
-            <figure class="gallery__figure">
-              <Picture
+<div class="gallery-wrapper">
+  <div class="wrapper">
+    <ul class="gallery">
+      {
+        images.map((image, index) => (
+          <li class="gallery__item">
+            <button class="gallery__button" data-index={index}>
+              <Image
+                class="gallery__thumb"
                 src={image.src}
-                formats={["avif", "webp"]}
                 alt={image.caption}
+                width="224"
+                height="224"
               />
-              <figcaption class="gallery__figcaption">
-                {image.caption}
-              </figcaption>
-            </figure>
-            <button class="gallery__close" title="Close image">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="gallery__close__icon"
-                viewBox="0 0 512 512"
-              >
-                <path d="M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z" />
-              </svg>
             </button>
-          </dialog>
-          <button class="gallery__button">
-            <Image
-              class="gallery__thumb"
-              src={image.src}
-              alt={image.caption}
-              width="224"
-              height="224"
-            />
-          </button>
-        </li>
-      ))
-    }
-  </ul>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <Modal items={images}>
+    <figure class="gallery__figure">
+      <img id="modal-image" src="" alt="" class="gallery__image" />
+      <figcaption id="modal-caption" class="gallery__figcaption"></figcaption>
+    </figure>
+  </Modal>
 </div>
 
 <style>
@@ -103,145 +92,107 @@ const { images } = Astro.props;
     }
   }
 
-  .gallery__dialog {
-    margin: auto;
-    border: none;
-    background: none;
-    max-inline-size: min(1200px, 90dvw);
-    transition:
-      display 240ms allow-discrete,
-      overlay 240ms allow-discrete,
-      opacity 240ms;
-    opacity: 0;
-
-    @media (prefers-reduced-motion) {
-      transition: unset;
-    }
-
-    &::backdrop {
-      background: color-mix(in srgb, var(--color-bg), transparent 10%);
-      transition:
-        display 240ms allow-discrete,
-        overlay 240ms allow-discrete,
-        opacity 240ms;
-      opacity: 0;
-
-      @media (prefers-reduced-motion) {
-        transition: unset;
-      }
-    }
-
-    &[open] {
-      display: flex;
-      opacity: 1;
-
-      &::backdrop {
-        opacity: 1;
-      }
-    }
-
-    @starting-style {
-      &[open],
-      &[open]::backdrop {
-        opacity: 0;
-      }
-    }
-  }
-
-  .gallery__close {
-    position: fixed;
-    inset-inline-end: var(--fz);
-    inset-block-start: var(--fz);
-    border-radius: var(--br);
-    padding: calc(var(--lh) / 2);
-    background-color: var(--color-accent);
-    cursor: pointer;
-    border: none;
-    fill: var(--color-bg);
-
-    &:hover {
-      background-color: var(--color-accent-light);
-    }
-  }
-
-  .gallery__close__icon {
-    width: var(--fz);
-    display: block;
-  }
-
   .gallery__figure {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: calc(var(--lh) / 4);
+  }
 
-    picture {
-      min-height: 0;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+  .gallery__image {
+    width: auto;
+    height: auto;
+    border-radius: var(--br);
+    box-shadow: 0 0 0 4px var(--color-border);
   }
 
   .gallery__figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     color: var(--color-fg);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem;
     font-size: 0.875rem;
     text-align: center;
     font-style: italic;
   }
 </style>
 
-<script>
-  const buttonsOpen = document.querySelectorAll(".gallery__button");
-  const buttonsClose = document.querySelectorAll(".gallery__close");
-  const dialogs =
-    document.querySelectorAll<HTMLDialogElement>(".gallery__dialog");
+<script is:inline define:vars={{ images }}>
+  const wrapper = document.querySelector(".gallery-wrapper");
+  const buttons = wrapper.querySelectorAll(".gallery__button");
+  const modal = wrapper.querySelector(".modal");
+  const modalImage = modal.querySelector("#modal-image");
+  const modalCaption = modal.querySelector("#modal-caption");
+  const closeBtn = modal.querySelector(".modal__close");
+  const prevBtn = modal.querySelector(".modal__prev");
+  const nextBtn = modal.querySelector(".modal__next");
 
   let currentIndex = 0;
+  const preloadedImages = [];
 
-  for (const [index, buttonOpen] of Array.from(buttonsOpen).entries()) {
-    buttonOpen.addEventListener("click", (e) => {
-      // @ts-ignore
-      e.currentTarget.previousElementSibling.showModal();
-      currentIndex = index;
+  // Preload all images
+  images.forEach((image, index) => {
+    const img = new Image();
+    img.src = image.src.src; // Assuming image.src has src property
+    preloadedImages[index] = img;
+  });
+
+  function showImage(index) {
+    currentIndex = index;
+    const image = images[index];
+    if (modalImage && modalCaption) {
+      modalImage.src = preloadedImages[index].src;
+      modalImage.alt = image.caption;
+      modalCaption.textContent = image.caption;
+    }
+    modal?.showModal();
+  }
+
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      showImage(index);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal?.close();
     });
   }
 
-  for (const buttonClose of buttonsClose) {
-    buttonClose.addEventListener("click", (e) => {
-      // @ts-ignore
-      e.currentTarget.parentNode.close();
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      const newIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(newIndex);
     });
   }
 
-  /**
-   * Displays an image in the modal gallery at the specified index
-   */
-  function showImage(index: number) {
-    dialogs.forEach((dialog) => dialog.close());
-    currentIndex = (index + dialogs.length) % dialogs.length;
-    dialogs[currentIndex]?.showModal();
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      const newIndex = (currentIndex + 1) % images.length;
+      showImage(newIndex);
+    });
   }
 
-  /** @heymynameisrob: Keyboard events move between images. Might be cool to preload the next one so it feels more 'instant' but not sure.  */
+  // Keyboard navigation
   document.addEventListener("keydown", (e) => {
-    // Only handle keyboard events when a dialog is open
-    const isDialogOpen = Array.from(dialogs).some((dialog) => dialog.open);
-
-    if (!isDialogOpen) return;
+    if (!modal?.open) return;
 
     switch (e.key) {
-      case "ArrowRight":
-        e.preventDefault();
-        showImage(
-          e.ctrlKey || e.metaKey ? dialogs.length - 1 : currentIndex + 1,
-        );
-        break;
       case "ArrowLeft":
         e.preventDefault();
-        showImage(e.ctrlKey || e.metaKey ? 0 : currentIndex - 1);
+        const prevIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(prevIndex);
+        break;
+      case "ArrowRight":
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % images.length;
+        showImage(nextIndex);
+        break;
+      case "Escape":
+        modal.close();
         break;
     }
   });
