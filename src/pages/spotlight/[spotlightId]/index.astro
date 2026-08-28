@@ -37,6 +37,7 @@ const {
     role,
     date,
     ogImage,
+    interview,
     urlWebsite,
     urlGitHub,
     urlMastodon,
@@ -65,6 +66,18 @@ const { Content, headings } = await render(entry);
           <div class="article__header">
             <Heading title={name} level={1} />
             <p class="article__role">{role}</p>
+            <div class="player-wrap">
+              <div class="player" data-src={interview ?? ''}>
+                <button class="player__btn" aria-label="Play interview" aria-pressed="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="player__icon player__icon--play" aria-hidden="true"><path fill="currentColor" d="M8 5.14v14l11-7-11-7z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="player__icon player__icon--pause" aria-hidden="true"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="player__meta">
+                  <span class="player__label">Interview</span>
+                  <span class="player__time" aria-live="off" aria-atomic="true">0:00</span>
+                </div>
+              </div>
+            </div>
             <ul class="socials">
               {
                 urlWebsite ? (
@@ -457,7 +470,183 @@ const { Content, headings } = await render(entry);
       display: block;
     }
   }
+
+  .player-wrap {
+    margin-block-end: 0.75lh;
+  }
+
+  .player {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75lh;
+    padding: 0.4lh 0.75lh 0.4lh 0.4lh;
+    background-color: var(--color-border);
+    border-radius: 999px;
+  }
+
+  .player__btn {
+    flex-shrink: 0;
+    width: 2lh;
+    height: 2lh;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 80ms;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .player__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .player__icon--pause {
+    display: none;
+  }
+
+  .player[data-playing] .player__icon--play {
+    display: none;
+  }
+
+  .player[data-playing] .player__icon--pause {
+    display: block;
+  }
+
+  .player__meta {
+    display: flex;
+    flex-direction: column;
+    padding-inline-end: 0.25lh;
+  }
+
+  .player__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-fg-dim);
+    line-height: 1.2;
+  }
+
+  .player__time {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
 </style>
+
+<script>
+  (() => {
+    const player = document.querySelector<HTMLElement>('.player')
+    if (!player) return
+
+    const state = {
+      elapsed: 0,
+      ticker: null as ReturnType<typeof setInterval> | null,
+    }
+
+    const src    = player.dataset.src ?? ''
+    const btn    = player.querySelector<HTMLButtonElement>('.player__btn')!
+    const timeEl = player.querySelector<HTMLElement>('.player__time')!
+
+    const fmt = (s: number) =>
+      isNaN(s) ? '0:00' : `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, '0')}`
+
+    const setPlaying = (on: boolean) => {
+      player.toggleAttribute('data-playing', on)
+      btn.setAttribute('aria-pressed', String(on))
+      btn.setAttribute('aria-label', on ? 'Pause interview' : 'Play interview')
+    }
+
+    const stopTicker = () => {
+      clearInterval(state.ticker ?? undefined)
+      state.ticker = null
+    }
+
+    const startTicker = (getTime: () => number) => {
+      stopTicker()
+      state.ticker = setInterval(() => {
+        timeEl.textContent = fmt(getTime())
+      }, 500)
+    }
+
+    const reset = () => {
+      stopTicker()
+      state.elapsed = 0
+      timeEl.textContent = '0:00'
+      setPlaying(false)
+    }
+
+    if (src) {
+      // interview audio file in frontmatter
+      const audio = new Audio(src)
+      audio.addEventListener('ended', reset)
+
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play()
+          setPlaying(true)
+          startTicker(() => audio.currentTime)
+        } else {
+          audio.pause()
+          stopTicker()
+          setPlaying(false)
+        }
+      })
+
+      document.addEventListener('astro:before-swap', () => {
+        audio.pause()
+        reset()
+      }, { once: true })
+
+    } else {
+      // tts fallback
+      const getText = () =>
+        Array.from(document.querySelectorAll<HTMLElement>('.article__content h2'))
+          .flatMap(h => {
+            const parts = [h.textContent ?? '']
+            let el = h.nextElementSibling
+            while (el && el.tagName !== 'H2') {
+              if (el.textContent) parts.push(el.textContent.trim())
+              el = el.nextElementSibling
+            }
+            return parts
+          })
+          .join(' ')
+
+      const speak = (text: string) => {
+        const u = new SpeechSynthesisUtterance(text)
+        u.onend = reset
+        speechSynthesis.speak(u)
+      }
+
+      btn.addEventListener('click', () => {
+        if (speechSynthesis.speaking || speechSynthesis.pending) {
+          speechSynthesis.cancel()
+          reset()
+        } else {
+          speak(getText())
+          setPlaying(true)
+          const start = Date.now()
+          startTicker(() => (Date.now() - start) / 1000)
+        }
+      })
+
+      document.addEventListener('astro:before-swap', () => {
+        speechSynthesis.cancel()
+        reset()
+      }, { once: true })
+    }
+  })()
+</script>
 
 <style is:global>
   .article__content {

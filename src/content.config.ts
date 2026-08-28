@@ -90,6 +90,7 @@ const spotlight = defineCollection({
       image: image(),
       ogImage: image(),
       date: z.coerce.date(),
+      interview: z.url().optional(),
       urlWebsite: z.url().optional(),
       urlGitHub: z.url().optional(),
       urlMastodon: z.url().optional(),
